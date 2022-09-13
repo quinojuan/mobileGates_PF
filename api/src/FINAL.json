@@ -2063,7 +2063,7 @@
 			"https://http2.mlstatic.com/D_NQ_NP_822867-MLA48109772708_112021-O.webp"
 		],
 
-		"cpu": ["A15 Bionic"],
+		"cpu": "A15 Bionic",
 
 		"description": "The iPhone 13 Pro Max is Apple's biggest phone in the lineup with a massive, 6.7 screen that for the first time in an iPhone comes with 120Hz ProMotion display that ensures super smooth scrolling. The benefit of such a gigantic phone is that it also comes with the biggest battery of all iPhone 13 series"
 	},
@@ -2987,7 +2987,7 @@
 		"battery": "32.4 W·h, up to 10 hours of battery life.",
 		"price": [88999, 122259],
 		"cpu": "Quad Core I5-8250U",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_858857-MLA47871010540_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_779407-MLA47871023493_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_712045-MLA47871333071_102021-F.webp"
@@ -3032,7 +3032,7 @@
 		"battery": "28.6 W·h lithium-polymer battery",
 		"price": [142000, 240000],
 		"cpu": "Hexa-core (2x 3.1 GHz Firestorm and 4x 1.82 GHz Icestorm)",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_877096-MLA46961896995_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_738210-MLA46961896996_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_843011-MLA46962262107_082021-F.webp"
@@ -3084,7 +3084,7 @@
 		"battery": "19.3 W·h lithium-polymer battery",
 		"price": [149999, 202589],
 		"cpu": "Hexa-core (2x 2.93 GHz Avalanche and 4x 1.82 GHz Blizzard)",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_958785-MLA48035175041_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_728665-MLA48034797635_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_774240-MLA48035167084_102021-F.webp"
@@ -3122,7 +3122,7 @@
 		"battery": "Batería recargable integrada de polímeros de litio de 28,65 vatios hora",
 		"price": [202450, 276237, 354900, 397096, 705000],
 		"cpu": "CPU de ocho núcleos con cuatro núcleos de rendimiento y cuatro de eficiencia",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_848727-MLA46975166150_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_744898-MLA46975166151_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_630890-MLA46974955656_082021-F.webp"
@@ -3153,7 +3153,7 @@
 		"battery": "Up to 10.5 hours of typical device usage",
 		"price": [299559],
 		"cpu": "Dual-Core Intel Core i3-1005G1 de 1.2GHz",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_988423-MLA51375902835_092022-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_703920-MLA51375902616_092022-O.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_838732-MLA51375908592_092022-F.webp"
@@ -3182,7 +3182,7 @@
 		"battery": "Up to 16 hours of typical device usage",
 		"price": [383800, 405000, 489600],
 		"cpu": "Quad-Core Intel i5-1135G7",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_632111-MLA50583276037_072022-F.webp"
 		],
 		"description": "Esta tablet es ideal para cada una de tus actividades: editar fotos, documentos, navegar por internet y ¡mucho más! Su diseño delgado, compacto y portátil es la combinación perfecta de rendimiento y versatilidad."
