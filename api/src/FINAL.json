@@ -1882,5 +1882,440 @@
             "cpu": ["Octa-Core"],
         
             "description": "Con los móviles Galaxy A Samsung pretende ofrecer el smartphone ideal a cada persona, con independencia de las necesidades y del presupuesto. Móviles como el Samsung Galaxy A71 se benefician de las mejores prestaciones; mientras que, como ocurre con el nuevo Samsung Galaxy A12, los más accesibles mantienen suficiente atractivo bajo el software y la estética de Samsung. Siempre con las lógicas concesiones."
+          },
+
+{
+  "model": "iPhone 13 Pro Max",
+   
+  "brand": "Apple",
+   
+  "operative system": "iOS 15",
+   
+  "size": "7,81 x 16,08 x 0,76 cm",
+   
+  "inches": 6.68,
+   
+  "main camera": 12,
+   
+  "ram": [6],
+   
+  "colors": [
+      {"Graphite":["https://http2.mlstatic.com/D_NQ_NP_898035-MLA47777816827_102021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_835970-MLA47777803888_102021-O.webp"]
+      },
+      {"Silver":["https://http2.mlstatic.com/D_NQ_NP_708511-MLA47777566757_102021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_612194-MLA47777512918_102021-O.webp"]
+      }
+  ],
+  "capacity": ["128 GB", "256 GB", "512 GB", "1 TB"],
+   
+  "frontal camera": 12,
+   
+  "weight": 238,
+   
+  "battery": 4532,
+   
+  "price": [331563, 377514, 429999, 699999],
+   
+   
+  "image": ["https://http2.mlstatic.com/D_NQ_NP_822867-MLA48109772708_112021-O.webp"],
+   
+  "cpu": ["A15 Bionic"],
+   
+  "description": "The iPhone 13 Pro Max is Apple's biggest phone in the lineup with a massive, 6.7 screen that for the first time in an iPhone comes with 120Hz ProMotion display that ensures super smooth scrolling. The benefit of such a gigantic phone is that it also comes with the biggest battery of all iPhone 13 series"
+  },
+   
+   
+  {
+      "model": "iPhone 13 mini",
+   
+      "brand": "Apple",
+     
+      "operative system": "iOS 15",
+     
+      "size": "13.15 x 6.42 x 0.77 cm",
+     
+      "inches": 5.4,
+     
+      "main camera": 12,
+     
+      "ram": [4],
+     
+      "colors": [
+          {"Graphite":["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPkoegajFDY6tE0QsecLgNLaAP_SzJDHPk_w&usqp=CAU", "https://cdn.shopify.com/s/files/1/0524/1798/6737/products/Negro_Mate_-_iPhone_13_-_Back_Frame_16e8eace-6d61-4afe-ab22-07fab2990443_1800x1800.png?v=1650143482"]
+          },
+          {"Silver":["https://http2.mlstatic.com/D_NQ_NP_932957-MLA47782545553_102021-V.webp", "https://http2.mlstatic.com/D_NQ_NP_610297-MLA47782558463_102021-O.webp"]
           }
+      ],
+      "capacity": ["128 GB", "256 GB", "512 GB"],
+     
+      "frontal camera": 12,
+     
+      "weight": 141,
+     
+      "battery": 2406,
+     
+      "price": [327999, 369999, 414000],
+   
+     
+      "image": ["https://ar.celulares.com/fotos/apple-iphone-13-mini-92749-g-alt.jpg"],
+     
+      "cpu": ["A15 Bionic"],
+     
+      "description": "The iPhone 13 mini is the best iPhone for those who want a smaller device on Apple is iOS platform. In fact, it is arguably the best small phone on the market right now. It is powerful, the camera is top-tier, and the battery life is better than that of the iPhone 12 mini. It is not the best iPhone outright, but if you are looking for a smaller device then you are in luck."  
+  },
+   
+  {
+   
+  "model": "iPhone 13",
+   
+  "brand": "Apple",
+   
+  "operative system": "iOS 15",
+   
+  "size": "14.67 x 7.15 x 0.765 cm",
+   
+  "inches": 6.06,
+   
+  "main camera": 12,
+   
+  "ram": [4],
+   
+  "colors": [
+      {"Graphite":["https://http2.mlstatic.com/D_NQ_NP_821416-MLA47781962896_102021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_824876-MLA47782110260_102021-O.webp"]
+      },
+      {"Silver":["https://http2.mlstatic.com/D_NQ_NP_922588-MLA47781634791_102021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_941855-MLA47781742465_102021-O.webp"]
+      }
+  ],
+  "capacity": ["128 GB", "256 GB", "512 GB", "1 TB"],
+   
+  "frontal camera": 11.1,
+   
+  "weight": 174,
+   
+  "battery": 3240,
+   
+  "price": [316563, 362514, 414999, 684999],
+   
+  "image": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcadafEJxwXE-ewM5Xy0h6VupZeO6sLUQIRg&usqp=CAU"],
+   
+  "cpu": ["A15 Bionic"],
+   
+  "description": "Apple's iPhone 13 features a ceramic shield front, Super Retina XDR display with True Tone and an A15 Bionic chip. The first design change users will notice is the smaller notch. After years of using the same-sized notch to house the Face ID components, Apple has finally reduced its size by 20%."
+  },
+   
+  {
+   
+      "model": "iPhone SE (3rd generation)",
+     
+      "brand": "Apple",
+     
+      "operative system": "iOS 9.3",
+     
+      "size": "12.38 x 5.86 x 0.76",
+     
+      "inches": 4.7,
+     
+      "main camera": 12,
+     
+      "ram": [4],
+     
+      "colors": [
+          {"Midnight":["https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/fondoblanco_Position-2_MXLA-1.jpg", "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/iPhone_SE3_Midnight_PDP_Image_Position-1A_MXLA.jpg"]
+          },
+          {"Starlight":["https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/iPhone_SE3_Starlight_PDP_Image_Position-1A_MXLA.jpg", "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/fondoblanco_Position-2_MXLA-3.jpg"]
+          }
+      ],
+      "capacity": ["64 GB","128 GB", "256 GB"],
+     
+      "frontal camera": 11.1,
+     
+      "weight": 144 ,
+     
+      "battery": 1821,
+     
+      "price": [207896, 239395, 263574],
+     
+      "image": ["https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/iphone-se-family-select-202203.jpeg"],
+     
+      "cpu": ["A15 Bionic"],
+     
+      "description": "The iPhone SE is Apple's entry-level iPhone. The device offers an affordable entry point to the iPhone lineup, with many important features such as a powerful A-series chip, a high-quality camera with 4K video recording, Haptic Touch, wireless charging, water and dust resistance, and more."
+  },
+   
+  {
+          "model": "iPhone 12 Pro Max",
+         
+          "brand": "Apple",
+         
+          "operative system": "iOS 14",
+         
+          "size": "16.08 x 7.81 x 0.77 cm",
+         
+          "inches": 6.7,
+         
+          "main camera": 12,
+         
+          "ram": [6],
+         
+          "colors": [
+              {"Graphite":["https://m.media-amazon.com/images/I/61I39htrBbL._AC_SL1500_.jpg", "https://v9t7k9q5.rocketcdn.me/wp-content/uploads/2021/08/oferta-iphone-12-pro.png"]
+              },
+              {"Silver":["https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-max-silver-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202946000", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Xmes0wHI9jLEGTUYZOht3OcEmkax_FU-iQ&usqp=CAU"]
+              }
+          ],
+          "capacity": ["128 GB", "256 GB", "512 GB"],
+         
+          "frontal camera": 12,
+         
+          "weight": 238,
+         
+          "battery": 4532,
+         
+          "price": [286563, 332514, 384999],
+   
+         
+          "image": ["https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2021/03/iPhone12ProMaxFam.png"],
+         
+          "cpu": ["A14 Bionic"],
+         
+          "description": "iPhone 12 Pro Max mobile was launched on 13th October 2020. The phone comes with a 6.70-inch touchscreen display offering a resolution of 1284x2778 pixels at a pixel density of 458 pixels per inch (ppi). The display sports Other for protection. iPhone 12 Pro Max is powered by a hexa-core Apple A14 Bionic processor."
+  },
+   
+   
+  {
+      "model": "iPhone 12",
+     
+      "brand": "Apple",
+     
+      "operative system": "iOS 14",
+     
+      "size": "14.67 x 7.15 x 0.74 cm",
+     
+      "inches": 6.06,
+     
+      "main camera": 12,
+     
+      "ram": [4],
+     
+      "colors": [
+          {"Graphite":["https://http2.mlstatic.com/D_NQ_NP_784571-MLA45729987876_042021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_688182-MLA45730353083_042021-O.webp"]
+          },
+          {"Silver":["https://http2.mlstatic.com/D_NQ_NP_829746-MLA45729987647_042021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_755713-MLA45729987648_042021-O.webp"]
+          }
+      ],
+      "capacity": ["64 GB", "128 GB", "256 GB"],
+     
+      "frontal camera": 12,
+     
+      "weight": 164,
+     
+      "battery": 2775,
+     
+      "price": [275999, 303599, 375282],
+   
+   
+     
+      "image": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2mdSqThYvuXN6ToRl1HNlsDbVTyBtA-_TXA&usqp=CAU"],
+     
+      "cpu": ["A14 Bionic"],
+     
+      "description": "Apple has equipped the iPhone 12 family with its powerful new A14 Bionic processor, a Super Retina XDR display, a more durable Ceramic Shield front cover, and a MagSafe feature for more reliable wireless charging, and support for attachable accessories."
+  },
+   
+   
+  {
+      "model": "iPhone 12 mini",
+     
+      "brand": "Apple",
+     
+      "operative system": "iOS 14",
+     
+      "size": "13.15 x 6.42 x 0.74 cm",
+     
+      "inches": 5.42,
+     
+      "main camera": 12,
+     
+      "ram": [4],
+     
+      "colors": [
+          {"Graphite":["https://m.media-amazon.com/images/I/71WoWLO6+gL._AC_SX679_.jpg", "https://m.media-amazon.com/images/I/41pLOhRu2pL._AC_SX679_.jpg"]
+          },
+          {"Silver":["https://m.media-amazon.com/images/I/41YIrT6VyGL._AC_.jpg", "https://m.media-amazon.com/images/I/71kbOqSBFBL._AC_SX679_.jpg"]
+          }
+      ],
+      "capacity": ["128 GB"],
+     
+      "frontal camera": 12,
+     
+      "weight": 133,
+     
+      "battery": 2815,
+     
+      "price": 299999,
+     
+      "image": ["https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2021/03/iPhone12minifam-300x300.png"],
+     
+      "cpu": ["A14 Bionic"],
+     
+      "description": "The iPhone 12 and iPhone 12 mini were Apple's mainstream flagship iPhones for 2020. The phones come in 6.1-inch and 5.4-inch sizes with identical features, including support for 5G cellular networks, OLED displays, improved cameras, and Apple's A14 chip, all in a completely refreshed design."
+  },
+   
+   
+  {
+      "model": "iPhone 11 Pro Max",
+     
+      "brand": "Apple",
+     
+      "operative system": "iOS 14",
+     
+      "size": "16.08 x 7.81 x 0.77 cm",
+     
+      "inches": 6.7,
+     
+      "main camera": 12,
+     
+      "ram": [4],
+     
+      "colors": [
+          {"Graphite":["https://m.media-amazon.com/images/I/61I39htrBbL._AC_SL1500_.jpg", "https://v9t7k9q5.rocketcdn.me/wp-content/uploads/2021/08/oferta-iphone-12-pro.png"]
+          },
+          {"Silver":["https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-max-silver-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202946000", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Xmes0wHI9jLEGTUYZOht3OcEmkax_FU-iQ&usqp=CAU"]
+          }
+      ],
+      "capacity": ["128 GB", "256 GB", "512 GB"],
+     
+      "frontal camera": 12,
+     
+      "weight": 238,
+     
+      "battery": 4532,
+     
+      "price": [286563, 332514, 384999],
+   
+     
+      "image": ["https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2021/03/iPhone12ProMaxFam.png"],
+     
+      "cpu": ["A13 Bionic"],
+     
+      "description": "The iPhone 11 Pro Max includes Apple's three-camera system, a 6.5-inch Super Retina XDR display, the A12 Bionic chip, and a bigger battery for all-day battery life."
+  },
+   
+   
+  {
+      "model": "iPhone 11",
+     
+      "brand": "Apple",
+     
+      "operative system": "iOS 13",
+     
+      "size": "15.09 x 7.14 x 0.81 cm",
+     
+      "inches": 6.1,
+     
+      "main camera": 12,
+     
+      "ram": [4],
+     
+      "colors": [
+          {"Graphite":["https://m.media-amazon.com/images/I/712S1UXIHLL._AC_SX679_.jpg", "https://m.media-amazon.com/images/I/71JGLXDNEgL._AC_SX679_.jpg"]
+          },
+          {"Silver":["https://m.media-amazon.com/images/I/613KzeDTHrS._AC_SX679_.jpg", "https://m.media-amazon.com/images/I/31RCAVK0bKS._AC_SX679_.jpg"]
+          }
+      ],
+      "capacity": ["128 GB", "256 GB", "512 GB"],
+     
+      "frontal camera": 12,
+     
+      "weight": 194,
+     
+      "battery": 3110,
+   
+      "price": [226563, 272514, 324999],
+   
+      "image": ["https://http2.mlstatic.com/D_NQ_NP_717128-MLA46114990469_052021-O.webp"],
+     
+      "cpu": ["A13 Bionic"],
+     
+      "description": "The iPhone 11 has a 6.1-inch (15 cm) IPS LCD with a resolution is 1792 × 828 pixels (1.4 megapixels) at a pixel density of 326 PPI with a maximum brightness of 625 nits and a 1400:1 contrast ratio and it is equivalent to the iPhone XR. It supports Dolby Vision, HDR10, True-Tone, and a wide color gamut."
+  },
+   
+   
+  {
+      "model": "iPhone XS",
+     
+      "brand": "Apple",
+     
+      "operative system": "iOS 13",
+     
+      "size": " 14.36 x 7.09 x 0.77 cm",
+     
+      "inches": 5.8,
+     
+      "main camera": 12,
+     
+      "ram": [3],
+     
+      "colors": [
+          {"Graphite":["https://m.media-amazon.com/images/I/61rnL12o1NL._AC_SX679_.jpg", "https://m.media-amazon.com/images/I/51+C8JRrBvL._AC_SX679_.jpg"]
+          },
+          {"Silver":["https://m.media-amazon.com/images/I/812P-Wji1QL._AC_SL1500_.jpg"]
+          }
+      ],
+      "capacity": ["128 GB", "256 GB", "512 GB"],
+     
+      "frontal camera": 12,
+     
+      "weight": 177,
+     
+      "battery": 2658,
+   
+      "price": [196563, 242514, 294999],
+   
+     
+      "image": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ZoC0i-8TehmOIBY_9cBkIiWMVEyzJz-Bew&usqp=CAU"],
+     
+      "cpu": ["A12 Bionic"],
+     
+      "description": "Operating System and Performance: iPhone XS functions on the powerful A12 processor, improved LTE chips from Intel (OLED models only) that will support a faster LTE connection."
+  },
+   
+   
+  {
+      "model": "iPhone XR",
+     
+      "brand": "Apple",
+     
+      "operative system": "iOS 13",
+     
+      "size": " 15.09 x 7.57 x 0.83 cm",
+     
+      "inches": 6.06,
+     
+      "main camera": 12,
+     
+      "ram": [3],
+     
+      "colors": [
+          {"Graphite":["https://jigcomp.com.ar/wp-content/uploads/1624465042_apple-iphone-xr-128-gb-negro-iphxr128gbb_4-1.jpg", "https://http2.mlstatic.com/D_NQ_NP_703846-MLA46545489116_062021-O.webp"]
+          },
+          {"Silver":["https://cdn.alloallo.media/catalog/product/apple/iphone/iphone-xr/iphone-xr-white.jpg", "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MRW62?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1569617849402"]
+          }
+      ],
+      "capacity": ["128 GB", "256 GB", "512 GB"],
+     
+      "frontal camera": 12,
+     
+      "weight": 194,
+     
+      "battery": 2658,
+   
+      "price": [190563, 237514, 289999],
+   
+     
+      "image": ["https://i.blogs.es/941125/iphonesss/1366_2000.jpg"],
+     
+      "cpu": ["A12 Bionic"],
+     
+      "description": "iPhone XR comes powered by an A12 Bionic chip with a second-generation Neural Engine. For imaging duties, the device has got a 12MP Wide camera with f/1.8 aperture."
+  }
 ]
