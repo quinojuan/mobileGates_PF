@@ -415,5 +415,467 @@
     
     "numpad": true
     
-    }
+    },
+    {
+	
+        "model": "MacBook Air A2337",
+        
+        "brand": "Apple",
+        
+        "operative system": "macOS",
+        
+        "size": "30.41-21.24-1.61 ",
+        
+        "inches": 13.3 ,
+        
+        "description": "La notebook más delgada y ligera de Apple viene con los superpoderes del chip M1. Termina todos tus proyectos mucho más rápido con el CPU de 8 núcleos y disfruta como nunca antes de apps y juegos con gráficos avanzados gracias al GPU de hasta 8 núcleos. Además, el Neural Engine de 16 núcleos se encarga de acelerar todos los procesos de aprendizaje automático. Todo en un diseño silencioso sin ventilador que te ofrece la mayor duración de batería en una MacBook Air: hasta 18 horas. (1) Portátil como siempre, más poderosa que nunca.",
+        
+        "ram": [8],
+        
+        "colors": [
+            {
+                "Gris":["https://http2.mlstatic.com/D_NQ_NP_948162-MLA46516517283_062021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_813631-MLA46516512349_062021-O.webp","https://http2.mlstatic.com/D_NQ_NP_967662-MLA46516517284_062021-O.webp"]
+            },
+            {
+                "Oro":["https://http2.mlstatic.com/D_NQ_NP_830386-MLA46516504422_062021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_857044-MLA46516512360_062021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_706823-MLA46516504423_062021-O.webp"]
+            },
+            {
+                "Plata":["https://http2.mlstatic.com/D_NQ_NP_684862-MLA46516504419_062021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_933025-MLA46516512355_062021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_933025-MLA46516512355_062021-O.webp"]
+            }
+        ],
+        
+        "capacity": ["256SSD", "512SSD"],
+        
+        "frontal camera": "1280px-720px",
+        
+        "weight": "1.29",
+        
+        "battery": 4379,
+        
+        "price": 291999,
+        
+        "image": ["https://http2.mlstatic.com/D_NQ_NP_948162-MLA46516517283_062021-O.webp"],
+        
+        "cpu": ["Procesador M1"],
+        
+        "gpu": "Apple M1 8-Core GPU",
+        
+        "display": "2560x1600",
+        
+        "usb": 2,
+        
+        "numpad": false
+        
+        },
+        
+        {
+            
+            "model": "MacBook Pro",
+            
+            "brand": "Apple",
+            
+            "operative system": "macOS",
+            
+            "size": "30.4-21.23-15.5 ",
+            
+            "inches": 13.3 ,
+            
+            "description": "El chip M1 de Apple redefine al Macbook Pro de 13 pulgadas.(1) Viene con una CPU de 8 núcleos que permite un rendimiento óptimo en los flujos de trabajo más exigentes, como fotografía, programación y edición de video. La sorprendente GPU de 8 núcleos ofrece un rendimiento asombroso en procesos gráficos complejos y una experiencia de juego increíblemente fluida. El Neural Engine avanzado de 16 núcleos lleva el aprendizaje automático a un nuevo nivel en tus apps favoritas. Además, viene con memoria unificada que optimiza el rendimiento y la mayor duración de batería en un Mac: hasta 20 horas.(2) Es el notebook Pro más popular de Apple, a un nivel de rendimiento mucho más pro.",
+            
+            "ram": [8],
+            
+            "colors": [
+                {
+                    "Gris":["https://http2.mlstatic.com/D_NQ_NP_756770-MLA45795181650_052021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_657721-MLA45795227447_052021-O.webp","https://http2.mlstatic.com/D_NQ_NP_914144-MLA45795181653_052021-O.webp"]
+                },
+        
+                {
+                    "Plata":["https://http2.mlstatic.com/D_NQ_NP_907433-MLA45795227804_052021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_736238-MLA45795181981_052021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_963743-MLA45795195900_052021-O.webp"]
+                }
+            ],
+            
+            "capacity": ["256SSD", "512SSD"],
+            
+            "frontal camera": "1280px-720px",
+            
+            "weight": "1.4 kg",
+            
+            "battery": 5152,
+            
+            "price": 352594,
+            
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_907433-MLA45795227804_052021-O.webp"],
+            
+            "cpu": ["Procesador M1"],
+            
+            "gpu": "Apple GPU",
+            
+            "display": "2560x1600",
+            
+            "usb": 2,
+            
+            "numpad": false
+            
+            },
+        
+            {
+            "model": "Inspiron 3505",
+        
+            "brand": "Dell",
+        
+            "operative system": "Windows 11",
+        
+            "size": "364-249-19.9",
+        
+            "inches": 15.6 ,
+        
+            "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
+        
+            "ram":[8],
+        
+            "colors":[
+                {
+                    "Gris": ["https://http2.mlstatic.com/D_NQ_NP_987724-MLA47215243740_082021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_762247-MLA47215243752_082021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_749059-MLA47215230823_082021-O.webp"]
+                }
+            ],
+        
+            "capacity": ["256SSD", "512SSD"],
+        
+            "frontal camera": "1280px-720px",
+        
+            "weight": "1.98",
+        
+            "battery": 4565,
+        
+            "price": 159999,
+        
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_987724-MLA47215243740_082021-O.webp"],
+        
+            "cpu": ["Ryzen 5"],
+        
+            "gpu": "AMD Radeon RX Vega 8 (Ryzen 2000/3000)",
+        
+            "display": "1366x768",
+        
+            "usb": 3,
+        
+            "numpad": true
+        
+            },
+        
+            {
+            
+            "model": "Inspiron 3515",
+                
+            "brand": "Dell",
+                
+             "operative system": "Windows 11",
+                
+            "size": "35.85-23.55-17.5",
+                
+             "inches": 15.5 ,
+                
+             "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
+                
+            "ram": [8],
+                
+            "colors": [
+                {
+                    "Azul":["https://http2.mlstatic.com/D_NQ_NP_972693-MLA50864063156_072022-O.webp" ,   "https://http2.mlstatic.com/D_NQ_NP_663537-MLA50864055036_072022-O.webp","https://http2.mlstatic.com/D_NQ_NP_749395-MLA50864047177_072022-O.webp"]
+                },
+        
+                 {
+                     "Plata":["https://http2.mlstatic.com/D_NQ_NP_805951-MLA50865156506_072022-O.webp",    "https://http2.mlstatic.com/D_NQ_NP_609731-MLA50878651630_072022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_849241-MLA50878653653_072022-O.webp"]
+                 }
+             ],
+                
+             "capacity": ["256SSD", "512SSD"],
+                
+             "frontal camera": "1280px-720px",
+                
+             "weight": "1.71",
+                
+             "battery": 4385,
+                
+             "price": 119999,
+                
+             "image": ["https://http2.mlstatic.com/D_NQ_NP_805951-MLA50865156506_072022-O.webp"],
+                
+             "cpu": ["Ryzen 5"],
+                
+             "gpu": "AMD Radeon RX Vega 8 (Ryzen 2000/3000)",
+                
+             "display": "1366x768",
+                
+             "usb": 3,
+                
+             "numpad": true
+                
+              },
+        
+        {
+            "model": "Inspiron 3511",
+                
+            "brand": "Dell",
+                
+            "operative system": "Windows 11",
+                
+            "size": "35.85-23.55-18.9",
+                
+            "inches": 15.6 ,
+                
+            "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
+                
+            "ram": [8],
+                
+            "colors": [
+                {
+                    "Negro":["https://http2.mlstatic.com/D_NQ_NP_622209-MLA50584269704_072022-O.webp" ,   "https://http2.mlstatic.com/D_NQ_NP_980061-MLA50584246720_072022-O.webp","https://http2.mlstatic.com/D_NQ_NP_798084-MLA50584358593_072022-O.webp"]
+                }
+             ],
+                
+            "capacity": ["256SSD"],
+                
+            "frontal camera": "1280px-720px",
+                
+            "weight": "1.73",
+                
+            "battery": 4485,
+                
+            "price": 224156,
+                
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_622209-MLA50584269704_072022-O.webp"],
+                
+            "cpu": ["Intel Core i5"],
+                
+            "gpu": "Intel Iris Xe Graphics G7 80EUs",
+                
+            "display": "1920x1080",
+                
+            "usb": 4,
+                
+            "numpad": true
+        },
+        
+        {    
+            "model": "Inspiron 5510",
+                
+            "brand": "Dell",
+                
+            "operative system": "Windows 10",
+                
+            "size": "35.6-22.85-17.9",
+                
+            "inches": 15.6 ,
+                
+            "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
+                
+            "ram": [8],
+                
+            "colors": [
+                {
+                    "Azul":["https://http2.mlstatic.com/D_NQ_NP_702493-MLA49715479859_042022-O.webp" ,   "https://http2.mlstatic.com/D_NQ_NP_616910-MLA49715524611_042022-O.webp","https://http2.mlstatic.com/D_NQ_NP_982465-MLA49715524613_042022-O.webp"]
+                }
+             ],
+                
+            "capacity": ["256SSD"],
+                
+            "frontal camera": "1280px-720px",
+                
+            "weight": "1.75",
+                
+            "battery": 4495,
+                
+            "price": 215000,
+                
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_702493-MLA49715479859_042022-O.webp"],
+                
+            "cpu": ["Intel Core i5"],
+                
+            "gpu": "Intel Iris Xe Graphics G7 80EUs",
+                
+            "display": "1920x1080",
+                
+            "usb": 3,
+                
+            "numpad": true   
+        },
+        
+        {
+            "model": "IDEAPAD 3",
+                
+            "brand": "Lenovo",
+                
+            "operative system": "Windows 11",
+                
+            "size": "30.6-18.85-14.9",
+                
+            "inches": 14,
+                
+            "description": "Delgado y ligero, el IdeaPad 3 está alimentado por un procesador Intel Core i3-1005G1 con 8 GB de RAM DDR4, 128 GB de almacenamiento SSD M.2 y gráficos Intel UHD integrados",
+                
+            "ram": [8],
+                
+            "colors": [
+                {
+                    "Gris":["https://http2.mlstatic.com/D_NQ_NP_975834-MLA51015201380_082022-O.webp" ,   "https://http2.mlstatic.com/D_NQ_NP_719273-MLA51015186421_082022-O.webp","https://http2.mlstatic.com/D_NQ_NP_788482-MLA51015240242_082022-O.webp"]
+                }
+             ],
+                
+            "capacity": ["128SSD"],
+                
+            "frontal camera": "1280px-720px",
+                
+            "weight": "1.6",
+                
+            "battery": 4000,
+                
+            "price": 91999,
+                
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_975834-MLA51015201380_082022-O.webp"],
+                
+            "cpu": ["Intel Core i3"],
+                
+            "gpu": "Intel Iris Xe Graphics G7 80EUs",
+                
+            "display": "1920x1080",
+                
+            "usb": 3,
+                
+            "numpad": false  
+        },
+        
+        {
+            "model": "Legion 5",
+                
+            "brand": "Lenovo",
+                
+            "operative system": "Windows 10",
+                
+            "size": "36.3-25.9-26.1",
+                
+            "inches": 15.6,
+                
+            "description": "La notebook Lenovo Legion 5 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento.",
+                
+            "ram": [16],
+                
+            "colors": [
+                {
+                    "Negro":["https://http2.mlstatic.com/D_NQ_NP_845561-MLA48809654548_012022-O.webp" ,   "https://http2.mlstatic.com/D_NQ_NP_854414-MLA48809618870_012022-O.webp","https://http2.mlstatic.com/D_NQ_NP_783152-MLA48809654544_012022-O.webp"]
+                }
+             ],
+                
+            "capacity": ["256SSD"],
+                
+            "frontal camera": "1280px-720px",
+                
+            "weight": "2.4",
+                
+            "battery": 4980,
+                
+            "price": 299999,
+                
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_845561-MLA48809654548_012022-O.webp"],
+                
+            "cpu": ["Intel Core i5"],
+                
+            "gpu": "NVIDIA GeForce GTX 1660 Ti",
+                
+            "display": "1920x1080",
+                
+            "usb": 5,
+                
+            "numpad": true
+        },
+        {
+            "model": "V-Series V15",
+                
+            "brand": "Lenovo",
+                
+            "operative system": "Windows 11",
+                
+            "size": "35.9-23.5-19.9",
+                
+            "inches": 15.6,
+                
+            "description": "La notebook Lenovo V-Series V15 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento.",
+                
+            "ram": [8],
+                
+            "colors": [
+                {
+                    "Negro":["https://http2.mlstatic.com/D_NQ_NP_863361-MLA48850571048_012022-O.webp" ,   "https://http2.mlstatic.com/D_NQ_NP_678056-MLA48850571047_012022-O.webp"]
+                },
+                {
+                    "Gris":["https://http2.mlstatic.com/D_NQ_NP_888927-MLA48850376845_012022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_865195-MLA48850376795_012022-O.webp"]
+                }
+             ],
+                
+            "capacity": ["256SSD"],
+                
+            "frontal camera": "1280px-720px",
+                
+            "weight": "1.7",
+                
+            "battery": 4880,
+                
+            "price": 165999,
+                
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_863361-MLA48850571048_012022-O.webp"],
+                
+            "cpu": ["Intel Core i5"],
+                
+            "gpu": "Intel Iris Xe Graphics G7 80EUs",
+                
+            "display": "1920x1080",
+                
+            "usb": 3,
+                
+            "numpad": true
+        },
+        {
+            "model": "ThinkPad E14",
+                
+            "brand": "Lenovo",
+                
+            "operative system": "Windows 10",
+                
+            "size": "32.5-23.2-17.9",
+                
+            "inches": 14,
+                
+            "description": "La notebook Lenovo ThinkPad E14 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento.",
+                
+            "ram": [16],
+                
+            "colors": [
+                {
+                    "Negro":["https://http2.mlstatic.com/D_NQ_NP_864836-MLA44981951928_022021-O.webp" ,   "https://http2.mlstatic.com/D_NQ_NP_899870-MLA44962993057_022021-O.webp", "https://http2.mlstatic.com/D_NQ_NP_835946-MLA44962993211_022021-O.webp"]
+                }
+                
+             ],
+                
+            "capacity": ["256SSD"],
+                
+            "frontal camera": "1280px-720px",
+                
+            "weight": "1.69",
+                
+            "battery": 5000,
+                
+            "price": 262900,
+                
+            "image": ["https://http2.mlstatic.com/D_NQ_NP_864836-MLA44981951928_022021-O.webp"],
+                
+            "cpu": ["Intel Core i5"],
+                
+            "gpu": "Intel UHD Graphics",
+                
+            "display": "1920x1080",
+                
+            "usb": 4,
+                
+            "numpad": false   
+        }
 ]
