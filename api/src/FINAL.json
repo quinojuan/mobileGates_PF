@@ -30,7 +30,7 @@
 
 		"battery": 3790,
 
-		"price": 58300,
+		"price": [58300, 78300],
 
 		"image": [
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYa-AUMinfxHHvpu6K5b3RB8Or5Hy6qCj08Q&usqp=CAU"
@@ -43,6 +43,8 @@
 		"display": "1920x1080",
 
 		"usb": 3,
+
+		"category": "Notebooks",
 
 		"numpad": false
 	},
@@ -77,7 +79,7 @@
 
 		"battery": 3790,
 
-		"price": 58679,
+		"price": [58679, 78000],
 
 		"image": [
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxg2l2bgMCYFt44X-kVFgeQ1cs5Iloi_ozEHLdK-vU7jykFeZJEvnL-kzbVDIcabCalQ&usqp=CAU"
@@ -90,6 +92,8 @@
 		"display": "2560x1440",
 
 		"usb": 5,
+
+		"category": "Notebooks",
 
 		"numpad": true
 	},
@@ -124,7 +128,7 @@
 
 		"battery": 3790,
 
-		"price": 61900,
+		"price": [61900, 72900],
 
 		"image": [
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl-AoYQn68a9eVQwkipXSIi5eiPWlZQ1jZLtt3y6zqGr7zRtgvZqD87OWaZyascSbFqW0&usqp=CAU"
@@ -137,6 +141,8 @@
 		"display": "1920x1080",
 
 		"usb": 3,
+
+		"category": "Notebooks",
 
 		"numpad": false
 	},
@@ -172,7 +178,7 @@
 
 		"battery": 3790,
 
-		"price": 82500,
+		"price": [82500, 92500],
 
 		"image": [
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIcKoNe1j6kCjtVozW1CNuOOwd8g2KbLs_0AWGHLX6Er9FXmdlSMhJQgOw75RWpuudzYM&usqp=CAU"
@@ -185,6 +191,8 @@
 		"display": "1920x1080",
 
 		"usb": 5,
+
+		"category": "Notebooks",
 
 		"numpad": true
 	},
@@ -220,7 +228,7 @@
 
 		"battery": 3790,
 
-		"price": 63918,
+		"price": [63918, 90000],
 
 		"image": [
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXc2jH7FUyyI0LAZBin8hiOp3F6Pkrrc3ifa84a8E-PMYlqwCz1nu2FpNG-kocXKsYNZw&usqp=CAU"
@@ -233,6 +241,8 @@
 		"display": "1920x1080",
 
 		"usb": 3,
+
+		"category": "Notebooks",
 
 		"numpad": true
 	},
@@ -273,7 +283,7 @@
 
 		"battery": 5550,
 
-		"price": 67999,
+		"price": [67999],
 
 		"image": ["https://www.msi.com/Laptop/Pulse-GL76-12UX"],
 
@@ -284,6 +294,8 @@
 		"display": "1920x1080",
 
 		"usb": 3,
+
+		"category": "Notebooks",
 
 		"numpad": true
 	},
@@ -324,7 +336,7 @@
 
 		"battery": 4550,
 
-		"price": 70999,
+		"price": [70999, 99999],
 
 		"image": [
 			"https://1.bp.blogspot.com/-YYIsHjm8zBY/YWwC_qtDZ-I/AAAAAAAARCk/_o5e1FFHbOAzi6rnfI_xzx_7z0OsWmSFgCLcBGAsYHQ/s1645/stealth15m_1.webp"
@@ -337,6 +349,8 @@
 		"display": "1920x1080",
 
 		"usb": 5,
+
+		"category": "Notebooks",
 
 		"numpad": true
 	},
@@ -372,7 +386,7 @@
 
 		"battery": 4550,
 
-		"price": 59700,
+		"price": [59700, 79999],
 
 		"image": ["https://tunotebook.com.ar/wp-content/uploads/2022/06/1-3.jpg"],
 
@@ -383,6 +397,8 @@
 		"display": "1920x1080",
 
 		"usb": 3,
+		
+		"category": "Notebooks",
 
 		"numpad": false
 	},
@@ -418,7 +434,7 @@
 
 		"battery": 5700,
 
-		"price": 68350,
+		"price": [68350, 90000],
 
 		"image": [
 			"https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0565%2F5917%2F3826%2Fproducts%2Fgp75_2010sfk-074ca_20leopard_4_1024x.jpg%3Fv%3D1653435425&imgrefurl=https%3A%2F%2Fwww.iconicmicro.com%2Fproducts%2Fmsi-gp75-leopard-9sd-437-gaming-laptop-17-3-fhd-144hz-ips-intel-core-i7-9750h-2-6ghz-16-gb-ddr4-512-gb-nvme-ssd-nvidia-geforce-gtx-1660ti-6gb-windows-10&tbnid=WY1jxlM25GaMGM&vet=12ahUKEwj0gfPsgZD6AhUhu5UCHZwTBjMQMygkegUIARDGAg..i&docid=1ISFYcmnMwqqSM&w=1024&h=768&q=gp75%20leopard%20description&hl=es&ved=2ahUKEwj0gfPsgZD6AhUhu5UCHZwTBjMQMygkegUIARDGAg"
@@ -431,6 +447,8 @@
 		"display": "1920x1080",
 
 		"usb": 5,
+
+		"category": "Notebooks",
 
 		"numpad": false
 	},
@@ -466,7 +484,7 @@
 
 		"battery": 4400,
 
-		"price": 60350,
+		"price": [60350, 90000],
 
 		"image": [
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJvv8spfMHoo23OuMZ5xfw_xjNrJSY7kHRsw&usqp=CAUblac"
@@ -479,6 +497,8 @@
 		"display": "1920x1080",
 
 		"usb": 3,
+
+		"category": "Notebooks",
 
 		"numpad": true
 	},
