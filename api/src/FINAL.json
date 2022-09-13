@@ -483,6 +483,593 @@
 		"numpad": true
 	},
 	{
+		"model": "e410ma",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 HOME",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 14,
+	
+		"description": "Notebook Asus VivoBook E410MA azul eléctrico 14'' Intel Celeron N4020 4GB de RAM 128GB SSD, Intel UHD Graphics 600 60 Hz 1366x768px Windows 10 Home",
+	
+		"ram": [4],
+	
+		"colors": {
+		  "black": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
+		  ]
+		},
+	
+		"capacity": ["120ssd", "240ssd"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": 1.3,
+	
+		"battery": 4900,
+	
+		"price": 60000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_888546-MLA45043672144_032021-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "X515EA",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 PROFESSIONAL",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 17.3,
+	
+		"description": "Notebook Asus X515EA 15.6'' Intel Core i3 1115G4 4GB de RAM 256GB SSD, Intel UHD Graphics Xe G4 48EUs 1920x1080px",
+	
+		"ram": [4, 8],
+	
+		"colors": {
+		  "black": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD", "240SSD", "480SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 3900,
+	
+		"price": 40000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_829342-MLA49420897093_032022-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 4,
+	
+		"numpad": false
+	  },
+	  {
+		"model": "UM425QA ",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 PROFESSIONAL",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 12.7,
+	
+		"description": "Notebook Asus ZenBook 14 UM425QA pine gray 14'', AMD Ryzen 5 4500U 8GB de RAM 512GB SSD, AMD Radeon RX Vega 6 (Ryzen 4000/5000) 1920x1080px Windows 11 Home",
+	
+		"ram": [8, 16],
+	
+		"colors": {
+		  "black": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_874277-MLA45043672147_032021-F.webp"
+		  ]
+		},
+	
+		"capacity": ["240SSD", "560HDD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 4400,
+	
+		"price": 59999,
+	
+		"image": [
+		  "https: http2.mlstatic.com/D_NQ_NP_2X_874277-MLA45043672147_032021-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1360x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  },
+	
+	  {
+		"model": "UM425QA ",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 PROFESSIONAL",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 15,
+	
+		"description": "Notebook Asus ZenBook 14 UM425QA pine gray 14Inches, AMD Ryzen 5 4500U 8GB de RAM 512GB SSD, AMD Radeon RX Vega 6 (Ryzen 4000/5000) 1920x1080px Windows 11 Home",
+	
+		"ram": [4, 8, 16],
+	
+		"colors": {
+		  "black": [
+			"https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 4400,
+	
+		"price": 59999,
+	
+		"image": [
+		  "https: http2.mlstatic.com/D_NQ_NP_2X_625664-MLA48463322722_122021-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  },
+	
+	  {
+		"model": "UM425QA ",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 PROFESSIONAL",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 12.3,
+	
+		"description": "Notebook Asus VivoBook X512JA slate gray 15.6'', Intel Core i7 1065G7 8GB de RAM 1TB HDD 256GB SSD, Intel Iris Plus Graphics G7 1920x1080px Windows 10 Home",
+	
+		"ram": [8],
+	
+		"colors": {
+		  "black": [
+			"https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
+		  ]
+		},
+	
+		"capacity": "240SSD",
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 4400,
+	
+		"price": 59999,
+	
+		"image": [
+		  "https: http2.mlstatic.com/D_NQ_NP_2X_625664-MLA48463322722_122021-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1024x768",
+	
+		"usb": 5,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "LCDTM ",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 UNLIMITED",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 14,
+	
+		"description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
+	
+		"ram": [8, 16],
+	
+		"colors": {
+		  "grey": [
+			"https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
+		  ]
+		},
+	
+		"capacity": "128SSD",
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 5900,
+	
+		"price": 69999,
+	
+		"image": [
+		  "https: http2.mlstatic.com/D_NQ_NP_2X_678823-MLA50433297460_062022-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "LCDTM10",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 UNLIMITED",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 12.3,
+	
+		"description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
+	
+		"ram": [4, 8],
+	
+		"colors": {
+		  "grey": [
+			"https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD,240SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 4400,
+	
+		"price": 59999,
+	
+		"image": [
+		  "https: http2.mlstatic.com/D_NQ_NP_2X_678823-MLA50433297460_062022-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "LCDTM10",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 UNLIMITED",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 14,
+	
+		"description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
+	
+		"ram": [4, 8, 16],
+	
+		"colors": {
+		  "grey": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
+		  ]
+		},
+	
+		"capacity": ["480SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 6600,
+	
+		"price": 80000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_622883-MLA48011304859_102021-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "LCDTM10",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 UNLIMITED",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 12.3,
+	
+		"description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
+	
+		"ram": [4],
+	
+		"colors": {
+		  "grey": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 5400,
+	
+		"price": 65000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_622883-MLA48011304859_102021-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": false
+	  },
+	  {
+		"model": "RIP26062011",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 PROFESSIONAL",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 14.7,
+	
+		"description": "otebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
+	
+		"ram": [4, 8],
+	
+		"colors": {
+		  "grey": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 4000,
+	
+		"price": 50000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_788919-MLA51423449852_092022-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "28FH42G",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 UNLIMITED",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 13.8,
+	
+		"description": "otebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
+	
+		"ram": [4, 8],
+	
+		"colors": {
+		  "grey": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 5000,
+	
+		"price": 55000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_788919-MLA51423449852_092022-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 4,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "LCDTM10",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 PROFESSIONAL",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 12.7,
+	
+		"description": "otebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
+	
+		"ram": [8, 16],
+	
+		"colors": {
+		  "grey": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD,240SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 5900,
+	
+		"price": 65000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_788919-MLA51423449852_092022-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 4,
+	
+		"numpad": true
+	  },
+	  {
+		"model": "LCDTM10",
+	
+		"brand": "ASUS",
+	
+		"operative system": "WINDOWS 10 HOME",
+	
+		"size": "32.5-1.84-21.7",
+	
+		"inches": 12.7,
+	
+		"description": "otebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
+	
+		"ram": [4, 8],
+	
+		"colors": {
+		  "grey": [
+			"https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
+		  ]
+		},
+	
+		"capacity": ["128SSD"],
+	
+		"frontal camera": "640px-480px",
+	
+		"weight": "1.3",
+	
+		"battery": 4000,
+	
+		"price": 50000,
+	
+		"image": [
+		  "https://http2.mlstatic.com/D_NQ_NP_2X_788919-MLA51423449852_092022-F.webp"
+		],
+	
+		"cpu": "INTEL CELERON",
+	
+		"gpu": "Intel UHD Graphics 600",
+	
+		"display": "1366x768",
+	
+		"usb": 3,
+	
+		"numpad": true
+	  }
+	{
 		"model": "MacBook Air A2337",
 
 		"brand": "Apple",
@@ -2063,7 +2650,7 @@
 			"https://http2.mlstatic.com/D_NQ_NP_822867-MLA48109772708_112021-O.webp"
 		],
 
-		"cpu": ["A15 Bionic"],
+		"cpu": "A15 Bionic",
 
 		"description": "The iPhone 13 Pro Max is Apple's biggest phone in the lineup with a massive, 6.7 screen that for the first time in an iPhone comes with 120Hz ProMotion display that ensures super smooth scrolling. The benefit of such a gigantic phone is that it also comes with the biggest battery of all iPhone 13 series"
 	},
@@ -2987,7 +3574,7 @@
 		"battery": "32.4 W·h, up to 10 hours of battery life.",
 		"price": [88999, 122259],
 		"cpu": "Quad Core I5-8250U",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_858857-MLA47871010540_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_779407-MLA47871023493_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_712045-MLA47871333071_102021-F.webp"
@@ -3032,7 +3619,7 @@
 		"battery": "28.6 W·h lithium-polymer battery",
 		"price": [142000, 240000],
 		"cpu": "Hexa-core (2x 3.1 GHz Firestorm and 4x 1.82 GHz Icestorm)",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_877096-MLA46961896995_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_738210-MLA46961896996_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_843011-MLA46962262107_082021-F.webp"
@@ -3084,7 +3671,7 @@
 		"battery": "19.3 W·h lithium-polymer battery",
 		"price": [149999, 202589],
 		"cpu": "Hexa-core (2x 2.93 GHz Avalanche and 4x 1.82 GHz Blizzard)",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_958785-MLA48035175041_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_728665-MLA48034797635_102021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_774240-MLA48035167084_102021-F.webp"
@@ -3122,7 +3709,7 @@
 		"battery": "Batería recargable integrada de polímeros de litio de 28,65 vatios hora",
 		"price": [202450, 276237, 354900, 397096, 705000],
 		"cpu": "CPU de ocho núcleos con cuatro núcleos de rendimiento y cuatro de eficiencia",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_848727-MLA46975166150_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_744898-MLA46975166151_082021-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_630890-MLA46974955656_082021-F.webp"
@@ -3153,7 +3740,7 @@
 		"battery": "Up to 10.5 hours of typical device usage",
 		"price": [299559],
 		"cpu": "Dual-Core Intel Core i3-1005G1 de 1.2GHz",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_988423-MLA51375902835_092022-F.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_703920-MLA51375902616_092022-O.webp",
 			"https://http2.mlstatic.com/D_NQ_NP_2X_838732-MLA51375908592_092022-F.webp"
@@ -3182,7 +3769,7 @@
 		"battery": "Up to 16 hours of typical device usage",
 		"price": [383800, 405000, 489600],
 		"cpu": "Quad-Core Intel i5-1135G7",
-		"images": [
+		"image": [
 			"https://http2.mlstatic.com/D_NQ_NP_2X_632111-MLA50583276037_072022-F.webp"
 		],
 		"description": "Esta tablet es ideal para cada una de tus actividades: editar fotos, documentos, navegar por internet y ¡mucho más! Su diseño delgado, compacto y portátil es la combinación perfecta de rendimiento y versatilidad."
