@@ -2,7 +2,6 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const Phones = require('./models/Phones');
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
@@ -40,7 +39,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Tablets, Colors, Phones } = sequelize.models;
 
-Tablets.belongsToMany(Colors, {
+/* Tablets.belongsToMany(Colors, {
 	through: 'TabletsColors',
 	foreignKey: 'tabletId',
 });
@@ -58,7 +57,7 @@ Phones.belongsToMany(Colors, {
 Colors.belongsToMany(Phones, {
 	through: 'TabletsColors',
 	foreignKey: 'colorId',
-});
+}); */
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
