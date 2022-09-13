@@ -1,0 +1,231 @@
+[{    
+    "model": "MOTO G41",
+    "brand": "Motorola",
+    "operative system": "Android 11",
+    "size": "16.18 x 7.38 x 0.83",
+    "inches": "6.4",
+    "main camera": "48 + 8 + 2 MP",
+    "ram": ["4"],
+    "colors": [
+        {"golden":["https://armoto.vtexassets.com/arquivos/ids/161725-1200-auto?v=637810639346870000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161726-1200-auto?v=637810639454970000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161729-1200-auto?v=637810639928170000&width=1200&height=auto&aspect=true"]},
+        {"onix":["https://armoto.vtexassets.com/arquivos/ids/161731-1200-auto?v=637810641545400000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161732-1200-auto?v=637810641659330000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161735-1200-auto?v=637810642093770000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "13 MP",
+    "weight": "178",
+    "battery": "5000 MAH",
+    "price": "62999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/161725-1200-auto?v=637810639346870000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161731-1200-auto?v=637810641545400000&width=1200&height=auto&aspect=true"],
+    "cpu": ["MEDIATEK HELIO G85"],
+    "description": "El procesador MediaTek Helio G85 con tecnología de juegos HyperEngine ofrece un desempeño ultrarrápido perfecto para reproducir películas, chatear con amigos o sacar fotos. Los 4 GB de RAM* ayudan a que cambies de una aplicación a otra sin interrupciones. Además. guardá fotos, películas, canciones, aplicaciones y juegos con el almacenamiento de 128 GB"},
+
+    {    
+    "model": "G51 XT2171-1",
+    "brand": "Motorola",
+    "operative system": "Android 11",
+    "size": "17.04 x 7.65 x 0.91",
+    "inches": "6.78",
+    "main camera": "50 + 8 + 2 MP",
+    "ram": ["4"],
+    "colors": [
+        {"golden":["https://armoto.vtexassets.com/arquivos/ids/162487-1200-auto?v=637923005952770000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162488-1200-auto?v=637923006132070000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162490-1200-auto?v=637923006705530000&width=1200&height=auto&aspect=true"]},
+        {"blue":["https://armoto.vtexassets.com/arquivos/ids/162491-1200-auto?v=637923007080770000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162492-1200-auto?v=637923007190330000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162494-1200-auto?v=637923007416530000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "13 MP",
+    "weight": "208",
+    "battery": "5000 MAH",
+    "price": "59999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162845-1200-auto?v=637955882677930000&width=1200&height=auto&aspect=true"],
+    "cpu": ["QUALCOMM SNAPDRAGON 480+"],
+    "description": "Con el procesador Qualcomm® Snapdragon™ 480 Plus, que es dos veces más rápido que la generación anterior, tenés la potencia necesaria para editar fotos, hacer varias tareas a la vez y mucho más. Guardá fotos, películas, canciones, aplicaciones y juegos con el almacenamiento de 128 GB."},
+
+    {    
+    "model": "EDGE 30 PRO",
+    "brand": "Motorola",
+    "operative system": "Android 12",
+    "size": "16.35 x 7.59 x 0.87",
+    "inches": "6.67",
+    "main camera": "50 + 50 + 2 MP",
+    "ram": ["12"],
+    "colors": [
+        {"cosmosGreen":["https://armoto.vtexassets.com/arquivos/ids/162452-1200-auto?v=637922986159330000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162453-1200-auto?v=637922986377430000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162460-1200-auto?v=637922987696500000&width=1200&height=auto&aspect=true"]},
+        {"silverWhite":["https://armoto.vtexassets.com/arquivos/ids/162427-1200-auto?v=637922827412330000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162428-1200-auto?v=637922827747900000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162435-1200-auto?v=637922835917870000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["256 GB"],
+    "frontal camera": "60 MP",
+    "weight": "196",
+    "battery": "4800 MAH",
+    "price": "191999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162869-1200-auto?v=637955906676770000&width=1200&height=auto&aspect=true"],
+    "cpu": ["QUALCOMM SNAPDRAGON 8 GEN 1"],
+    "description": "Conectate a redes 5G* y accedé a conexiones superrápida, ya sea cuando cargues la sección de noticias de Instagram o cuando descargues tu programa favorito en segundos*. Aprovechá al máximo el nuevo estándar de Wi-Fi de 6 GHz y conectate a una velocidad de gigabits aún más rápida con Wi-Fi 6*. Disfrutá de una experiencia sin interrupciones gracias al procesador Qualcomm® Snapdragon Elite Gaming™, que ofrece opciones avanzadas de personalización, gráficos ultrar reales y un desempeño veloz."},
+
+    {    
+    "model": "G42 XT2233-1",
+    "brand": "Motorola",
+    "operative system": "Android 12",
+    "size": "16.04 x 7.34 x 0.79",
+    "inches": "6.43",
+    "main camera": "50 + 8 + 2 MP",
+    "ram": ["4"],
+    "colors": [
+        {"atlanticGreen":["https://armoto.vtexassets.com/arquivos/ids/162644-1200-auto?v=637933217032200000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162645-1200-auto?v=637933217225770000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162648-1200-auto?v=637933217701070000&width=1200&height=auto&aspect=true"]},
+        {"metallicPink":["https://armoto.vtexassets.com/arquivos/ids/162656-1200-auto?v=637933222241070000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162659-1200-auto?v=637933222736530000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162660-1200-auto?v=637933223007030000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "16 MP",
+    "weight": "174.4",
+    "battery": "5000 MAH",
+    "price": "64999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162854-1200-auto?v=637955896117200000&width=1200&height=auto&aspect=true"],
+    "cpu": ["QUALCOMM SNAPDRAGON 680"],
+    "description": "Dale vida a tu contenido de entretenimiento favorito gracias al contraste infinito de tonos oscuros más profundos y colores vibrantes en la pantalla OLED FHD+ de 6.4. Gracias a la resolución Full HD+, obtené imágenes que quedan siempre supernítidas."},
+
+    {    
+    "model": "EDGE 30 XT2203-1",
+    "brand": "Motorola",
+    "operative system": "Android 12",
+    "size": "15.93 x 7.42 x 0.67",
+    "inches": "6.55",
+    "main camera": "50 + 13 + 2 MP",
+    "ram": ["8"],
+    "colors": [
+        {"grey":["https://armoto.vtexassets.com/arquivos/ids/162313-1200-auto?v=637904830518430000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162242-1200-auto?v=637897138678630000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162245-1200-auto?v=637897138991800000&width=1200&height=auto&aspect=true"]},
+        {"silver":["https://armoto.vtexassets.com/arquivos/ids/162254-1200-auto?v=637897994105070000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162253-1200-auto?v=637897993974600000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162258-1200-auto?v=637897994402970000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "32 MP",
+    "weight": "155",
+    "battery": "4020 MAH",
+    "price": "99999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162871-1200-auto?v=637955907314200000&width=1200&height=auto&aspect=true"],
+    "cpu": ["QUALCOMM SNAPDRAGON 778G+"],
+    "description": "Cargá menos peso y realizá más tareas. El motorola edge 30, el smartphone 5G* más delgado, se diseñó con este objetivo en mente. Con tecnología de avanzada, está diseñado para que sea fácil de usar. La parte posterior está diseñada con material PMMA liviano y resistente con un acabado mate clásico. Tiene una apariencia con patrones sutiles que cambian cuando inclinás el teléfono de lado a lado."},
+
+    {    
+    "model": "G52 XT2221-2",
+    "brand": "Motorola",
+    "operative system": "Android 12",
+    "size": "16.09 x 7.44 x 0.79",
+    "inches": "6.55",
+    "main camera": "50 + 8 + 2 MP",
+    "ram": ["6"],
+    "colors": [
+        {"blue":["https://armoto.vtexassets.com/arquivos/ids/162495-1200-auto?v=637923009208170000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162496-1200-auto?v=637923009480730000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162500-1200-auto?v=637923012192170000&width=1200&height=auto&aspect=true"]},
+        {"black":["https://armoto.vtexassets.com/arquivos/ids/162501-1200-auto?v=637923012667070000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162502-1200-auto?v=637923012785930000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162505-1200-auto?v=637923013163800000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "16 MP",
+    "weight": "169",
+    "battery": "5000 MAH",
+    "price": "68999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162855-1200-auto?v=637955896706100000&width=1200&height=auto&aspect=true"],
+    "cpu": ["QUALCOMM SNAPDRAGON 680"],
+    "description": "Hacé que tu entretenimiento favorito cobre vida con el contraste infinito que ofrece tonos oscuros más profundos y colores más brillantes, en la pantalla FHD+ de 6.6' y 90 Hz con tecnología pOLED. Gracias a la resolución Full HD+, obtené imágenes que quedan siempre súper nítidas y disfrutalas en una pantalla ultra wide que prácticamente no presenta bordes. Además, viví una experiencia de sonido multidimensional mejorada con el audio Dolby Atmos®. Escuchá todos los detalles de los programas y las películas que más te gustan. Disfrutá las canciones con sonido más claro y profundo, y descubrí nuevas sensaciones al escuchar a tus artistas favoritos de cerca."},
+
+    {    
+    "model": "G82 XT2225-1",
+    "brand": "Motorola",
+    "operative system": "Android 12",
+    "size": "16.08 x 7.44 x 0.799",
+    "inches": "6.55",
+    "main camera": "50 + 8 + 2 MP",
+    "ram": ["6"],
+    "colors": [
+        {"black":["https://armoto.vtexassets.com/arquivos/ids/162591-1200-auto?v=637929124135030000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162592-1200-auto?v=637929124260970000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162595-1200-auto?v=637929124683970000&width=1200&height=auto&aspect=true"]},
+        {"opticWhite":["https://armoto.vtexassets.com/arquivos/ids/162602-1200-auto?v=637929135016900000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162603-1200-auto?v=637929135122670000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162606-1200-auto?v=637929135575300000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "16 MP",
+    "weight": "173",
+    "battery": "5000 MAH",
+    "price": "83999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162861-1200-auto?v=637955900053400000&width=1200&height=auto&aspect=true"],
+    "cpu": ["QUALCOMM SNAPDRAGON 695"],
+    "description": "Dale vida a tus películas y programas favoritos gracias a la pantalla pOLED FHD+ de 6.6\". Experimentá el contraste infinito que ofrece tonos oscuros más profundos* y más de mil millones de colores reales. Viví una experiencia visual fluida y sin interrupciones con la increíble velocidad de actualización de 120 Hz. Disfrutá esta pantalla ultra wide que prácticamente no presenta bordes."},
+
+    {    
+    "model": "MOTO E40",
+    "brand": "Motorola",
+    "operative system": "Android 11",
+    "size": "16.50 x 7.56 x 0.91",
+    "inches": "6.53",
+    "main camera": "48 + 2 + 2 MP",
+    "ram": ["4"],
+    "colors": [
+        {"grey":["https://armoto.vtexassets.com/arquivos/ids/161391-1200-auto?v=637779821677400000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161392-1200-auto?v=637779822086530000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161393-1200-auto?v=637779822155400000&width=1200&height=auto&aspect=true"]},
+        {"champagnePink":["https://armoto.vtexassets.com/arquivos/ids/161398-1200-auto?v=637779822743800000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161401-1200-auto?v=637779823119730000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161402-1200-auto?v=637779823217500000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["64 GB"],
+    "frontal camera": "8 MP",
+    "weight": "198",
+    "battery": "5000 MAH",
+    "price": "46499",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162877-1200-auto?v=637955912057570000&width=1200&height=auto&aspect=true"],
+    "cpu": ["UNISOC T700"],
+    "description": "Con el sistema de triple cámara con sensor principal de 48 MP¹, tomá fotos y videos nítidos y brillantes de día y de noche, en cualquier condición de luz. Aprovechá el desempeño del procesador Octa-Core personalizado y 4GB de RAM. Mirá en una pantalla ultraamplia HD+ de 6.5\" y disfrutá de una experiencia más fluida con la frecuencia de actualización de pantalla de 90 Hz. Usá el teléfono al máximo hasta 40 horas³ con una sola carga. Liberá tu imaginación con el moto e40."},
+
+    {    
+    "model": "G22 XT-2231-5",
+    "brand": "Motorola",
+    "operative system": "Android 12",
+    "size": "16.39 x 7.49 x 0.84",
+    "inches": "6.53",
+    "main camera": "50+8+2+2MP",
+    "ram": ["4"],
+    "colors": [
+        {"black":["https://armoto.vtexassets.com/arquivos/ids/162068-1200-auto?v=637858864837270000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162069-1200-auto?v=637858864982070000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162070-1200-auto?v=637858865150730000&width=1200&height=auto&aspect=true"]},
+        {"articBlue":["https://armoto.vtexassets.com/arquivos/ids/162074-1200-auto?v=637858869278600000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162075-1200-auto?v=637858869572730000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162076-1200-auto?v=637858869767730000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "16 MP",
+    "weight": "189",
+    "battery": "5000 MAH",
+    "price": "46999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162847-1200-auto?v=637955891464500000&width=1200&height=auto&aspect=true"],
+    "cpu": ["MediaTek Helio G37"],
+    "description": "Ahora las imágenes cobran vida con el moto g22. Captura cada momento a la perfección gracias al sistema de cuatro cámaras con 50 MP¹. Disfruta la pantalla ultraamplia Max Vision de 6.5\" y 90 Hz. Descubre un mundo de posibilidades. Sigue adelante con moto g."},
+
+    {    
+    "model": "E32 XT2227-1",
+    "brand": "Motorola",
+    "operative system": "Android 11",
+    "size": "16.39 x 7.49 x 0.84",
+    "inches": "6.53",
+    "main camera": "16 + 2 + 2 MP",
+    "ram": ["4"],
+    "colors": [
+        {"grey":["https://armoto.vtexassets.com/arquivos/ids/162569-1200-auto?v=637928160672670000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162572-1200-auto?v=637928161151900000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162575-1200-auto?v=637928161583830000&width=1200&height=auto&aspect=true"]},
+        {"silverWhite":["https://armoto.vtexassets.com/arquivos/ids/162448-1200-auto?v=637922954190370000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162580-1200-auto?v=637928163547100000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/162449-1200-auto?v=637922954670900000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["64 GB"],
+    "frontal camera": "8 MP",
+    "weight": "184",
+    "battery": "5000 MAH",
+    "price": "44499",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162875-1200-auto?v=637955911368730000&width=1200&height=auto&aspect=true"],
+    "cpu": ["UNISOC T606"],
+    "description": "El nuevo Moto E32 cuenta con un diseño elegante y resistente y se destaca por su pantalla HD+ de 6.5\". En ella vas a poder disfrutar y mirar todas tus series y películas preferidas y jugar a los mejores videojuegos en la mejor calidad."},
+
+    {    
+    "model": "Moto G60s",
+    "brand": "Motorola",
+    "operative system": "Android 11",
+    "size": "16.32 x 7.59 x 0.79",
+    "inches": "6.78",
+    "main camera": "64 + 8 + 5 MP",
+    "ram": ["6"],
+    "colors": [
+        {"blue":["https://armoto.vtexassets.com/arquivos/ids/161363-1200-auto?v=637779805529970000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161365-1200-auto?v=637779805721430000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161364-1200-auto?v=637779805626970000&width=1200&height=auto&aspect=true"]},
+        {"aqua":["https://armoto.vtexassets.com/arquivos/ids/161371-1200-auto?v=637779807815700000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161373-1200-auto?v=637779808038900000&width=1200&height=auto&aspect=true","https://armoto.vtexassets.com/arquivos/ids/161372-1200-auto?v=637779807938170000&width=1200&height=auto&aspect=true"]}
+    ],
+    "capacity": ["128 GB"],
+    "frontal camera": "16 MP",
+    "weight": "188",
+    "battery": "5000 MAH",
+    "price": "70999",
+    "image": ["https://armoto.vtexassets.com/arquivos/ids/162857-1200-auto?v=637955898817100000&width=1200&height=auto&aspect=true"],
+    "cpu": ["Octa Core 2.0 GHz"],
+    "description": "Sorprendentemente real con increíble fluidez. Disfrutá de la pantalla más grande, amplia y envolvente jamás vista en un moto g. La pantalla Max Vision FHD+ de 6.8'' ofrece una gama de colores de un 10 % más amplia."}
+]
