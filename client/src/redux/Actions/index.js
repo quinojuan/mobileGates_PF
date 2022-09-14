@@ -6,7 +6,7 @@ export function getAllProducts(){
         let data=json.data
         return dispatch({
             type: 'GET_PRODUCTS',
-            payload: data.allProducts
+            payload: data
         })
     }
 }
