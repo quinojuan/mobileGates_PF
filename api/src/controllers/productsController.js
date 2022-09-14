@@ -1,4 +1,4 @@
-const { Tablets, Phones, Notebooks } = require("../db");
+const { Tablets, Phones, Notebooks } = require('../db');
 
 // -------------------- GET ALL --------------------
 
@@ -29,16 +29,16 @@ const getAllProducts = async (req, res) => {
 // -------------------- TABLETS --------------------
 
 const getAllTablets = async (req, res) => {
-  try {
-    const allTablets = await Tablets.findAll();
-    if (allTablets.length !== 0) {
-      return res.status(200).json(allTablets);
-    }
-    res.status(404).json({ message: "Not found any tablet" });
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ message: "Server error" });
-  }
+	try {
+		const allTablets = await Tablets.findAll();
+		if (allTablets.length !== 0) {
+			return res.status(200).json(allTablets);
+		}
+		res.status(404).json({ message: 'Not found any tablet' });
+	} catch (e) {
+		console.log(e);
+		res.status(500).json({ message: 'Server error' });
+	}
 };
 
 const getTabletById = async (req, res) => {
@@ -136,16 +136,16 @@ const postTablet = async (req, res) => {
 // -------------------- NOTEBOOKS --------------------
 
 const getAllNotebooks = async (req, res) => {
-  try {
-    const allNotebooks = await Notebooks.findAll();
-    if (allNotebooks.length !== 0) {
-      return res.status(200).json(allNotebooks);
-    }
-    res.status(404).json({ message: "Not found any tablet" });
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ message: "Server error" });
-  }
+	try {
+		const allNotebooks = await Notebooks.findAll();
+		if (allNotebooks.length !== 0) {
+			return res.status(200).json(allNotebooks);
+		}
+		res.status(404).json({ message: 'Not found any tablet' });
+	} catch (e) {
+		console.log(e);
+		res.status(500).json({ message: 'Server error' });
+	}
 };
 
 const getNotebookById = async (req, res) => {

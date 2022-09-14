@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
 	// defino el modelo
-	sequelize.define('Notebooks', {
+	sequelize.define('Products', {
 		id: {
 			type: DataTypes.UUID,
 			allowNull: false,
@@ -13,11 +13,7 @@ module.exports = (sequelize) => {
 		model: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			unique: false, //CAMBIAR CUANDO NO HAYA REPETIDOS EN EL JSON
-		},
-		category: {
-			type: DataTypes.STRING,
-			allowNull: false,
+			unique: false
 		},
 		brand: {
 			type: DataTypes.STRING,
@@ -47,6 +43,9 @@ module.exports = (sequelize) => {
 			type: DataTypes.ARRAY(DataTypes.STRING),
 			allowNull: false,
 		},
+        main_camera:{
+            type: DataTypes.STRING,
+        },
 		frontal_camera: {
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -71,21 +70,24 @@ module.exports = (sequelize) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		gpu: {
+		gpu:{
 			type: DataTypes.STRING,
-			allowNull: false,
+			
 		},
-		display: {
-			type: DataTypes.STRING,
-			allowNull: false,
+		display:{
+           type: DataTypes.STRING,
+		   
 		},
-		usb: {
+		usb:{
 			type: DataTypes.INTEGER,
-			allowNull: false,
+			
 		},
-		numpad: {
+		numpad:{
 			type: DataTypes.BOOLEAN,
-			allowNull: false,
-		},
-	});
-};
+			
+		}
+	},{
+		timestamps: false,
+        freezeTableName: true,
+    });
+};;

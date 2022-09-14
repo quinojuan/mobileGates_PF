@@ -25,6 +25,11 @@ function rootReducer(state = initialState, action) {
                             ...state,
                             details:action.payload
                         }
+                        case "GET_CLEAN":
+                            return{
+                                ...state,
+                                payload:[]
+                            }
 
 
         case 'SEARCH_NAME':
