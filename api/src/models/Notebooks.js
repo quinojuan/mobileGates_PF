@@ -13,7 +13,11 @@ module.exports = (sequelize) => {
 		model: {
 			type: DataTypes.STRING,
 			allowNull: false,
+<<<<<<< HEAD
 			
+=======
+			unique: false, //CAMBIAR CUANDO NO HAYA REPETIDOS EN EL JSON
+>>>>>>> b6cd401587ab115267a223cf2a37a35c582e1bc3
 		},
 		category: {
 			type: DataTypes.STRING,
