@@ -8,7 +8,8 @@ const {
 	getAllNotebooks,
 	getNotebookById,
 	postNotebook,
-	getAllPhones
+	getAllPhones,
+	getPhonesById
 } = require('../controllers/productsController');
 
 router.get("/", getAllProducts);
@@ -22,7 +23,7 @@ router.get('/notebooks/:id', getNotebookById);
 router.post('/notebooks', postNotebook);
 
 router.get('/phones', getAllPhones);
-// router.get('/phones/:id', getTabletById);
+router.get('/phones/:id', getPhonesById);
 // router.post('/phones', postTablet);
 
 
