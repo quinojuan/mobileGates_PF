@@ -41,7 +41,6 @@ const getAllTablets = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
 
 const getTabletById = async (req, res) =>{
     try{
@@ -58,22 +57,6 @@ const getTabletById = async (req, res) =>{
         console.log(e);
 		res.status(500).json({ message: 'Server error' });  
     };
-=======
-const getTabletById = async (req, res) => {
-  try {
-    const { id } = req.params;
-    if (!id) res.ratus(404).json({ message: "id is not provided" });
-    const validation = await Tablets.findByPk(id);
-    if (validation.length === 0) {
-      res.status(404).json({ message: "id not exists" });
-    } else {
-      res.status(201).json(validation);
-    }
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ message: "Server error" });
-  }
->>>>>>> 4751e530bab49747f1142ed7e2a468a6af7d7020
 };
 
 const postTablet = async (req, res) => {
