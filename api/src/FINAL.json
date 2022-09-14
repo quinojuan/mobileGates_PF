@@ -1036,7 +1036,7 @@
     "operative_system": "Android 12",
     "size": "16.35 x 7.59 x 0.87 cm",
     "inches": 6.67,
-    "main_camera": "50 + 50 + 2",
+    "main_camera": 50,
     "ram": [12],
     "colors": [
       {
@@ -1070,7 +1070,7 @@
     "operative_system": "Android 12",
     "size": "16.04 x 7.34 x 0.79 cm",
     "inches": 6.43,
-    "main_camera": "50 + 8 + 2",
+    "main_camera": 50,
     "ram": [4],
     "colors": [
       {
@@ -1104,7 +1104,7 @@
     "operative_system": "Android 12",
     "size": "15.93 x 7.42 x 0.67 cm",
     "inches": 6.55,
-    "main_camera": "50 + 13 + 2",
+    "main_camera": 50,
     "ram": [8],
     "colors": [
       {
@@ -1138,7 +1138,7 @@
     "operative_system": "Android 12",
     "size": "16.09 x 7.44 x 0.79 cm",
     "inches": 6.55,
-    "main_camera": "50 + 8 + 2",
+    "main_camera": 50,
     "ram": [6],
     "colors": [
       {
@@ -1172,7 +1172,7 @@
     "operative_system": "Android 12",
     "size": "16.08 x 7.44 x 0.799 cm",
     "inches": 6.55,
-    "main_camera": "50 + 8 + 2",
+    "main_camera": 50,
     "ram": [6],
     "colors": [
       {
@@ -1206,7 +1206,7 @@
     "operative_system": "Android 11",
     "size": "16.50 x 7.56 x 0.91 cm",
     "inches": 6.53,
-    "main_camera": "48 + 2 + 2",
+    "main_camera": 48,
     "ram": [4],
     "colors": [
       {
@@ -1240,7 +1240,7 @@
     "operative_system": "Android 12",
     "size": "16.39 x 7.49 x 0.84 cm",
     "inches": 6.53,
-    "main_camera": "50+8+2+2",
+    "main_camera": 50,
     "ram": [4],
     "colors": [
       {
@@ -1274,7 +1274,7 @@
     "operative_system": "Android 11",
     "size": "16.39 x 7.49 x 0.84 cm",
     "inches": 6.53,
-    "main_camera": "16 + 2 + 2",
+    "main_camera": 16,
     "ram": [4],
     "colors": [
       {
@@ -1308,7 +1308,7 @@
     "operative_system": "Android 11",
     "size": "16.32 x 7.59 x 0.79 cm",
     "inches": 6.78,
-    "main_camera": "64 + 8 + 5",
+    "main_camera": 64,
     "ram": [6],
     "colors": [
       {
