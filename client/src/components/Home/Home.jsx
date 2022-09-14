@@ -25,7 +25,7 @@ export default function Home() {
             <SearchBar/>
         </div>
         <div>
-            {allProducts&&allProducts.map(s=>{
+            {allProducts?.map(s=>{
                 return(
                     <Link key={s.id} to={`/products/${s.category.toLowerCase()}/${s.id}`}>
                         <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()}/>
