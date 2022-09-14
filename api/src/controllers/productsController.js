@@ -25,12 +25,10 @@ const getAllProducts = async (req, res) => {
       };
       if(name){
         let model = name;
-        console.log(model);
         allProducts = allProducts.filter((product) => product.model.includes(model));
       };
       if(capacity){
         allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
-        
       };
     };
     if (allProducts.length === 0)
