@@ -1,0 +1,16 @@
+.container-nav{
+    display: inline-block;
+    background: rgb(255, 255, 255);
+    color: rgb(253, 101, 6);
+    padding: 10px 30px;
+    text-decoration: none;
+}
+
+.container-nav :hover{
+    background: brown;
+}
+
+nav{
+    background: rgb(137, 80, 80);
+    padding: 10px;
+}

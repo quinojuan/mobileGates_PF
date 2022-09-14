@@ -9,3 +9,19 @@ export function getAllProducts(){
         })
     }
 }
+
+export function searchName(payload) {
+    return async function (dispatch) {
+         try {
+            var json = await axios.get("http://localhost:3001/products?name=" + payload)
+            return dispatch ({
+                type: 'SEARCH_NAME',
+                payload: json.data
+            })
+         } catch (error) {
+             console.log(error)
+             
+         }
+        
+    }
+}
