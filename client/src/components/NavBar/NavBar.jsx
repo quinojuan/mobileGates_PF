@@ -7,11 +7,11 @@ export default function NavBar() {
   return (
     <nav>
       <div>
-        <h1>MóvilGates</h1>
+        <h1 className='container-logo'>MóvilGates</h1>
         <a href="#" className='container-nav'>HOME</a>
         <a href="#" className='container-nav'>CATEGORIAS</a>
         <a href="#" className='container-nav'>QUIENES SOMOS?</a>
-        <a href="#" className='container-nav'>CARRITO</a>
+        <a href="#" className='container-nav'>CARRITO 🛒</a>
       </div>
     </nav>
   )

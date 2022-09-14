@@ -12,6 +12,7 @@ export default function SearchBar() {
 
     return (
         <div>
+            <h2>Qué producto estas buscando?</h2>
             <input type="text" onChange={handleInputChange} placeholder="Buscá un producto..."/> 
         </div>
     )
