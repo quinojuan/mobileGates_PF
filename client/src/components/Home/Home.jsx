@@ -17,10 +17,10 @@ export default function Home() {
         dispatch(getAllProducts())
     }, [dispatch])
 
-    return(
+    return (
         <div>
-            <NavBar/>
-            <SearchBar/>
+            <NavBar />
+            <SearchBar />
         </div>
     )
 }
