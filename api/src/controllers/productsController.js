@@ -13,11 +13,11 @@ const getAllProducts = async (req, res) => {
 		const allProducts = allPhones.concat(allTablets).concat(allNotebooks);
 		if (allProducts.length === 0)
 			return res.status(404).json({ message: 'Error en concatenación' });
-		res.status(201).json({ message: 'done' }, allProducts);
+		res.status(201).json({ message: 'done', allProducts });
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
-	}
+	};
 };
 
 // -------------------- TABLETS --------------------
@@ -52,15 +52,16 @@ const getTabletById = async (req, res) =>{
 };
 
 const postTablet = async (req, res) => {
+	// NO FUNCIONA
 	//PRUEBA POSTEANDO UNICAMENTE UNA TABLET (HABRÍA QUE CREAR UN MODEL DE PRODUCT ASI DEPENDE LA CATEGORÍA SE SUBE O TABLET O NOTEBOOK O PHONE)
 	try {
-		const {model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description} = req.body;
+		const {category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description} = req.body;
 
-		if({ model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description}){
+		if({ category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description}){
             const validation = await Tablets.findOne({where:{ model: model}});
             if(validation.length === 0){
-                const newTablet = await Tablets.create({ model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description});
-                newTablet.length ? res.status(201).json({message: 'product created'}, newTablet) : res.status(404).json({message: 'Error /post product'})
+                const newTablet = await Tablets.create({ category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description});
+                newTablet.length ? res.status(201).json({message: 'product created', newTablet}) : res.status(404).json({message: 'Error /post product'})
                 
             }else{
                 res.status(404).json({message: 'product created already'}, validation)
@@ -95,11 +96,11 @@ const getNotebookById = async (req, res) =>{
     try{
         const {id} = req.params;
         if(!id) res.ratus(404).json({message: 'id is not provided'});
-        const validation = Notebooks.findByPk(id);
+        const validation = await Notebooks.findByPk(id);
         if(validation.length === 0){
             res.status(404).json({message: 'id not exists'});
         }else{
-            res.status(201).json({message: 'done'}, validation);
+            res.status(201).json({message: 'done', validation});
         };
     }catch(e){
         console.log(e);
