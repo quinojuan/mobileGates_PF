@@ -58,7 +58,6 @@ const getTabletById = async (req, res) => {
 };
 
 const postTablet = async (req, res) => {
-  // NO FUNCIONA
   //PRUEBA POSTEANDO UNICAMENTE UNA TABLET (HABRÍA QUE CREAR UN MODEL DE PRODUCT ASI DEPENDE LA CATEGORÍA SE SUBE O TABLET O NOTEBOOK O PHONE)
   try {
     const {
@@ -81,27 +80,25 @@ const postTablet = async (req, res) => {
     } = req.body;
 
     if (
-      {
-        category,
-        model,
-        brand,
-        operative_system,
-        size,
-        inches,
-        main_camera,
-        ram,
-        capacity,
-        frontal_camera,
-        weight,
-        battery,
-        price,
-        image,
-        cpu,
-        description,
-      }
+      category &&
+      model &&
+      brand &&
+      operative_system &&
+      size &&
+      inches &&
+      main_camera &&
+      ram &&
+      capacity &&
+      frontal_camera &&
+      weight &&
+      battery &&
+      price &&
+      image &&
+      cpu &&
+      description
     ) {
       const validation = await Tablets.findOne({ where: { model: model } });
-      if (validation.length === 0) {
+      if (!validation) {
         const newTablet = await Tablets.create({
           category,
           model,
@@ -120,7 +117,7 @@ const postTablet = async (req, res) => {
           cpu,
           description,
         });
-        newTablet.length
+        newTablet
           ? res.status(201).json({ message: "product created", newTablet })
           : res.status(404).json({ message: "Error /post product" });
       } else {
@@ -207,5 +204,5 @@ module.exports = {
   getAllNotebooks,
   getNotebookById,
   getAllPhones,
-  getPhoneById
+  getPhoneById,
 };

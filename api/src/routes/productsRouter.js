@@ -15,7 +15,7 @@ router.get("/", getAllProducts);
 
 router.get("/tablets", getAllTablets);
 router.get("/tablets/:id", getTabletById);
-router.post("/", postTablet);
+router.post("/tablets", postTablet);
 
 router.get("/notebooks", getAllNotebooks);
 router.get("/notebooks/:id", getNotebookById);
