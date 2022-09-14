@@ -15,27 +15,26 @@ const getAllProducts = async (req, res) => {
       allTablets.length === 0
     )
     return res.status(404).json({ message: "Error en find all" });
-    let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
+    let allProducts = allPhones.concat(allTablets).concat(allNotebooks);
     if(req.query){
+      console.log(ram);
       if(ram){
         allProducts = allProducts.filter((product) => product.ram.includes(Number(ram)));
       };
       if(category){
-        allProducts = allProducts.filter((product) => product.category.includes(category));
+        allProducts = allProducts.filter((product) => product.category.toLowerCase().includes(category.toLowerCase()));
       };
       if(name){
+        console.log(name.toLowerCase());
         let model = name;
-        console.log(model);
-        allProducts = allProducts.filter((product) => product.model.includes(model));
+        allProducts = allProducts.filter((product) => product.model.toLowerCase().includes(model.toLowerCase()));
       };
       if(capacity){
         allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
-        
       };
     };
     if (allProducts.length === 0)
-      return res.status(404).json({ message: "Error en concatenación" });
-
+    return res.status(404).json({ message: "Error en concatenación" });
     res.status(201).json(allProducts);
   } catch (e) {
     console.log(e);
