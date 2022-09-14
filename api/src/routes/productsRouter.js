@@ -2,12 +2,12 @@ const { Router } = require('express');
 const router = Router();
 const {
 	getAllProducts,
-	postProduct,
+	postTablet,
 	getAllTablets,
 } = require('../controllers/productsController');
 
 router.get('/', getAllProducts);
 router.get('/tablets', getAllTablets);
-router.post('/', postProduct);
+router.post('/', postTablet);
 
 module.exports = router;
