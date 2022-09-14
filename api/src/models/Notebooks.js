@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
 		model: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			unique: true
+			unique: false
 		},
 		category: {
 			type: DataTypes.STRING,
