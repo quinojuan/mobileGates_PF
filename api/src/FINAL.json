@@ -8,11 +8,9 @@
       "inches": 14,
       "description": "Notebook Asus VivoBook E410MA azul eléctrico 14'' Intel Celeron N4020 4GB de RAM 128GB SSD, Intel UHD Graphics 600 60 Hz 1366x768px Windows 10 Home",
       "ram": [4],
-      "colors": {
-        "black": [
+      "colors":  [
           "https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
-        ]
-      },
+        ],
       "capacity": ["120ssd", "240ssd"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -34,11 +32,9 @@
       "inches": 17.3,
       "description": "Notebook Asus X515EA 15.6'' Intel Core i3 1115G4 4GB de RAM 256GB SSD, Intel UHD Graphics Xe G4 48EUs 1920x1080px",
       "ram": [4, 8],
-      "colors": {
-        "black": [
+      "colors":  [
           "https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD", "240SSD", "480SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -60,11 +56,9 @@
       "inches": 12.3,
       "description": "Notebook Asus VivoBook X512JA slate gray 15.6'', Intel Core i7 1065G7 8GB de RAM 1TB HDD 256GB SSD, Intel Iris Plus Graphics G7 1920x1080px Windows 10 Home",
       "ram": [8],
-      "colors": {
-        "black": [
+      "colors":  [
           "https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
-        ]
-      },
+        ],
       "capacity": ["240SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -86,11 +80,9 @@
       "inches": 14,
       "description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
       "ram": [8, 16],
-      "colors": {
-        "grey": [
+      "colors": [
           "https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -112,11 +104,9 @@
       "inches": 12.3,
       "description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
       "ram": [4, 8],
-      "colors": {
-        "grey": [
+      "colors": [
           "https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD,240SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -138,11 +128,9 @@
       "inches": 14,
       "description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
       "ram": [4, 8, 16],
-      "colors": {
-        "grey": [
+      "colors": [
           "https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
-        ]
-      },
+        ],
       "capacity": ["480SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -164,11 +152,9 @@
       "inches": 12.3,
       "description": "Notebook Asus Vivobook I3 11th 8gb Ram 256gb Ssd 15.6 Táctil",
       "ram": [4],
-      "colors": {
-        "grey": [
+      "colors":[
           "https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -190,11 +176,9 @@
       "inches": 14.7,
       "description": "Notebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
       "ram": [4, 8],
-      "colors": {
-        "grey": [
+      "colors":[
           "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -216,11 +200,9 @@
       "inches": 13.8,
       "description": "otebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
       "ram": [4, 8],
-      "colors": {
-        "grey": [
+      "colors": [
           "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -242,11 +224,9 @@
       "inches": 12.7,
       "description": "otebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
       "ram": [8, 16],
-      "colors": {
-        "grey": [
+      "colors":[
           "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD", "240SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -268,11 +248,9 @@
       "inches": 12.7,
       "description": "otebook gamer Asus Rog Strix G15 G513RM eclipse gray 15.6'', AMD Ryzen 7 6800H 16GB de RAM 512GB SSD, Nvidia RTX 3060 165 Hz 2560x1440px Windows 11 Home",
       "ram": [4, 8],
-      "colors": {
-        "grey": [
+      "colors":[
           "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
-        ]
-      },
+        ],
       "capacity": ["128SSD"],
       "frontal_camera": "640px-480px",
       "weight": 1.3,
@@ -295,27 +273,15 @@
       "description": "La notebook más delgada y ligera de Apple viene con los superpoderes del chip M1. Termina todos tus proyectos mucho más rápido con el CPU de 8 núcleos y disfruta como nunca antes de apps y juegos con gráficos avanzados gracias al GPU de hasta 8 núcleos. Además, el Neural Engine de 16 núcleos se encarga de acelerar todos los procesos de aprendizaje automático. Todo en un diseño silencioso sin ventilador que te ofrece la mayor duración de batería en una MacBook Air: hasta 18 horas. (1) Portátil como siempre, más poderosa que nunca.",
       "ram": [8],
       "colors": [
-        {
-          "Gris": [
             "https://http2.mlstatic.com/D_NQ_NP_948162-MLA46516517283_062021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_813631-MLA46516512349_062021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_967662-MLA46516517284_062021-O.webp"
-          ]
-        },
-        {
-          "Oro": [
+            "https://http2.mlstatic.com/D_NQ_NP_967662-MLA46516517284_062021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_830386-MLA46516504422_062021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_857044-MLA46516512360_062021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_706823-MLA46516504423_062021-O.webp"
-          ]
-        },
-        {
-          "Plata": [
+            "https://http2.mlstatic.com/D_NQ_NP_706823-MLA46516504423_062021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_684862-MLA46516504419_062021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_933025-MLA46516512355_062021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_933025-MLA46516512355_062021-O.webp"
-          ]
-        }
+            "https://http2.mlstatic.com/D_NQ_NP_933025-MLA46516512355_062021-O.webp"  
       ],
       "capacity": ["256SSD", "512SSD"],
       "frontal_camera": "1280px-720px",
@@ -339,20 +305,12 @@
       "description": "El chip M1 de Apple redefine al Macbook Pro de 13 pulgadas.(1) Viene con una CPU de 8 núcleos que permite un rendimiento óptimo en los flujos de trabajo más exigentes, como fotografía, programación y edición de video. La sorprendente GPU de 8 núcleos ofrece un rendimiento asombroso en procesos gráficos complejos y una experiencia de juego increíblemente fluida. El Neural Engine avanzado de 16 núcleos lleva el aprendizaje automático a un nuevo nivel en tus apps favoritas. Además, viene con memoria unificada que optimiza el rendimiento y la mayor duración de batería en un Mac: hasta 20 horas.(2) Es el notebook Pro más popular de Apple, a un nivel de rendimiento mucho más pro.",
       "ram": [8],
       "colors": [
-        {
-          "Gris": [
             "https://http2.mlstatic.com/D_NQ_NP_756770-MLA45795181650_052021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_657721-MLA45795227447_052021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_914144-MLA45795181653_052021-O.webp"
-          ]
-        },
-        {
-          "Plata": [
+            "https://http2.mlstatic.com/D_NQ_NP_914144-MLA45795181653_052021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_907433-MLA45795227804_052021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_736238-MLA45795181981_052021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_963743-MLA45795195900_052021-O.webp"
-          ]
-        }
+            "https://http2.mlstatic.com/D_NQ_NP_963743-MLA45795195900_052021-O.webp"   
       ],
       "capacity": ["256SSD", "512SSD"],
       "frontal_camera": "1280px-720px",
@@ -376,13 +334,9 @@
       "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
       "ram": [8],
       "colors": [
-        {
-          "Gris": [
             "https://http2.mlstatic.com/D_NQ_NP_987724-MLA47215243740_082021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_762247-MLA47215243752_082021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_749059-MLA47215230823_082021-O.webp"
-          ]
-        }
       ],
       "capacity": ["256SSD", "512SSD"],
       "frontal_camera": "1280px-720px",
@@ -406,20 +360,12 @@
       "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
       "ram": [8],
       "colors": [
-        {
-          "Azul": [
             "https://http2.mlstatic.com/D_NQ_NP_972693-MLA50864063156_072022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_663537-MLA50864055036_072022-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_749395-MLA50864047177_072022-O.webp"
-          ]
-        },
-        {
-          "Plata": [
+            "https://http2.mlstatic.com/D_NQ_NP_749395-MLA50864047177_072022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_805951-MLA50865156506_072022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_609731-MLA50878651630_072022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_849241-MLA50878653653_072022-O.webp"
-          ]
-        }
       ],
       "capacity": ["256SSD", "512SSD"],
       "frontal_camera": "1280px-720px",
@@ -443,13 +389,9 @@
       "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
       "ram": [8],
       "colors": [
-        {
-          "Negro": [
             "https://http2.mlstatic.com/D_NQ_NP_622209-MLA50584269704_072022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_980061-MLA50584246720_072022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_798084-MLA50584358593_072022-O.webp"
-          ]
-        }
       ],
       "capacity": ["256SSD"],
       "frontal_camera": "1280px-720px",
@@ -473,13 +415,9 @@
       "description": "Los equipos Dell se destacan por ofrecer soluciones reales para cada una de las necesidades. Ya sea para conectarte, entretenerte, trabajar o colaborar de manera online, podrás hacerlo de forma segura desde cualquier lugar y en cualquier momento.",
       "ram": [8],
       "colors": [
-        {
-          "Azul": [
             "https://http2.mlstatic.com/D_NQ_NP_702493-MLA49715479859_042022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_616910-MLA49715524611_042022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_982465-MLA49715524613_042022-O.webp"
-          ]
-        }
       ],
       "capacity": ["256SSD"],
       "frontal_camera": "1280px-720px",
@@ -503,13 +441,9 @@
       "description": "Delgado y ligero, el IdeaPad 3 está alimentado por un procesador Intel Core i3-1005G1 con 8 GB de RAM DDR4, 128 GB de almacenamiento SSD M.2 y gráficos Intel UHD integrados",
       "ram": [8],
       "colors": [
-        {
-          "Gris": [
             "https://http2.mlstatic.com/D_NQ_NP_975834-MLA51015201380_082022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_719273-MLA51015186421_082022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_788482-MLA51015240242_082022-O.webp"
-          ]
-        }
       ],
       "capacity": ["128SSD"],
       "frontal_camera": "1280px-720px",
@@ -533,13 +467,9 @@
       "description": "La notebook Lenovo Legion 5 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento.",
       "ram": [16],
       "colors": [
-        {
-          "Negro": [
             "https://http2.mlstatic.com/D_NQ_NP_845561-MLA48809654548_012022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_854414-MLA48809618870_012022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_783152-MLA48809654544_012022-O.webp"
-          ]
-        }
       ],
       "capacity": ["256SSD"],
       "frontal_camera": "1280px-720px",
@@ -563,18 +493,10 @@
       "description": "La notebook Lenovo V-Series V15 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento.",
       "ram": [8],
       "colors": [
-        {
-          "Negro": [
             "https://http2.mlstatic.com/D_NQ_NP_863361-MLA48850571048_012022-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_678056-MLA48850571047_012022-O.webp"
-          ]
-        },
-        {
-          "Gris": [
+            "https://http2.mlstatic.com/D_NQ_NP_678056-MLA48850571047_012022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_888927-MLA48850376845_012022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_865195-MLA48850376795_012022-O.webp"
-          ]
-        }
       ],
       "capacity": ["256SSD"],
       "frontal_camera": "1280px-720px",
@@ -598,13 +520,9 @@
       "description": "La notebook Lenovo ThinkPad E14 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento.",
       "ram": [16],
       "colors": [
-        {
-          "Negro": [
             "https://http2.mlstatic.com/D_NQ_NP_864836-MLA44981951928_022021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_899870-MLA44962993057_022021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_835946-MLA44962993211_022021-O.webp"
-          ]
-        }
+            "https://http2.mlstatic.com/D_NQ_NP_835946-MLA44962993211_022021-O.webp" 
       ],
       "capacity": ["256SSD"],
       "frontal_camera": "1280px-720px",
@@ -626,13 +544,11 @@
       "inches": 15.6,
       "description": "The MSI 15.6 GE65 Raider Leopard Gaming Laptop is  built for gaming with the hardware, features, and aesthetics to match . Specs-wise, it has a 2.6 GHz Intel Core i5-10ma six-core processor, 16GB of 2666 MHz DDR4 RAM, and an NVIDIA GeForce RTX 2060 Ti graphics card.",
       "ram": [16, 32],
-      "colors": {
-        "black": [
+      "colors":[
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzh7MMB8SiPT8ZmCYhT8BLFs4cu3ehvWsI4A&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZStdonGE2rDrKGxcoLbrrG55pwVxsUjUPCG24mv8XGSL39ZRIuKkSt5ClxZeXYaYKH0w&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYa-AUMinfxHHvpu6K5b3RB8Or5Hy6qCj08Q&usqp=CAU"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "680px-480px",
       "weight": 2.4,
@@ -654,13 +570,11 @@
       "inches": 17.6,
       "description": "The super MSI Sword 17 gaming Laptop is  built for gaming with the hardware, features, and aesthetics to match . Specs-wise, it has a 2.6 GHz Intel Core i9-12900H six-core processor, 32GB of 2666 MHz DDR4 RAM, and an NVIDIA GeForce RTX 2080 Ti graphics card.",
       "ram": [16, 32, 64],
-      "colors": {
-        "white": [
+      "colors":[
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxg2l2bgMCYFt44X-kVFgeQ1cs5Iloi_ozEHLdK-vU7jykFeZJEvnL-kzbVDIcabCalQ&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRPd-U1UzVni4V8Kj7-rQfz0fhsn-h5bnEFA&usqp=CAU",
           "https://getek.store/wp-content/uploads/2022/05/61KU2Gltf0L._AC_SL1500_-600x301.jpg"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "640px-480px",
       "weight": 2.1,
@@ -682,13 +596,11 @@
       "inches": 17.3,
       "description": "The MSI 17.3 Steal GS66 - 12U gaming Laptop is  built for gaming with the hardware, features, and aesthetics to match . Specs-wise, it has a 2.6 GHz Intel Core i7-9750H six-core processor, 16GB of 2666 MHz DDR4 RAM, and an NVIDIA GeForce RTX 2070 graphics card.",
       "ram": [8, 16, 32],
-      "colors": {
-        "black": [
+      "colors": [
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl-AoYQn68a9eVQwkipXSIi5eiPWlZQ1jZLtt3y6zqGr7zRtgvZqD87OWaZyascSbFqW0&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn5hMjQBTwOCEkYLHdvzBIfOlsVhQNqG1Xzg&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLb4_k8pb_zmdhfCo_76Sjgdk9N9UnAZhmPg&usqp=CAU"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "640px-480px",
       "weight": 2.3,
@@ -710,13 +622,11 @@
       "inches": 17.3,
       "description": "The MSI Katana GF76 Laptop is  built for gaming with the hardware, features, and aesthetics to match . Specs-wise, it has a 2.6 GHz Intel Core i7-11H six-core processor, 16GB of 2666 MHz DDR4 RAM, and an NVIDIA GeForce RTX 2080 graphics card",
       "ram": [8, 16, 32],
-      "colors": {
-        "black": [
+      "colors": [
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIcKoNe1j6kCjtVozW1CNuOOwd8g2KbLs_0AWGHLX6Er9FXmdlSMhJQgOw75RWpuudzYM&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSarGwdGPzCQT-23RD87A2RpvW9WLG1242LEA&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNdNu6asJrVsrxMgkYlfgTE5abjGQbK22fAw&usqp=CAU"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "640px-480px",
       "weight": 2.2,
@@ -738,13 +648,11 @@
       "inches": 15.6,
       "description": "The MSI Sword 15 gaming Laptop is  built for gaming with the hardware, features, and aesthetics to match . Specs-wise, it has a 2.6 GHz Intel Core i7-12900H six-core processor, 16GB of 2666 MHz DDR4 RAM, and an NVIDIA GeForce RTX 2070 graphics card.",
       "ram": [8, 16, 32],
-      "colors": {
-        "white": [
+      "colors": [
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXc2jH7FUyyI0LAZBin8hiOp3F6Pkrrc3ifa84a8E-PMYlqwCz1nu2FpNG-kocXKsYNZw&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_EaM2Hq5WgORBhldzUCh5_9pQQq_9FWm-mw&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6PKTdWp95Q5_2EN-2mAZMsSV47Ya3yPvkag&usqp=CAU"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "640px-480px",
       "weight": 2.4,
@@ -766,18 +674,14 @@
       "inches": 17.3,
       "description": "The MSI 17.3 Pulse GL76-12U gaming Laptop is  built for gaming with the hardware, features, and aesthetics to match . Specs-wise, it has a 2.6 GHz Intel Core i7-9750H six-core processor, 16GB of 2666 MHz DDR4 RAM, and an NVIDIA GeForce RTX 2070 graphics card.",
       "ram": [8, 16, 32],
-      "colors": {
-        "gray": [
+      "colors": [
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa0oIZ925ajM1zfnTwNuzRQFJojU8rX_mbN-5GUaFkFGPw6gJusVUd3GCVVpYrRyw7qQ&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQosl-TYD39Cp0pCGFkHGo6xFKZTG5Hk0a4YYn7o0CJuhKqiq5l0GPImUGEsCkpOQeGFEM&usqp=CAU",
-          "https://www.msi.com/Laptop/Pulse-GL76-12UX"
-        ],
-        "black": [
+          "https://www.msi.com/Laptop/Pulse-GL76-12UX",
           "https://katech.com.ar/wp-content/uploads/NOT413.jpg",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcYwAmeZYRoJyqf_gh2SThkv7KdHaUgsXPKFpmYkpdvnnQWWq5bkRo-QYpzxSGO6UWUk&usqp=CAU",
           "https://storage-asset.msi.com/global/picture/image/feature/nb/GL/Pulse-GL76/io-right.png"
-        ]
-      },
+        ],
       "capacity": ["512SSD"],
       "frontal_camera": "720px-480px",
       "weight": 2.4,
@@ -799,18 +703,14 @@
       "inches": 17.3,
       "description": "Stealth 15M  is  a Windows 11 Pro laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels . It is powered by a Core i10 processor and it comes with 16GB of RAM. The MSI Stealth 15M packs 512GB of SSD storage. Graphics are powered by Nvidia GeForce.",
       "ram": [8, 16, 32],
-      "colors": {
-        "black": [
+      "colors": [
           "https://1.bp.blogspot.com/-YYIsHjm8zBY/YWwC_qtDZ-I/AAAAAAAARCk/_o5e1FFHbOAzi6rnfI_xzx_7z0OsWmSFgCLcBGAsYHQ/s1645/stealth15m_1.webp",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzqdFARZdvjRjh13vZEdtCoYbBSFP67vbfSA&usqp=CAU",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjnjWJSu534Rs0Od7i1bYf17yh9XOpexoN7A&usqp=CAU"
-        ],
-        "white": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjnjWJSu534Rs0Od7i1bYf17yh9XOpexoN7A&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSq9XhSQwkNGNEeOXttveFK3nawK6kptxosO1Ub1eOrH2hn32zEDxgsFvFfKsgeuYkDvQ&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpOUX2wnqKYUbGLoS-AnYB-E8_U35EVrnBbg&usqp=CAU",
           "https://gcdn.lanetaneta.com/wp-content/uploads/2021/03/MSI-Stealth-15M-%C2%BFQuien-deberia-comprar-una-nueva-computadora-portatil.5.jpeg"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "720px-480px",
       "weight": 2.4,
@@ -832,13 +732,11 @@
       "inches": 15.6,
       "description": "MSI GE66 Raider is  a Windows 10 Home laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels . It is powered by a Core i7 processor and it comes with 16GB of RAM. The MSI GE66 Raider packs 512GB of SSD storage. Graphics are powered by Nvidia GeForce.",
       "ram": [8, 16, 32],
-      "colors": {
-        "black": [
+      "colors": [
           "https://tunotebook.com.ar/wp-content/uploads/2022/06/1-3.jpg",
           "https://static.nb.com.ar/i/nb_msi-notebook-gamer-ge66-raider-10sf_size_h680_a363c7b8b9198b0c1083d1cabc61ac0f.png",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu0q3Joft4xBWII9VublQJfozc8cUobNyLUCbMAy6wJphTerCLagO7i24-JxS5J0xJGr4&usqp=CAU"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "680px-480px",
       "weight": 2.4,
@@ -860,13 +758,11 @@
       "inches": 17.3,
       "description": "The MSI 17.3in GP75 Leopard Gaming Laptop is  designed with portability, performance, and gaming-aesthetics in mind . Specs-wise, it's powered by a 2.6 GHz Intel Core i7-9750H six-core processor, 16GB of DDR4 RAM, a 512GB NVMe PCIe M. 2 SSD, and an NVIDIA GeForce RTX 2060 graphics card.",
       "ram": [32, 64],
-      "colors": {
-        "black": [
+      "colors":  [
           "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0565%2F5917%2F3826%2Fproducts%2Fgp75_2010sfk-074ca_20leopard_4_1024x.jpg%3Fv%3D1653435425&imgrefurl=https%3A%2F%2Fwww.iconicmicro.com%2Fproducts%2Fmsi-gp75-leopard-9sd-437-gaming-laptop-17-3-fhd-144hz-ips-intel-core-i7-9750h-2-6ghz-16-gb-ddr4-512-gb-nvme-ssd-nvidia-geforce-gtx-1660ti-6gb-windows-10&tbnid=WY1jxlM25GaMGM&vet=12ahUKEwj0gfPsgZD6AhUhu5UCHZwTBjMQMygkegUIARDGAg..i&docid=1ISFYcmnMwqqSM&w=1024&h=768&q=gp75%20leopard%20description&hl=es&ved=2ahUKEwj0gfPsgZD6AhUhu5UCHZwTBjMQMygkegUIARDGAg",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxZ3OUeN2BCTABA8d4GezOCyHg5fgWRyHU4g&usqp=CAU",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpazAGWi2EIgCmMrRq-jmvhYNEY7BjF09V2Q&usqp=CAU"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "720px-480px",
       "weight": 2.3,
@@ -888,13 +784,11 @@
       "inches": 15.6,
       "description": "The MSI 15.6in GP65 Leopard Gaming Laptop is  built for gaming with the hardware, features, and aesthetics to match . Specs-wise, it has a 2.6 GHz Intel Core i7-9750H six-core processor, 16GB of 2666 MHz DDR4 RAM, and an NVIDIA GeForce RTX 2060 graphics card.",
       "ram": [16, 32, 64],
-      "colors": {
-        "black": [
+      "colors": [
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJvv8spfMHoo23OuMZ5xfw_xjNrJSY7kHRsw&usqp=CAUblac",
           "https://images.fravega.com/f300/78fb56b79e88cd6b893807cc513aee8e.jpg.webp",
           "https://storage-asset.msi.com/global/picture/image/feature/nb/gp/GP65/gp65-pd-slider-04.jpg"
-        ]
-      },
+        ],
       "capacity": ["240SSD", "512SSD"],
       "frontal_camera": "680px-480px",
       "weight": 2.3,
@@ -919,20 +813,12 @@
       "main_camera": 48,
       "ram": [4],
       "colors": [
-        {
-          "golden": [
             "https://armoto.vtexassets.com/arquivos/ids/161725-1200-auto?v=637810639346870000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161726-1200-auto?v=637810639454970000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/161729-1200-auto?v=637810639928170000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "onix": [
+            "https://armoto.vtexassets.com/arquivos/ids/161729-1200-auto?v=637810639928170000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161731-1200-auto?v=637810641545400000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161732-1200-auto?v=637810641659330000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161735-1200-auto?v=637810642093770000&width=1200&height=auto&aspect=true"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 13,
@@ -953,20 +839,12 @@
       "main_camera": 50,
       "ram": [4],
       "colors": [
-        {
-          "golden": [
             "https://armoto.vtexassets.com/arquivos/ids/162487-1200-auto?v=637923005952770000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162488-1200-auto?v=637923006132070000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162490-1200-auto?v=637923006705530000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "blue": [
+            "https://armoto.vtexassets.com/arquivos/ids/162490-1200-auto?v=637923006705530000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162491-1200-auto?v=637923007080770000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162492-1200-auto?v=637923007190330000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162494-1200-auto?v=637923007416530000&width=1200&height=auto&aspect=true"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 13,
@@ -987,20 +865,12 @@
       "main_camera": 50,
       "ram": [12],
       "colors": [
-        {
-          "cosmosGreen": [
             "https://armoto.vtexassets.com/arquivos/ids/162452-1200-auto?v=637922986159330000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162453-1200-auto?v=637922986377430000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162460-1200-auto?v=637922987696500000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "silverWhite": [
+            "https://armoto.vtexassets.com/arquivos/ids/162460-1200-auto?v=637922987696500000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162427-1200-auto?v=637922827412330000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162428-1200-auto?v=637922827747900000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162435-1200-auto?v=637922835917870000&width=1200&height=auto&aspect=true"
-          ]
-        }
       ],
       "capacity": ["256 GB"],
       "frontal_camera": 60,
@@ -1021,20 +891,12 @@
       "main_camera": 50,
       "ram": [4],
       "colors": [
-        {
-          "atlanticGreen": [
             "https://armoto.vtexassets.com/arquivos/ids/162644-1200-auto?v=637933217032200000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162645-1200-auto?v=637933217225770000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162648-1200-auto?v=637933217701070000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "metallicPink": [
+            "https://armoto.vtexassets.com/arquivos/ids/162648-1200-auto?v=637933217701070000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162656-1200-auto?v=637933222241070000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162659-1200-auto?v=637933222736530000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162660-1200-auto?v=637933223007030000&width=1200&height=auto&aspect=true"
-          ]
-        }
+            "https://armoto.vtexassets.com/arquivos/ids/162660-1200-auto?v=637933223007030000&width=1200&height=auto&aspect=true"  
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 16,
@@ -1055,20 +917,12 @@
       "main_camera": 50,
       "ram": [8],
       "colors": [
-        {
-          "grey": [
             "https://armoto.vtexassets.com/arquivos/ids/162313-1200-auto?v=637904830518430000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162242-1200-auto?v=637897138678630000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162245-1200-auto?v=637897138991800000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "silver": [
+            "https://armoto.vtexassets.com/arquivos/ids/162245-1200-auto?v=637897138991800000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162254-1200-auto?v=637897994105070000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162253-1200-auto?v=637897993974600000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162258-1200-auto?v=637897994402970000&width=1200&height=auto&aspect=true"
-          ]
-        }
+            "https://armoto.vtexassets.com/arquivos/ids/162258-1200-auto?v=637897994402970000&width=1200&height=auto&aspect=true"   
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 32,
@@ -1089,20 +943,12 @@
       "main_camera": 50,
       "ram": [6],
       "colors": [
-        {
-          "blue": [
             "https://armoto.vtexassets.com/arquivos/ids/162495-1200-auto?v=637923009208170000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162496-1200-auto?v=637923009480730000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162500-1200-auto?v=637923012192170000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "black": [
+            "https://armoto.vtexassets.com/arquivos/ids/162500-1200-auto?v=637923012192170000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162501-1200-auto?v=637923012667070000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162502-1200-auto?v=637923012785930000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162505-1200-auto?v=637923013163800000&width=1200&height=auto&aspect=true"
-          ]
-        }
+            "https://armoto.vtexassets.com/arquivos/ids/162505-1200-auto?v=637923013163800000&width=1200&height=auto&aspect=true"  
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 16,
@@ -1123,20 +969,12 @@
       "main_camera": 50,
       "ram": [6],
       "colors": [
-        {
-          "black": [
             "https://armoto.vtexassets.com/arquivos/ids/162591-1200-auto?v=637929124135030000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162592-1200-auto?v=637929124260970000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162595-1200-auto?v=637929124683970000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "opticWhite": [
+            "https://armoto.vtexassets.com/arquivos/ids/162595-1200-auto?v=637929124683970000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162602-1200-auto?v=637929135016900000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162603-1200-auto?v=637929135122670000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162606-1200-auto?v=637929135575300000&width=1200&height=auto&aspect=true"
-          ]
-        }
+            "https://armoto.vtexassets.com/arquivos/ids/162606-1200-auto?v=637929135575300000&width=1200&height=auto&aspect=true" 
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 16,
@@ -1157,20 +995,12 @@
       "main_camera": 48,
       "ram": [4],
       "colors": [
-        {
-          "grey": [
             "https://armoto.vtexassets.com/arquivos/ids/161391-1200-auto?v=637779821677400000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161392-1200-auto?v=637779822086530000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/161393-1200-auto?v=637779822155400000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "champagnePink": [
+            "https://armoto.vtexassets.com/arquivos/ids/161393-1200-auto?v=637779822155400000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161398-1200-auto?v=637779822743800000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161401-1200-auto?v=637779823119730000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/161402-1200-auto?v=637779823217500000&width=1200&height=auto&aspect=true"
-          ]
-        }
+            "https://armoto.vtexassets.com/arquivos/ids/161402-1200-auto?v=637779823217500000&width=1200&height=auto&aspect=true"   
       ],
       "capacity": ["64 GB"],
       "frontal_camera": 8,
@@ -1190,21 +1020,13 @@
       "inches": 6.53,
       "main_camera": 50,
       "ram": [4],
-      "colors": [
-        {
-          "black": [
+      "colors":[
             "https://armoto.vtexassets.com/arquivos/ids/162068-1200-auto?v=637858864837270000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162069-1200-auto?v=637858864982070000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162070-1200-auto?v=637858865150730000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "articBlue": [
+            "https://armoto.vtexassets.com/arquivos/ids/162070-1200-auto?v=637858865150730000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162074-1200-auto?v=637858869278600000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162075-1200-auto?v=637858869572730000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162076-1200-auto?v=637858869767730000&width=1200&height=auto&aspect=true"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 16,
@@ -1225,20 +1047,12 @@
       "main_camera": 16,
       "ram": [4],
       "colors": [
-        {
-          "grey": [
             "https://armoto.vtexassets.com/arquivos/ids/162569-1200-auto?v=637928160672670000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162572-1200-auto?v=637928161151900000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/162575-1200-auto?v=637928161583830000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "silverWhite": [
+            "https://armoto.vtexassets.com/arquivos/ids/162575-1200-auto?v=637928161583830000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162448-1200-auto?v=637922954190370000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162580-1200-auto?v=637928163547100000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/162449-1200-auto?v=637922954670900000&width=1200&height=auto&aspect=true"
-          ]
-        }
       ],
       "capacity": ["64 GB"],
       "frontal_camera": 8,
@@ -1258,21 +1072,13 @@
       "inches": 6.78,
       "main_camera": 64,
       "ram": [6],
-      "colors": [
-        {
-          "blue": [
+      "colors":[
             "https://armoto.vtexassets.com/arquivos/ids/161363-1200-auto?v=637779805529970000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161365-1200-auto?v=637779805721430000&width=1200&height=auto&aspect=true",
-            "https://armoto.vtexassets.com/arquivos/ids/161364-1200-auto?v=637779805626970000&width=1200&height=auto&aspect=true"
-          ]
-        },
-        {
-          "aqua": [
+            "https://armoto.vtexassets.com/arquivos/ids/161364-1200-auto?v=637779805626970000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161371-1200-auto?v=637779807815700000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161373-1200-auto?v=637779808038900000&width=1200&height=auto&aspect=true",
             "https://armoto.vtexassets.com/arquivos/ids/161372-1200-auto?v=637779807938170000&width=1200&height=auto&aspect=true"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 16,
@@ -1294,27 +1100,15 @@
       "main_camera": 108,
       "ram": [8, 12],
       "colors": [
-        {
-          "green": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_668050-MLA49303776893_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_701749-MLA49303776898_032022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_894779-MLA49303776900_032022-F.webp"
-          ]
-        },
-        {
-          "white": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_894779-MLA49303776900_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_733691-MLA49303777746_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_955367-MLA49303777748_032022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_943029-MLA49303777749_032022-F.webp"
-          ]
-        },
-        {
-          "burgundy": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_943029-MLA49303777749_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_683117-MLA49303779094_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_807230-MLA49303779099_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_902813-MLA49303779092_032022-F.webp"
-          ]
-        }
       ],
       "capacity": ["256 GB", "512 GB"],
       "frontal_camera": 40,
@@ -1335,20 +1129,12 @@
       "main_camera": 50,
       "ram": [8],
       "colors": [
-        {
-          "white": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_982115-MLA49387651611_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_834310-MLA49387651612_032022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_720085-MLA49387651614_032022-F.webp"
-          ]
-        },
-        {
-          "green": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_720085-MLA49387651614_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_676269-MLA49387650697_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_974478-MLA49387651692_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_964982-MLA49387669526_032022-F.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 10,
@@ -1369,27 +1155,15 @@
       "main_camera": 50,
       "ram": [8],
       "colors": [
-        {
-          "green": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_843712-MLA51361408413_082022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_853060-MLA51361337706_082022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_910321-MLA51361408386_082022-F.webp"
-          ]
-        },
-        {
-          "white": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_910321-MLA51361408386_082022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_776736-MLA51370061003_092022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_914548-MLA51370061035_092022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_916937-MLA51370006349_092022-F.webp"
-          ]
-        },
-        {
-          "pink": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_916937-MLA51370006349_092022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_741916-MLA51369951153_092022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_974595-MLA51369951150_092022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_680568-MLA51369926820_092022-F.webp"
-          ]
-        }
       ],
       "capacity": ["128GB", "256GB"],
       "frontal_camera": 10,
@@ -1410,12 +1184,8 @@
       "main_camera": 108,
       "ram": [12],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_746225-MLA51442089333_092022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_870968-MLA51442098264_092022-F.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB"],
       "frontal_camera": 40,
@@ -1436,27 +1206,16 @@
       "main_camera": 32,
       "ram": [6, 8],
       "colors": [
-        {
-          "pink": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_639388-MLA50131892216_052022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_823998-MLA50131748530_052022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_861646-MLA50131748575_052022-F.webp"
-          ]
-        },
-        {
-          "green": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_861646-MLA50131748575_052022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_951607-MLA50131748620_052022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_752810-MLA50131748606_052022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_758608-MLA50131892298_052022-F.webp"
-          ]
-        },
-        {
-          "red": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_758608-MLA50131892298_052022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_616307-MLA44281674464_122020-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_669389-MLA44281644565_122020-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_602800-MLA44281644566_122020-F.webp"
-          ]
-        }
+
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 12,
@@ -1477,27 +1236,15 @@
       "main_camera": 64,
       "ram": [4, 6],
       "colors": [
-        {
-          "light-blue": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_878776-MLA48428092348_122021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_902890-MLA45658735453_042021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_779352-MLA45658935032_042021-F.webp"
-          ]
-        },
-        {
-          "black": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_779352-MLA45658935032_042021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_922219-MLA48428094384_122021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_656533-MLA45658735353_042021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_797628-MLA48428117151_122021-F.webp"
-          ]
-        },
-        {
-          "white": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_797628-MLA48428117151_122021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_855895-MLA45658935055_042021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_749288-MLA45658735474_042021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_985542-MLA48428117207_122021-F.webp"
-          ]
-        }
       ],
       "capacity": ["64 GB", "128 GB"],
       "frontal_camera": 20,
@@ -1518,29 +1265,15 @@
       "main_camera": 50,
       "ram": [4],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_917545-MLA50401654103_062022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_955991-MLA50055778251_052022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_743111-MLA50055696605_052022-F.webp"
-          ]
-        },
-  
-        {
-          "light-blue": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_743111-MLA50055696605_052022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_914456-MLA50401583736_062022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_882408-MLA50401514972_062022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_670255-MLA50401654491_062022-F.webp"
-          ]
-        },
-  
-        {
-          "white": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_670255-MLA50401654491_062022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_756095-MLA50401610333_062022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_828391-MLA50401610520_062022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_832650-MLA50401543654_062022-F.webp"
-          ]
-        }
       ],
       "capacity": ["32 GB"],
       "frontal_camera": 8,
@@ -1561,21 +1294,12 @@
       "main_camera": 48,
       "ram": [3],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_737913-MLA49433851234_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_669226-MLA49433846074_032022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_748802-MLA49443779667_032022-F.webp"
-          ]
-        },
-  
-        {
-          "blue": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_748802-MLA49443779667_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_722048-MLA49433809720_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_618545-MLA49443735203_032022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_973906-MLA49435787152_032022-F.webp"
-          ]
-        }
       ],
       "capacity": [32],
       "frontal_camera": 5,
@@ -1596,21 +1320,12 @@
       "main_camera": 50,
       "ram": [4, 6],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_709477-MLA50912283543_072022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_927007-MLA50912283526_072022-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_803794-MLA50912278621_072022-F.webp"
-          ]
-        },
-  
-        {
-          "white": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_803794-MLA50912278621_072022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_920365-MLA50912414250_072022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_860324-MLA50912449074_072022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_886541-MLA50912414218_072022-F.webp"
-          ]
-        }
       ],
   
       "capacity": ["64 GB", "128 GB"],
@@ -1632,13 +1347,9 @@
       "main_camera": 64,
       "ram": [6],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_867153-MLA48271757626_112021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_832364-MLA48271786522_112021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_938304-MLA48271757702_112021-F.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 32,
@@ -1659,21 +1370,12 @@
       "main_camera": 48,
       "ram": [4, 6],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_665643-MLA45385132297_032021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_862003-MLA45385092408_032021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_786964-MLA45385147223_032021-F.webp"
-          ]
-        },
-  
-        {
-          "blue": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_786964-MLA45385147223_032021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_639855-MLA45385147182_032021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_720062-MLA45385132263_032021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_930545-MLA50330576505_062022-F.webp"
-          ]
-        }
       ],
   
       "capacity": ["64 GB", "128 GB"],
@@ -1696,18 +1398,10 @@
       "main_camera": 12,
       "ram": [6],
       "colors": [
-        {
-          "Graphite": [
             "https://http2.mlstatic.com/D_NQ_NP_898035-MLA47777816827_102021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_835970-MLA47777803888_102021-O.webp"
-          ]
-        },
-        {
-          "Silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_835970-MLA47777803888_102021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_708511-MLA47777566757_102021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_612194-MLA47777512918_102021-O.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB", "512 GB", "1 TB"],
       "frontal_camera": 12,
@@ -1728,18 +1422,10 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "Graphite": [
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPkoegajFDY6tE0QsecLgNLaAP_SzJDHPk_w&usqp=CAU",
-            "https://cdn.shopify.com/s/files/1/0524/1798/6737/products/Negro_Mate_-_iPhone_13_-_Back_Frame_16e8eace-6d61-4afe-ab22-07fab2990443_1800x1800.png?v=1650143482"
-          ]
-        },
-        {
-          "Silver": [
+            "https://cdn.shopify.com/s/files/1/0524/1798/6737/products/Negro_Mate_-_iPhone_13_-_Back_Frame_16e8eace-6d61-4afe-ab22-07fab2990443_1800x1800.png?v=1650143482",
             "https://http2.mlstatic.com/D_NQ_NP_932957-MLA47782545553_102021-V.webp",
             "https://http2.mlstatic.com/D_NQ_NP_610297-MLA47782558463_102021-O.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB", "512 GB"],
       "frontal_camera": 12,
@@ -1760,18 +1446,11 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "Graphite": [
             "https://http2.mlstatic.com/D_NQ_NP_821416-MLA47781962896_102021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_824876-MLA47782110260_102021-O.webp"
-          ]
-        },
-        {
-          "Silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_824876-MLA47782110260_102021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_922588-MLA47781634791_102021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_941855-MLA47781742465_102021-O.webp"
-          ]
-        }
+
       ],
       "capacity": ["128 GB", "256 GB", "512 GB", "1 TB"],
       "frontal_camera": 11,
@@ -1792,18 +1471,10 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "Midnight": [
             "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/fondoblanco_Position-2_MXLA-1.jpg",
-            "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/iPhone_SE3_Midnight_PDP_Image_Position-1A_MXLA.jpg"
-          ]
-        },
-        {
-          "Starlight": [
+            "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/iPhone_SE3_Midnight_PDP_Image_Position-1A_MXLA.jpg",
             "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/iPhone_SE3_Starlight_PDP_Image_Position-1A_MXLA.jpg",
             "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/fondoblanco_Position-2_MXLA-3.jpg"
-          ]
-        }
       ],
       "capacity": ["64 GB", "128 GB", "256 GB"],
       "frontal_camera": 11,
@@ -1824,18 +1495,10 @@
       "main_camera": 12,
       "ram": [6],
       "colors": [
-        {
-          "Graphite": [
             "https://m.media-amazon.com/images/I/61I39htrBbL._AC_SL1500_.jpg",
-            "https://v9t7k9q5.rocketcdn.me/wp-content/uploads/2021/08/oferta-iphone-12-pro.png"
-          ]
-        },
-        {
-          "Silver": [
+            "https://v9t7k9q5.rocketcdn.me/wp-content/uploads/2021/08/oferta-iphone-12-pro.png",
             "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-max-silver-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202946000",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Xmes0wHI9jLEGTUYZOht3OcEmkax_FU-iQ&usqp=CAU"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB", "512 GB"],
       "frontal_camera": 12,
@@ -1856,18 +1519,10 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "Graphite": [
             "https://http2.mlstatic.com/D_NQ_NP_784571-MLA45729987876_042021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_688182-MLA45730353083_042021-O.webp"
-          ]
-        },
-        {
-          "Silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_688182-MLA45730353083_042021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_829746-MLA45729987647_042021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_755713-MLA45729987648_042021-O.webp"
-          ]
-        }
       ],
       "capacity": ["64 GB", "128 GB", "256 GB"],
       "frontal_camera": 12,
@@ -1888,18 +1543,10 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "Graphite": [
             "https://m.media-amazon.com/images/I/71WoWLO6+gL._AC_SX679_.jpg",
-            "https://m.media-amazon.com/images/I/41pLOhRu2pL._AC_SX679_.jpg"
-          ]
-        },
-        {
-          "Silver": [
+            "https://m.media-amazon.com/images/I/41pLOhRu2pL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/41YIrT6VyGL._AC_.jpg",
             "https://m.media-amazon.com/images/I/71kbOqSBFBL._AC_SX679_.jpg"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 12,
@@ -1920,18 +1567,10 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "Graphite": [
             "https://m.media-amazon.com/images/I/61I39htrBbL._AC_SL1500_.jpg",
-            "https://v9t7k9q5.rocketcdn.me/wp-content/uploads/2021/08/oferta-iphone-12-pro.png"
-          ]
-        },
-        {
-          "Silver": [
+            "https://v9t7k9q5.rocketcdn.me/wp-content/uploads/2021/08/oferta-iphone-12-pro.png",
             "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-max-silver-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202946000",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Xmes0wHI9jLEGTUYZOht3OcEmkax_FU-iQ&usqp=CAU"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB", "512 GB"],
       "frontal_camera": 12,
@@ -1952,18 +1591,10 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "Graphite": [
             "https://m.media-amazon.com/images/I/712S1UXIHLL._AC_SX679_.jpg",
-            "https://m.media-amazon.com/images/I/71JGLXDNEgL._AC_SX679_.jpg"
-          ]
-        },
-        {
-          "Silver": [
+            "https://m.media-amazon.com/images/I/71JGLXDNEgL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/613KzeDTHrS._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/31RCAVK0bKS._AC_SX679_.jpg"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB", "512 GB"],
       "frontal_camera": 12,
@@ -1984,17 +1615,9 @@
       "main_camera": 12,
       "ram": [3],
       "colors": [
-        {
-          "Graphite": [
             "https://m.media-amazon.com/images/I/61rnL12o1NL._AC_SX679_.jpg",
-            "https://m.media-amazon.com/images/I/51+C8JRrBvL._AC_SX679_.jpg"
-          ]
-        },
-        {
-          "Silver": [
+            "https://m.media-amazon.com/images/I/51+C8JRrBvL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/812P-Wji1QL._AC_SL1500_.jpg"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB", "512 GB"],
       "frontal_camera": 12,
@@ -2015,18 +1638,10 @@
       "main_camera": 12,
       "ram": [3],
       "colors": [
-        {
-          "Graphite": [
             "https://jigcomp.com.ar/wp-content/uploads/1624465042_apple-iphone-xr-128-gb-negro-iphxr128gbb_4-1.jpg",
-            "https://http2.mlstatic.com/D_NQ_NP_703846-MLA46545489116_062021-O.webp"
-          ]
-        },
-        {
-          "Silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_703846-MLA46545489116_062021-O.webp",
             "https://cdn.alloallo.media/catalog/product/apple/iphone/iphone-xr/iphone-xr-white.jpg",
             "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MRW62?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1569617849402"
-          ]
-        }
       ],
       "capacity": ["128 GB", "256 GB", "512 GB"],
       "frontal_camera": 12,
@@ -2047,16 +1662,10 @@
       "main_camera": 8,
       "ram": [3],
       "colors": [
-        {
-          "grey": [
             "https://http2.mlstatic.com/D_NQ_NP_662402-MLA47146427171_082021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_765874-MLA47146197629_082021-O.webp"
-          ],
-          "platinum": [
+            "https://http2.mlstatic.com/D_NQ_NP_765874-MLA47146197629_082021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_830886-MLA47146625417_082021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_909806-MLA47146793018_082021-O.webp"
-          ]
-        }
       ],
       "capacity": ["34 GB"],
       "frontal_camera": 2,
@@ -2077,16 +1686,10 @@
       "main_camera": 8,
       "ram": [4],
       "colors": [
-        {
-          "grey": [
             "https://http2.mlstatic.com/D_NQ_NP_600450-MLA49293985282_032022-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_710244-MLA49294027265_032022-O.webp"
-          ],
-          "silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_710244-MLA49294027265_032022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_684275-MLA49153411562_022022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_968111-MLA49153489620_022022-O.webp"
-          ]
-        }
       ],
       "capacity": ["64 GB"],
       "frontal_camera": 5,
@@ -2107,20 +1710,12 @@
       "main_camera": 8,
       "ram": [4],
       "colors": [
-        {
-          "Angora blue": [
             "https://http2.mlstatic.com/D_NQ_NP_825699-MLA42521114536_072020-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_886404-MLA42521114535_072020-O.webp"
-          ],
-          "Chiffon rose": [
+            "https://http2.mlstatic.com/D_NQ_NP_886404-MLA42521114535_072020-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_945176-MLA42520891220_072020-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_824310-MLA42520891217_072020-O.webp"
-          ],
-          "Oxford grey": [
+            "https://http2.mlstatic.com/D_NQ_NP_824310-MLA42520891217_072020-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_930111-MLA42520536797_072020-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_739455-MLA42520615607_072020-O.webp"
-          ]
-        }
       ],
       "capacity": ["64 GB"],
       "frontal_camera": 5,
@@ -2141,13 +1736,9 @@
       "main_camera": 8,
       "ram": [6],
       "colors": [
-        {
-          "Mystic black": [
             "https://http2.mlstatic.com/D_NQ_NP_734069-MLA48049070304_102021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_747600-MLA48049070301_102021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_989692-MLA48049070303_102021-O.webp"
-          ]
-        }
       ],
       "capacity": ["1 TB"],
       "frontal_camera": 5,
@@ -2168,13 +1759,9 @@
       "main_camera": 13,
       "ram": [8],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_881165-MLA50219484963_062022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_749527-MLA50219535209_062022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_888357-MLA50219535100_062022-O.webp"
-          ]
-        }
       ],
       "capacity": ["1 TB"],
       "frontal_camera": 12,
@@ -2195,16 +1782,10 @@
       "main_camera": 5,
       "ram": [8],
       "colors": [
-        {
-          "granite": [
             "https://http2.mlstatic.com/D_NQ_NP_780205-MLA49805924324_042022-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_775826-MLA49805917419_042022-O.webp"
-          ],
-          "silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_775826-MLA49805917419_042022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_749608-MLA49805349703_042022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_923492-MLA49805433062_042022-O.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 2,
@@ -2225,12 +1806,8 @@
       "main_camera": 8,
       "ram": [2],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_741403-MLA41913051590_052020-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_623724-MLA41913051605_052020-O.webp"
-          ]
-        }
       ],
       "capacity": ["512 GB"],
       "frontal_camera": 2,
@@ -2251,12 +1828,8 @@
       "main_camera": 13,
       "ram": [4],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_746207-MLA50127584715_052022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_694844-MLA50127685497_052022-O.webp"
-          ]
-        }
       ],
       "capacity": ["400 GB"],
       "frontal_camera": 8,
@@ -2277,13 +1850,9 @@
       "main_camera": 5,
       "ram": [2],
       "colors": [
-        {
-          "iron gray": [
             "https://http2.mlstatic.com/D_NQ_NP_724601-MLA44283679836_122020-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_961687-MLA44283679846_122020-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_924451-MLA46868504002_072021-O.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 2,
@@ -2304,12 +1873,8 @@
       "main_camera": 8,
       "ram": [2],
       "colors": [
-        {
-          "iron grey": [
             "https://http2.mlstatic.com/D_NQ_NP_911452-MLA47931054528_102021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_935263-MLA47931270098_102021-O.webp"
-          ]
-        }
       ],
       "capacity": ["1 TB"],
       "frontal_camera": 5,
@@ -2330,12 +1895,8 @@
       "main_camera": 8,
       "ram": [3],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_972580-MLA48600236953_122021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_683242-MLA48600376118_122021-O.webp"
-          ]
-        }
       ],
       "capacity": ["512 GB"],
       "frontal_camera": 5,
@@ -2356,12 +1917,8 @@
       "main_camera": 8,
       "ram": [8],
       "colors": [
-        {
-          "iron gray": [
             "https://http2.mlstatic.com/D_NQ_NP_896815-MLA50421219929_062022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_725359-MLA48160503974_112021-O.webp"
-          ]
-        }
       ],
       "capacity": ["128 GB"],
       "frontal_camera": 8,
@@ -2382,16 +1939,10 @@
       "main_camera": 5,
       "ram": [2],
       "colors": [
-        {
-          "polar white": [
             "https://http2.mlstatic.com/D_NQ_NP_620929-MLA48656208879_122021-O.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_872938-MLA48656208880_122021-O.webp"
-          ],
-          "Slate black": [
+            "https://http2.mlstatic.com/D_NQ_NP_872938-MLA48656208880_122021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_613148-MLA48657674516_122021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_746283-MLA48657674515_122021-O.webp"
-          ]
-        }
       ],
       "capacity": ["256 GB"],
       "frontal_camera": 2,
@@ -2412,12 +1963,8 @@
       "main_camera": 13,
       "ram": [8],
       "colors": [
-        {
-          "black": [
             "https://http2.mlstatic.com/D_NQ_NP_785348-MLA51261797572_082022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_621008-MLA51261885269_082022-O.webp"
-          ]
-        }
       ],
       "capacity": ["256 GB"],
       "frontal_camera": 8,
@@ -2438,13 +1985,9 @@
       "main_camera": 8,
       "ram": [8],
       "colors": [
-        {
-          "grey": [
             "https://http2.mlstatic.com/D_NQ_NP_750384-MLA48244082263_112021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_898122-MLA48244069278_112021-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_732339-MLA48244042381_112021-O.webp"
-          ]
-        }
       ],
       "capacity": ["1 TB"],
       "frontal_camera": 8,
@@ -2465,20 +2008,13 @@
       "main_camera": 12,
       "ram": [3],
       "colors": [
-        {
-          "grey": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_858857-MLA47871010540_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_779407-MLA47871023493_102021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_712045-MLA47871333071_102021-F.webp"
-          ]
-        },
-        {
-          "silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_712045-MLA47871333071_102021-F.webp",
+
             "https://http2.mlstatic.com/D_NQ_NP_2X_956399-MLA47871023484_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_611059-MLA47871010518_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_754850-MLA47871010520_102021-F.webp"
-          ]
-        }
       ],
       "capacity": ["64GB", "256GB"],
       "frontal_camera": 8,
@@ -2499,27 +2035,15 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "skyblue": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_877096-MLA46961896995_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_738210-MLA46961896996_082021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_843011-MLA46962262107_082021-F.webp"
-          ]
-        },
-        {
-          "grey": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_843011-MLA46962262107_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_948482-MLA46962206235_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_852613-MLA46962262025_082021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_612498-MLA46962206237_082021-F.webp"
-          ]
-        },
-        {
-          "goldpink": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_612498-MLA46962206237_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_716262-MLA46962262053_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_991887-MLA46962206260_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_991887-MLA46962206260_082021-F.webp"
-          ]
-        }
       ],
       "capacity": ["64GB", "256GB"],
       "frontal_camera": 7,
@@ -2540,34 +2064,18 @@
       "main_camera": 12,
       "ram": [4],
       "colors": [
-        {
-          "white": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_958785-MLA48035175041_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_728665-MLA48034797635_102021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_774240-MLA48035167084_102021-F.webp"
-          ]
-        },
-        {
-          "grey": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_774240-MLA48035167084_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_998453-MLA48034797620_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_698701-MLA48035167054_102021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_698701-MLA48035167054_102021-F.webp"
-          ]
-        },
-        {
-          "purple": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_698701-MLA48035167054_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_683511-MLA48035167078_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_601386-MLA48035167079_102021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_638947-MLA48035167080_102021-F.webp"
-          ]
-        },
-        {
-          "pink": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_638947-MLA48035167080_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_631001-MLA48035167069_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_708679-MLA48035066215_102021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_855520-MLA48034797625_102021-F.webp"
-          ]
-        }
       ],
       "capacity": ["64GB", "256GB"],
       "frontal_camera": 12,
@@ -2588,20 +2096,12 @@
       "main_camera": 12,
       "ram": [8, 16],
       "colors": [
-        {
-          "grey": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_848727-MLA46975166150_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_744898-MLA46975166151_082021-F.webp",
-            "https://http2.mlstatic.com/D_NQ_NP_2X_630890-MLA46974955656_082021-F.webp"
-          ]
-        },
-        {
-          "silver": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_630890-MLA46974955656_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_897121-MLA46974955652_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_796676-MLA46975166147_082021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_960413-MLA46975173046_082021-F.webp"
-          ]
-        }
       ],
       "capacity": ["128GB", "256GB", "512GB", "1TB", "2TB"],
       "frontal_camera": 12,
@@ -2622,13 +2122,9 @@
       "main_camera": 8,
       "ram": [4],
       "colors": [
-        {
-          "silver": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_988423-MLA51375902835_092022-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_703920-MLA51375902616_092022-O.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_838732-MLA51375908592_092022-F.webp"
-          ]
-        }
       ],
       "capacity": ["128GB"],
       "frontal_camera": 5,
@@ -2649,11 +2145,7 @@
       "main_camera": 10,
       "ram": [8],
       "colors": [
-        {
-          "platinum": [
             "https://http2.mlstatic.com/D_NQ_NP_2X_632111-MLA50583276037_072022-F.webp"
-          ]
-        }
       ],
       "capacity": ["128GB", "256GB", "512GB"],
       "frontal_camera": 5,
