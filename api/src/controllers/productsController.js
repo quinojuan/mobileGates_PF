@@ -4,7 +4,7 @@ const { Tablets, Phones, Notebooks } = require('../db');
 
 const getAllProducts = async (req, res) => {
 	try {
-		
+
 		const allPhones = await Phones.findAll();
 		const allTablets = await Tablets.findAll();
 		const allNotebooks = await Notebooks.findAll();
@@ -15,7 +15,7 @@ const getAllProducts = async (req, res) => {
 		if (allProducts.length === 0)
 			return res.status(404).json({ message: 'Error en concatenación' });
 
-		res.status(201).json({ message: 'done', allProducts });
+		res.status(201).json(allProducts);
 
 	} catch (e) {
 		console.log(e);
