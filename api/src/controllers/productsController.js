@@ -41,11 +41,11 @@ const getTabletById = async (req, res) =>{
     try{
         const {id} = req.params;
         if(!id) res.ratus(404).json({message: 'id is not provided'});
-        const validation = Tablets.findByPk(id);
+        const validation = await Tablets.findByPk(id);
         if(validation.length === 0){
             res.status(404).json({message: 'id not exists'});
         }else{
-            res.status(201).json({message: 'done'}, validation);
+            res.status(201).json(validation);
         };
     }catch(e){
         console.log(e);
@@ -102,7 +102,7 @@ const getNotebookById = async (req, res) =>{
         if(validation.length === 0){
             res.status(404).json({message: 'id not exists'});
         }else{
-            res.status(201).json({message: 'done', validation});
+            res.status(201).json(validation);
         };
     }catch(e){
         console.log(e);
@@ -114,5 +114,9 @@ const getNotebookById = async (req, res) =>{
 module.exports = {
 	getAllProducts,
 	postTablet,
+	getTabletById,
 	getAllTablets,
+	getAllNotebooks,
+	getNotebookById
+
 };
