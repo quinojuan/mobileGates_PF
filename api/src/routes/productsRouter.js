@@ -9,7 +9,8 @@ const {
 	getNotebookById,
 	postNotebook,
 	getAllPhones,
-	getPhonesById
+	getPhonesById,
+	postPhone
 } = require('../controllers/productsController');
 
 router.get("/", getAllProducts);
@@ -24,7 +25,7 @@ router.post('/notebooks', postNotebook);
 
 router.get('/phones', getAllPhones);
 router.get('/phones/:id', getPhonesById);
-// router.post('/phones', postTablet);
+router.post('/phones', postPhone);
 
 
 module.exports = router;

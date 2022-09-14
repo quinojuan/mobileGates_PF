@@ -279,6 +279,81 @@ const getPhonesById = async (req, res) => {
   }
 };
 
+const postPhone = async (req, res) => {
+  //PRUEBA POSTEANDO UNICAMENTE UNA TABLET (HABRÍA QUE CREAR UN MODEL DE PRODUCT ASI DEPENDE LA CATEGORÍA SE SUBE O TABLET O NOTEBOOK O PHONE)
+  try {
+    const {
+      category,
+      model,
+      brand,
+      operative_system,
+      size,
+      inches,
+      main_camera,
+      ram,
+      capacity,
+      frontal_camera,
+      weight,
+      battery,
+      price,
+      image,
+      cpu,
+      description,
+    } = req.body;
+
+    if (
+      category &&
+      model &&
+      brand &&
+      operative_system &&
+      size &&
+      inches &&
+      main_camera &&
+      ram &&
+      capacity &&
+      frontal_camera &&
+      weight &&
+      battery &&
+      price &&
+      image &&
+      cpu &&
+      description
+    ) {
+      const validation = await Phones.findOne({ where: { model: model } });
+      if (validation === null) {
+        const newPhones = await Phones.create({
+          category,
+          model,
+          brand,
+          operative_system,
+          size,
+          inches,
+          main_camera,
+          ram,
+          capacity,
+          frontal_camera,
+          weight,
+          battery,
+          price,
+          image,
+          cpu,
+          description,
+        });
+        newPhones
+          ? res.status(201).json(newPhones)
+          : res.status(404).json({ message: "Error /post product" });
+      } else {
+        res.status(200).json({ mesage: "product already exist" });
+      }
+    } else {
+      res.status(400).json({ message: "error, missing info" });
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 module.exports = {
   getAllProducts,
   postTablet,
@@ -289,4 +364,5 @@ module.exports = {
   postNotebook,
   getAllPhones,
   getPhonesById,
+  postPhone
 };
