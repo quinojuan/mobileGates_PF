@@ -25,6 +25,14 @@ function rootReducer(state = initialState, action) {
                             ...state,
                             details:action.payload
                         }
+
+
+        case 'SEARCH_NAME':
+            return {
+                ...state,
+                products: action.payload
+            }
+
         default:
             return state;
     }
