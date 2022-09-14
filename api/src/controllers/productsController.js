@@ -147,6 +147,21 @@ const postNotebook = async (req, res) => {
 	};
 };
 
+// -------------------- PHONES --------------------
+
+const getAllPhones = async (req, res) => {
+  try {
+    const allPhones = await Phones.findAll();
+    if (allPhones.length !== 0) {
+      return res.status(200).json(allPhones);
+    }
+    res.status(404).json({ message: "Not found any phone" });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 
 module.exports = {
 	getAllProducts,
@@ -155,5 +170,6 @@ module.exports = {
 	getAllTablets,
 	getAllNotebooks,
 	getNotebookById,
-	postNotebook
+	postNotebook,
+  getAllPhones
 }

@@ -57,6 +57,58 @@
     "category": "Notebooks",
     "operative_system": "WINDOWS 10 PROFESSIONAL",
     "size": "32.5-1.84-21.7",
+    "inches": 12.7,
+    "description": "Notebook Asus ZenBook 14 UM425QA pine gray 14'', AMD Ryzen 5 4500U 8GB de RAM 512GB SSD, AMD Radeon RX Vega 6 (Ryzen 4000/5000) 1920x1080px Windows 11 Home",
+    "ram": [8, 16],
+    "colors": {
+      "black": [
+        "https://http2.mlstatic.com/D_NQ_NP_2X_874277-MLA45043672147_032021-F.webp"
+      ]
+    },
+    "capacity": ["240SSD", "560HDD"],
+    "frontal_camera": "640px-480px",
+    "weight": 1.3,
+    "battery": 4400,
+    "price": [59999, 64999],
+    "image": "https: http2.mlstatic.com/D_NQ_NP_2X_874277-MLA45043672147_032021-F.webp",
+    "cpu": "INTEL CELERON",
+    "gpu": "Intel UHD Graphics 600",
+    "display": "1360x768",
+    "usb": 3,
+    "numpad": true
+  },
+  {
+    "model": "UM425QA ",
+    "brand": "ASUS",
+    "category": "Notebooks",
+    "operative_system": "WINDOWS 10 PROFESSIONAL",
+    "size": "32.5-1.84-21.7",
+    "inches": 15,
+    "description": "Notebook Asus ZenBook 14 UM425QA pine gray 14Inches, AMD Ryzen 5 4500U 8GB de RAM 512GB SSD, AMD Radeon RX Vega 6 (Ryzen 4000/5000) 1920x1080px Windows 11 Home",
+    "ram": [4, 8, 16],
+    "colors": {
+      "black": [
+        "https: http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
+      ]
+    },
+    "capacity": ["128SSD"],
+    "frontal_camera": "640px-480px",
+    "weight": "1.3",
+    "battery": 4400,
+    "price": [59999],
+    "image": "https: http2.mlstatic.com/D_NQ_NP_2X_625664-MLA48463322722_122021-F.webp",
+    "cpu": "INTEL CELERON",
+    "gpu": "Intel UHD Graphics 600",
+    "display": "1366x768",
+    "usb": 3,
+    "numpad": true
+  },
+  {
+    "model": "UM425QA ",
+    "brand": "ASUS",
+    "category": "Notebooks",
+    "operative_system": "WINDOWS 10 PROFESSIONAL",
+    "size": "32.5-1.84-21.7",
     "inches": 12.3,
     "description": "Notebook Asus VivoBook X512JA slate gray 15.6'', Intel Core i7 1065G7 8GB de RAM 1TB HDD 256GB SSD, Intel Iris Plus Graphics G7 1920x1080px Windows 10 Home",
     "ram": [8],
