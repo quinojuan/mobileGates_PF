@@ -7,7 +7,7 @@ const {
 } = require('../controllers/productsController');
 
 router.get('/', getAllProducts);
-router.get('/tablets', getAllTablets);
+router.get('/tablets', getAllTablets); // >>>>>>> está apuntando a traer los telefonos (IMSOMNIA) <<<<<<<
 router.post('/', postProduct);
 
 module.exports = router;
