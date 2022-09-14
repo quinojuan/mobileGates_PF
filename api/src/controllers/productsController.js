@@ -4,6 +4,7 @@ const { Tablets, Phones, Notebooks } = require('../db');
 
 const getAllProducts = async (req, res) => {
 	try {
+		
 		const allPhones = await Phones.findAll();
 		const allTablets = await Tablets.findAll();
 		const allNotebooks = await Notebooks.findAll();
@@ -39,6 +40,7 @@ const getAllTablets = async (req, res) => {
 
 const getTabletById = async (req, res) =>{
     try{
+
         const {id} = req.params;
         if(!id) res.ratus(404).json({message: 'id is not provided'});
         const validation = await Tablets.findByPk(id);
@@ -54,19 +56,21 @@ const getTabletById = async (req, res) =>{
 };
 
 const postTablet = async (req, res) => {
-	// NO FUNCIONA
+
 	//PRUEBA POSTEANDO UNICAMENTE UNA TABLET (HABRÍA QUE CREAR UN MODEL DE PRODUCT ASI DEPENDE LA CATEGORÍA SE SUBE O TABLET O NOTEBOOK O PHONE)
 	try {
+
 		const {category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description} = req.body;
 
-		if({ category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description}){
+		if(category && model && brand && operative_system && size && inches && main_camera && ram && capacity && frontal_camera && weight && battery && price && image && cpu && description){
             const validation = await Tablets.findOne({where:{ model: model}});
-            if(validation.length === 0){
+			console.log(validation);
+            if(validation === null){
                 const newTablet = await Tablets.create({ category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description});
-                newTablet.length ? res.status(201).json({message: 'product created', newTablet}) : res.status(404).json({message: 'Error /post product'})
+                newTablet ? res.status(201).json(newTablet) : res.status(404).json({message: 'Error /post product'})
                 
             }else{
-                res.status(404).json({message: 'product created already'}, validation)
+                res.status(200).json({mesage: 'product already exist'})
             }
            
         }else{
@@ -95,6 +99,7 @@ const getAllNotebooks = async (req, res) => {
 
 
 const getNotebookById = async (req, res) =>{
+
     try{
         const {id} = req.params;
         if(!id) res.ratus(404).json({message: 'id is not provided'});
@@ -110,6 +115,31 @@ const getNotebookById = async (req, res) =>{
     };
 };
 
+const postNotebook = async (req, res) => {
+
+	try {
+		const {category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description} = req.body;
+
+		if(category && model && brand && operative_system && size && inches && main_camera && ram && capacity && frontal_camera && weight && battery && price && image && cpu && description){
+            const validation = await Tablets.findOne({where:{ model: model}});
+			console.log(validation);
+            if(validation === null){
+                const newTablet = await Tablets.create({ category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description});
+                newTablet ? res.status(201).json(newTablet) : res.status(404).json({message: 'Error /post product'})
+                
+            }else{
+                res.status(200).json({mesage: 'product already exist'})
+            }
+           
+        }else{
+            res.status(400).json({message: 'error, missing info'});
+        };
+	}catch (e) {
+		console.log(e);
+		res.status(500).json({ message: 'Server error' });
+	};
+};
+
 
 module.exports = {
 	getAllProducts,
@@ -117,6 +147,7 @@ module.exports = {
 	getTabletById,
 	getAllTablets,
 	getAllNotebooks,
-	getNotebookById
+	getNotebookById,
+	postNotebook
 
 };
