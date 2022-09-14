@@ -1,4 +1,4 @@
-const { Tablets, Phones, Notebooks } = require('../db');
+const { Tablets, Phones, Notebooks } = require("../db");
 
 // -------------------- GET ALL --------------------
 
@@ -9,11 +9,16 @@ const getAllProducts = async (req, res) => {
 		const allTablets = await Tablets.findAll();
 		const allNotebooks = await Notebooks.findAll();
 
-		if (allPhones.length === 0 || allNotebooks.length === 0 ||allTablets.length === 0) return res.status(404).json({ message: 'Error en find all' });
-		//subirTablets
-		const allProducts = allPhones.concat(allTablets).concat(allNotebooks);
-		if (allProducts.length === 0)
-			return res.status(404).json({ message: 'Error en concatenación' });
+    if (
+      allPhones.length === 0 ||
+      allNotebooks.length === 0 ||
+      allTablets.length === 0
+    )
+      return res.status(404).json({ message: "Error en find all" });
+    //subirTablets
+    const allProducts = allPhones.concat(allTablets).concat(allNotebooks);
+    if (allProducts.length === 0)
+      return res.status(404).json({ message: "Error en concatenación" });
 
 		res.status(201).json(allProducts);
 
@@ -26,17 +31,18 @@ const getAllProducts = async (req, res) => {
 // -------------------- TABLETS --------------------
 
 const getAllTablets = async (req, res) => {
-	try {
-		const allTablets = await Tablets.findAll();
-		if (allTablets.length !== 0) {
-			return res.status(200).json(allTablets);
-		}
-		res.status(404).json({ message: 'Not found any tablet' });
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	};
+  try {
+    const allTablets = await Tablets.findAll();
+    if (allTablets.length !== 0) {
+      return res.status(200).json(allTablets);
+    }
+    res.status(404).json({ message: "Not found any tablet" });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Server error" });
+  }
 };
+
 
 const getTabletById = async (req, res) =>{
     try{
@@ -79,22 +85,23 @@ const postTablet = async (req, res) => {
 	}catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
+	
 	};
 };
 
 // -------------------- NOTEBOOKS --------------------
 
 const getAllNotebooks = async (req, res) => {
-	try {
-		const allNotebooks = await Notebooks.findAll();
-		if (allNotebooks.length !== 0) {
-			return res.status(200).json(allNotebooks);
-		}
-		res.status(404).json({ message: 'Not found any tablet' });
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	};
+  try {
+    const allNotebooks = await Notebooks.findAll();
+    if (allNotebooks.length !== 0) {
+      return res.status(200).json(allNotebooks);
+    }
+    res.status(404).json({ message: "Not found any tablet" });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Server error" });
+  }
 };
 
 
@@ -118,14 +125,14 @@ const getNotebookById = async (req, res) =>{
 const postNotebook = async (req, res) => {
 
 	try {
-		const {category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description} = req.body;
+		const {model, category, brand, operative_system, size, inches, description, ram, capacity, frontal_camera, weight, battery, price, image, cpu, gpu, display, usb, numpad} = req.body;
 
-		if(category && model && brand && operative_system && size && inches && main_camera && ram && capacity && frontal_camera && weight && battery && price && image && cpu && description){
-            const validation = await Tablets.findOne({where:{ model: model}});
+		if(category && model && brand && operative_system && size && inches && gpu && ram && capacity && frontal_camera && weight && battery && price && image && cpu && description && display && usb && numpad){
+            const validation = await Notebooks.findOne({where:{ model: model}});
 			console.log(validation);
             if(validation === null){
-                const newTablet = await Tablets.create({ category, model, brand, operative_system, size, inches, main_camera, ram, capacity, frontal_camera, weight, battery, price, image, cpu, description});
-                newTablet ? res.status(201).json(newTablet) : res.status(404).json({message: 'Error /post product'})
+                const newNotebook = await Notebooks.create({ model, category, brand, operative_system, size, inches, description, ram, capacity, frontal_camera, weight, battery, price, image, cpu, gpu, display, usb, numpad});
+                newNotebook ? res.status(201).json(newNotebook) : res.status(404).json({message: 'Error /post product'})
                 
             }else{
                 res.status(200).json({mesage: 'product already exist'})
@@ -149,5 +156,4 @@ module.exports = {
 	getAllNotebooks,
 	getNotebookById,
 	postNotebook
-
-};
+}
