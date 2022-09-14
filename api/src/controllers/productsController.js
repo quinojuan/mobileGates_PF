@@ -13,7 +13,9 @@ const getAllProducts = async (req, res) => {
 		const allProducts = allPhones.concat(allTablets).concat(allNotebooks);
 		if (allProducts.length === 0)
 			return res.status(404).json({ message: 'Error en concatenación' });
+
 		res.status(201).json({ message: 'done', allProducts });
+
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
