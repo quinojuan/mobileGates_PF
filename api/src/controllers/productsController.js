@@ -50,7 +50,7 @@ const getTabletById = async (req, res) =>{
         const {id} = req.params;
         if(!id) res.ratus(404).json({message: 'id is not provided'});
         const validation = await Tablets.findByPk(id);
-        if(validation.length === 0){
+        if(!validation){
             res.status(404).json({message: 'id not exists'});
         }else{
             res.status(201).json(validation);
