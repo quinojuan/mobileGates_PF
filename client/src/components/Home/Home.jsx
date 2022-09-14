@@ -34,7 +34,10 @@ export default function Home() {
         <div>
         <div>
             <NavBar/>
-            <SearchBar/>
+            <SearchBar
+            setCurrentPage={setCurrentPage}
+            setProductsPerPage={setProductsPerPage}
+            />
         </div>
         <Paginado
             productsPerPage={productsPerPage}
