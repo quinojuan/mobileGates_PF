@@ -13,7 +13,11 @@ module.exports = (sequelize) => {
 		model: {
 			type: DataTypes.STRING,
 			allowNull: false,
+<<<<<<< HEAD
 			unique: false
+=======
+			unique: false, //CAMBIAR CUANDO NO HAYA REPETIDOS EN EL JSON
+>>>>>>> 773e56874d35c4378c10ccf15ccb20d7f2493339
 		},
 		category: {
 			type: DataTypes.STRING,
@@ -71,22 +75,21 @@ module.exports = (sequelize) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		gpu:{
+		gpu: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		display:{
-           type: DataTypes.STRING,
-		   allowNull: false,
+		display: {
+			type: DataTypes.STRING,
+			allowNull: false,
 		},
-		usb:{
+		usb: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-		numpad:{
+		numpad: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
-		}
-		
+		},
 	});
 };
