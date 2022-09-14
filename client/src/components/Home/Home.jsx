@@ -17,6 +17,13 @@ export default function Home() {
         dispatch(getAllProducts())
     }, [dispatch])
 
+    const dispatch = useDispatch()
+    const allProducts = useSelector((state) => state.products)
+
+    useEffect(() => {
+        dispatch(getAllProducts())
+    }, [dispatch])
+
     return(
         <div>
             <NavBar/>
