@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
-import Loading from "../Loading/Loading"
 import NavBar from "../NavBar/NavBar";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
@@ -26,10 +25,10 @@ export default function Home() {
             <SearchBar/>
         </div>
         <div>
-            {allProducts.map(s=>{
+            {allProducts&&allProducts.map(s=>{
                 return(
                     <Link key={s.id} to={`/products/${s.category.toLowerCase()}/${s.id}`}>
-                    <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()}/>
+                        <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()}/>
                     </Link>
                 )
             })}
