@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
 import Loading from "../Loading/Loading"
+import NavBar from "../NavBar/NavBar";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Home() {
 
@@ -17,7 +19,8 @@ export default function Home() {
 
     return(
         <div>
-            <h1>MóvilGates</h1>
+            <NavBar/>
+            <SearchBar/>
         </div>
     )
 }
