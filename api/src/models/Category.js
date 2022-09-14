@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "ProductsColors",
+    "Category",
     {
       id: {
         type: DataTypes.UUID,
@@ -12,22 +12,13 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      productsId: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
-        primaryKey: false,
       },
-      colorsId:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey: false,
-      },
-      url:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false,  
-      }
       },
     {
+    
       freezeTableName: true, 
     }
   );
