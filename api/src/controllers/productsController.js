@@ -4,6 +4,7 @@ const { Tablets, Phones, Notebooks } = require('../db');
 
 const getAllProducts = async (req, res) => {
   try {
+    const {ram, category, name, capacity} = req.query;
     const allPhones = await Phones.findAll();
     const allTablets = await Tablets.findAll();
     const allNotebooks = await Notebooks.findAll();
@@ -13,9 +14,25 @@ const getAllProducts = async (req, res) => {
       allNotebooks.length === 0 ||
       allTablets.length === 0
     )
-      return res.status(404).json({ message: "Error en find all" });
-    //subirTablets
-    const allProducts = allPhones.concat(allTablets).concat(allNotebooks);
+    return res.status(404).json({ message: "Error en find all" });
+    let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
+    if(req.query){
+      if(ram){
+        allProducts = allProducts.filter((product) => product.ram.includes(Number(ram)));
+      };
+      if(category){
+        allProducts = allProducts.filter((product) => product.category.includes(category));
+      };
+      if(name){
+        let model = name;
+        console.log(model);
+        allProducts = allProducts.filter((product) => product.model.includes(model));
+      };
+      if(capacity){
+        allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
+        
+      };
+    };
     if (allProducts.length === 0)
       return res.status(404).json({ message: "Error en concatenación" });
 
