@@ -3,13 +3,9 @@ import axios from 'axios'
 export function getAllProducts(){
     return async function(dispatch){
         let json = await axios.get('http://localhost:3001/products');
-<<<<<<< HEAD
-=======
-        let data=json.data
->>>>>>> 953c571420742732b46a0d10fff9c3cad8b808c2
         return dispatch({
             type: 'GET_PRODUCTS',
-            payload: data.allProducts
+            payload: json.data
         })
     }
 }

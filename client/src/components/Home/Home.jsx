@@ -6,8 +6,11 @@ import { getAllProducts } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
 import Loading from "../Loading/Loading"
 import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
+
+import "./Home.css"
 
 export default function Home() {
 
@@ -20,25 +23,26 @@ export default function Home() {
     }, [dispatch])
 
     return (
-        <div>
-<<<<<<< HEAD
-            <NavBar />
-            <SearchBar />
-=======
-        <div>
-            <NavBar/>
-            <SearchBar/>
->>>>>>> 953c571420742732b46a0d10fff9c3cad8b808c2
+        <div className="home">
+            <div>
+                <NavBar />
+                <SearchBar />
+            </div>
+        <div className="contenedor">
+
+            <div className="cards">
+                {allProducts.map(s=>{
+                    return(
+                        <Link key={s.id} to={`/products/${s.category.toLowerCase()}/${s.id}`}>
+                        <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()}/>
+                        </Link>
+                    )
+                })}
+            </div>
+            </div>
+        <hr />
+        <Footer />
         </div>
-        <div>
-            {allProducts.map(s=>{
-                return(
-                    <Link key={s.id} to={`/products/${s.category.toLowerCase()}/${s.id}`}>
-                    <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()}/>
-                    </Link>
-                )
-            })}
-        </div>
-        </div>
+        
     )
 }
