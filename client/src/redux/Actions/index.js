@@ -3,10 +3,9 @@ import axios from 'axios'
 export function getAllProducts(){
     return async function(dispatch){
         let json = await axios.get('http://localhost:3001/products');
-        let data=json.data
         return dispatch({
             type: 'GET_PRODUCTS',
-            payload: data.allProducts
+            payload: json.data
         })
     }
 }
