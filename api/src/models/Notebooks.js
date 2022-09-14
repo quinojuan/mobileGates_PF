@@ -12,12 +12,16 @@ module.exports = (sequelize) => {
 		},
 		model: {
 			type: DataTypes.STRING,
+<<<<<<< HEAD
 			allowNull: false,
 <<<<<<< HEAD
 			unique: false
 =======
 			unique: false, //CAMBIAR CUANDO NO HAYA REPETIDOS EN EL JSON
 >>>>>>> 773e56874d35c4378c10ccf15ccb20d7f2493339
+=======
+			allowNull: false,		
+>>>>>>> bbffd6660e41c6f268183250fc03187c2657a6f1
 		},
 		category: {
 			type: DataTypes.STRING,

@@ -3,46 +3,43 @@ const { Tablets, Phones, Notebooks } = require('../db');
 // -------------------- GET ALL --------------------
 
 const getAllProducts = async (req, res) => {
-	try {
-		//fetch('localhost:3001/products?page=1&category=tablets&ram=8&capacity=256GB
-		const { ram, capacity, category } = req.query; //filtros
-		const allPhones = await Phones.findAll();
-		const allTablets = await Tablets.findAll();
-		const allNotebooks = await Notebooks.findAll();
+  try {
+    const {ram, category, name, capacity} = req.query;
+    const allPhones = await Phones.findAll();
+    const allTablets = await Tablets.findAll();
+    const allNotebooks = await Notebooks.findAll();
 
-		if (
-			allPhones.length === 0 ||
-			allNotebooks.length === 0 ||
-			allTablets.length === 0
-		)
-			return res.status(404).json({ message: 'Error en find all' });
-		//subirTablets
-		let allProducts = allPhones.concat(allTablets).concat(allNotebooks);
-		if (allProducts.length === 0)
-			return res.status(404).json({ message: 'Error en concatenación' });
-		if (req.query) {
-			if (ram) {
-				allProducts = allProducts.filter((product) =>
-					product.ram.includes(Number(ram))
-				);
-			}
-			if (capacity) {
-				allProducts = allProducts.filter((product) =>
-					product.capacity.includes(capacity)
-				);
-			}
-			if (category) {
-				allProducts = allProducts.filter((product) => {
-					console.log(product.category);
-					return product.category.includes(category);
-				});
-			}
-		}
-		res.status(201).json(allProducts);
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
+    if (
+      allPhones.length === 0 ||
+      allNotebooks.length === 0 ||
+      allTablets.length === 0
+    )
+    return res.status(404).json({ message: "Error en find all" });
+    let allProducts = allPhones.concat(allTablets).concat(allNotebooks);
+    if(req.query){
+      console.log(ram);
+      if(ram){
+        allProducts = allProducts.filter((product) => product.ram.includes(Number(ram)));
+      };
+      if(category){
+        allProducts = allProducts.filter((product) => product.category.toLowerCase().includes(category.toLowerCase()));
+      };
+      if(name){
+        console.log(name.toLowerCase());
+        let model = name;
+        allProducts = allProducts.filter((product) => product.model.toLowerCase().includes(model.toLowerCase()));
+      };
+      if(capacity){
+        allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
+      };
+    };
+    if (allProducts.length === 0)
+    return res.status(404).json({ message: "Error en concatenación" });
+    res.status(201).json(allProducts);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Server error" });
+  }
 };
 
 // -------------------- TABLETS --------------------
@@ -60,6 +57,7 @@ const getAllTablets = async (req, res) => {
 	}
 };
 
+<<<<<<< HEAD
 const getTabletById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -74,6 +72,24 @@ const getTabletById = async (req, res) => {
     console.log(e);
     res.status(500).json({ message: "Server error" });
   }
+=======
+
+const getTabletById = async (req, res) =>{
+    try{
+
+        const {id} = req.params;
+        if(!id) res.ratus(404).json({message: 'id is not provided'});
+        const validation = await Tablets.findByPk(id);
+        if(!validation){
+            res.status(404).json({message: 'id not exists'});
+        }else{
+            res.status(201).json(validation);
+        };
+    }catch(e){
+        console.log(e);
+		res.status(500).json({ message: 'Server error' });  
+    };
+>>>>>>> bbffd6660e41c6f268183250fc03187c2657a6f1
 };
 
 const postTablet = async (req, res) => {
@@ -384,4 +400,8 @@ module.exports = {
   getAllPhones,
   getPhonesById,
   postPhone
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> bbffd6660e41c6f268183250fc03187c2657a6f1

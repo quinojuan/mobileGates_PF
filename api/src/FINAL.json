@@ -1,5 +1,6 @@
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
     {
       "model": "e410ma",
       "category": "Notebooks",
@@ -2159,6 +2160,8 @@
     }
   ]
 =======
+=======
+>>>>>>> bbffd6660e41c6f268183250fc03187c2657a6f1
   {
     "model": "e410ma",
     "category": "Notebooks",
@@ -4877,4 +4880,7 @@
     "description": "Esta tablet es ideal para cada una de tus actividades: editar fotos, documentos, navegar por internet y ¡mucho más! Su diseño delgado, compacto y portátil es la combinación perfecta de rendimiento y versatilidad."
   }
 ]
+<<<<<<< HEAD
 >>>>>>> 773e56874d35c4378c10ccf15ccb20d7f2493339
+=======
+>>>>>>> bbffd6660e41c6f268183250fc03187c2657a6f1
