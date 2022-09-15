@@ -50,9 +50,8 @@ function rootReducer(state = initialState, action) {
                 };
                 case "GET_FILTER_BY_RAM":
                     const productsToFilterByRam=state.allProducts;
-                    const ramFilter=action.payload==="disabled" ?
-                    productsToFilterByRam :
-                    productsToFilterByRam?.slice(s=>s.ram.includes(action.payload))
+                    const ramFilter=action.payload==="disabled" ? productsToFilterByRam :
+                    productsToFilterByRam.filter(el => el.ram.map(el => el).includes(action.payload))
                     return{
                         ...state,
                         products:ramFilter
