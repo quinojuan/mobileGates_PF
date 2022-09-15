@@ -80,15 +80,15 @@ export default function Home() {
                 </select>
                 <select>
                     <option value="disabled">Almacenamiento</option>
-                    <option value="GB32">32 GB</option>
-                    <option value="GB64">64 GB</option>
-                    <option value="GB120">120 GB</option>
-                    <option value="GB128">128 GB</option>
-                    <option value="GB240">240 GB</option>
-                    <option value="GB256">256 GB</option>
-                    <option value="GB400">400 GB</option>
-                    <option value="GB480">480 GB</option>
-                    <option value="TB1">1 TB</option>
+                    <option value="32">32 GB</option>
+                    <option value="64">64 GB</option>
+                    <option value="120">120 GB</option>
+                    <option value="128">128 GB</option>
+                    <option value="240">240 GB</option>
+                    <option value="256">256 GB</option>
+                    <option value="400">400 GB</option>
+                    <option value="480">480 GB</option>
+                    <option value="1">1 TB</option>
                 </select>
                 <select onChange={(e) => handleCategories(e)}>
                     <option value="disabled">Categoria</option>

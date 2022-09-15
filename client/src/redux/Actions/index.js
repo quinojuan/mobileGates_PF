@@ -84,6 +84,14 @@ export function getFilterByRam(payload){
         payload
     }
 }
+
+export function getFilterByCapacity(payload){
+    return{
+        type:"GET_FILTER_BY_CAPACITY",
+        payload
+    }
+}
+
 export function getSort(payload){
     return{
         type:"GET_SORT",

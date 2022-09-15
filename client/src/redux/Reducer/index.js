@@ -80,7 +80,19 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 products: sortedArr
-            }
+            };
+
+            case "GET_FILTER_BY_CAPACITY":
+                const all = state.allProducts;
+                console.log(all)
+                const filtByCapacity = action.payload === 'disabled' ?
+                all :
+                all.filter(el => el.capacity.map(e => e.replace(/[^0-9]/ig,"")) === action.payload)
+                console.log(filtByCapacity)
+        return {
+            ...state,
+            products: filtByCapacity
+            };
            
         default:
             return state;
