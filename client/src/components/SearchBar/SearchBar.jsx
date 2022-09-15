@@ -1,19 +1,40 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
 import { searchName } from '../../redux/Actions/index'
+import { useState } from "react";
 
-export default function SearchBar() {
+import "./SearchBar.css"
+
+export default function SearchBar({setCurrentPage, setProductsPerPage }) {
 
     const dispatch = useDispatch()
+    const [name, setName]=useState("")
   
-    const handleInputChange = (e) => {
+    // function handleInputChange(e){
+    //     e.preventDefault();
+    //     setName(e.target.value)
+    // }
+    const info = (e) => {
         dispatch(searchName(e.target.value))
+        setName(e.target.value)
+     }
+    function handleSubmit(e){
+        e.preventDefault()
+        if(name.length!==0){
+            dispatch(searchName(name.toLowerCase()))
+        } else {
+            alert("Not found")
+        }
+        setCurrentPage(1)
+        setName("")
     }
 
     return (
-        <div>
+        <div className="search-bar">
             <h2>Qué producto estas buscando?</h2>
-            <input type="text" onChange={handleInputChange} placeholder="Buscá un producto..."/> 
+            {/* <input type="text" placeholder="Search..." onChange={(e)=>handleInputChange(e)} />  */}
+            <input type="text" placeholder="Buscá un producto..." onChange={info} /> 
+            {/* <button onClick={(e)=>handleSubmit(e)}>Search</button> */}
         </div>
     )
 
