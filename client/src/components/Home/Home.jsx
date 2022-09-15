@@ -2,7 +2,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts, getFilterByCategories } from '../../redux/Actions/index';
+import { getAllProducts, getFilterByCategories, getFilterByRam } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -43,7 +43,12 @@ export default function Home() {
         dispatch(getFilterByCategories(e.target.value))
         setCurrentPage(1)
         setOrden(`Ordenado ${e.target.value}`)
-
+    }
+    function handleRam(e){
+        e.preventDefault()
+        dispatch(getFilterByRam(e.target.value))
+        setCurrentPage(1)
+        setOrden(`Ordenado ${e.target.value}`)
     }
 
     return(
@@ -56,7 +61,7 @@ export default function Home() {
             <button onClick={(e)=>handleReload(e)}>Recargar pagina</button>
         </div>
         <div>
-        <select>
+        <select onChange={(e)=>handleRam(e)}>
         <option value="disabled">Filter by RAM</option>
         <option value="ram2">2 GB</option>
         <option value="ram3">3 GB</option>
