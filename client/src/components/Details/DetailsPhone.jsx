@@ -28,6 +28,28 @@ export default function DetailsPhone(props){
                         <h6>{myProducts&&myProducts.description} </h6>
                     </div> 
             }
+            {/* <div>
+            <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js" ></script>
+            <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet" ></link>
+            
+            <div className="swiffy-slider">
+            <ul className="slider-container">
+                <li><img src="https://source.unsplash.com/49b9l_29ceA/1600x900" style={{maxWidth: '100%', height: 'auto'}}></img></li>
+                <li><img src="https://source.unsplash.com/nKAglN6HBH8/1600x900" style={{maxWidth: '100%', height: 'auto'}}></img></li>
+                <li><img src="https://source.unsplash.com/E9ZwWcMGzj8/1600x900" style={{maxWidth: '100%', height: 'auto'}}></img></li>
+            </ul>
+
+            <button type="button" className="slider-nav"></button>
+            <button type="button" className="slider-nav slider-nav-next"></button>
+
+            <div className="slider-indicators">
+                <button className="active"></button>
+                <button></button>
+                <button></button>
+            </div>
+</div>
+
+            </div> */}
         </div>
     )
 }
