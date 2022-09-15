@@ -78,30 +78,30 @@ export function getClean(payload) {
 	};
 }
 
-export function getFilterByCategories(payload) {
-	return {
-		type: 'GET_FILTER_BY_CATEGORIES',
-		payload,
-	};
-}
-export function getFilterByRam(payload) {
-	return {
-		type: 'GET_FILTER_BY_RAM',
-		payload,
-	};
-}
+// export function getFilterByCategories(payload) {
+// 	return {
+// 		type: 'GET_FILTER_BY_CATEGORIES',
+// 		payload,
+// 	};
+// }
+// export function getFilterByRam(payload) {
+// 	return {
+// 		type: 'GET_FILTER_BY_RAM',
+// 		payload,
+// 	};
+// }
 export function getSort(payload) {
 	return {
 		type: 'GET_SORT',
 		payload,
 	};
 }
-export function getFilterByCapacity(payload) {
-	return {
-		type: 'GET_FILTER_BY_CAPACITY',
-		payload,
-	};
-}
+// export function getFilterByCapacity(payload) {
+// 	return {
+// 		type: 'GET_FILTER_BY_CAPACITY',
+// 		payload,
+// 	};
+// }
 export const setFilter = (filter, filterName) => (dispatch) => {
 	dispatch({
 		type: 'SET_FILTER',
