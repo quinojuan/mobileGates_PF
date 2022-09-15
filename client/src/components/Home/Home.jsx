@@ -77,8 +77,16 @@ export default function Home() {
             setProductsPerPage={setProductsPerPage}
             />
         </div>
+        <Paginado
+            productsPerPage={productsPerPage}
+            allProducts={allProducts?.length}
+            paginado={paginado}
+            changePage={changePage}
+            currentPage={currentPage}
+
+        />
         <div>
-            {allProducts&&allProducts.map(s=>{
+            {currentProducts&&currentProducts.map(s=>{
                 return(
                     <Link key={s.id} to={`/products/${s.category.toLowerCase()}/${s.id}`}>
                         <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()}/>
