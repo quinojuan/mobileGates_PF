@@ -12,6 +12,8 @@ module.exports = (sequelize) => {
 		},
 		model: {
 			type: DataTypes.STRING,
+			allowNull: false,
+			unique: false, //CAMBIAR CUANDO NO HAYA REPETIDOS EN EL JSON
 			allowNull: false,		
 		},
 		category: {

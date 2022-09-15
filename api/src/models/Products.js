@@ -66,9 +66,17 @@ module.exports = (sequelize) => {
 			type: DataTypes.TEXT,
 			allowNull: false,
 		},
+		colors:{
+			type: DataTypes.ARRAY(DataTypes.STRING),
+			allowNull: false,
+		},
 		cpu: {
 			type: DataTypes.STRING,
 			allowNull: false,
+		},
+		stock:{
+            type: DataTypes.INTEGER,
+			allowNull: false
 		},
 		gpu:{
 			type: DataTypes.STRING,
