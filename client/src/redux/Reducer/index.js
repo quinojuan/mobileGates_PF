@@ -39,6 +39,15 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 products: action.payload
             }
+            case "GET_FILTER_BY_RAM":
+                    const allProducts = state.allProducts;
+                    const filtByRam = action.payload === 'disabled' ?
+                    allProducts :
+                    allProducts?.filter(s => s.ram.includes(action.payload))
+            return {
+                ...state,
+                allProducts: filtByRam
+            };
             case "GET_FILTER_BY_CATEGORIES":
                 const productsToFilterByCategory = state.allProducts;
                 const categoryFilter = action.payload === "disabled" ?
@@ -48,15 +57,30 @@ function rootReducer(state = initialState, action) {
                     ...state,
                     products : categoryFilter
                 };
-                case "GET_FILTER_BY_RAM":
-                    const allProducts = state.allProducts;
-                    const filtByRam = action.payload === 'disabled' ?
-                    allProducts :
-                    allProducts?.filter(s => s.ram===action.payload)
+                case "GET_SORT":
+                    let sortedArr = action.payload === 'A-Z' ?
+                state.products.sort(function (a, b) {
+                    if (a.model.toLowerCase() > b.model.toLowerCase()) {
+                        return 1;
+                    }
+                    if (b.model.toLowerCase() > a.model.toLowerCase()) {
+                        return -1;
+                    }
+                    return 0;
+                }) :  // sino.....
+                state.products.sort(function (a, b) {
+                    if (a.model.toLowerCase() > b.model.toLowerCase()) {
+                        return -1;
+                    }
+                    if (b.model.toLowerCase() > a.model.toLowerCase()) {
+                        return 1;
+                    }
+                    return 0;
+                })
             return {
                 ...state,
-                allProducts: filtByRam
-            };
+                products: sortedArr
+            }
            
         default:
             return state;
