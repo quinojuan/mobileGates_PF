@@ -104,6 +104,24 @@ export function setLoading(payload){
         payload
     }
 }
+export function addToCart(payload){
+    return{
+        type: "ADD_TO_CART",
+        payload
+    }
+}
+export function getCart(payload){
+    return{
+        type: "GET_CART",
+        payload
+    }
+}
+export function deleteProductInCart(payload){
+    return{
+        type: "DELETE_PRODUCT_IN_CART",
+        payload
+    }
+}
 
 // export const getProductsByName=(search,filters)=> async dispatch =>{
 //     let filterString='';
