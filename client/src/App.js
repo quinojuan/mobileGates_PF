@@ -5,6 +5,7 @@ import DetailsNotebook from "./components/Details/DetailsNotebook";
 import DetailsPhone from './components/Details/DetailsPhone';
 import DetailsTablet from './components/Details/DetailsTablet';
 
+
 function App() {
   return (
     <BrowserRouter>
