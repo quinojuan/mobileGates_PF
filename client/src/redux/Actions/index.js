@@ -84,6 +84,12 @@ export function getFilterByRam(payload){
         payload
     }
 }
+export function getSort(payload){
+    return{
+        type:"GET_SORT",
+        payload
+    }
+}
 // export const getProductsByName=(search,filters)=> async dispatch =>{
 //     let filterString='';
 //     for (const filter in filters) {
