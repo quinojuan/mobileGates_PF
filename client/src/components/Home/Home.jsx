@@ -5,9 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import Paginado from "../Paginated/Paginated";
+
+import "./Home.css"
 
 export default function Home() {
 
@@ -32,7 +35,8 @@ export default function Home() {
 
     return(
         <div>
-        <div>
+        <div className="home">
+        
             <NavBar/>
         </div>
         <div>
@@ -73,16 +77,8 @@ export default function Home() {
             setProductsPerPage={setProductsPerPage}
             />
         </div>
-        <Paginado
-            productsPerPage={productsPerPage}
-            allProducts={allProducts?.length}
-            paginado={paginado}
-            changePage={changePage}
-            currentPage={currentPage}
-
-        />
         <div>
-            {currentProducts&&currentProducts.map(s=>{
+            {allProducts&&allProducts.map(s=>{
                 return(
                     <Link key={s.id} to={`/products/${s.category.toLowerCase()}/${s.id}`}>
                         <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()}/>
@@ -90,6 +86,8 @@ export default function Home() {
                 )
             })}
         </div>
+        <hr />
+        <Footer/>
         </div>
     )
 }
