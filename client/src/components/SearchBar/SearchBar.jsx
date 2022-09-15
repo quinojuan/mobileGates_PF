@@ -1,43 +1,44 @@
+
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchName } from '../../redux/Actions/index'
-import "./SearchBar.css"
+import { searchName } from "../../redux/Actions/index";
+import Swal from "sweetalert2";
+import "./SearchBar.css";
 
 export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
-    const dispatch = useDispatch()
-    const [name, setName] = useState("")
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
 
-    function handleInputChange(e) {
-        e.preventDefault()
-        setName(e.target.value)
+  function handleInputChange(e) {
+    e.preventDefault();
+    setName(e.target.value);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (name.length !== 0) {
+      dispatch(searchName(name.toLowerCase()));
+    } else {
+      Swal.fire("Tienes que ingresar un producto a buscar")
     }
-    function handleSubmit(e) {
-        e.preventDefault();
-        if (name.length !== 0) {
-            dispatch(searchName(name.toLowerCase()))
-        } else {
-            alert("You have to enter a word or your product dont exist")
-        }
-        setCurrentPage(1)
-        setName("")
+    setCurrentPage(1);
+    setName("");
+  }
 
-    }
-
-    return (
-        <div className="search-bar">
-            <h2>Qué producto estas buscando?</h2>
-            <input
-                type="text"
-                placeholder="Search..."
-                onChange={(e) => handleInputChange(e)}
-            />
-            <button className="btn2" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
-        </div>
-    )
-
+  return (
+    <div className="search-bar">
+      <h2>Qué producto estas buscando?</h2>
+      <input
+        type="text"
+        placeholder="Search..."
+        onChange={(e) => handleInputChange(e)}
+      />
+      <button className="btn2" type="submit" onClick={(e) => handleSubmit(e)}>
+        Search
+      </button>
+    </div>
+  );
 }
-
 
 // import React from "react";
 // import { useDispatch } from 'react-redux';

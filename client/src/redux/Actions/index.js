@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import Swal from "sweetalert2"
 export function getAllProducts() {
 	return async function (dispatch) {
 		let json = await axios.get('http://localhost:3001/products');
@@ -21,7 +21,7 @@ export function searchName(payload) {
 				payload: json.data,
 			});
 		} catch (error) {
-			window.alert(error.data);
+			Swal.fire("El producto que buscaste no existe");
 		}
 	};
 }
