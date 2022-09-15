@@ -10,14 +10,15 @@ export default function DetailsTablet(props){
 
     useEffect(()=>{
         dispatch(getTabletsById(id))
-        dispatch(getClean())
+        return dispatch(getClean())
     }, [dispatch])
     const myProducts=useSelector((state)=>state.details)
+    const loading=useSelector((state)=>state.loading)
     console.log("esto es my products", myProducts)
     return(
         <div>
             <Link to="/home">Back</Link>
-            {
+            { !loading ?
                 
                     <div>
                         <h1>{myProducts&&myProducts.model}</h1>
@@ -26,7 +27,7 @@ export default function DetailsTablet(props){
                         <h5 >Capacity: { myProducts&&myProducts.capacity}</h5>
                         <img src={myProducts&&myProducts.image} alt="Not found" width="200px" height="250px"></img>
                         <h6>{myProducts&&myProducts.description} </h6>
-                    </div> 
+                    </div> : <h1>Loading...</h1>
             }
         </div>
     )
