@@ -2,27 +2,47 @@ const {User} = require('../db.js')
 
 
 const getAllUsers = async(req, res) =>{
-    // Código asíncrono para traer toda la información (todos los usuarios)
-    // Primera ruta a armar para que los chicos del front puedan trabajar 
-    const allUsers = await User.findAll();
-    res.status(200).json(allUsers)
+    try {
+
+        const allUsers = await User.findAll();
+        if(allUsers.length === 0) return res.status(404).json({message: "cannot find info in database"});
+        res.status(200).json(allUsers)
+    }catch(e){
+        console.log(e);
+        res.ratus(500).json({message: 'Server error'})
+    };
 };
 
 const getUserById = async(req, res) =>{
-    // Código asíncrono para traer toda la información (todos los usuarios)
-    // Primera ruta a armar para que los chicos del front puedan trabajar 
-    const {id} = req.params;
+    try{
 
-
-    const user = await User.findByPk(id)
-    res.status(200).json(user)
+        const {id} = req.params;
+        if(!id) res.ratus(404).json({message: 'id is not provided'});
+        const validation = await Tablets.findByPk(id);
+        if(!validation){
+            res.status(404).json({message: 'id not exists'});
+        }else{
+            res.status(201).json(validation);
+        };
+    }catch(e){
+        console.log(e);
+		res.status(500).json({ message: 'Server error' });  
+    };
 };
 
 const createUser = async(req, res) =>{
-    // Código asíncrono para traer toda la información (todos los usuarios)
-    // Primera ruta a armar para que los chicos del front puedan trabajar 
-    const {name, email, password} = req.body;
+    try{
 
-    const user = await User.create({where: {name, email, password}})
-    res.status(200).json(user)
+        const {id} = req.params;
+        if(!id) res.ratus(404).json({message: 'id is not provided'});
+        const validation = await Tablets.findByPk(id);
+        if(!validation){
+            res.status(404).json({message: 'id not exists'});
+        }else{
+            res.status(201).json(validation);
+        };
+    }catch(e){
+        console.log(e);
+		res.status(500).json({ message: 'Server error' });  
+    };
 };
