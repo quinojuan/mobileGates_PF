@@ -63,14 +63,14 @@ export default function Home() {
         <div>
         <select onChange={(e)=>handleRam(e)}>
         <option value="disabled">Filter by RAM</option>
-        <option value="ram2">2 GB</option>
-        <option value="ram3">3 GB</option>
-        <option value="ram4">4 GB</option>
-        <option value="ram6">6 GB</option>
-        <option value="ram8">8 GB</option>
-        <option value="ram16">16 GB</option>
-        <option value="ram32">32 GB</option>
-        <option value="ram64">64 GB</option>
+        <option value="2">2 GB</option>
+        <option value="3">3 GB</option>
+        <option value="4">4 GB</option>
+        <option value="6">6 GB</option>
+        <option value="8">8 GB</option>
+        <option value="16">16 GB</option>
+        <option value="32">32 GB</option>
+        <option value="64">64 GB</option>
         </select>
         <select>
         <option value="disabled">Almacenamiento</option>

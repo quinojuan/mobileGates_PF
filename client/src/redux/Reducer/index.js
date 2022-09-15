@@ -49,14 +49,14 @@ function rootReducer(state = initialState, action) {
                     products : categoryFilter
                 };
                 case "GET_FILTER_BY_RAM":
-                    const productsToFilterByRam=state.allProducts;
-                    const ramFilter=action.payload==="disabled" ?
-                    productsToFilterByRam :
-                    productsToFilterByRam?.slice(s=>s.ram.includes(action.payload))
-                    return{
-                        ...state,
-                        products:ramFilter
-                    }
+                    const allProducts = state.allProducts;
+                    const filtByRam = action.payload === 'disabled' ?
+                    allProducts :
+                    allProducts?.filter(s => s.ram===action.payload)
+            return {
+                ...state,
+                allProducts: filtByRam
+            };
            
         default:
             return state;
