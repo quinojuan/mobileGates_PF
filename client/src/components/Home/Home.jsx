@@ -2,7 +2,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts, getFilterByCategories, getFilterByRam } from '../../redux/Actions/index';
+import { getAllProducts, getFilterByCategories, getFilterByRam, getSort, getFilterByCapacity } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -20,7 +20,7 @@ export default function Home() {
     const [productsPerPage, setProductsPerPage] = useState(9);
     const indexOfLastRecipe = currentPage * productsPerPage;
     const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
-    const currentProducts = allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe)
+    const currentProducts = allProducts&&allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe)
     console.log(allProducts)
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -46,7 +46,19 @@ export default function Home() {
     }
     function handleRam(e){
         e.preventDefault()
-        dispatch(getFilterByRam(e.target.value))
+        dispatch(getFilterByRam(Number(e.target.value)))
+        setCurrentPage(1)
+        setOrden(`Ordenado ${e.target.value}`)
+    }
+    function handleCapacity(e){
+        e.preventDefault()
+        dispatch(getFilterByCapacity(e.target.value))
+        setCurrentPage(1)
+        setOrden(`Ordenado ${e.target.value}`)
+    }
+    function handleSort(e){
+        e.preventDefault()
+        dispatch(getSort(e.target.value))
         setCurrentPage(1)
         setOrden(`Ordenado ${e.target.value}`)
     }
@@ -58,38 +70,43 @@ export default function Home() {
             <NavBar/>
         </div>
         <div>
-            <button onClick={(e)=>handleReload(e)}>Recargar pagina</button>
+            <button onClick={(e)=>handleReload(e)}>↻</button>
         </div>
         <div>
         <select onChange={(e)=>handleRam(e)}>
         <option value="disabled">Filter by RAM</option>
-        <option value="ram2">2 GB</option>
-        <option value="ram3">3 GB</option>
-        <option value="ram4">4 GB</option>
-        <option value="ram6">6 GB</option>
-        <option value="ram8">8 GB</option>
-        <option value="ram16">16 GB</option>
-        <option value="ram32">32 GB</option>
-        <option value="ram64">64 GB</option>
+        <option value="2">2 GB</option>
+        <option value="3">3 GB</option>
+        <option value="4">4 GB</option>
+        <option value="6">6 GB</option>
+        <option value="8">8 GB</option>
+        <option value="16">16 GB</option>
+        <option value="32">32 GB</option>
+        <option value="64">64 GB</option>
         </select>
-        <select>
+        <select onChange={(e)=>handleCapacity(e)}>
         <option value="disabled">Almacenamiento</option>
-        <option value="GB32">32 GB</option>
-        <option value="GB64">64 GB</option>
-        <option value="GB120">120 GB</option>
-        <option value="GB128">128 GB</option>
-        <option value="GB240">240 GB</option>
-        <option value="GB256">256 GB</option>
-        <option value="GB400">400 GB</option>
-        <option value="GB480">480 GB</option>
-        <option value="TB1">1 TB</option>
-        
+        <option value="32">32 GB</option>
+        <option value="64">64 GB</option>
+        <option value="120">120 GB</option>
+        <option value="128">128 GB</option>
+        <option value="240">240 GB</option>
+        <option value="256">256 GB</option>
+        <option value="400">400 GB</option>
+        <option value="480">480 GB</option>
+        <option value="512">512 GB</option>
+        <option value="1">1 TB</option>
         </select>
         <select onChange={(e)=>handleCategories(e)}>
         <option value="disabled">Categoria</option>
         <option value="Notebooks">Notebooks</option>
         <option value="Tablets">Tablets</option>
         <option value="Phones">Celulares</option>
+        </select>
+        <select onChange={(e)=>handleSort(e)}>
+            <option value ="sort">Orden alfabético</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
         </select>
         </div>
         <div>

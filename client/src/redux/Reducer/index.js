@@ -1,7 +1,8 @@
 const initialState = {
     products: [],
     details:[],
-    allProducts:[]
+    allProducts:[],
+    loading: false
 }
 
 function rootReducer(state = initialState, action) {
@@ -30,8 +31,13 @@ function rootReducer(state = initialState, action) {
                         case "GET_CLEAN":
                             return{
                                 ...state,
-                                payload:[]
+                                details:{}
                             }
+                            case "SET_LOADING":
+                                return{
+                                    ...state,
+                                    loading:action.payload
+                                }
 
 
         case 'SEARCH_NAME':
@@ -48,15 +54,50 @@ function rootReducer(state = initialState, action) {
                     ...state,
                     products : categoryFilter
                 };
-                case "GET_FILTER_BY_RAM":
-                    const productsToFilterByRam=state.allProducts;
-                    const ramFilter=action.payload==="disabled" ?
-                    productsToFilterByRam :
-                    productsToFilterByRam?.slice(s=>s.ram.includes(action.payload))
-                    return{
-                        ...state,
-                        products:ramFilter
+            case "GET_FILTER_BY_RAM":
+                    const allProducts = state.allProducts;
+                    const filtByRam = action.payload === "disabled" ?
+                    allProducts :
+                    allProducts.filter(el => el.ram.includes(action.payload))
+            return {
+                ...state,
+                products: filtByRam
+            };
+            case "GET_FILTER_BY_CAPACITY":
+                const alllProducts=state.allProducts;
+                const filtByCap=action.payload === "disabled" ?
+                alllProducts :
+                alllProducts.filter(s=>s.capacity.includes(action.payload))
+                return{
+                    ...state,
+                    products:filtByCap
+                }
+            
+                case "GET_SORT":
+                    let sortedArr = action.payload === 'A-Z' ?
+                state.products.sort(function (a, b) {
+                    if (a.model.toLowerCase() > b.model.toLowerCase()) {
+                        return 1;
                     }
+                    if (b.model.toLowerCase() > a.model.toLowerCase()) {
+                        return -1;
+                    }
+                    return 0;
+                }) :  // sino.....
+                state.products.sort(function (a, b) {
+                    if (a.model.toLowerCase() > b.model.toLowerCase()) {
+                        return -1;
+                    }
+                    if (b.model.toLowerCase() > a.model.toLowerCase()) {
+                        return 1;
+                    }
+                    return 0;
+                })
+            return {
+                ...state,
+                products: sortedArr
+            }
+            
            
         default:
             return state;

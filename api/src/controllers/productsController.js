@@ -57,7 +57,6 @@ const getAllTablets = async (req, res) => {
 	}
 };
 
-<<<<<<< HEAD
 const getTabletById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -72,24 +71,6 @@ const getTabletById = async (req, res) => {
     console.log(e);
     res.status(500).json({ message: "Server error" });
   }
-=======
-
-const getTabletById = async (req, res) =>{
-    try{
-
-        const {id} = req.params;
-        if(!id) res.ratus(404).json({message: 'id is not provided'});
-        const validation = await Tablets.findByPk(id);
-        if(!validation){
-            res.status(404).json({message: 'id not exists'});
-        }else{
-            res.status(201).json(validation);
-        };
-    }catch(e){
-        console.log(e);
-		res.status(500).json({ message: 'Server error' });  
-    };
->>>>>>> bbffd6660e41c6f268183250fc03187c2657a6f1
 };
 
 const postTablet = async (req, res) => {
@@ -400,8 +381,4 @@ module.exports = {
   getAllPhones,
   getPhonesById,
   postPhone
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> bbffd6660e41c6f268183250fc03187c2657a6f1
