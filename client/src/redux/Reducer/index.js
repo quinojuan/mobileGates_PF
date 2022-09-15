@@ -9,6 +9,7 @@ const initialState = {
 		capacity: '',
 	},
 	categories: [],
+	cart: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -124,7 +125,36 @@ function rootReducer(state = initialState, action) {
 				...state,
 				products: sortedArr,
 			};
-
+		case 'ADD_TO_CART':
+			let purchase = state.cart.filter((e) => {
+				return e.id == action.payload;
+			});
+			let myCart = JSON.parse(localStorage.getItem('cart')) || [];
+			if (!myCart.some((el) => el.id === purchase)) {
+				myCart.push(purchase[0]);
+				localStorage.setItem('cart', JSON.stringify(myCart));
+			}
+			return {
+				...state,
+				cart: [...state.cart, purchase[0]],
+			};
+		case 'GET_CART':
+			let cartLS = JSON.parse(localStorage.getItem('cart'));
+			if (!cartLS) {
+				cartLS = [];
+			}
+			return {
+				...state,
+				cart: cartLS,
+			};
+		case 'DELETE_PRODUCT_IN_CART':
+			let myDeletedProduct = JSON.parse(localStorage.getItem('cart'));
+			let myCarty = myDeletedProduct.filter((el) => el.id != action.payload);
+			localStorage.setItem('cart', JSON.stringify(myCarty));
+			return {
+				...state,
+				cart: myCarty,
+			};
 		default:
 			return state;
 	}
