@@ -20,15 +20,19 @@ export default function Paginado({ productsPerPage, allProducts, paginado, chang
     return (
         <nav className="paginated">
             <ul>
-                <button className="btn" onClick={(e)=>handlePrevious(e)}>🢀</button>
-
+                { currentPage>1 && (
+                    <button className="btn" onClick={(e)=>handlePrevious(e)}>🢀</button>
+                )
+                }
                 {pageNumbers.map((number) => (
                     <li className="nro" key={number} >
                         <a onClick={() => paginado(number)}>{number}</a>
                     </li>
                 ))}
-                <button className="btn" onClick={(e)=>handleNext(e)}>🢂</button>
-
+                { currentPage<10 && (
+                    <button className="btn" onClick={(e)=>handleNext(e)}>🢂</button>
+                )
+                }
             </ul>
         </nav>
     );

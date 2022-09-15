@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 export function getAllProducts(){
     return async function(dispatch){
         let json = await axios.get('http://localhost:3001/products');
@@ -98,6 +99,16 @@ export function getSort(payload){
         payload
     }
 }
+
+export function postRecipe(payload) {
+    return async function (dispatch) {
+        const recipeCreated = await axios.post("http://localhost:3001/recipes", payload)
+        return recipeCreated
+    }
+}
+
+
+
 // export const getProductsByName=(search,filters)=> async dispatch =>{
 //     let filterString='';
 //     for (const filter in filters) {
