@@ -13,6 +13,7 @@ export default function NavBar() {
         <a href="#" className='container-nav'>QUIENES SOMOS?</a>
         <a href="#" className='container-nav'>CARRITO 🛒</a>
       </div>
+      <hr />
     </nav>
   )
 }

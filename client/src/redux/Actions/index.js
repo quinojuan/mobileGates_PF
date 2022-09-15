@@ -3,10 +3,9 @@ import axios from 'axios'
 export function getAllProducts(){
     return async function(dispatch){
         let json = await axios.get('http://localhost:3001/products');
-        let data=json.data
         return dispatch({
             type: 'GET_PRODUCTS',
-            payload: data.allProducts
+            payload: json.data
         })
     }
 }
@@ -72,3 +71,21 @@ export function getClean(payload){
         payload
     }
 }
+
+// export const getProductsByName=(search,filters)=> async dispatch =>{
+//     let filterString='';
+//     for (const filter in filters) {
+//         filterString+='&'+filter+'='+filters[filter];
+//     }
+//     //BUENA MANERA DE UTILIZAR EL AXIOS
+//     await axios.get("http://localhost:3001/products?"+'name='+search.toLowerCase()+filterString)
+//     .then(res => dispatch ({
+//         type:GET_PRODUCTS_BY_NAME,
+//         payload: res
+//     }))
+//     .catch((err)=> dispatch ({
+//         type:GET_ERROR,
+//         payload: err.response,
+//     }))
+//     //BUENA MANERA DE UTILIZAR EL AXIOS
+// }
