@@ -21,7 +21,7 @@ export function searchName(payload) {
 				payload: json.data,
 			});
 		} catch (error) {
-			console.log(error);
+			window.alert(error.data);
 		}
 	};
 }

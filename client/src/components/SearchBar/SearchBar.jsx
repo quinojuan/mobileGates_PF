@@ -17,7 +17,7 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
         if (name.length !== 0) {
             dispatch(searchName(name.toLowerCase()))
         } else {
-            alert("You have to enter a word or your recipe dont exist")
+            alert("You have to enter a word or your product dont exist")
         }
         setCurrentPage(1)
         setName("")
