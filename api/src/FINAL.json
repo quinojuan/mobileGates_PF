@@ -11,7 +11,7 @@
     "colors":  [
         "https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
       ],
-    "capacity": [120, 240],
+    "capacity": ["120ssd", "240ssd"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4900,
@@ -35,7 +35,7 @@
     "colors":  [
         "https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
       ],
-    "capacity": [128, 240, 480],
+    "capacity": ["128SSD", "240SSD", "480SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 3900,
@@ -59,7 +59,7 @@
     "colors":  [
         "https://http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
       ],
-    "capacity": [240],
+    "capacity": ["240SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4400,
@@ -83,7 +83,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
       ],
-    "capacity": [128],
+    "capacity": ["128SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5900,
@@ -107,7 +107,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
       ],
-    "capacity": [128,240],
+    "capacity": ["128SSD,240SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4400,
@@ -131,7 +131,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
       ],
-    "capacity": [480],
+    "capacity": ["480SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 6600,
@@ -155,7 +155,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
       ],
-    "capacity": [128],
+    "capacity": ["128SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5400,
@@ -179,7 +179,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": [128],
+    "capacity": ["128SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4000,
@@ -203,7 +203,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": [128],
+    "capacity": ["128SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5000,
@@ -227,7 +227,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": [128, 240],
+    "capacity": ["128SSD", "240SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5900,
@@ -251,7 +251,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": [128],
+    "capacity": ["128SSD"],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4000,
@@ -549,7 +549,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZStdonGE2rDrKGxcoLbrrG55pwVxsUjUPCG24mv8XGSL39ZRIuKkSt5ClxZeXYaYKH0w&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYa-AUMinfxHHvpu6K5b3RB8Or5Hy6qCj08Q&usqp=CAU"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "680px-480px",
     "weight": 2.4,
     "battery": 3790,
@@ -575,7 +575,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRPd-U1UzVni4V8Kj7-rQfz0fhsn-h5bnEFA&usqp=CAU",
         "https://getek.store/wp-content/uploads/2022/05/61KU2Gltf0L._AC_SL1500_-600x301.jpg"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "640px-480px",
     "weight": 2.1,
     "battery": 3790,
@@ -601,7 +601,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn5hMjQBTwOCEkYLHdvzBIfOlsVhQNqG1Xzg&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLb4_k8pb_zmdhfCo_76Sjgdk9N9UnAZhmPg&usqp=CAU"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "640px-480px",
     "weight": 2.3,
     "battery": 3790,
@@ -627,7 +627,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSarGwdGPzCQT-23RD87A2RpvW9WLG1242LEA&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNdNu6asJrVsrxMgkYlfgTE5abjGQbK22fAw&usqp=CAU"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "640px-480px",
     "weight": 2.2,
     "battery": 3790,
@@ -653,7 +653,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_EaM2Hq5WgORBhldzUCh5_9pQQq_9FWm-mw&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6PKTdWp95Q5_2EN-2mAZMsSV47Ya3yPvkag&usqp=CAU"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "640px-480px",
     "weight": 2.4,
     "battery": 3790,
@@ -682,7 +682,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcYwAmeZYRoJyqf_gh2SThkv7KdHaUgsXPKFpmYkpdvnnQWWq5bkRo-QYpzxSGO6UWUk&usqp=CAU",
         "https://storage-asset.msi.com/global/picture/image/feature/nb/GL/Pulse-GL76/io-right.png"
       ],
-    "capacity": [512],
+    "capacity": ["512SSD"],
     "frontal_camera": "720px-480px",
     "weight": 2.4,
     "battery": 5550,
@@ -711,7 +711,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpOUX2wnqKYUbGLoS-AnYB-E8_U35EVrnBbg&usqp=CAU",
         "https://gcdn.lanetaneta.com/wp-content/uploads/2021/03/MSI-Stealth-15M-%C2%BFQuien-deberia-comprar-una-nueva-computadora-portatil.5.jpeg"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "720px-480px",
     "weight": 2.4,
     "battery": 4550,
@@ -737,7 +737,7 @@
         "https://static.nb.com.ar/i/nb_msi-notebook-gamer-ge66-raider-10sf_size_h680_a363c7b8b9198b0c1083d1cabc61ac0f.png",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu0q3Joft4xBWII9VublQJfozc8cUobNyLUCbMAy6wJphTerCLagO7i24-JxS5J0xJGr4&usqp=CAU"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "680px-480px",
     "weight": 2.4,
     "battery": 4550,
@@ -763,7 +763,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxZ3OUeN2BCTABA8d4GezOCyHg5fgWRyHU4g&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpazAGWi2EIgCmMrRq-jmvhYNEY7BjF09V2Q&usqp=CAU"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "720px-480px",
     "weight": 2.3,
     "battery": 5700,
@@ -789,7 +789,7 @@
         "https://images.fravega.com/f300/78fb56b79e88cd6b893807cc513aee8e.jpg.webp",
         "https://storage-asset.msi.com/global/picture/image/feature/nb/gp/GP65/gp65-pd-slider-04.jpg"
       ],
-    "capacity": [240, 512],
+    "capacity": ["240SSD", "512SSD"],
     "frontal_camera": "680px-480px",
     "weight": 2.3,
     "battery": 4400,
