@@ -34,14 +34,14 @@ const createUser = async(req, res) =>{
     try{
 
         const {email, password, name} = req.body;
-        if(!email || !password) res.ratus(404).json({message: 'id is not provided'});
+        if(!email || !password) return res.status(404).json({message: 'id is not provided'});
 
         const validation = await Users.findOne({where: {email: email}});
         if(validation){
-            res.status(404).json({message: 'user already exists'});
+            return res.status(404).json({message: 'user already exists'});
         }else{
             const newUser = await Users.create({email, name, password});
-            res.status(201).json({message: 'User created! :D'});
+            return res.status(201).json({message: 'User created! :D'});
         };
     }catch(e){
         console.log(e);

@@ -15,7 +15,7 @@ export default function Login() {
                 <label>Contraseña</label>
                 <input type="text" placeholder="Ingresa tu contraseña" />
                 <button>Entrar</button>
-                <a href="#">No tenes cuenta? Registrate gratis</a>
+                <a href="/home/createuser">No tenes cuenta? Registrate gratis</a>
                 <a href="#">Olvidaste tu contraseña?</a>
             </form>
         </div>

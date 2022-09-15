@@ -100,10 +100,10 @@ export function getSort(payload){
     }
 }
 
-export function postRecipe(payload) {
-    return async function (dispatch) {
-        const recipeCreated = await axios.post("http://localhost:3001/recipes", payload)
-        return recipeCreated
+export function postUsers(payload) {
+    return async function () {
+        const createUser = await axios.post("http://localhost:3001/users", payload)
+        return createUser
     }
 }
 

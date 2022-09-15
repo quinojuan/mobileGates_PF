@@ -5,6 +5,7 @@ import DetailsNotebook from "./components/Details/DetailsNotebook";
 import DetailsPhone from './components/Details/DetailsPhone';
 import DetailsTablet from './components/Details/DetailsTablet';
 import Login from './components/Login/Login';
+import CreateUser from './components/CreateUser/CreateUser'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/products/phones/:id" component= {DetailsPhone}/>
         <Route path="/products/tablets/:id" component= {DetailsTablet}/>
         <Route path="/home/login" component= {Login}/>
+        <Route path="/home/createuser" component= {CreateUser}/>
       </Switch>
     </div>
     </BrowserRouter>
