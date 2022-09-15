@@ -1,7 +1,8 @@
 const initialState = {
     products: [],
     details:[],
-    allProducts:[]
+    allProducts:[],
+    loading: false
 }
 
 function rootReducer(state = initialState, action) {
@@ -30,8 +31,13 @@ function rootReducer(state = initialState, action) {
                         case "GET_CLEAN":
                             return{
                                 ...state,
-                                payload:[]
+                                details:{}
                             }
+                            case "SET_LOADING":
+                                return{
+                                    ...state,
+                                    loading:action.payload
+                                }
 
 
         case 'SEARCH_NAME':
@@ -50,7 +56,7 @@ function rootReducer(state = initialState, action) {
                 };
             case "GET_FILTER_BY_RAM":
                     const allProducts = state.allProducts;
-                    const filtByRam = action.payload === 'disabled' ?
+                    const filtByRam = action.payload === "disabled" ?
                     allProducts :
                     allProducts.filter(el => el.ram.includes(action.payload))
             return {

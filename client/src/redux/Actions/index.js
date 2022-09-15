@@ -28,11 +28,13 @@ export function searchName(payload) {
 export function getPhonesById(id){
     return async function (dispatch){
         try{
+            dispatch(setLoading(true))
             let json= await axios.get(`http://localhost:3001/products/phones/${id}`)
-            return dispatch({
+            dispatch({
                 type: "GET_PHONES_BY_ID",
                 payload: json.data
         })
+        dispatch(setLoading(false))
         } catch(error){
             console.log(error)
         }
@@ -93,6 +95,12 @@ export function getSort(payload){
 export function getFilterByCapacity(payload){
     return{
         type:"GET_FILTER_BY_CAPACITY",
+        payload
+    }
+}
+export function setLoading(payload){
+    return{
+        type:"SET_LOADING",
         payload
     }
 }
