@@ -4,7 +4,7 @@ import Home from './components/Home/Home';
 import DetailsNotebook from "./components/Details/DetailsNotebook";
 import DetailsPhone from './components/Details/DetailsPhone';
 import DetailsTablet from './components/Details/DetailsTablet';
-import Landing from './components/Landing/Landing';
+import Landing from  './components/Landing/Landing';
 
 
 function App() {
