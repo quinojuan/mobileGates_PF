@@ -72,6 +72,12 @@ export function getClean(payload){
     }
 }
 
+export function getFilterByCategories(payload){
+    return{
+        type:"GET_FILTER_BY_CATEGORIES",
+        payload
+    }
+}
 // export const getProductsByName=(search,filters)=> async dispatch =>{
 //     let filterString='';
 //     for (const filter in filters) {

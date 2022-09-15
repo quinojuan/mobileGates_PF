@@ -2,7 +2,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts } from '../../redux/Actions/index';
+import { getAllProducts, getFilterByCategories } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -28,9 +28,22 @@ export default function Home() {
     useEffect(() => {
         dispatch(getAllProducts())
     }, [dispatch])
-    
+    const [orden, setOrden] = useState("")
+
+    function handleReload(e){
+        e.preventDefault()
+        window.location.reload()
+    }
+
     function changePage(pageNumber){
         setCurrentPage(pageNumber)
+    }
+    function handleCategories(e){
+        e.preventDefault()
+        dispatch(getFilterByCategories(e.target.value))
+        setCurrentPage(1)
+        setOrden(`Ordenado ${e.target.value}`)
+
     }
 
     return(
@@ -38,6 +51,9 @@ export default function Home() {
         <div className="home">
         
             <NavBar/>
+        </div>
+        <div>
+            <button onClick={(e)=>handleReload(e)}>Recargar pagina</button>
         </div>
         <div>
         <select>
@@ -64,11 +80,11 @@ export default function Home() {
         <option value="TB1">1 TB</option>
         
         </select>
-        <select>
+        <select onChange={(e)=>handleCategories(e)}>
         <option value="disabled">Categoria</option>
-        <option value="notebooks">Notebooks</option>
-        <option value="tablets">Tablets</option>
-        <option value="celulares">Celulares</option>
+        <option value="Notebooks">Notebooks</option>
+        <option value="Tablets">Tablets</option>
+        <option value="Phones">Celulares</option>
         </select>
         </div>
         <div>

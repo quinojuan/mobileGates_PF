@@ -1,6 +1,7 @@
 const initialState = {
     products: [],
-    details:[]
+    details:[],
+    allProducts:[]
 }
 
 function rootReducer(state = initialState, action) {
@@ -9,6 +10,7 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 products: action.payload,
+                allProducts:action.payload
             }
             case "GET_PHONES_BY_ID":
                 return {
@@ -37,7 +39,16 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 products: action.payload
             }
-
+            case "GET_FILTER_BY_CATEGORIES":
+                const productsToFilterByCategory = state.allProducts;
+                                    const categoryFilter = action.payload === "disabled" ?
+                                    productsToFilterByCategory :
+                                    productsToFilterByCategory?.filter(s => s.category.includes(action.payload))
+                                    return {
+                                        ...state,
+                                        products : categoryFilter
+                                    };
+           
         default:
             return state;
     }
