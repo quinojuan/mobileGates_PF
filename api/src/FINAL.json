@@ -11,7 +11,7 @@
     "colors":  [
         "https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
       ],
-    "capacity": ["120ssd", "240ssd"],
+    "capacity": [120, 240],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4900,
@@ -35,7 +35,7 @@
     "colors":  [
         "https://http2.mlstatic.com/D_NQ_NP_2X_817626-MLA45043535664_032021-F.webp"
       ],
-    "capacity": ["128SSD", "240SSD", "480SSD"],
+    "capacity": [128, 240, 480],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 3900,
@@ -59,7 +59,7 @@
     "colors":  [
         "https://http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
       ],
-    "capacity": ["240SSD"],
+    "capacity": [240],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4400,
@@ -83,7 +83,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
       ],
-    "capacity": ["128SSD"],
+    "capacity": [128],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5900,
@@ -107,7 +107,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_934374-MLA48463322720_122021-F.webp"
       ],
-    "capacity": ["128SSD,240SSD"],
+    "capacity": [128,240],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4400,
@@ -131,7 +131,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
       ],
-    "capacity": ["480SSD"],
+    "capacity": [480],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 6600,
@@ -155,7 +155,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_867325-MLA48011273982_102021-F.webp"
       ],
-    "capacity": ["128SSD"],
+    "capacity": [128],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5400,
@@ -179,7 +179,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": ["128SSD"],
+    "capacity": [128],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4000,
@@ -203,7 +203,7 @@
     "colors": [
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": ["128SSD"],
+    "capacity": [128],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5000,
@@ -227,7 +227,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": ["128SSD", "240SSD"],
+    "capacity": [128, 240],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 5900,
@@ -251,7 +251,7 @@
     "colors":[
         "https://http2.mlstatic.com/D_NQ_NP_2X_775151-MLA51423642560_092022-F.webp"
       ],
-    "capacity": ["128SSD"],
+    "capacity": [128],
     "frontal_camera": "640px-480px",
     "weight": 1.3,
     "battery": 4000,
@@ -283,7 +283,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_933025-MLA46516512355_062021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_933025-MLA46516512355_062021-O.webp"  
     ],
-    "capacity": ["256SSD", "512SSD"],
+    "capacity": [256, 512],
     "frontal_camera": "1280px-720px",
     "weight": 1.29,
     "battery": 4379,
@@ -312,7 +312,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_736238-MLA45795181981_052021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_963743-MLA45795195900_052021-O.webp"   
     ],
-    "capacity": ["256SSD", "512SSD"],
+    "capacity": [256, 512],
     "frontal_camera": "1280px-720px",
     "weight": 1.4,
     "battery": 5152,
@@ -338,7 +338,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_762247-MLA47215243752_082021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_749059-MLA47215230823_082021-O.webp"
     ],
-    "capacity": ["256SSD", "512SSD"],
+    "capacity": [256, 512],
     "frontal_camera": "1280px-720px",
     "weight": 1.98,
     "battery": 4565,
@@ -367,7 +367,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_609731-MLA50878651630_072022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_849241-MLA50878653653_072022-O.webp"
     ],
-    "capacity": ["256SSD", "512SSD"],
+    "capacity": [256, 512],
     "frontal_camera": "1280px-720px",
     "weight": "1.71",
     "battery": 4385,
@@ -393,7 +393,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_980061-MLA50584246720_072022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_798084-MLA50584358593_072022-O.webp"
     ],
-    "capacity": ["256SSD"],
+    "capacity": [256],
     "frontal_camera": "1280px-720px",
     "weight": 1.73,
     "battery": 4485,
@@ -419,7 +419,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_616910-MLA49715524611_042022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_982465-MLA49715524613_042022-O.webp"
     ],
-    "capacity": ["256SSD"],
+    "capacity": [256],
     "frontal_camera": "1280px-720px",
     "weight": 1.75,
     "battery": 4495,
@@ -445,7 +445,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_719273-MLA51015186421_082022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_788482-MLA51015240242_082022-O.webp"
     ],
-    "capacity": ["128SSD"],
+    "capacity": [128],
     "frontal_camera": "1280px-720px",
     "weight": 1.6,
     "battery": 4000,
@@ -471,7 +471,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_854414-MLA48809618870_012022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_783152-MLA48809654544_012022-O.webp"
     ],
-    "capacity": ["256SSD"],
+    "capacity": [256],
     "frontal_camera": "1280px-720px",
     "weight": 2.4,
     "battery": 4980,
@@ -498,7 +498,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_888927-MLA48850376845_012022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_865195-MLA48850376795_012022-O.webp"
     ],
-    "capacity": ["256SSD"],
+    "capacity": [256],
     "frontal_camera": "1280px-720px",
     "weight": 1.7,
     "battery": 4880,
@@ -524,7 +524,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_899870-MLA44962993057_022021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_835946-MLA44962993211_022021-O.webp" 
     ],
-    "capacity": ["256SSD"],
+    "capacity": [256],
     "frontal_camera": "1280px-720px",
     "weight": 1.69,
     "battery": 5000,
@@ -549,7 +549,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZStdonGE2rDrKGxcoLbrrG55pwVxsUjUPCG24mv8XGSL39ZRIuKkSt5ClxZeXYaYKH0w&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYa-AUMinfxHHvpu6K5b3RB8Or5Hy6qCj08Q&usqp=CAU"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "680px-480px",
     "weight": 2.4,
     "battery": 3790,
@@ -575,7 +575,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRPd-U1UzVni4V8Kj7-rQfz0fhsn-h5bnEFA&usqp=CAU",
         "https://getek.store/wp-content/uploads/2022/05/61KU2Gltf0L._AC_SL1500_-600x301.jpg"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "640px-480px",
     "weight": 2.1,
     "battery": 3790,
@@ -601,7 +601,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn5hMjQBTwOCEkYLHdvzBIfOlsVhQNqG1Xzg&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLb4_k8pb_zmdhfCo_76Sjgdk9N9UnAZhmPg&usqp=CAU"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "640px-480px",
     "weight": 2.3,
     "battery": 3790,
@@ -627,7 +627,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSarGwdGPzCQT-23RD87A2RpvW9WLG1242LEA&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNdNu6asJrVsrxMgkYlfgTE5abjGQbK22fAw&usqp=CAU"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "640px-480px",
     "weight": 2.2,
     "battery": 3790,
@@ -653,7 +653,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_EaM2Hq5WgORBhldzUCh5_9pQQq_9FWm-mw&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6PKTdWp95Q5_2EN-2mAZMsSV47Ya3yPvkag&usqp=CAU"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "640px-480px",
     "weight": 2.4,
     "battery": 3790,
@@ -682,7 +682,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcYwAmeZYRoJyqf_gh2SThkv7KdHaUgsXPKFpmYkpdvnnQWWq5bkRo-QYpzxSGO6UWUk&usqp=CAU",
         "https://storage-asset.msi.com/global/picture/image/feature/nb/GL/Pulse-GL76/io-right.png"
       ],
-    "capacity": ["512SSD"],
+    "capacity": [512],
     "frontal_camera": "720px-480px",
     "weight": 2.4,
     "battery": 5550,
@@ -711,7 +711,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpOUX2wnqKYUbGLoS-AnYB-E8_U35EVrnBbg&usqp=CAU",
         "https://gcdn.lanetaneta.com/wp-content/uploads/2021/03/MSI-Stealth-15M-%C2%BFQuien-deberia-comprar-una-nueva-computadora-portatil.5.jpeg"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "720px-480px",
     "weight": 2.4,
     "battery": 4550,
@@ -737,7 +737,7 @@
         "https://static.nb.com.ar/i/nb_msi-notebook-gamer-ge66-raider-10sf_size_h680_a363c7b8b9198b0c1083d1cabc61ac0f.png",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu0q3Joft4xBWII9VublQJfozc8cUobNyLUCbMAy6wJphTerCLagO7i24-JxS5J0xJGr4&usqp=CAU"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "680px-480px",
     "weight": 2.4,
     "battery": 4550,
@@ -763,7 +763,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxZ3OUeN2BCTABA8d4GezOCyHg5fgWRyHU4g&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpazAGWi2EIgCmMrRq-jmvhYNEY7BjF09V2Q&usqp=CAU"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "720px-480px",
     "weight": 2.3,
     "battery": 5700,
@@ -789,7 +789,7 @@
         "https://images.fravega.com/f300/78fb56b79e88cd6b893807cc513aee8e.jpg.webp",
         "https://storage-asset.msi.com/global/picture/image/feature/nb/gp/GP65/gp65-pd-slider-04.jpg"
       ],
-    "capacity": ["240SSD", "512SSD"],
+    "capacity": [240, 512],
     "frontal_camera": "680px-480px",
     "weight": 2.3,
     "battery": 4400,
@@ -820,7 +820,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/161732-1200-auto?v=637810641659330000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/161735-1200-auto?v=637810642093770000&width=1200&height=auto&aspect=true"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 13,
     "weight": 178,
     "battery": 5000,
@@ -846,7 +846,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162492-1200-auto?v=637923007190330000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162494-1200-auto?v=637923007416530000&width=1200&height=auto&aspect=true"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 13,
     "weight": 208,
     "battery": 5000,
@@ -872,7 +872,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162428-1200-auto?v=637922827747900000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162435-1200-auto?v=637922835917870000&width=1200&height=auto&aspect=true"
     ],
-    "capacity": ["256 GB"],
+    "capacity": [256],
     "frontal_camera": 60,
     "weight": 196,
     "battery": 4800,
@@ -898,7 +898,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162659-1200-auto?v=637933222736530000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162660-1200-auto?v=637933223007030000&width=1200&height=auto&aspect=true"  
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 16,
     "weight": 174.4,
     "battery": 5000,
@@ -924,7 +924,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162253-1200-auto?v=637897993974600000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162258-1200-auto?v=637897994402970000&width=1200&height=auto&aspect=true"   
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 32,
     "weight": 155,
     "battery": 4020,
@@ -950,7 +950,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162502-1200-auto?v=637923012785930000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162505-1200-auto?v=637923013163800000&width=1200&height=auto&aspect=true"  
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 16,
     "weight": 169,
     "battery": 5000,
@@ -976,7 +976,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162603-1200-auto?v=637929135122670000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162606-1200-auto?v=637929135575300000&width=1200&height=auto&aspect=true" 
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 16,
     "weight": 173,
     "battery": 5000,
@@ -1002,7 +1002,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/161401-1200-auto?v=637779823119730000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/161402-1200-auto?v=637779823217500000&width=1200&height=auto&aspect=true"   
     ],
-    "capacity": ["64 GB"],
+    "capacity": [64],
     "frontal_camera": 8,
     "weight": 198,
     "battery": 5000,
@@ -1028,7 +1028,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162075-1200-auto?v=637858869572730000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162076-1200-auto?v=637858869767730000&width=1200&height=auto&aspect=true"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 16,
     "weight": 189,
     "battery": 5000,
@@ -1054,7 +1054,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/162580-1200-auto?v=637928163547100000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/162449-1200-auto?v=637922954670900000&width=1200&height=auto&aspect=true"
     ],
-    "capacity": ["64 GB"],
+    "capacity": [64],
     "frontal_camera": 8,
     "weight": 184,
     "battery": 5000,
@@ -1080,7 +1080,7 @@
           "https://armoto.vtexassets.com/arquivos/ids/161373-1200-auto?v=637779808038900000&width=1200&height=auto&aspect=true",
           "https://armoto.vtexassets.com/arquivos/ids/161372-1200-auto?v=637779807938170000&width=1200&height=auto&aspect=true"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 16,
     "weight": 188,
     "battery": 5000,
@@ -1110,7 +1110,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_807230-MLA49303779099_032022-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_902813-MLA49303779092_032022-F.webp"
     ],
-    "capacity": ["256 GB", "512 GB"],
+    "capacity": [256, 512],
     "frontal_camera": 40,
     "weight": 227,
     "battery": 5000,
@@ -1136,7 +1136,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_974478-MLA49387651692_032022-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_964982-MLA49387669526_032022-F.webp"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 10,
     "weight": 167,
     "battery": 3700,
@@ -1165,7 +1165,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_974595-MLA51369951150_092022-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_680568-MLA51369926820_092022-F.webp"
     ],
-    "capacity": ["128GB", "256GB"],
+    "capacity": [128, 256],
     "frontal_camera": 10,
     "weight": 196,
     "battery": 4500,
@@ -1187,7 +1187,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_746225-MLA51442089333_092022-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_870968-MLA51442098264_092022-F.webp"
     ],
-    "capacity": ["128 GB", "256 GB"],
+    "capacity": [128, 256],
     "frontal_camera": 40,
     "weight": 228,
     "battery": 5000,
@@ -1217,7 +1217,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_602800-MLA44281644566_122020-F.webp"
 
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 12,
     "weight": 190,
     "battery": 4500,
@@ -1246,7 +1246,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_749288-MLA45658735474_042021-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_985542-MLA48428117207_122021-F.webp"
     ],
-    "capacity": ["64 GB", "128 GB"],
+    "capacity": [64, 128],
     "frontal_camera": 20,
     "weight": 184,
     "battery": 5000,
@@ -1275,7 +1275,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_828391-MLA50401610520_062022-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_832650-MLA50401543654_062022-F.webp"
     ],
-    "capacity": ["32 GB"],
+    "capacity": [32],
     "frontal_camera": 8,
     "weight": 195,
     "battery": 5000,
@@ -1328,7 +1328,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_886541-MLA50912414218_072022-F.webp"
     ],
 
-    "capacity": ["64 GB", "128 GB"],
+    "capacity": [64, 128],
     "frontal_camera": 8,
     "weight": 197,
     "battery": 5000,
@@ -1351,7 +1351,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_832364-MLA48271786522_112021-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_938304-MLA48271757702_112021-F.webp"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 32,
     "weight": 189,
     "battery": 4500,
@@ -1378,7 +1378,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_930545-MLA50330576505_062022-F.webp"
     ],
 
-    "capacity": ["64 GB", "128 GB"],
+    "capacity": [64, 128],
     "frontal_camera": 8,
     "weight": 205,
     "battery": 5000,
@@ -1403,7 +1403,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_708511-MLA47777566757_102021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_612194-MLA47777512918_102021-O.webp"
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB", "1 TB"],
+    "capacity": [128, 256, 512, 1],
     "frontal_camera": 12,
     "weight": 238,
     "battery": 4532,
@@ -1427,7 +1427,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_932957-MLA47782545553_102021-V.webp",
           "https://http2.mlstatic.com/D_NQ_NP_610297-MLA47782558463_102021-O.webp"
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB"],
+    "capacity": [128, 256, 512],
     "frontal_camera": 12,
     "weight": 141,
     "battery": 2406,
@@ -1452,7 +1452,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_941855-MLA47781742465_102021-O.webp"
 
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB", "1 TB"],
+    "capacity": [128, 256, 512, 1],
     "frontal_camera": 11,
     "weight": 174,
     "battery": 3240,
@@ -1476,7 +1476,7 @@
           "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/iPhone_SE3_Starlight_PDP_Image_Position-1A_MXLA.jpg",
           "https://d2ihpvt6nd5q28.cloudfront.net/wp-content/uploads/2022/06/fondoblanco_Position-2_MXLA-3.jpg"
     ],
-    "capacity": ["64 GB", "128 GB", "256 GB"],
+    "capacity": [64, 128, 256],
     "frontal_camera": 11,
     "weight": 144,
     "battery": 1821,
@@ -1500,7 +1500,7 @@
           "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-max-silver-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202946000",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Xmes0wHI9jLEGTUYZOht3OcEmkax_FU-iQ&usqp=CAU"
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB"],
+    "capacity": [128, 256, 512],
     "frontal_camera": 12,
     "weight": 238,
     "battery": 4532,
@@ -1524,7 +1524,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_829746-MLA45729987647_042021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_755713-MLA45729987648_042021-O.webp"
     ],
-    "capacity": ["64 GB", "128 GB", "256 GB"],
+    "capacity": [64, 128, 256],
     "frontal_camera": 12,
     "weight": 164,
     "battery": 2775,
@@ -1548,7 +1548,7 @@
           "https://m.media-amazon.com/images/I/41YIrT6VyGL._AC_.jpg",
           "https://m.media-amazon.com/images/I/71kbOqSBFBL._AC_SX679_.jpg"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 12,
     "weight": 133,
     "battery": 2815,
@@ -1572,7 +1572,7 @@
           "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-max-silver-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202946000",
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Xmes0wHI9jLEGTUYZOht3OcEmkax_FU-iQ&usqp=CAU"
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB"],
+    "capacity": [128, 256, 512],
     "frontal_camera": 12,
     "weight": 238,
     "battery": 4532,
@@ -1596,7 +1596,7 @@
           "https://m.media-amazon.com/images/I/613KzeDTHrS._AC_SX679_.jpg",
           "https://m.media-amazon.com/images/I/31RCAVK0bKS._AC_SX679_.jpg"
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB"],
+    "capacity": [128, 256, 512],
     "frontal_camera": 12,
     "weight": 194,
     "battery": 3110,
@@ -1619,7 +1619,7 @@
           "https://m.media-amazon.com/images/I/51+C8JRrBvL._AC_SX679_.jpg",
           "https://m.media-amazon.com/images/I/812P-Wji1QL._AC_SL1500_.jpg"
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB"],
+    "capacity": [128, 256, 512],
     "frontal_camera": 12,
     "weight": 177,
     "battery": 2658,
@@ -1643,7 +1643,7 @@
           "https://cdn.alloallo.media/catalog/product/apple/iphone/iphone-xr/iphone-xr-white.jpg",
           "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MRW62?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1569617849402"
     ],
-    "capacity": ["128 GB", "256 GB", "512 GB"],
+    "capacity": [128, 256, 512],
     "frontal_camera": 12,
     "weight": 194,
     "battery": 2658,
@@ -1667,7 +1667,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_830886-MLA47146625417_082021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_909806-MLA47146793018_082021-O.webp"
     ],
-    "capacity": ["34 GB"],
+    "capacity": [34],
     "frontal_camera": 2,
     "weight": 366,
     "battery": 5100,
@@ -1691,7 +1691,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_684275-MLA49153411562_022022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_968111-MLA49153489620_022022-O.webp"
     ],
-    "capacity": ["64 GB"],
+    "capacity": [64],
     "frontal_camera": 5,
     "weight": 508,
     "battery": 7040,
@@ -1717,7 +1717,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_930111-MLA42520536797_072020-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_739455-MLA42520615607_072020-O.webp"
     ],
-    "capacity": ["64 GB"],
+    "capacity": [64],
     "frontal_camera": 5,
     "weight": 465,
     "battery": 7040,
@@ -1740,7 +1740,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_747600-MLA48049070301_102021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_989692-MLA48049070303_102021-O.webp"
     ],
-    "capacity": ["1 TB"],
+    "capacity": [1],
     "frontal_camera": 5,
     "weight": 610,
     "battery": 10090,
@@ -1763,7 +1763,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_749527-MLA50219535209_062022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_888357-MLA50219535100_062022-O.webp"
     ],
-    "capacity": ["1 TB"],
+    "capacity": [1],
     "frontal_camera": 12,
     "weight": 726,
     "battery": 11200,
@@ -1787,7 +1787,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_749608-MLA49805349703_042022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_923492-MLA49805433062_042022-O.webp"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 2,
     "weight": 490,
     "battery": 5000,
@@ -1809,7 +1809,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_741403-MLA41913051590_052020-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_623724-MLA41913051605_052020-O.webp"
     ],
-    "capacity": ["512 GB"],
+    "capacity": [512],
     "frontal_camera": 2,
     "weight": 347,
     "battery": 5100,
@@ -1831,7 +1831,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_746207-MLA50127584715_052022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_694844-MLA50127685497_052022-O.webp"
     ],
-    "capacity": ["400 GB"],
+    "capacity": [400],
     "frontal_camera": 8,
     "weight": 482,
     "battery": 7300,
@@ -1854,7 +1854,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_961687-MLA44283679846_122020-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_924451-MLA46868504002_072021-O.webp"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 2,
     "weight": 305,
     "battery": 5100,
@@ -1876,7 +1876,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_911452-MLA47931054528_102021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_935263-MLA47931270098_102021-O.webp"
     ],
-    "capacity": ["1 TB"],
+    "capacity": [1],
     "frontal_camera": 5,
     "weight": 420,
     "battery": 5000,
@@ -1898,7 +1898,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_972580-MLA48600236953_122021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_683242-MLA48600376118_122021-O.webp"
     ],
-    "capacity": ["512 GB"],
+    "capacity": [512],
     "frontal_camera": 5,
     "weight": 460,
     "battery": 7700,
@@ -1920,7 +1920,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_896815-MLA50421219929_062022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_725359-MLA48160503974_112021-O.webp"
     ],
-    "capacity": ["128 GB"],
+    "capacity": [128],
     "frontal_camera": 8,
     "weight": 830,
     "battery": 10000,
@@ -1944,7 +1944,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_613148-MLA48657674516_122021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_746283-MLA48657674515_122021-O.webp"
     ],
-    "capacity": ["256 GB"],
+    "capacity": [256],
     "frontal_camera": 2,
     "weight": 480,
     "battery": 4850,
@@ -1966,7 +1966,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_785348-MLA51261797572_082022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_621008-MLA51261885269_082022-O.webp"
     ],
-    "capacity": ["256 GB"],
+    "capacity": [256],
     "frontal_camera": 8,
     "weight": 490,
     "battery": 7700,
@@ -1989,7 +1989,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_898122-MLA48244069278_112021-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_732339-MLA48244042381_112021-O.webp"
     ],
-    "capacity": ["1 TB"],
+    "capacity": [1],
     "frontal_camera": 8,
     "weight": 655,
     "battery": 7700,
@@ -2016,7 +2016,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_611059-MLA47871010518_102021-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_754850-MLA47871010520_102021-F.webp"
     ],
-    "capacity": ["64GB", "256GB"],
+    "capacity": [64, 256],
     "frontal_camera": 8,
     "weight": 487,
     "battery": 6000,
@@ -2045,7 +2045,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_991887-MLA46962206260_082021-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_991887-MLA46962206260_082021-F.webp"
     ],
-    "capacity": ["64GB", "256GB"],
+    "capacity": [64, 256],
     "frontal_camera": 7,
     "weight": 458,
     "battery": 6500,
@@ -2077,7 +2077,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_708679-MLA48035066215_102021-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_855520-MLA48034797625_102021-F.webp"
     ],
-    "capacity": ["64GB", "256GB"],
+    "capacity": [64, 256],
     "frontal_camera": 12,
     "weight": 297,
     "battery": 4000,
@@ -2103,7 +2103,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_2X_796676-MLA46975166147_082021-F.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_960413-MLA46975173046_082021-F.webp"
     ],
-    "capacity": ["128GB", "256GB", "512GB", "1TB", "2TB"],
+    "capacity": [128, 256, 512, 1, 2],
     "frontal_camera": 12,
     "weight": 631,
     "battery": 5800,
@@ -2126,7 +2126,7 @@
           "https://http2.mlstatic.com/D_NQ_NP_703920-MLA51375902616_092022-O.webp",
           "https://http2.mlstatic.com/D_NQ_NP_2X_838732-MLA51375908592_092022-F.webp"
     ],
-    "capacity": ["128GB"],
+    "capacity": [128],
     "frontal_camera": 5,
     "weight": 775,
     "battery": 6200,
@@ -2147,7 +2147,7 @@
     "colors": [
           "https://http2.mlstatic.com/D_NQ_NP_2X_632111-MLA50583276037_072022-F.webp"
     ],
-    "capacity": ["128GB", "256GB", "512GB"],
+    "capacity": [128, 256, 512],
     "frontal_camera": 5,
     "weight": 891,
     "battery": 5500,

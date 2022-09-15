@@ -2,7 +2,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts, getFilterByCategories, getFilterByRam, getSort } from '../../redux/Actions/index';
+import { getAllProducts, getFilterByCategories, getFilterByRam, getSort, getFilterByCapacity } from '../../redux/Actions/index';
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -50,6 +50,12 @@ export default function Home() {
         setCurrentPage(1)
         setOrden(`Ordenado ${e.target.value}`)
     }
+    function handleCapacity(e){
+        e.preventDefault()
+        dispatch(getFilterByCapacity(Number(e.target.value)))
+        setCurrentPage(1)
+        setOrden(`Ordenado ${e.target.value}`)
+    }
     function handleSort(e){
         e.preventDefault()
         dispatch(getSort(e.target.value))
@@ -64,7 +70,7 @@ export default function Home() {
             <NavBar/>
         </div>
         <div>
-            <button onClick={(e)=>handleReload(e)}>Recargar pagina</button>
+            <button onClick={(e)=>handleReload(e)}>↻</button>
         </div>
         <div>
         <select onChange={(e)=>handleRam(e)}>
@@ -78,17 +84,18 @@ export default function Home() {
         <option value="32">32 GB</option>
         <option value="64">64 GB</option>
         </select>
-        <select>
+        <select onChange={(e)=>handleCapacity(e)}>
         <option value="disabled">Almacenamiento</option>
-        <option value="GB32">32 GB</option>
-        <option value="GB64">64 GB</option>
-        <option value="GB120">120 GB</option>
-        <option value="GB128">128 GB</option>
-        <option value="GB240">240 GB</option>
-        <option value="GB256">256 GB</option>
-        <option value="GB400">400 GB</option>
-        <option value="GB480">480 GB</option>
-        <option value="TB1">1 TB</option>
+        <option value="32">32 GB</option>
+        <option value="64">64 GB</option>
+        <option value="120">120 GB</option>
+        <option value="128">128 GB</option>
+        <option value="240">240 GB</option>
+        <option value="256">256 GB</option>
+        <option value="400">400 GB</option>
+        <option value="480">480 GB</option>
+        <option value="512">512 GB</option>
+        <option value="1">1 TB</option>
         </select>
         <select onChange={(e)=>handleCategories(e)}>
         <option value="disabled">Categoria</option>

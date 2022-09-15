@@ -90,6 +90,13 @@ export function getSort(payload){
         payload
     }
 }
+export function getFilterByCapacity(payload){
+    return{
+        type:"GET_FILTER_BY_CAPACITY",
+        payload
+    }
+}
+
 // export const getProductsByName=(search,filters)=> async dispatch =>{
 //     let filterString='';
 //     for (const filter in filters) {
