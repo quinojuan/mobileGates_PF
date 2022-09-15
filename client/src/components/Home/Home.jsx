@@ -52,7 +52,7 @@ export default function Home() {
     }
     function handleCapacity(e){
         e.preventDefault()
-        dispatch(getFilterByCapacity(Number(e.target.value)))
+        dispatch(getFilterByCapacity(e.target.value))
         setCurrentPage(1)
         setOrden(`Ordenado ${e.target.value}`)
     }
