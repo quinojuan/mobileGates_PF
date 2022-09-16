@@ -126,7 +126,8 @@ function rootReducer(state = initialState, action) {
 				products: sortedArr,
 			};
 		case 'ADD_TO_CART':
-			let purchase = state.cart.filter((e) => {
+		console.log(action.payload)	
+		let purchase = state.cart.filter((e) => {
 				return e.id == action.payload;
 			});
 			let myCart = JSON.parse(localStorage.getItem('cart')) || [];

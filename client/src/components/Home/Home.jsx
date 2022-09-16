@@ -4,10 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	getAllProducts,
-	getFilterByCategories,
-	getFilterByRam,
 	getSort,
-	getFilterByCapacity,
 	setFilter,
 	getProductsByNameAndFilters,
 } from '../../redux/Actions/index';
@@ -134,6 +131,7 @@ export default function Home() {
 									image={s.image}
 									brand={s.brand}
 									id={s.id}
+									price={s.price[0]}
 									category={s.category.toLowerCase()}
 								/>
 							</Link>
