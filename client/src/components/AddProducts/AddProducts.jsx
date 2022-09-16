@@ -7,6 +7,7 @@ import style from "./AddProduct.module.css"
 export default function AddProducts({id}){
     
     const dispatch=useDispatch()
+    const cart = useSelector((state)=>state.cart)
     const products = useSelector((state)=>state.products)
     let product = products.filter((e)=>e.id === id)
 

@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 export default function Cart(){
     //const dispatch=useDispatch()
     const cart = useSelector((state)=> state.cart)
-    const history = useHistory()
+    //const history = useHistory()
     
 return(
     <div>
