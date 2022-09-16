@@ -5,6 +5,10 @@ import { getCart, deleteProductInCart } from "../../redux/Actions";
 import { useHistory } from "react-router-dom";
 
 export default function Cart(){
+<<<<<<< HEAD
+    const dispatch=useDispatch()
+    
+=======
     //const dispatch=useDispatch()
     const cart = useSelector((state)=> state.cart)
     //const history = useHistory()
@@ -20,4 +24,5 @@ return(
       })}
     </div>
 )
+>>>>>>> 31ef3f7bf50748ab57875cd3cf1221a02dcab7c8
 }

@@ -10,6 +10,13 @@ export function getAllProducts() {
 	};
 }
 
+export const setSearch = (payload) => (dispatch) =>{
+	dispatch({
+		type: "CASE_SEARCH",
+		payload
+	})
+}
+
 export function searchName(payload) {
 	return async function (dispatch) {
 		try {
