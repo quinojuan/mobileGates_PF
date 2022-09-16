@@ -11,10 +11,27 @@ export default function DetailsTablet(props) {
   useEffect(() => {
     dispatch(getTabletsById(id));
     return dispatch(getClean());
-  }, [dispatch]);
+  }, [dispatch, id]);
   const myProducts = useSelector((state) => state.details);
   const loading = useSelector((state) => state.loading);
   console.log("esto es my products", myProducts);
+  const finalPrice = [];
+  function precioFinal() {
+    if (myProducts.price && myProducts.capacity) {
+      for (let i = 0; i < myProducts.capacity.length; i++) {
+        if (myProducts.capacity[i] !== "1") {
+          finalPrice.push(
+            myProducts.capacity[i] + "GB por $" + myProducts.price[i] + ". "
+          );
+        } else {
+          finalPrice.push("1TB por $" + myProducts.price[i] + ". ");
+        }
+      }
+      return finalPrice;
+    } else {
+      return "Loading...";
+    }
+  }
   return (
     <div>
       <Link to="/home">Back</Link>
@@ -32,9 +49,12 @@ export default function DetailsTablet(props) {
           <h3>
             Capacity:{" "}
             {myProducts.capacity
-              ? myProducts.capacity.map((e) => e + "Gb. ")
+              ? myProducts.capacity.map((e) =>
+                  Number(e) === 1 ? e + "TB. " : e + "GB. "
+                )
               : "Loading..."}
           </h3>
+          <h3>Precio final: {precioFinal()}</h3>
           <img
             src={myProducts && myProducts.image}
             alt="Not found"

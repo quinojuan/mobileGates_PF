@@ -43,6 +43,10 @@ export default function Home() {
 	}, [dispatch, filters]);
 	const [orden, setOrden] = useState('');
 
+	function handleTest(e){
+		e.preventDefault();
+	}
+
 	function handleReload(e) {
 		e.preventDefault();
 		window.location.reload();
@@ -70,6 +74,7 @@ export default function Home() {
 			</div>
 			<div>
 				<button onClick={(e) => handleReload(e)}>↻</button>
+				<button onClick={e=>handleTest(e)}>TEST</button>
 			</div>
 			<div>
 				<select name="ram" onChange={(e) => handleFilter(e)}>
