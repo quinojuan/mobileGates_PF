@@ -4,21 +4,20 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Colors",
+    "Category",
     {
-      id:{
+      id: {
         type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      name:{
-      type: DataTypes.STRING,
-      allowNull: false
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       },
     {
-      timestamps: false,
       freezeTableName: true, 
     }
   );

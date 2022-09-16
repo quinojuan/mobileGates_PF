@@ -12,19 +12,22 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      productId: {
+      productsId: {
         type: DataTypes.STRING,
         allowNull: false,
         primaryKey: false,
       },
-      colorId:{
+      colorsId:{
         type: DataTypes.STRING,
         allowNull: false,
         primaryKey: false,
+      },
+      url:{
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false,  
       }
       },
     {
-      timestamps: false,
       freezeTableName: true, 
     }
   );
