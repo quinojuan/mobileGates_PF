@@ -8,37 +8,35 @@ const getAllProducts = async (req, res) => {
 		const allPhones = await Phones.findAll();
 		const allTablets = await Tablets.findAll();
 		const allNotebooks = await Notebooks.findAll();
-
-    if (
-      allPhones.length === 0 ||
-      allNotebooks.length === 0 ||
-      allTablets.length === 0
-    )
-    return res.status(404).json({ message: "Error en find all" });
-    let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
-    if(req.query){
-      if(ram){
-        allProducts = allProducts.filter((product) => product.ram.includes(Number(ram)));
-      };
-      if(category){
-        allProducts = allProducts.filter((product) => product.category.toLowerCase().includes(category.toLowerCase()));
-      };
-      if(name){
-        //console.log(name.toLowerCase());
-        let model = name;
-        allProducts = allProducts.filter((product) => product.model.toLowerCase().includes(model.toLowerCase()));
-      };
-      if(capacity){
-        allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
-      };
-    };
-    if (allProducts.length === 0)
-    return res.status(404).json({ message: "cannot find a product" });
-    res.status(201).json(allProducts);
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ message: "Server error" });
-  }
+		let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
+		if (req.query) {
+			if (ram) {
+				allProducts = allProducts.filter((product) =>
+					product.ram.includes(Number(ram))
+				);
+			}
+			if (category) {
+				allProducts = allProducts.filter((product) =>
+					product.category.toLowerCase().includes(category.toLowerCase())
+				);
+			}
+			if (name) {
+				let model = name;
+				allProducts = allProducts.filter((product) =>
+					product.model.toLowerCase().includes(model.toLowerCase())
+				);
+			}
+			if (capacity) {
+				allProducts = allProducts.filter((product) =>
+					product.capacity.includes(capacity)
+				);
+			}
+		}
+		res.status(200).json(allProducts);
+	} catch (e) {
+		console.log(e);
+		res.status(500).json({ message: 'Server error' });
+	}
 };
 
 // -------------------- TABLETS --------------------
@@ -46,10 +44,7 @@ const getAllProducts = async (req, res) => {
 const getAllTablets = async (req, res) => {
 	try {
 		const allTablets = await Tablets.findAll();
-		if (allTablets.length !== 0) {
-			return res.status(200).json(allTablets);
-		}
-		res.status(404).json({ message: 'Not found any tablet' });
+		return res.status(200).json(allTablets);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -61,11 +56,7 @@ const getTabletById = async (req, res) => {
 		const { id } = req.params;
 		if (!id) res.ratus(404).json({ message: 'id is not provided' });
 		const validation = await Tablets.findByPk(id);
-		if (!validation) {
-			res.status(404).json({ message: 'id not exists' });
-		} else {
-			res.status(201).json(validation);
-		}
+		res.status(200).json(validation);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -153,10 +144,7 @@ const postTablet = async (req, res) => {
 const getAllNotebooks = async (req, res) => {
 	try {
 		const allNotebooks = await Notebooks.findAll();
-		if (allNotebooks.length !== 0) {
-			return res.status(200).json(allNotebooks);
-		}
-		res.status(404).json({ message: 'Not found any tablet' });
+		return res.status(200).json(allNotebooks);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -168,11 +156,7 @@ const getNotebookById = async (req, res) => {
 		const { id } = req.params;
 		if (!id) res.ratus(404).json({ message: 'id is not provided' });
 		const validation = await Notebooks.findByPk(id);
-		if (validation.length === 0) {
-			res.status(404).json({ message: 'id not exists' });
-		} else {
-			res.status(201).json(validation);
-		}
+		res.status(200).json(validation);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -268,10 +252,7 @@ const postNotebook = async (req, res) => {
 const getAllPhones = async (req, res) => {
 	try {
 		const allPhones = await Phones.findAll();
-		if (allPhones.length !== 0) {
-			return res.status(200).json(allPhones);
-		}
-		res.status(404).json({ message: 'Not found any phone' });
+		return res.status(200).json(allPhones);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -283,11 +264,7 @@ const getPhonesById = async (req, res) => {
 		const { id } = req.params;
 		if (!id) res.ratus(404).json({ message: 'id is not provided' });
 		const validation = await Phones.findByPk(id);
-		if (!validation) {
-			res.status(404).json({ message: 'id not exists' });
-		} else {
-			res.status(201).json(validation);
-		}
+		res.status(200).json(validation);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
