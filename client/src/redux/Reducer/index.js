@@ -10,6 +10,7 @@ const initialState = {
 	},
 	categories: [],
 	cart: [],
+	search: ""
 };
 
 function rootReducer(state = initialState, action) {
@@ -40,6 +41,7 @@ function rootReducer(state = initialState, action) {
 				...state,
 				details: {},
 			};
+
 		case 'SET_LOADING':
 			return {
 				...state,
@@ -50,6 +52,11 @@ function rootReducer(state = initialState, action) {
 				...state,
 				products: action.payload 
 			};
+		case "CASE_SEARCH":
+			return {
+				...state,
+				search: action.payload
+			}
 		// case 'GET_FILTER_BY_CATEGORIES':
 		// 	const productsToFilterByCategory = state.allProducts;
 		// 	const categoryFilter =
