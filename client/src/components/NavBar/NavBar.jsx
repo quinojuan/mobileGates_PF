@@ -8,10 +8,11 @@ export default function NavBar() {
     <nav>
       <div>
         <h1 className='container-logo'>MóvilGates</h1>
-        <a href="#" className='container-nav'>HOME</a>
-        <a href="#" className='container-nav'>CATEGORIAS</a>
-        <a href="#" className='container-nav'>QUIENES SOMOS?</a>
-        <a href="#" className='container-nav'>CARRITO 🛒</a>
+        <a href="#" className='container-nav'>Home</a>
+        <a href="#" className='container-nav'>Productos</a>
+        <a href="#" className='container-nav'>Quienes somos?</a>
+        <a href="#" className='container-nav'> 🛒</a>
+        <a href="/home/login" className='container-nav'>Ingresá | Registrate</a>
       </div>
       <hr />
     </nav>
