@@ -1,10 +1,10 @@
 const { Phones, Notebooks, Tablets, Category } = require('../db'); // requiero el modelo
 const data = require('../FINAL.json'); // me traigo el Json
-
+const { relacionarPreciosCapacidad } = require('../helpers');
 const loadDb = async () => {
 	try {
 		//TELEFONOS
-		const allPhones = data.filter((art) =>
+		let allPhones = data.filter((art) =>
 			art.category === 'Phones'
 				? {
 						// filtro por la categoría y en las que coinciden armo un objeto con las propiedades para que coincidan con el modelo
@@ -28,7 +28,7 @@ const loadDb = async () => {
 				: null
 		);
 		//TABLETS
-		const allTablets = data.filter((art) =>
+		let allTablets = data.filter((art) =>
 			art.category === 'Tablets'
 				? {
 						// filtro por la categoría y en las que coinciden armo un objeto con las propiedades para que coincidan con el modelo
@@ -53,7 +53,7 @@ const loadDb = async () => {
 		);
 		//NOTEBOOKS
 
-		const allNotebooks = data.filter((art) =>
+		let allNotebooks = data.filter((art) =>
 			art.category === 'Notebooks'
 				? {
 						// filtro por la categoría y en las que coinciden armo un objeto con las propiedades para que coincidan con el modelo
@@ -88,6 +88,12 @@ const loadDb = async () => {
 		uniqueCategories = uniqueCategories.map((c) => ({
 			name: c,
 		}));
+		//	SEPARAR LOS PRODUCTOS POR PRECIO EN RELACION A LA CAPACIDAD
+
+		allPhones = relacionarPreciosCapacidad(allPhones);
+		allTablets = relacionarPreciosCapacidad(allTablets);
+		allNotebooks = relacionarPreciosCapacidad(allNotebooks);
+
 		await Category.bulkCreate(uniqueCategories); // a partir del arreglo filtrado cargo todos las categorias
 		await Phones.bulkCreate(allPhones); // a partir del arreglo filtrado cargo todos los objetos en la tabla PHONES
 		await Tablets.bulkCreate(allTablets); // a partir del arreglo filtrado cargo todos los objetos en la tabla PHONES
