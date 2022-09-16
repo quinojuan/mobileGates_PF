@@ -18,12 +18,12 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         unique: true,
         allowNull: false,
-        // validate:{
-        //     isEmail:{
-        //         params: true,
-        //         message: "require a validate email"
-        //     }
-        // }
+        validate:{
+            isEmail:{
+                params: true,
+                message: "require a validate email"
+            }
+        }
       },
       password: {
         type: DataTypes.TEXT,

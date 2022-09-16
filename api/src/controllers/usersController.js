@@ -45,7 +45,8 @@ const createUser = async(req, res) =>{
         };
     }catch(e){
         console.log(e);
-		res.status(500).json({ message: 'Server error' });  
+		h
+        res.status(500).json({ message: 'Server error' });  
     };
 };
 
