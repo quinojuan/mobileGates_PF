@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from 'axios'
 
 
@@ -9,6 +10,18 @@ export function getAllProducts(){
             payload: json.data
         })
     }
+=======
+import axios from 'axios';
+import Swal from "sweetalert2"
+export function getAllProducts() {
+	return async function (dispatch) {
+		let json = await axios.get('http://localhost:3001/products');
+		return dispatch({
+			type: 'GET_PRODUCTS',
+			payload: json.data,
+		});
+	};
+>>>>>>> db056447f9cde9855f6d88fb7e294115f26a6263
 }
 
 export function searchName(payload) {
@@ -22,7 +35,7 @@ export function searchName(payload) {
 				payload: json.data,
 			});
 		} catch (error) {
-			console.log(error);
+			Swal.fire("El producto que buscaste no existe");
 		}
 	};
 }
@@ -74,11 +87,52 @@ export function getClean(payload){
     }
 }
 
+<<<<<<< HEAD
 export function getFilterByCategories(payload){
     return{
         type:"GET_FILTER_BY_CATEGORIES",
         payload
     }
+=======
+// export function getFilterByCategories(payload) {
+// 	return {
+// 		type: 'GET_FILTER_BY_CATEGORIES',
+// 		payload,
+// 	};
+// }
+// export function getFilterByRam(payload) {
+// 	return {
+// 		type: 'GET_FILTER_BY_RAM',
+// 		payload,
+// 	};
+// }
+export function getSort(payload) {
+	return {
+		type: 'GET_SORT',
+		payload,
+	};
+}
+// export function getFilterByCapacity(payload) {
+// 	return {
+// 		type: 'GET_FILTER_BY_CAPACITY',
+// 		payload,
+// 	};
+// }
+export const setFilter = (filter, filterName) => (dispatch) => {
+	dispatch({
+		type: 'SET_FILTER',
+		payload: {
+			filter,
+			filterName,
+		},
+	});
+};
+export function setLoading(payload) {
+	return {
+		type: 'SET_LOADING',
+		payload,
+	};
+>>>>>>> db056447f9cde9855f6d88fb7e294115f26a6263
 }
 export function getFilterByRam(payload){
     return{

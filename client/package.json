@@ -16,7 +16,11 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+<<<<<<< HEAD
     "swiffy-slider": "^1.5.3",
+=======
+    "sweetalert2": "^11.4.33",
+>>>>>>> db056447f9cde9855f6d88fb7e294115f26a6263
     "web-vitals": "^2.1.4"
   },
   "scripts": {
