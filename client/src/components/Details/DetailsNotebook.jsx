@@ -14,6 +14,23 @@ export default function DetailsNotebook(props) {
   }, [dispatch, id]);
   const myProducts = useSelector((state) => state.details);
   const loading = useSelector((state) => state.loading);
+  const finalPrice = [];
+  function precioFinal() {
+    if (myProducts.price && myProducts.capacity) {
+      for (let i = 0; i < myProducts.capacity.length; i++) {
+        if (myProducts.capacity[i] !== "1") {
+          finalPrice.push(
+            myProducts.capacity[i] + "GB por $" + myProducts.price[i] + ". "
+          );
+        } else {
+          finalPrice.push("1TB por $" + myProducts.price[i] + ". ");
+        }
+      }
+      return finalPrice;
+    } else {
+      return "Loading...";
+    }
+  }
   return (
     <div>
       <Link to="/home">Back</Link>
@@ -23,8 +40,21 @@ export default function DetailsNotebook(props) {
           <h1>{myProducts && myProducts.model}</h1>
           <h3>Category: {myProducts && myProducts.category}</h3>
           <h3>Brand: {myProducts && myProducts.brand}</h3>
-          <h3>Price: {myProducts.price?myProducts.price.map(e=>"$"+e+". "):"Loading..."}</h3>
-          <h3>Capacity: {myProducts.capacity?myProducts.capacity.map(e=>e+"Gb. "):"Loading..."}</h3>
+          <h3>
+            Price:{" "}
+            {myProducts.price
+              ? myProducts.price.map((e) => "$" + e + ". ")
+              : "Loading..."}
+          </h3>
+          <h3>
+            Capacity:{" "}
+            {myProducts.capacity
+              ? myProducts.capacity.map((e) =>
+                  Number(e) === 1 ? e + "TB. " : e + "GB. "
+                )
+              : "Loading..."}
+          </h3>
+          <h3>Precio final: {precioFinal()}</h3>
           <img
             src={myProducts && myProducts.image}
             alt="Not found"
