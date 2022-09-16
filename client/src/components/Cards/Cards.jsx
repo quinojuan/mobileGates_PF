@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
-import AddProducts from "../AddProducts/AddProducts"; 
+
 import "./Cards.css"
 
 export default function Cards({model, image, brand, price, id}) {
@@ -13,9 +13,6 @@ export default function Cards({model, image, brand, price, id}) {
             <h5>{"$"+price}</h5>
             <h5>{brand}</h5>
             
-            <AddProducts
-            id={id}
-            /> 
         </div>
         </div>
     )
