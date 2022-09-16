@@ -126,15 +126,14 @@ function rootReducer(state = initialState, action) {
 				products: sortedArr,
 			};
 		case 'ADD_TO_CART':
-		console.log(action.payload)	
-		let purchase = state.cart.filter((e) => {
-				return e.id == action.payload;
-			});
-			let myCart = JSON.parse(localStorage.getItem('cart')) || [];
-			if (!myCart.some((el) => el.id === purchase)) {
-				myCart.push(purchase[0]);
-				localStorage.setItem('cart', JSON.stringify(myCart));
-			}
+		    let purchase = action.payload
+			console.log(state.cart, "carrito redux")
+			let myCartLS = JSON.parse(localStorage.getItem('cart')) || [];
+			console.log(myCartLS, "MYCART LS")
+			 if (!myCartLS.some((el) => el.id == purchase[0].id)) {
+				myCartLS.push(purchase[0]);
+				localStorage.setItem('cart', JSON.stringify(myCartLS));
+			} 
 			return {
 				...state,
 				cart: [...state.cart, purchase[0]],
@@ -146,7 +145,7 @@ function rootReducer(state = initialState, action) {
 			}
 			return {
 				...state,
-				cart: cartLS,
+				cart: [...state.cart, cartLS],
 			};
 		case 'DELETE_PRODUCT_IN_CART':
 			let myDeletedProduct = JSON.parse(localStorage.getItem('cart'));

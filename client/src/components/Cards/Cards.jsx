@@ -1,9 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom"
-import AddProducts from "../AddProducts/AddProducts"; 
+
 import "./Cards.css"
 
-export default function Cards({model, image, brand, price}) {
+export default function Cards({model, image, brand, price, id}) {
     return (
         <div className="container">
             <div className="cards">
@@ -12,7 +12,7 @@ export default function Cards({model, image, brand, price}) {
             <h3>{model}</h3>
             <h5>{"$"+price}</h5>
             <h5>{brand}</h5>
-            <AddProducts/> 
+            
         </div>
         </div>
     )

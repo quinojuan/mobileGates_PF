@@ -7,6 +7,7 @@ import {
 	getSort,
 	setFilter,
 	getProductsByNameAndFilters,
+	
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -14,6 +15,8 @@ import Footer from '../Footer/Footer';
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Paginado from '../Paginated/Paginated';
+import AddProducts from "../AddProducts/AddProducts"; 
+
 
 import './Home.css';
 
@@ -28,7 +31,7 @@ export default function Home() {
 	const currentProducts =
 		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-	console.log(allProducts);
+	//console.log(allProducts);
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
@@ -122,6 +125,7 @@ export default function Home() {
 				{currentProducts &&
 					currentProducts.map((s) => {
 						return (
+							<>
 							<Link
 								key={s.id}
 								to={`/products/${s.category.toLowerCase()}/${s.id}`}
@@ -133,8 +137,10 @@ export default function Home() {
 									id={s.id}
 									price={s.price[0]}
 									category={s.category.toLowerCase()}
-								/>
-							</Link>
+									/>
+									</Link>
+									<AddProducts id ={s.id}/>								
+									</>
 						);
 					})}
 			</div>
