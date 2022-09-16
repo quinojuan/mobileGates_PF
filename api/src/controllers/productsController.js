@@ -9,12 +9,7 @@ const getAllProducts = async (req, res) => {
 		const allTablets = await Tablets.findAll();
 		const allNotebooks = await Notebooks.findAll();
 
-    if (
-      allPhones.length === 0 ||
-      allNotebooks.length === 0 ||
-      allTablets.length === 0
-    )
-    return res.status(404).json({ message: "Error en find all" });
+    
     let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
     if(req.query){
       if(ram){
@@ -32,8 +27,6 @@ const getAllProducts = async (req, res) => {
         allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
       };
     };
-    if (allProducts.length === 0)
-    return res.status(404).json({ message: "cannot find a product" });
     res.status(201).json(allProducts);
   } catch (e) {
     console.log(e);

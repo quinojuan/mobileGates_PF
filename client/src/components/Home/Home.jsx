@@ -124,8 +124,8 @@ export default function Home() {
 				currentPage={currentPage}
 			/>
 			<div>
-				{currentProducts &&
-					currentProducts.map((s) => {
+				{currentProducts.length ?
+					(currentProducts.map((s) => {
 						return (
 							<Link
 								key={s.id}
@@ -141,7 +141,7 @@ export default function Home() {
 								/>
 							</Link>
 						);
-					})}
+					})) : (<div><h1>Not found</h1></div>)} 
 			</div>
 			<hr />
 			<Footer />
