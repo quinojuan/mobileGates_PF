@@ -127,7 +127,7 @@ function rootReducer(state = initialState, action) {
 			};
 		case 'ADD_TO_CART':
 		    let purchase = action.payload
-			console.log(state.cart, "carrito redux")
+			//console.log(state.cart, "carrito redux")
 			let myCartLS = JSON.parse(localStorage.getItem('cart')) || [];
 			console.log(myCartLS, "MYCART LS")
 			 if (!myCartLS.some((el) => el.id == purchase[0].id)) {
