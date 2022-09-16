@@ -10,11 +10,13 @@ import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import Paginado from "../Paginated/Paginated";
 
+
 import "./Home.css"
 
 export default function Home() {
 
     const dispatch = useDispatch()
+
     const allProducts = useSelector((state) => state.products)
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage, setProductsPerPage] = useState(9);

@@ -1,64 +1,47 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { postUsers } from '../../redux/Actions/index'
+import { useAuth } from "../Context/authContext"; 
 import { useHistory } from 'react-router-dom';
-import './CreateUser.css'
+
 
 export default function CreateUser() {
-    
-    const [input, setInput] = useState({
-        name: '',
+ 
+    const [user, setUser] = useState({
         email: '',
         password: ''
     })
-    
-    const dispatch = useDispatch();
+
+    const {signup} = useAuth();
+   
     const history = useHistory();
 
-    function handleChange(e) {
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value
-        })
+    const [error, setError] = useState()
+
+    const handleChange = ({target: {name, value}}) => {
+        setUser({...user, [name]: value})
     }
 
-    function handleSubmit() {
-    //      if(!input.name){
-    //         return alert("Debe ingresar un nombre")
-    //     } 
-    //     else if(!input.email){
-    //         return alert("Debe ingresar un mail")
-    //     }
-    //     else if (input.password) {
-    //         dispatch(postUsers({ ...input }))
-    //         return alert("Usuario creado con éxito")
-    //     } else {
-    //         return alert("Debe ingresar una contraseña")
-    //     }
-    // }
-        dispatch(postUsers(input))
-        alert("El usuario ha sido creado con éxito!")
-        setInput({
-            name: "",
-            email: "",
-            password: ""
-        })
-        console.log(input.email)
-        history.push("/home");
-        document.location.reload();
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setError('')
+    try{
+        await signup(user.email, user.password)
+        // history.push("/home");
+    }catch(error){
+        setError(error.message)
     }
- 
+    }
     return(
         <div className="login">
-            <form className="form" >
+
+        {error && <p>{error}</p>}
+
+            <form className="form" onSubmit={handleSubmit} >
                 <h1>Registrate gratis</h1>
-                <label>Nombre completo</label>
-                <input type="text" name = 'name' value={input.name} placeholder="Ingresa tu nombre completo" onChange={(e) => handleChange(e)}/>
                 <label>Email</label>
-                <input type="text" name = 'email' value={input.email} placeholder="Ingresa tu mail" onChange={(e) => handleChange(e)}/>
+                <input type="text" name = 'email' placeholder="Ingresa tu mail" onChange={handleChange}/>
                 <label>Contraseña</label>
-                <input type="text" name = 'password' value={input.password} placeholder="Ingresa tu contraseña" onChange={(e) => handleChange(e)}/>
-                <button id='submit' type='submit' onClick={(e) => handleSubmit(e)}>Registrate</button>
+                <input type="password" name = 'password'  placeholder="******" onChange={handleChange}/>
+                <button id='submit' type='submit'>Registrate</button>
             </form>
         </div>
     )
