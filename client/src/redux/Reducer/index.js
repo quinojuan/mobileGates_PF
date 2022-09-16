@@ -48,40 +48,40 @@ function rootReducer(state = initialState, action) {
 		case 'SEARCH_NAME':
 			return {
 				...state,
-				products: action.payload,
+				products: action.payload 
 			};
-		case 'GET_FILTER_BY_CATEGORIES':
-			const productsToFilterByCategory = state.allProducts;
-			const categoryFilter =
-				action.payload === 'disabled'
-					? productsToFilterByCategory
-					: productsToFilterByCategory?.filter((s) =>
-							s.category.includes(action.payload)
-					  );
-			return {
-				...state,
-				products: categoryFilter,
-			};
-		case 'GET_FILTER_BY_RAM':
-			const allProducts = state.allProducts;
-			const filtByRam =
-				action.payload === 'disabled'
-					? allProducts
-					: allProducts.filter((el) => el.ram.includes(action.payload));
-			return {
-				...state,
-				products: filtByRam,
-			};
-		case 'GET_FILTER_BY_CAPACITY':
-			const alllProducts = state.allProducts;
-			const filtByCap =
-				action.payload === 'disabled'
-					? alllProducts
-					: alllProducts.filter((s) => s.capacity.includes(action.payload));
-			return {
-				...state,
-				products: filtByCap,
-			};
+		// case 'GET_FILTER_BY_CATEGORIES':
+		// 	const productsToFilterByCategory = state.allProducts;
+		// 	const categoryFilter =
+		// 		action.payload === 'disabled'
+		// 			? productsToFilterByCategory
+		// 			: productsToFilterByCategory?.filter((s) =>
+		// 					s.category.includes(action.payload)
+		// 			  );
+		// 	return {
+		// 		...state,
+		// 		products: categoryFilter,
+		// 	};
+		// case 'GET_FILTER_BY_RAM':
+		// 	const allProducts = state.allProducts;
+		// 	const filtByRam =
+		// 		action.payload === 'disabled'
+		// 			? allProducts
+		// 			: allProducts.filter((el) => el.ram.includes(action.payload));
+		// 	return {
+		// 		...state,
+		// 		products: filtByRam,
+		// 	};
+		// case 'GET_FILTER_BY_CAPACITY':
+		// 	const alllProducts = state.allProducts;
+		// 	const filtByCap =
+		// 		action.payload === 'disabled'
+		// 			? alllProducts
+		// 			: alllProducts.filter((s) => s.capacity.includes(action.payload));
+		// 	return {
+		// 		...state,
+		// 		products: filtByCap,
+		// 	};
 		case 'SET_FILTER':
 			return {
 				...state,
@@ -126,14 +126,14 @@ function rootReducer(state = initialState, action) {
 				products: sortedArr,
 			};
 		case 'ADD_TO_CART':
-			let purchase = state.cart.filter((e) => {
-				return e.id == action.payload;
-			});
-			let myCart = JSON.parse(localStorage.getItem('cart')) || [];
-			if (!myCart.some((el) => el.id === purchase)) {
-				myCart.push(purchase[0]);
-				localStorage.setItem('cart', JSON.stringify(myCart));
-			}
+		    let purchase = action.payload
+			console.log(state.cart, "carrito redux")
+			let myCartLS = JSON.parse(localStorage.getItem('cart')) || [];
+			console.log(myCartLS, "MYCART LS")
+			 if (!myCartLS.some((el) => el.id == purchase[0].id)) {
+				myCartLS.push(purchase[0]);
+				localStorage.setItem('cart', JSON.stringify(myCartLS));
+			} 
 			return {
 				...state,
 				cart: [...state.cart, purchase[0]],
@@ -145,7 +145,7 @@ function rootReducer(state = initialState, action) {
 			}
 			return {
 				...state,
-				cart: cartLS,
+				cart: [...state.cart, cartLS],
 			};
 		case 'DELETE_PRODUCT_IN_CART':
 			let myDeletedProduct = JSON.parse(localStorage.getItem('cart'));

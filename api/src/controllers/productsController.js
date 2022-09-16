@@ -9,43 +9,36 @@ const getAllProducts = async (req, res) => {
 		const allTablets = await Tablets.findAll();
 		const allNotebooks = await Notebooks.findAll();
 
-		if (
-			allPhones.length === 0 ||
-			allNotebooks.length === 0 ||
-			allTablets.length === 0
-		)
-			return res.status(404).json({ message: 'Error en find all' });
-		let allProducts = allPhones.concat(allTablets).concat(allNotebooks);
-		if (req.query) {
-			console.log(ram);
-			if (ram) {
-				allProducts = allProducts.filter((product) =>
-					product.ram.includes(Number(ram))
-				);
-			}
-			if (category) {
-				allProducts = allProducts.filter((product) =>
-					product.category.toLowerCase().includes(category.toLowerCase())
-				);
-			}
-			if (name) {
-				console.log(name.toLowerCase());
-				let model = name;
-				allProducts = allProducts.filter((product) =>
-					product.model.toLowerCase().includes(model.toLowerCase())
-				);
-			}
-			if (capacity) {
-				allProducts = allProducts.filter((product) =>
-					product.capacity.includes(capacity)
-				);
-			}
-		}
-		res.status(201).json(allProducts);
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
+    if (
+      allPhones.length === 0 ||
+      allNotebooks.length === 0 ||
+      allTablets.length === 0
+    )
+    return res.status(404).json({ message: "Error en find all" });
+    let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
+    if(req.query){
+      if(ram){
+        allProducts = allProducts.filter((product) => product.ram.includes(Number(ram)));
+      };
+      if(category){
+        allProducts = allProducts.filter((product) => product.category.toLowerCase().includes(category.toLowerCase()));
+      };
+      if(name){
+        //console.log(name.toLowerCase());
+        let model = name;
+        allProducts = allProducts.filter((product) => product.model.toLowerCase().includes(model.toLowerCase()));
+      };
+      if(capacity){
+        allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
+      };
+    };
+    if (allProducts.length === 0)
+    return res.status(404).json({ message: "cannot find a product" });
+    res.status(201).json(allProducts);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Server error" });
+  }
 };
 
 // -------------------- TABLETS --------------------
