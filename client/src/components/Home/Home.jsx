@@ -141,7 +141,7 @@ export default function Home() {
 								/>
 							</Link>
 						);
-					})) : (<div><h1>Not found</h1></div>)} 
+					})) : (<div><h1>Loading...</h1></div>)} 
 			</div>
 			<hr />
 			<Footer />
