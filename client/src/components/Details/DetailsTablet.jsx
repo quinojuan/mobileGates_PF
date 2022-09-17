@@ -39,33 +39,6 @@ export default function DetailsTablet(props) {
       <Link to="/home">Back</Link>
       {!loading ? (
         <div>
-<<<<<<< HEAD
-          <h1>{myProducts && myProducts.model}</h1>
-          <h3>Category: {myProducts && myProducts.category}</h3>
-          <h3>Brand: {myProducts && myProducts.brand}</h3>
-          <h3>
-            Price:{" "}
-            {myProducts.price
-              ? myProducts.price.map((e) => "$" + e + ". ")
-              : "Loading..."}
-          </h3>
-          <h3>
-            Capacity:{" "}
-            {myProducts.capacity
-              ? myProducts.capacity.map((e) =>
-                  Number(e) === 1 ? e + "TB. " : e + "GB. "
-                )
-              : "Loading..."}
-          </h3>
-          <h3>Precio final: {precioFinal()}</h3>
-          <img
-            src={myProducts && myProducts.image}
-            alt="Not found"
-            width="200px"
-            height="250px"
-          ></img>
-          <h6>{myProducts && myProducts.description} </h6>
-=======
            
             {
                 
@@ -81,7 +54,6 @@ export default function DetailsTablet(props) {
                         <Footer/>
                     </div> 
             }
->>>>>>> ec38c70efbd9405adfc47eb9ccfedfb5bc652c42
         </div>
       ) : (
         <h1>Loading...</h1>
