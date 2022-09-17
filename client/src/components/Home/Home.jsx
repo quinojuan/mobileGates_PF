@@ -35,10 +35,10 @@ export default function Home() {
   };
   useEffect(() => {
     !currentProducts.length && dispatch(getAllProducts());
-  }, [dispatch]);
+  }, [dispatch,currentProducts]);
   useEffect(() => {
     currentProducts.length && dispatch(getProductsByNameAndFilters(search, filters));
-  }, [dispatch, filters]);
+  }, [dispatch, filters,currentProducts,search]);
   const [orden, setOrden] = useState("");
 
   function handleTest(e) {
