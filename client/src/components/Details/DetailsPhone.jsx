@@ -1,14 +1,14 @@
 import React from "react";
 import { useEffect } from "react";
-import {useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getPhonesById, getClean } from "../../redux/Actions";
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 
-export default function DetailsPhone(props){
-    const dispatch= useDispatch()
-    const {id}= useParams()
+export default function DetailsPhone(props) {
+  const dispatch = useDispatch();
+  const { id } = useParams();
 
     useEffect(()=>{
         dispatch(getPhonesById(id))

@@ -1,9 +1,18 @@
 const initialState = {
-    products: [],
-    details: [],
-    allProducts: [],
-    users: []
-}
+	products: [],
+	details:  [],
+	allProducts: [],
+    users:  [],
+	loading: false,
+	filters: {
+		ram: '',
+		category: '',
+		capacity: '',
+	},
+	categories: [],
+	cart: [],
+	search: ""
+};
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
@@ -104,7 +113,5 @@ function rootReducer(state = initialState, action) {
     }
 
 }
-
-
 
 export default rootReducer;

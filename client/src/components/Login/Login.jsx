@@ -25,7 +25,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../Context/authContext"; 
 import { useHistory } from 'react-router-dom';
-
+import './Login.css'
 
 export default function Login() {
  
@@ -60,12 +60,13 @@ export default function Login() {
         {error && <p>{error}</p>}
 
             <form className="form" onSubmit={handleSubmit} >
-                <h1>Registrate gratis</h1>
+                <h1>Iniciá sesión</h1>
                 <label>Email</label>
                 <input type="text" name = 'email' placeholder="Ingresa tu mail" onChange={handleChange}/>
                 <label>Contraseña</label>
                 <input type="password" name = 'password'  placeholder="******" onChange={handleChange}/>
                 <button id='submit' type='submit'>Login</button>
+                <a href="/home/createuser">No tenes cuenta? Registrate gratis</a>
             </form>
         </div>
     )
