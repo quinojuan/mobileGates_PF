@@ -16,10 +16,13 @@ import { Link } from "react-router-dom";
 import Paginado from "../Paginated/Paginated";
 import AddProducts from "../AddProducts/AddProducts";
 
+
 import "./Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
+  
+  
   const allProducts = useSelector((state) => state.products);
   const filters = useSelector((state) => state.filters);
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,6 +42,7 @@ export default function Home() {
   useEffect(() => {
     currentProducts.length && dispatch(getProductsByNameAndFilters(search, filters));
   }, [dispatch, filters]);
+
   const [orden, setOrden] = useState("");
 
   function handleTest(e) {
@@ -71,6 +75,7 @@ export default function Home() {
         <NavBar />
       </div>
       <div>
+        
         <button onClick={(e) => handleReload(e)}>↻</button>
         <button onClick={(e) => handleTest(e)}>TEST</button>
       </div>

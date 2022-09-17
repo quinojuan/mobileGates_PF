@@ -49,7 +49,7 @@ export default function Login() {
         setError('')
     try{
         await login(user.email, user.password)
-        // history.push("/home");
+        // history('/home/')
     }catch(error){
         setError(error.message)
     }
