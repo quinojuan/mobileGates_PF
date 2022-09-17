@@ -7,6 +7,7 @@ import {
 	getSort,
 	setFilter,
 	getProductsByNameAndFilters,
+	getCart
 	
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
@@ -16,6 +17,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Paginado from '../Paginated/Paginated';
 import AddProducts from "../AddProducts/AddProducts"; 
+
 
 
 import './Home.css';
@@ -37,6 +39,7 @@ export default function Home() {
 	};
 	useEffect(() => {
 		dispatch(getAllProducts());
+		dispatch(getCart())
 	}, [dispatch]);
 	useEffect(() => {
 		allProducts.length && dispatch(getProductsByNameAndFilters(null, filters));

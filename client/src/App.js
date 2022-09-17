@@ -5,6 +5,7 @@ import DetailsNotebook from "./components/Details/DetailsNotebook";
 import DetailsPhone from './components/Details/DetailsPhone';
 import DetailsTablet from './components/Details/DetailsTablet';
 import Landing from './components/Landing/Landing';
+import Cart from './components/Cart/Cart';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products/notebooks/:id" component= {DetailsNotebook}/>
         <Route path="/products/phones/:id" component= {DetailsPhone}/>
         <Route path="/products/tablets/:id" component= {DetailsTablet}/>
+        <Route path="/products/Cart" component= {Cart}/>
       </Switch>
     </div>
     </BrowserRouter>
