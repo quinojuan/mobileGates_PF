@@ -1,20 +1,16 @@
 import axios from 'axios';
 import Swal from "sweetalert2"
-export function getAllProducts() {
-	return async function (dispatch) {
-		let json = await axios.get('http://localhost:3001/products');
-		return dispatch({
-			type: 'GET_PRODUCTS',
-			payload: json.data,
-		});
-	};
-}
 
-export const setSearch = (payload) => (dispatch) =>{
-	dispatch({
-		type: "CASE_SEARCH",
-		payload
-	})
+
+
+export function getAllProducts(){
+    return async function(dispatch){
+        let json = await axios.get('http://localhost:3001/products');
+        return dispatch({
+            type: 'GET_PRODUCTS',
+            payload: json.data
+        })
+    }
 }
 
 export function searchName(payload) {
@@ -130,49 +126,39 @@ export function addToCart(payload){
         payload
     }
 }
-export function getCart(payload){
+
+export function getFilterByCapacity(payload){
     return{
-        type: "GET_CART",
-        payload
-    }
-}
-export function deleteProductInCart(payload){
-    return{
-        type: "DELETE_PRODUCT_IN_CART",
+        type:"GET_FILTER_BY_CAPACITY",
         payload
     }
 }
 
-export const getProductsByNameAndFilters =
-	(search, filters) => async (dispatch) => {
-		if (!search) search = '';
-		let filterString = '';
-		for (const filter in filters) {
-			filterString += '&' + filter + '=' + filters[filter];
-		}
-		//BUENA MANERA DE UTILIZAR EL AXIOS
-		const resultado = await axios
-			.get(
-				'http://localhost:3001/products?' +
-					'name=' +
-					search.toLowerCase().trim() +
-					filterString
-			)
-			//'http://localhost:3001/products?' +'name=' +search.toLowerCase().trim() +filterString
-			//http://localhost:3001/products?name=+&ram=&category=Tablets&capacity= EJEMPLO
-			.then((res) => res.data);
-		dispatch({
-			type: 'GET_PRODUCTS_BY_NAME_AND_FILTERS',
-			payload: resultado,
-		});
-		//BUENA MANERA DE UTILIZAR EL AXIOS
-	};
-export const getCategories = () => async (dispatch) => {
-	const resultado = await axios('http://localhost:3001/categories').then(
-		(res) => res.data
-	);
-	dispatch({
-		type: 'GET_ALL_CATEGORIES',
-		payload: resultado,
-	});
-};
+
+
+export function postUsers(payload) {
+    return async function () {
+        const createUser = await axios.post("http://localhost:3001/users", payload)
+        return createUser
+    }
+}
+
+
+
+// export const getProductsByName=(search,filters)=> async dispatch =>{
+//     let filterString='';
+//     for (const filter in filters) {
+//         filterString+='&'+filter+'='+filters[filter];
+//     }
+//     //BUENA MANERA DE UTILIZAR EL AXIOS
+//     await axios.get("http://localhost:3001/products?"+'name='+search.toLowerCase()+filterString)
+//     .then(res => dispatch ({
+//         type:GET_PRODUCTS_BY_NAME,
+//         payload: res
+//     }))
+//     .catch((err)=> dispatch ({
+//         type:GET_ERROR,
+//         payload: err.response,
+//     }))
+//     //BUENA MANERA DE UTILIZAR EL AXIOS
+// }
