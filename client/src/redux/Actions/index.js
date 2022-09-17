@@ -12,6 +12,30 @@ export function getAllProducts(){
         })
     }
 }
+export const getProductsByNameAndFilters =
+	(search, filters) => async (dispatch) => {
+		if (!search) search = '';
+		let filterString = '';
+		for (const filter in filters) {
+			filterString += '&' + filter + '=' + filters[filter];
+		}
+		//BUENA MANERA DE UTILIZAR EL AXIOS
+		const resultado = await axios
+			.get(
+				'http://localhost:3001/products?' +
+					'name=' +
+					search.toLowerCase().trim() +
+					filterString
+			)
+			//'http://localhost:3001/products?' +'name=' +search.toLowerCase().trim() +filterString
+			//http://localhost:3001/products?name=+&ram=&category=Tablets&capacity= EJEMPLO
+			.then((res) => res.data);
+		dispatch({
+			type: 'GET_PRODUCTS_BY_NAME_AND_FILTERS',
+			payload: resultado,
+		});
+		//BUENA MANERA DE UTILIZAR EL AXIOS
+	};
 
 export function searchName(payload) {
 	return async function (dispatch) {
@@ -134,7 +158,12 @@ export function getFilterByCapacity(payload){
     }
 }
 
-
+export const setSearch = (payload) => (dispatch) =>{
+	dispatch({
+		type: "CASE_SEARCH",
+		payload
+	})
+}
 
 export function postUsers(payload) {
     return async function () {

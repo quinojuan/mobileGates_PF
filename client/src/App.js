@@ -7,6 +7,7 @@ import DetailsTablet from './components/Details/DetailsTablet';
 import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser'
 import { AuthProvider } from './components/Context/authContext';
+import Landing from './components/Landing/Landing';
 
 function App() {
   return (
