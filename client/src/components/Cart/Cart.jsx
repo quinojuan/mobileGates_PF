@@ -6,10 +6,8 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
 export default function Cart(){
-    //const dispatch=useDispatch()
     let myCart = useSelector((state)=> state.cart)
     const history = useHistory()
-    const [carro, setCarro] = useState({items: []})
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -17,9 +15,7 @@ export default function Cart(){
       dispatch(getCart())
     },[dispatch])
 
-  /*   const handleDelete =(e)=>{
-        setCarro({...carro, items: carro.items.filter(d=>d !== e)})  
-    }  */
+
 return(
     <div>
         <button onClick={()=> history.push("/home")}></button>
@@ -28,7 +24,7 @@ return(
       myCart?.map((p)=>{
         return(
         <div key={p.id}>
-            <img src={p.image}></img>
+            <img src={p.image} height="300px" width="300px"></img>
             <button onClick={()=>deleteProductInCart(p.id)}>X</button>
         </div>
         )
