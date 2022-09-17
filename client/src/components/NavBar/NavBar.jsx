@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "./NavBar.css"
 import { useAuth } from '../Context/authContext';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading'
 
 
 export default function NavBar() {
 
   const {user, logout, loading} = useAuth()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleLogout = async () => {
     await logout()
+    navigate('/home/login')
+    
   }
   if (loading) {
     return (

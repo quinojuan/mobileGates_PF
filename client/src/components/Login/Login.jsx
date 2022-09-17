@@ -24,8 +24,8 @@
 
 import React, { useState } from "react";
 import { useAuth } from "../Context/authContext"; 
-import { useHistory } from 'react-router-dom';
 import './Login.css'
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
  
@@ -36,7 +36,7 @@ export default function Login() {
 
     const {login} = useAuth();
    
-    const history = useHistory();
+    const navigate = useNavigate()
 
     const [error, setError] = useState()
 
@@ -49,7 +49,7 @@ export default function Login() {
         setError('')
     try{
         await login(user.email, user.password)
-        // history('/home/')
+        navigate('/home/')
     }catch(error){
         setError(error.message)
     }

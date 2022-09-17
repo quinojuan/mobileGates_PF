@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../Context/authContext"; 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 
 export default function CreateUser() {
@@ -12,7 +12,7 @@ export default function CreateUser() {
 
     const {signup} = useAuth();
    
-    const history = useHistory();
+    const navigate = useNavigate()
 
     const [error, setError] = useState()
 
@@ -25,7 +25,7 @@ export default function CreateUser() {
         setError('')
     try{
         await signup(user.email, user.password)
-        // history.push("/home");
+        navigate("/home");
     }catch(error){
         setError(error.message)
     }
