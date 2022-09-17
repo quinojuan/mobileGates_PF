@@ -6,6 +6,7 @@ import DetailsPhone from './components/Details/DetailsPhone';
 import DetailsTablet from './components/Details/DetailsTablet';
 import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser'
+import Landing from './components/Landing/Landing';
 import { AuthProvider } from './components/Context/authContext';
 
 function App() {

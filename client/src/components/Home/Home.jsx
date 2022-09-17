@@ -16,61 +16,56 @@ import { Link } from "react-router-dom";
 import Paginado from "../Paginated/Paginated";
 import AddProducts from "../AddProducts/AddProducts";
 
-
 import "./Home.css";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const allProducts = useSelector((state) => state.products);
+  const filters = useSelector((state) => state.filters);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(9);
+  const indexOfLastRecipe = currentPage * productsPerPage;
+  const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
+  const currentProducts =
+    allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
+  const search = useSelector((s) => s.search);
+  //console.log(allProducts);
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+  useEffect(() => {
+    !currentProducts.length && dispatch(getAllProducts());
+  }, [dispatch]);
+  useEffect(() => {
+    currentProducts.length && dispatch(getProductsByNameAndFilters(search, filters));
+  }, [dispatch, filters]);
+  const [orden, setOrden] = useState("");
 
-    const dispatch = useDispatch()
-
-    const allProducts = useSelector((state) => state.products)
-    const [currentPage, setCurrentPage] = useState(1);
-    const [productsPerPage, setProductsPerPage] = useState(9);
-    const indexOfLastRecipe = currentPage * productsPerPage;
-    const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
-    const currentProducts = allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe)
-    console.log(allProducts)
-    const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber)
-    }
-    useEffect(() => {
-        dispatch(getAllProducts())
-    }, [dispatch])
-    const [orden, setOrden] = useState("")
-
-  function handleTest(e)  {
+  function handleTest(e) {
     e.preventDefault();
   }
 
-    function changePage(pageNumber) {
-        setCurrentPage(pageNumber)
-    }
-    function handleCategories(e) {
-        e.preventDefault()
-        dispatch(getFilterByCategories(e.target.value))
-        setCurrentPage(1)
-        setOrden(`Ordenado ${e.target.value}`)
-    }
-    function handleRam(e) {
-        e.preventDefault()
-        dispatch(getFilterByRam(Number(e.target.value)))
-        setCurrentPage(1)
-        setOrden(`Ordenado ${e.target.value}`)
-    }
-    function handleCapacity(e){
-        e.preventDefault()
-        dispatch(getFilterByCapacity(e.target.value))
-        setCurrentPage(1)
-        setOrden(`Ordenado ${e.target.value}`)
-    }
-    function handleSort(e){
-        e.preventDefault()
-        dispatch(getSort(e.target.value))
-        setCurrentPage(1)
-        setOrden(`Ordenado ${e.target.value}`)
-    }
+  function handleReload(e) {
+    e.preventDefault();
+    window.location.reload();
+  }
 
-  return  (
+  function changePage(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
+  function handleFilter(e) {
+    dispatch(setFilter(e.target.value, e.target.name));
+    setCurrentPage(1);
+    setOrden(`Ordenado ${e.target.value}`);
+  }
+  function handleSort(e) {
+    e.preventDefault();
+    dispatch(getSort(e.target.value));
+    setCurrentPage(1);
+    setOrden(`Ordenado ${e.target.value}`);
+  }
+
+  return (
     <div>
       <div className="home">
         <NavBar />
@@ -115,32 +110,50 @@ export default function Home() {
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
-        </div>
-        <div>
-            <SearchBar
-            setCurrentPage={setCurrentPage}
-            setProductsPerPage={setProductsPerPage}
-            />
-        </div>
-        <Paginado
-            productsPerPage={productsPerPage}
-            allProducts={allProducts?.length}
-            paginado={paginado}
-            changePage={changePage}
-            currentPage={currentPage}
-
-            />
-            <div>
-                {currentProducts && currentProducts.map(s => {
-                    return (
-                        <Link key={s.id} to={`/products/${s.category.toLowerCase()}/${s.id}`}>
-                            <Cards model={s.model} image={s.image} brand={s.brand} id={s.id} category={s.category.toLowerCase()} />
-                        </Link>
-                    )
-                })}
-            </div>
-            <hr />
-            <Footer />
-        </div>
-    )
+      </div>
+      <div>
+        <SearchBar
+          setCurrentPage={setCurrentPage}
+          setProductsPerPage={setProductsPerPage}
+        />
+      </div>
+      <Paginado
+        productsPerPage={productsPerPage}
+        allProducts={allProducts?.length}
+        paginado={paginado}
+        changePage={changePage}
+        currentPage={currentPage}
+      />
+      <div>
+        {currentProducts.length ? (
+          currentProducts.map((s) => {
+            return (
+              <>
+                <Link
+                  key={s.id}
+                  to={`/products/${s.category.toLowerCase()}/${s.id}`}
+                >
+                  <Cards
+                    model={s.model}
+                    image={s.image}
+                    brand={s.brand}
+                    id={s.id}
+                    price={s.price[0]}
+                    category={s.category.toLowerCase()}
+                  />
+                </Link>
+                <AddProducts id={s.id} />
+              </>
+            );
+          })
+        ) : (
+          <div>
+            <h1>Loading...</h1>
+          </div>
+        )}
+      </div>
+      <hr />
+      <Footer />
+    </div>
+  );
 }
