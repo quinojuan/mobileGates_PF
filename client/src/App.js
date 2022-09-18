@@ -6,12 +6,12 @@ import DetailsPhone from './components/Details/DetailsPhone';
 import DetailsTablet from './components/Details/DetailsTablet';
 import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser'
-import { AuthProvider } from './components/Context/authContext';
+//import { AuthProvider } from './components/Context/authContext';
 import Landing from './components/Landing/Landing';
 
 function App() {
   return (
-    <AuthProvider>
+    //<AuthProvider>
 
     <BrowserRouter>
     <div className="App">
@@ -26,7 +26,7 @@ function App() {
       </Switch>
     </div>
     </BrowserRouter>
-    </AuthProvider>
+    //</AuthProvider>
   );
 }
 

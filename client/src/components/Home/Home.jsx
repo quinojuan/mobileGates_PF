@@ -67,6 +67,7 @@ export default function Home() {
 
   return (
     <div>
+      
       <div className="home">
         <NavBar />
       </div>
@@ -138,6 +139,9 @@ export default function Home() {
                     image={s.image}
                     brand={s.brand}
                     id={s.id}
+                    inches={s.inches}
+                    operative_system={s.operative_system}
+                    capacity={s.capacity}
                     price={s.price[0]}
                     category={s.category.toLowerCase()}
                   />

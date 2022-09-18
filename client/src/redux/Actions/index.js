@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Swal from "sweetalert2"
+//import Swal from "sweetalert2"
 
 
 
@@ -48,7 +48,7 @@ export function searchName(payload) {
 				payload: json.data,
 			});
 		} catch (error) {
-			Swal.fire("El producto que buscaste no existe");
+			//Swal.fire("El producto que buscaste no existe");
 		}
 	};
 }
