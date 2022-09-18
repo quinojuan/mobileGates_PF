@@ -81,7 +81,7 @@ export default function Login() {
 
                     </div>
 
-                    <div className="col">
+                    <div className="col  border border-5">
                         <form onSubmit={handleSubmit} >
                             <h1 class='fw-bold text-center py-5'>Iniciá sesión</h1>
 

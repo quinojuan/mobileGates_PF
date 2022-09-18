@@ -57,7 +57,7 @@ export default function CreateUser() {
                     <div className="col">
 
                     </div>
-                    <div className='col border border-warning'>
+                    <div className='col border border-5'>
                         <form onSubmit={handleSubmit} >
                             <h1 class='fw-bold text-center py-5'>Registrate gratis</h1>
                             <div className="container w-100 mb-4">

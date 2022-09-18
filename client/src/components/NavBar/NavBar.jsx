@@ -43,7 +43,6 @@ export default function NavBar() {
           <a href="/home" className='container-nav'>Home</a>
           <a href="#" className='container-nav'>Productos</a>
           <a href="#" className='container-nav'>Quienes somos?</a>
-          <a href="#" className='container-nav'> 🛒</a>
           <a href="/home/login" className='container-nav'>Ingresá | Registrate</a>
         </div>
         <hr />
