@@ -41,6 +41,8 @@ export default function Login() {
             } else if (error.code === 'auth/wrong-password') {
                 //setError('Contraseña incorrecta')
                 Swal.fire("Contraseña incorrecta");
+            } else if(error.code === 'auth/user-disabled'){
+                Swal.fire("Esta cuenta se encuentra inhabilitada para este sitio")
             }
         }
     }
