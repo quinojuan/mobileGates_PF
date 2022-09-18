@@ -75,8 +75,8 @@ export default function Home() {
         <button onClick={(e) => handleReload(e)}>↻</button>
         <button onClick={(e) => handleTest(e)}>TEST</button>
       </div>
-      <div>
-        <select name="ram" onChange={(e) => handleFilter(e)}>
+      <div className="select">
+        <select class="form-select" aria-label="Default select example" name="ram" onChange={(e) => handleFilter(e)}>
           <option hidden>Filter by RAM</option>
           <option value="2">2 GB</option>
           <option value="3">3 GB</option>
@@ -87,7 +87,7 @@ export default function Home() {
           <option value="32">32 GB</option>
           <option value="64">64 GB</option>
         </select>
-        <select name="capacity" onChange={(e) => handleFilter(e)}>
+        <select class="form-select" aria-label="Default select example" name="capacity" onChange={(e) => handleFilter(e)}>
           <option hidden>Almacenamiento</option>
           <option value="32">32 GB</option>
           <option value="64">64 GB</option>
@@ -100,24 +100,25 @@ export default function Home() {
           <option value="512">512 GB</option>
           <option value="1">1 TB</option>
         </select>
-        <select name="category" onChange={(e) => handleFilter(e)}>
+        <select class="form-select" aria-label="Default select example" name="category" onChange={(e) => handleFilter(e)}>
           <option hidden>Categoria</option>
           <option value="Notebooks">Notebooks</option>
           <option value="Tablets">Tablets</option>
           <option value="Phones">Celulares</option>
         </select>
-        <select onChange={(e) => handleSort(e)}>
+        <select class="form-select" aria-label="Default select example" onChange={(e) => handleSort(e)}>
           <option hidden>Orden alfabético</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
       </div>
       <div>
-        <SearchBar
+        {/* <SearchBar
           setCurrentPage={setCurrentPage}
           setProductsPerPage={setProductsPerPage}
-        />
+        /> */}
       </div>
+      
       <Paginado
         productsPerPage={productsPerPage}
         allProducts={allProducts?.length}
