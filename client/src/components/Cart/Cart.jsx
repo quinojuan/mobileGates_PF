@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getCart, deleteProductInCart } from "../../redux/Actions";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+//import { useState } from "react";
 
 export default function Cart(){
     let myCart = useSelector((state)=> state.cart)
@@ -11,21 +11,25 @@ export default function Cart(){
     const dispatch = useDispatch()
 
     useEffect(()=>{
-      console.log(myCart, "CARRITO cart")
       dispatch(getCart())
+      console.log(myCart, "CARRITO cart")
     },[dispatch])
 
+    const handleDelete = (id)=>{
+      console.log(id, "id del handle")
+      dispatch(deleteProductInCart(id))
+    }
 
 return(
     <div>
         <button onClick={()=> history.push("/home")}></button>
         <div>
       {myCart.length &&
-      myCart?.map((p)=>{
+      myCart.map((p)=>{
         return(
         <div key={p.id}>
             <img src={p.image} height="300px" width="300px"></img>
-            <button onClick={()=>deleteProductInCart(p.id)}>X</button>
+            <button onClick={()=>handleDelete(p.id)}>X</button>
         </div>
         )
       })}
