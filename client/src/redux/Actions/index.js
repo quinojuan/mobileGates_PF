@@ -53,9 +53,9 @@ export function getTabletsById(id) {
 		try {
 			let json = await axios.get(
 				`http://localhost:3001/products/tablets/${id}`
-			);
-			return dispatch({
-				type: 'GET_TABLETS_BY_ID',
+				);
+				return dispatch({
+					type: 'GET_TABLETS_BY_ID',
 				payload: json.data,
 			});
 		} catch (error) {
@@ -68,13 +68,13 @@ export function getNotebooksById(id) {
 		try {
 			let json = await axios.get(
 				`http://localhost:3001/products/notebooks/${id}`
-			);
-			return dispatch({
-				type: 'GET_NOTEBOOKS_BY_ID',
-				payload: json.data,
-			});
-		} catch (error) {
-			console.log(error);
+				);
+				return dispatch({
+					type: 'GET_NOTEBOOKS_BY_ID',
+					payload: json.data,
+				});
+			} catch (error) {
+				console.log(error);
 		}
 	};
 }
@@ -87,89 +87,100 @@ export function getClean(payload) {
 
 // export function getFilterByCategories(payload) {
 // 	return {
-// 		type: 'GET_FILTER_BY_CATEGORIES',
-// 		payload,
-// 	};
-// }
-// export function getFilterByRam(payload) {
-// 	return {
-// 		type: 'GET_FILTER_BY_RAM',
-// 		payload,
-// 	};
-// }
-export function getSort(payload) {
-	return {
-		type: 'GET_SORT',
-		payload,
-	};
-}
-// export function getFilterByCapacity(payload) {
-// 	return {
-// 		type: 'GET_FILTER_BY_CAPACITY',
-// 		payload,
-// 	};
-// }
-export const setFilter = (filter, filterName) => (dispatch) => {
-	dispatch({
-		type: 'SET_FILTER',
-		payload: {
-			filter,
-			filterName,
-		},
-	});
-};
-export function setLoading(payload) {
-	return {
-		type: 'SET_LOADING',
-		payload,
-	};
-}
-export function addToCart(payload){
-    return{
-        type: "ADD_TO_CART",
-        payload
-    }
-}
-export function getCart(payload){
-    return{
-        type: "GET_CART",
-        payload
-    }
-}
-export function deleteProductInCart(payload){
-    return{
-        type: "DELETE_PRODUCT_IN_CART",
-        payload
-    }
-}
-
+	// 		type: 'GET_FILTER_BY_CATEGORIES',
+	// 		payload,
+	// 	};
+	// }
+	// export function getFilterByRam(payload) {
+		// 	return {
+			// 		type: 'GET_FILTER_BY_RAM',
+			// 		payload,
+			// 	};
+			// }
+			export function getSort(payload) {
+				return {
+					type: 'GET_SORT',
+					payload,
+				};
+			}
+			// export function getFilterByCapacity(payload) {
+				// 	return {
+					// 		type: 'GET_FILTER_BY_CAPACITY',
+					// 		payload,
+					// 	};
+					// }
+					export const setFilter = (filter, filterName) => (dispatch) => {
+						dispatch({
+							type: 'SET_FILTER',
+							payload: {
+								filter,
+								filterName,
+							},
+						});
+					};
+					export function setLoading(payload) {
+						return {
+							type: 'SET_LOADING',
+							payload,
+						};
+					}
+					export function addToCart(payload){
+						return{
+							type: "ADD_TO_CART",
+							payload
+						}
+					}
+					export function getCart(){
+						return{
+							type: "GET_CART",
+						}
+					}
+					 export function deleteProductInCart(payload){
+						console.log(payload, "LLEGUE action")
+						return function(dispatch){
+							dispatch({
+								type: "DELETE_PRODUCT_IN_CART",
+								payload
+							}
+							)
+						}
+					} 
+					export function getFilterByCapacity(payload){
+						return{
+							type:"GET_FILTER_BY_CAPACITY",
+							payload
+						}
+					}
+					
+			
+					
 export const getProductsByNameAndFilters =
-	(search, filters) => async (dispatch) => {
-		if (!search) search = '';
-		let filterString = '';
-		for (const filter in filters) {
-			filterString += '&' + filter + '=' + filters[filter];
-		}
-		//BUENA MANERA DE UTILIZAR EL AXIOS
-		const resultado = await axios
-			.get(
-				'http://localhost:3001/products?' +
-					'name=' +
-					search.toLowerCase().trim() +
-					filterString
-			)
-			//'http://localhost:3001/products?' +'name=' +search.toLowerCase().trim() +filterString
-			//http://localhost:3001/products?name=+&ram=&category=Tablets&capacity= EJEMPLO
-			.then((res) => res.data);
+(search, filters) => async (dispatch) => {
+	if (!search) search = '';
+	let filterString = '';
+	for (const filter in filters) {
+		filterString += '&' + filter + '=' + filters[filter];
+	}
+	//BUENA MANERA DE UTILIZAR EL AXIOS
+	const resultado = await axios
+	.get(
+		'http://localhost:3001/products?' +
+		'name=' +
+		search.toLowerCase().trim() +
+		filterString
+		)
+		//'http://localhost:3001/products?' +'name=' +search.toLowerCase().trim() +filterString
+		//http://localhost:3001/products?name=+&ram=&category=Tablets&capacity= EJEMPLO
+		.then((res) => res.data);
 		dispatch({
 			type: 'GET_PRODUCTS_BY_NAME_AND_FILTERS',
 			payload: resultado,
 		});
 		//BUENA MANERA DE UTILIZAR EL AXIOS
 	};
-export const getCategories = () => async (dispatch) => {
-	const resultado = await axios('http://localhost:3001/categories').then(
-		(res) => res.data
+	export const getCategories = () => async (dispatch) => {
+		const resultado = await axios('http://localhost:3001/categories').then(
+			(res) => res.data
 	);
 	dispatch({
 		type: 'GET_ALL_CATEGORIES',

@@ -3,19 +3,19 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getAllProducts,
-  getSort,
-  setFilter,
-  getProductsByNameAndFilters,
-} from "../../redux/Actions/index";
-import Cards from "../Cards/Cards";
-import NavBar from "../NavBar/NavBar";
-import Footer from "../Footer/Footer";
-import SearchBar from "../SearchBar/SearchBar";
-import { Link } from "react-router-dom";
-import Paginado from "../Paginated/Paginated";
-import AddProducts from "../AddProducts/AddProducts";
-
+	getAllProducts,
+	getSort,
+	setFilter,
+	getProductsByNameAndFilters,
+	getCart
+} from '../../redux/Actions/index';
+import Cards from '../Cards/Cards';
+import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer';
+import SearchBar from '../SearchBar/SearchBar';
+import { Link } from 'react-router-dom';
+import Paginado from '../Paginated/Paginated';
+import AddProducts from "../AddProducts/AddProducts"; 
 import "./Home.css";
 
 export default function Home() {
@@ -34,16 +34,14 @@ export default function Home() {
     setCurrentPage(pageNumber);
   };
   useEffect(() => {
+    dispatch(getCart())
     !currentProducts.length && dispatch(getAllProducts());
   }, [dispatch]);
   useEffect(() => {
     currentProducts.length && dispatch(getProductsByNameAndFilters(search, filters));
   }, [dispatch, filters]);
-  const [orden, setOrden] = useState("");
 
-  function handleTest(e) {
-    e.preventDefault();
-  }
+  const [orden, setOrden] = useState("");
 
   function handleReload(e) {
     e.preventDefault();
@@ -71,8 +69,9 @@ export default function Home() {
         <NavBar />
       </div>
       <div>
+        
         <button onClick={(e) => handleReload(e)}>↻</button>
-        <button onClick={(e) => handleTest(e)}>TEST</button>
+        
       </div>
       <div>
         <select name="ram" onChange={(e) => handleFilter(e)}>
