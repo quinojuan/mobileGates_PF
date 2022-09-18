@@ -9,6 +9,7 @@ import CreateUser from './components/CreateUser/CreateUser'
 import Landing from './components/Landing/Landing';
 import { AuthProvider } from './components/Context/authContext';
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
+import {IntlProvider} from 'react-intl'
 
 function App() {
   return (
@@ -19,12 +20,13 @@ function App() {
       <Routes>
         <Route exact path="/" element = {<Landing/>} />
         
-        <Route exact path = '/home' element = {
+        {/* <Route exact path = '/home' element = {
           <ProtectedRoute>
           <Home/>
           </ProtectedRoute>
         }/>
-        
+         */}
+         <Route exact path = '/home' element = {<Home/>}/>
         <Route path="/products/notebooks/:id" element= {<DetailsNotebook/>}/>
         <Route path="/products/phones/:id" element= {<DetailsPhone/>}/>
         <Route path="/products/tablets/:id" element= {<DetailsTablet/>}/>

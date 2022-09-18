@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../Context/authContext"; 
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 export default function CreateUser() {
@@ -25,9 +26,21 @@ export default function CreateUser() {
         setError('')
     try{
         await signup(user.email, user.password)
+        Swal.fire("Registro exitoso!");
         navigate("/home");
     }catch(error){
-        setError(error.message)
+        // setError(error.message)
+        console.log(error.code)
+        if(error.code === "auth/internal-error"){
+            //setError('El mail ingresado no es válido')
+            Swal.fire("El mail ingresado no es válido");
+        } else if(error.code === 'auth/wrong-password'){
+            //setError('Contraseña incorrecta')
+            Swal.fire("Contraseña incorrecta");
+        } else if(error.code === 'auth/weak-password'){
+            //setError('La contraseña debe tener más de 6 caracteres')
+            Swal.fire("La contraseña debe tener más de 6 caracteres");
+        }
     }
     }
     return(

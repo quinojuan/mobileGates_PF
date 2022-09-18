@@ -1,31 +1,9 @@
-// import React, { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import './Login.css'
-
-// export default function Login() {
-//     const dispatch = useDispatch();
-
-//     return(
-//         <div className="login">
-//             <form className="form">
-//                 <h1>Iniciá sesión</h1>
-//                 <label>Usuario</label>
-//                 <input type="text" placeholder="Ingresa tu mail o tu nombre de usuario" />
-//                 <label>Contraseña</label>
-//                 <input type="password" placeholder="Ingresa tu contraseña" />
-//                 <button>Entrar</button>
-//                 <a href="/home/createuser">No tenes cuenta? Registrate gratis</a>
-//                 <a href="#">Olvidaste tu contraseña?</a>
-//             </form>
-//         </div>
-//     )
-// }
-
-
 import React, { useState } from "react";
 import { useAuth } from "../Context/authContext";
 import './Login.css'
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 export default function Login() {
 
@@ -51,7 +29,15 @@ export default function Login() {
             await login(user.email, user.password)
             navigate('/home/')
         } catch (error) {
-            setError(error.message)
+            // setError(error.message)
+            console.log(error.code)
+            if(error.code === "auth/invalid-email"){
+                //setError('Correo inválido')
+                Swal.fire("Correo inválido");
+            } else if(error.code === 'auth/wrong-password'){
+                //setError('Contraseña incorrecta')
+                Swal.fire("Contraseña incorrecta");
+            }
         }
     }
 
@@ -86,12 +72,11 @@ export default function Login() {
                 <input type="text" name='email' placeholder="Ingresa tu mail" onChange={handleChange} />
                 <label>Contraseña</label>
                 <input type="password" name='password' placeholder="******" onChange={handleChange} />
-                <button id='submit' type='submit'>Login</button>
+                <button id='submit' type='submit' class="btn btn-primary btn-lg">Ingresar</button>
                 <a href="/home/createuser">No tenes cuenta? Registrate gratis</a>
                 <a href="#" onClick={handleResetPassword}>Olvidaste tu contraseña?</a>
+            <button onClick={handleGoogleSignin}>Continuar con Google</button>
             </form>
-            <button
-                onClick={handleGoogleSignin}>Continuar con Google</button>
         </div>
     )
 }
