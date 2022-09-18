@@ -148,17 +148,17 @@ function rootReducer(state = initialState, action) {
 								cart: cartLS
 							};	
 							case 'DELETE_PRODUCT_IN_CART':
-							
-								console.log(action.payload, "LLEGUE redux")
-							
-								let myDeletedProduct = JSON.parse(localStorage.getItem('cart'));
-								console.log(myDeletedProduct, "????????????")
-								let myCarty = myDeletedProduct.filter((el) => el.id !== action.payload);
-								localStorage.setItem('cart', JSON.stringify(myCarty));
+								 //console.log(action.payload, "LLEGUE redux")
+								let productsInLs = JSON.parse(localStorage.getItem("cart"))
+								//console.log(productsInLs, "products in ls") 
+								let myCarty = productsInLs.filter(el=>el.id  !== action.payload)
+								localStorage.setItem("cart", JSON.stringify(myCarty))
+								
 								return {
 									...state,
-									cart: [...state.cart,myCarty]
-								};
+									cart: myCarty
+								}; 
+							
 		default:
 			return state;
 	}

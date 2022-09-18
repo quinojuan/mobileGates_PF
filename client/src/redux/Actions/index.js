@@ -128,13 +128,22 @@ export function getClean(payload) {
 							type: "GET_CART",
 						}
 					}
-					export function deleteProductInCart(payload){
+					 export function deleteProductInCart(payload){
 						console.log(payload, "LLEGUE action")
-						return{
-							type: "DELETE_PRODUCT_IN_CART",
-							payload
+						return function(dispatch){
+							dispatch({
+								type: "DELETE_PRODUCT_IN_CART",
+								payload
+							}
+							)
 						}
-					}
+					} 
+				/* 	export const deleteProductInCart=(id, all=false)=>{
+						all ?
+						
+						{type:"REMOVE_ALL_FROM_CART", payload:id} : 
+						{type:"REMOVE_ONE_FROM_CART", payload: id};
+					} */
 					
 export const getProductsByNameAndFilters =
 (search, filters) => async (dispatch) => {
