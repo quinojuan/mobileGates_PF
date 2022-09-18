@@ -15,10 +15,10 @@ export default function Cart(){
       console.log(myCart, "CARRITO cart")
     },[dispatch])
 
-    const handleDelete = (id)=>{
+/*     const handleDelete = (id)=>{
       console.log(id, "id del handle")
       dispatch(deleteProductInCart(id))
-    }
+    } */
 
 return(
     <div>
@@ -29,7 +29,7 @@ return(
         return(
         <div key={p.id}>
             <img src={p.image} height="300px" width="300px"></img>
-            <button onClick={()=>handleDelete(p.id)}>X</button>
+            <button onClick={()=>dispatch(deleteProductInCart(p.id))}>X</button>
         </div>
         )
       })}
