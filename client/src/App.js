@@ -10,6 +10,7 @@ import Landing from './components/Landing/Landing';
 import { AuthProvider } from './components/Context/authContext';
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import {IntlProvider} from 'react-intl'
+import Contact from './components/Contact/Contact';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/products/tablets/:id" element= {<DetailsTablet/>}/>
         <Route path="/home/login" element= {<Login/>}/>
         <Route path="/home/createuser" element= {<CreateUser/>}/>
+        <Route path="/contacto" element= {<Contact/>}/>
       </Routes>
     </div>
     </BrowserRouter>
