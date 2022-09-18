@@ -2,13 +2,13 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getCart, deleteProductInCart } from "../../redux/Actions";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 //import { useState } from "react";
 
 export default function Cart(){
 
     let myCart = useSelector((state)=> state.cart)
-    const history = useHistory()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -18,7 +18,7 @@ export default function Cart(){
   
 return(
     <div>
-        <button onClick={()=> history.push("/home")}></button>
+        <button onClick={()=> navigate("/home")}></button>
         <div>
       {myCart.length &&
       myCart.map((p)=>{

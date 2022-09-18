@@ -8,7 +8,6 @@ import {
 	setFilter,
 	getProductsByNameAndFilters,
 	getCart
-	
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -17,10 +16,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Paginado from '../Paginated/Paginated';
 import AddProducts from "../AddProducts/AddProducts"; 
-
-
-
-import './Home.css';
+import "./Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -38,11 +34,13 @@ export default function Home() {
     setCurrentPage(pageNumber);
   };
   useEffect(() => {
+    dispatch(getCart())
     !currentProducts.length && dispatch(getAllProducts());
   }, [dispatch]);
   useEffect(() => {
     currentProducts.length && dispatch(getProductsByNameAndFilters(search, filters));
   }, [dispatch, filters]);
+
   const [orden, setOrden] = useState("");
 
   function handleReload(e) {
@@ -71,6 +69,7 @@ export default function Home() {
         <NavBar />
       </div>
       <div>
+        
         <button onClick={(e) => handleReload(e)}>↻</button>
         
       </div>
