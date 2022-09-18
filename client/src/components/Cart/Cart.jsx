@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 //import { useState } from "react";
 
 export default function Cart(){
+
     let myCart = useSelector((state)=> state.cart)
     const history = useHistory()
     const dispatch = useDispatch()
@@ -14,12 +15,7 @@ export default function Cart(){
       dispatch(getCart())
       console.log(myCart, "CARRITO cart")
     },[dispatch])
-
-/*     const handleDelete = (id)=>{
-      console.log(id, "id del handle")
-      dispatch(deleteProductInCart(id))
-    } */
-
+  
 return(
     <div>
         <button onClick={()=> history.push("/home")}></button>

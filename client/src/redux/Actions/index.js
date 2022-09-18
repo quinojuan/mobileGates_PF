@@ -10,6 +10,13 @@ export function getAllProducts() {
 	};
 }
 
+export const setSearch = (payload) => (dispatch) =>{
+	dispatch({
+		type: "CASE_SEARCH",
+		payload
+	})
+}
+
 export function searchName(payload) {
 	return async function (dispatch) {
 		try {
@@ -138,13 +145,7 @@ export function getClean(payload) {
 							)
 						}
 					} 
-				/* 	export const deleteProductInCart=(id, all=false)=>{
-
-						all ?
-						
-						{type:"REMOVE_ALL_FROM_CART", payload:id} : 
-						{type:"REMOVE_ONE_FROM_CART", payload: id};
-					} */
+			
 					
 export const getProductsByNameAndFilters =
 (search, filters) => async (dispatch) => {
