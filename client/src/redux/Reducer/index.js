@@ -40,7 +40,7 @@ function rootReducer(state = initialState, action) {
     case "GET_CLEAN":
       return {
         ...state,
-        payload: [],
+        details: {},
       };
 
     case "SEARCH_NAME":
@@ -48,39 +48,34 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
       };
-    case "GET_FILTER_BY_CATEGORIES":
-      const productsToFilterByCategory = state.allProducts;
-      const categoryFilter =
-        action.payload === "disabled"
-          ? productsToFilterByCategory
-          : productsToFilterByCategory?.filter((s) =>
-              s.category.includes(action.payload)
-            );
+    case "SET_LOADING":
       return {
         ...state,
-        products: categoryFilter,
+        loading: action.payload,
       };
-    case "GET_FILTER_BY_RAM":
-      const allProducts = state.allProducts;
-      const filtByRam =
-        action.payload === "disabled"
-          ? allProducts
-          : allProducts.filter((el) => el.ram.includes(action.payload));
+    case "CASE_SEARCH":
       return {
         ...state,
-        products: filtByRam,
+        search: action.payload,
       };
-    case "GET_FILTER_BY_CAPACITY":
-      const alllProducts = state.allProducts;
-      const filtByCap =
-        action.payload === "disabled"
-          ? alllProducts
-          : alllProducts.filter((s) => s.capacity.includes(action.payload));
+    case "GET_PRODUCTS_BY_NAME_AND_FILTERS":
       return {
         ...state,
-        products: filtByCap,
+        products: action.payload,
       };
-
+    case "GET_ALL_CATEGORIES":
+      return {
+        ...state,
+        categories: action.payload,
+      };
+    case "SET_FILTER":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.payload.filterName]: action.payload.filter,
+        },
+      };
     case "GET_SORT":
       let sortedArr =
         action.payload === "A-Z"

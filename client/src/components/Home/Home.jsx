@@ -37,10 +37,10 @@ export default function Home() {
     dispatch(getCart())
     !currentProducts.length && dispatch(getAllProducts());
   }, [dispatch]);
+
   useEffect(() => {
     currentProducts.length && dispatch(getProductsByNameAndFilters(search, filters));
-  }, [dispatch, filters]);
-
+  }, [dispatch, filters,currentProducts,search]);
   const [orden, setOrden] = useState("");
 
   function handleReload(e) {
