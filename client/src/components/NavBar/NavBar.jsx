@@ -4,10 +4,52 @@ import "./NavBar.css"
 import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading'
-import SearchBar from '../SearchBar/SearchBar';
 
 
 export default function NavBar() {
+
+  // const {user, logout, loading} = useAuth()
+  // const navigate = useNavigate()
+
+  // const handleLogout = async () => {
+  //   await logout()
+  //   navigate('/home/')
+
+  // }
+  // if (loading) {
+  //   return (
+  //     <div><Loading/></div>
+  //   )
+  // } else if (user){
+  //   return (
+  //     <nav>
+  //       <div>
+  //         <h1 classNameName='container-logo'>MóvilGates</h1>
+  //         <a href="/home" classNameName='container-nav'>Home</a>
+  //         <a href="#" classNameName='container-nav'>Productos</a>
+  //         <a href="#" classNameName='container-nav'>Quienes somos?</a>
+  //         <a href="#" classNameName='container-nav'> 🛒</a>
+  //         <h3 classNameName='container-nav'>Hola {user.email}</h3>
+  //         <button classNameName='container-nav' onClick={handleLogout}>Cerrar sesión</button>
+  //       </div>
+  //       <hr />
+  //     </nav>
+  //   )
+  // } else{
+  //   return (
+  //     <nav>
+  //       <div>
+  //         <h1 classNameName='container-logo'>MóvilGates</h1>
+  //         <a href="/home" classNameName='container-nav'>Home</a>
+  //         <a href="#" classNameName='container-nav'>Productos</a>
+  //         <a href="#" classNameName='container-nav'>Quienes somos?</a>
+  //         <a href="/home/login" classNameName='container-nav'>Ingresá | Registrate</a>
+  //       </div>
+  //       <hr />
+  //     </nav>
+  //   )
+  // }
+
 
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
@@ -31,9 +73,8 @@ export default function NavBar() {
               <span className="navbar-toggler-icon"></span>
             </h1>
             <form className="d-flex" role="search">
-              {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input> */}
-              {/* <button className="btn btn-outline-success" type="submit">Buscar</button> */}
-              <SearchBar/>
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+              <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
@@ -71,9 +112,8 @@ export default function NavBar() {
               <span className="navbar-toggler-icon"></span>
             </h1>
             <form className="d-flex" role="search">
-              {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input> */}
-              {/* <button className="btn btn-outline-success" type="submit">Buscar</button> */}
-              <SearchBar/>
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+              <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
