@@ -1,6 +1,9 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 export default function Landing(){
-    History = useHistory();
-    History.push("/home")
+    const navigate = useNavigate();
+    function handleNavigate(){
+        return(navigate("/home"))
+    }
+    handleNavigate()
     return(null)
 }

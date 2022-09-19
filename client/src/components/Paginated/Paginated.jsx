@@ -5,6 +5,7 @@ export default function Paginado({ productsPerPage, allProducts, paginado, chang
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(allProducts / productsPerPage); i++) {
         pageNumbers.push(i)
+        
     };
     function handlePrevious(){
         if(currentPage>1){
@@ -29,7 +30,7 @@ export default function Paginado({ productsPerPage, allProducts, paginado, chang
                         <a onClick={() => paginado(number)}>{number}</a>
                     </li>
                 ))}
-                { currentPage<10 && (
+                { currentPage<pageNumbers.length && (
                     <button className="btn" onClick={(e)=>handleNext(e)}>🢂</button>
                 )
                 }
