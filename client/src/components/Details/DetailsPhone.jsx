@@ -42,7 +42,7 @@ export default function DetailsPhone(props) {
                     </div>
                 </div>
                 <div>
-                    <Link to="/home" class="btn btn-dark">Back</Link>
+                    <Link to="/home" class="btn btn-dark">Volver</Link>
                 </div>
                 <Footer />
             </div>
