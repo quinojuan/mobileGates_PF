@@ -3,25 +3,28 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-	getAllProducts,
-	getSort,
-	setFilter,
-	getProductsByNameAndFilters,
-	getCart
-} from '../../redux/Actions/index';
-import Cards from '../Cards/Cards';
-import NavBar from '../NavBar/NavBar';
-import Footer from '../Footer/Footer';
-import SearchBar from '../SearchBar/SearchBar';
-import { Link } from 'react-router-dom';
-import Paginado from '../Paginated/Paginated';
-import AddProducts from "../AddProducts/AddProducts"; 
+  getAllProducts,
+  getSort,
+  setFilter,
+  getProductsByNameAndFilters,
+  getCart,
+} from "../../redux/Actions/index";
+import Cards from "../Cards/Cards";
+import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
+import SearchBar from "../SearchBar/SearchBar";
+import { Link } from "react-router-dom";
+import Paginado from "../Paginated/Paginated";
+import AddProducts from "../AddProducts/AddProducts";
 import "./Home.css";
+import Swat from "sweetalert2";
 
 export default function Home() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
   const filters = useSelector((state) => state.filters);
+  const loading = useSelector((state) => state.loading);
+  const [firstTime, setFirstTime] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(9);
   const indexOfLastRecipe = currentPage * productsPerPage;
@@ -34,14 +37,19 @@ export default function Home() {
     setCurrentPage(pageNumber);
   };
   useEffect(() => {
-    dispatch(getCart())
+    dispatch(getCart());
     !currentProducts.length && dispatch(getAllProducts());
   }, [dispatch]);
 
   useEffect(() => {
-    currentProducts.length && dispatch(getProductsByNameAndFilters(search, filters));
-  }, [dispatch, filters,currentProducts,search]);
+    currentProducts.length &&
+      dispatch(getProductsByNameAndFilters(search, filters));
+  }, [dispatch, filters, currentProducts, search]);
   const [orden, setOrden] = useState("");
+
+  useEffect(() => {
+    currentProducts.length && setFirstTime(false);
+  }, [currentProducts]);
 
   function handleReload(e) {
     e.preventDefault();
@@ -63,15 +71,28 @@ export default function Home() {
     setOrden(`Ordenado ${e.target.value}`);
   }
 
+  function handleLoading() {
+    if (loading) {
+      return (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      );
+    } else {
+      if (!firstTime) {
+        Swat.fire("No se encontraron productos con su criterio de busqueda");
+      }
+      return (<div><h1>No se encontraron productos con su criterio de busqueda</h1></div>)
+    }
+  }
+
   return (
     <div>
       <div className="home">
         <NavBar />
       </div>
       <div>
-        
         <button onClick={(e) => handleReload(e)}>↻</button>
-        
       </div>
       <div>
         <select name="ram" onChange={(e) => handleFilter(e)}>
@@ -124,30 +145,36 @@ export default function Home() {
         currentPage={currentPage}
       />
       <div>
-        {currentProducts.length ? (
-          currentProducts.map((s) => {
-            return (
-              <>
-                <Link
-                  key={s.id}
-                  to={`/products/${s.category.toLowerCase()}/${s.id}`}
-                >
-                  <Cards
-                    model={s.model}
-                    image={s.image}
-                    brand={s.brand}
-                    id={s.id}
-                    price={s.price[0]}
-                    category={s.category.toLowerCase()}
-                  />
-                </Link>
-                <AddProducts id={s.id} />
-              </>
-            );
-          })
+        {!loading ? (
+          currentProducts.length ? (
+            currentProducts.map((s) => {
+              return (
+                <>
+                  <Link
+                    key={s.id}
+                    to={`/products/${s.category.toLowerCase()}/${s.id}`}
+                  >
+                    <Cards
+                      model={s.model}
+                      image={s.image}
+                      brand={s.brand}
+                      id={s.id}
+                      price={s.price[0]}
+                      category={s.category.toLowerCase()}
+                    />
+                  </Link>
+                  <AddProducts id={s.id} />
+                </>
+              );
+            })
+          ) : (
+            <div>
+              <h1>{handleLoading()}</h1>
+            </div>
+          )
         ) : (
           <div>
-            <h1>Loading...</h1>
+            <h1>{handleLoading()}</h1>
           </div>
         )}
       </div>

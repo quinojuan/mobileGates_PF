@@ -2,11 +2,13 @@ import axios from "axios";
 import Swal from "sweetalert2";
 export function getAllProducts() {
   return async function (dispatch) {
+    dispatch(setLoading(true));
     let json = await axios.get("http://localhost:3001/products");
-    return dispatch({
+    dispatch({
       type: "GET_PRODUCTS",
       payload: json.data,
     });
+    dispatch(setLoading(false));
   };
 }
 
