@@ -1,17 +1,20 @@
 .home {
-    background: #FFEFBA;
-    background: -webkit-linear-gradient(to left, #FFFFFF, #FFEFBA);
-    background: linear-gradient(to left, #FFFFFF, #FFEFBA);
-  }
-
-  .cards {
-    display: grid;
-    align-items: center;
-    grid-gap: 20px;
-    padding: 2px 0;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    margin-inline: 70px;
-    margin-top: -20px;
-  }
-
   
+}
+
+.cards {
+  display: grid;
+  align-items: center;
+  grid-gap: 20px;
+  padding: 2px 0;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  margin-inline: 70px;
+  margin-top: -20px;
+}
+
+.select{
+  display:block;
+  height:50px;
+  width:200px;
+  margin: 0 auto;
+}
