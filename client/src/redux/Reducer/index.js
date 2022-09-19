@@ -9,6 +9,7 @@ const initialState = {
     category: "",
     capacity: "",
   },
+  productsReady:false,
   categories: [],
   cart: [],
   search: "",
@@ -21,6 +22,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
         allProducts: action.payload,
+        productsReady: true
       };
     case "GET_PHONES_BY_ID":
       return {
