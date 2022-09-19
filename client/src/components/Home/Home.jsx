@@ -44,7 +44,7 @@ export default function Home() {
   useEffect(() => {
     currentProducts.length &&
       dispatch(getProductsByNameAndFilters(search, filters));
-  }, [dispatch, filters, currentProducts, search]);
+  }, [dispatch, filters, search]);
   const [orden, setOrden] = useState("");
 
   useEffect(() => {
