@@ -21,17 +21,31 @@ export default function DetailsTablet(props) {
            
             {
                 
-                    <div>
-                        <NavBar/>
-                        <h1>{myProducts&&myProducts.model}</h1>
-                        <h3>Category: {myProducts&&myProducts.category}</h3>
-                        <h3>Brand: {myProducts&&myProducts.brand}</h3>
-                        <h5 >Capacity: { myProducts&&myProducts.capacity}</h5>
-                        <img src={myProducts&&myProducts.image} alt="Not found" width="200px" height="250px"></img>
-                        <h6>{myProducts&&myProducts.description} </h6>
-                        <Link to="/home">Back</Link>
-                        <Footer/>
-                    </div> 
+                <div>
+                <NavBar />
+                <div className="container" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative'}}>
+                    <div class="card mb-3" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative'}}>
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src={myProducts && myProducts.image} alt="Not found" width="200px" height="250px"></img>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h1 class="card-title">{myProducts && myProducts.model}</h1>
+                                    <h3 class="card-text">Categoria: {myProducts && myProducts.category}</h3>
+                                    <h3 class="card-text">Marca: {myProducts && myProducts.brand}</h3>
+                                    <h5 class="card-text">Capacidad: {myProducts && myProducts.capacity}</h5>
+                                    <h6 class="card-text">{myProducts && myProducts.description} </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <Link to="/home" class="btn btn-dark">Back</Link>
+                </div>
+                <Footer />
+            </div>
             }
         </div>
     )
