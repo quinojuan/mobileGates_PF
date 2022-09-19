@@ -2,13 +2,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllProducts,
-  getSort,
-  setFilter,
-  getProductsByNameAndFilters,
-  getCart,
-} from "../../redux/Actions/index";
+import {getAllProducts, getSort, setFilter, getProductsByNameAndFilters, getCart,} from "../../redux/Actions/index";
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -42,7 +36,7 @@ export default function Home() {
   }, [dispatch]);
 
   useEffect(() => {
-    currentProducts.length &&
+    !currentProducts.length &&
       dispatch(getProductsByNameAndFilters(search, filters));
   }, [dispatch, filters, currentProducts, search]);
   const [orden, setOrden] = useState("");
