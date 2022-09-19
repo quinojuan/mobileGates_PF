@@ -74,7 +74,7 @@ export default function Home() {
         
       </div>
       <div>
-        <select name="ram" onChange={(e) => handleFilter(e)}>
+        <select class="form-select" width='32' name="ram" onChange={(e) => handleFilter(e)}>
           <option hidden>Filter by RAM</option>
           <option value="2">2 GB</option>
           <option value="3">3 GB</option>
@@ -123,7 +123,9 @@ export default function Home() {
         changePage={changePage}
         currentPage={currentPage}
       />
-      <div>
+      <div class="container text-center">
+        <div class="row">
+        <div class="col">
         {currentProducts.length ? (
           currentProducts.map((s) => {
             return (
@@ -150,6 +152,9 @@ export default function Home() {
             <h1>Loading...</h1>
           </div>
         )}
+        </div>
+        </div>
+        
       </div>
       <hr />
       <Footer />

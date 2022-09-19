@@ -5,11 +5,10 @@
 
 } */
 
-.cards {
+/* .container {
   display: grid;
-  grid-gap: 40px 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  margin-inline: 5%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 
 }
 
@@ -17,20 +16,8 @@
 .cards img {
 
   width: 100%;
-  height: 90%;
+  height: 100%;
 
-}
+} */
 
-.cards h3 {
-  color: rgb(34, 34, 34);
-  font-family: 'DynaPuff', cursive;
-  font-size: 1.5rem;
-  margin-top: -8%;
-}
-
-.cards h5 {
-  color: rgb(34, 34, 34);
-  font-family: 'DynaPuff', cursive;
-  font-size: 1.5rem;
-  margin-top: -10%;
-}
+ 

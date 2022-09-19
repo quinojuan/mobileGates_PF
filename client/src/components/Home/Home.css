@@ -4,14 +4,12 @@
     background: linear-gradient(to left, #FFFFFF, #FFEFBA);
   }
 
-  .cards {
+  .cool {
     display: grid;
-    align-items: center;
-    grid-gap: 20px;
-    padding: 2px 0;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    margin-inline: 70px;
-    margin-top: -20px;
-  }
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+   
+  
+  } 
 
   
