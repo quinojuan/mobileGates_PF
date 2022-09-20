@@ -13,7 +13,9 @@ const getAllProducts = async (req, res) => {
 			],
 		  }));
 
-		let presentacion = allPhones.map(({	model,
+		let presentacion = allPhones.map(({	
+			id,
+			model,
 			operative_system,
 			size,
 			inches,
@@ -29,6 +31,7 @@ const getAllProducts = async (req, res) => {
 			description,
 			Brands})=>{
 			return  {
+				id,
 				model,
 				operative_system,
 				size,
