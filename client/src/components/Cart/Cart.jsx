@@ -4,32 +4,43 @@ import { useEffect } from "react";
 import { getCart, deleteProductInCart } from "../../redux/Actions";
 import { useNavigate } from "react-router-dom";
 //import { useState } from "react";
+import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
+import { Link } from "react-router-dom";
 
-export default function Cart(){
+export default function Cart() {
 
-    let myCart = useSelector((state)=> state.cart)
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+  let myCart = useSelector((state) => state.cart)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-    useEffect(()=>{
-      dispatch(getCart())
-      console.log(myCart, "CARRITO cart")
-    },[dispatch])
-  
-return(
+  useEffect(() => {
+    dispatch(getCart())
+    console.log(myCart, "CARRITO cart")
+  }, [dispatch])
+
+  return (
     <div>
-        <button onClick={()=> navigate("/home")}></button>
-        <div>
-      {myCart.length &&
-      myCart.map((p)=>{
-        return(
-        <div key={p.id}>
-            <img src={p.image} height="300px" width="300px"></img>
-            <button onClick={()=>dispatch(deleteProductInCart(p.id))}>X</button>
+      <NavBar />
+      <div className="container" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative' }}>
+
+        {/* <button onClick={() => navigate("/home")}></button> */}
+        <div class="card" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative', width: '80%', height: '100%'}}>
+          {myCart.length &&
+            myCart.map((p) => {
+              return (
+                <div key={p.id}>
+                  <img src={p.image} height="300px" width="300px" class="card-img-top"></img>
+                  <button class="btn btn-danger" onClick={() => dispatch(deleteProductInCart(p.id))}>Quitar del carrito</button>
+                </div>
+              )
+            })}
         </div>
-        )
-      })}
-        </div>
+      </div>
+      <div>
+        <Link to="/home" class="btn btn-dark" style={{alignItems: 'center' }}>Volver</Link>
+      </div>
+      <Footer />
     </div>
-)
+  )
 }

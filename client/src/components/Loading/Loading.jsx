@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function LoadingPage() {
     return (
-        <div>
-            <h1>LOADING...</h1>
-        </div>     
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     )
 }
