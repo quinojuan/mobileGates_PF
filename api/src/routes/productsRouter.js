@@ -2,16 +2,14 @@ const { Router } = require("express");
 const router = Router();
 const {
 	getAllProducts,
-	getAllPhones,
 	getPhonesById,
 	postPhone
 } = require('../controllers/productsController');
 
 router.get("/", getAllProducts);
-
-router.get('/phones', getAllPhones);
-router.get('/phones/:id', getPhonesById);
-router.post('/phones', postPhone);
+/* router.get('/phones', getAllPhones); */
+router.get('/:id', getPhonesById);
+router.post('/', postPhone);
 
 
 module.exports = router;

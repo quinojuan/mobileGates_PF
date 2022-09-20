@@ -4,35 +4,73 @@ const { Tablets, Phones, Notebooks, Brand} = require('../db');
 
 const getAllProducts = async (req, res) => {
 	try {
-		const { ram, category, name, capacity } = req.query;
-		const allPhones = await Phones.findAll();
-		//const allTablets = await Tablets.findAll();
-		//const allNotebooks = await Notebooks.findAll();
-		let allProducts = await allPhones
+		const { ram, brand, name, capacity } = req.query;
+		const allPhones = await Phones.findAll(( {
+			include: [
+			  {
+				model: Brand,
+			  },
+			],
+		  }));
+
+		let presentacion = allPhones.map(({	model,
+			operative_system,
+			size,
+			inches,
+			main_camera,
+			ram,
+			capacity,
+			frontal_camera,
+			weight,
+			battery,
+			price,
+			image,
+			cpu,
+			description,
+			Brands})=>{
+			return  {
+				model,
+				operative_system,
+				size,
+				inches,
+				main_camera,
+				ram,
+				capacity,
+				frontal_camera,
+				weight,
+				battery,
+				price,
+				image,
+				cpu,
+				description,
+				brand: Brands[0].name
+			}
+		})
+		
 		if (req.query) {
 			if (ram) {
-				allProducts = allProducts.filter((product) =>
+				presentacion = presentacion.filter((product) =>
 					product.ram.includes(Number(ram))
 				);
 			}
-			if (category) {
-				allProducts = allProducts.filter((product) =>
-					product.category.toLowerCase().includes(category.toLowerCase())
+			if (brand) {
+				presentacion = presentacion.filter((product) =>
+					product.brand.toLowerCase().includes(brand.toLowerCase())
 				);
 			}
 			if (name) {
 				let model = name;
-				allProducts = allProducts.filter((product) =>
+				presentacion = presentacion.filter((product) =>
 					product.model.toLowerCase().includes(model.toLowerCase())
 				);
 			}
 			if (capacity) {
-				allProducts = allProducts.filter((product) =>
+				presentacion = presentacion.filter((product) =>
 					product.capacity.includes(capacity)
 				);
 			}
 		}
-		res.status(200).json(allProducts);
+		res.status(200).json(presentacion);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -41,7 +79,7 @@ const getAllProducts = async (req, res) => {
 
 // -------------------- PHONES --------------------
 
-const getAllPhones = async (req, res) => {
+/* const getAllPhones = async (req, res) => {
 	try {
 		const allPhones = await Phones.findAll();
 		return res.status(200).json(allPhones);
@@ -49,7 +87,7 @@ const getAllPhones = async (req, res) => {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
 	}
-};
+}; */
 
 const getPhonesById = async (req, res) => {
 	try {
@@ -123,8 +161,8 @@ const postPhone = async (req, res) => {
 				});
 
 				let brandId = await Brand.findOne({ where: { name: brand, } })
-                console.log(newPhone, "PHONEE")
-				console.log(brandId.dataValues.id,"ID??????")
+                //console.log(newPhone, "PHONEE")
+				//console.log(brandId.dataValues.id,"ID??????")
 				await newPhone.addBrand(brandId.dataValues.id)
 				const phoneWithBrand = await Phones.findByPk(newPhone.id, {
 					include: [
@@ -152,6 +190,8 @@ const postPhone = async (req, res) => {
 					description,
 					brand: phoneWithBrand.Brands[0].name
 				}
+				//erik cuando veas esto, y digas "KE HORRIBLE KE ASKO", 
+				//bueno, tenes razon. es horrible. pero funca xd te amamos, los del back <3
 				presentacion
 					? res.status(201).json(presentacion)
 					: res.status(404).json({ message: 'Error /post product' });
@@ -169,7 +209,6 @@ const postPhone = async (req, res) => {
 
 module.exports = {
 	getAllProducts,
-	getAllPhones,
 	getPhonesById,
 	postPhone,
 };

@@ -38,13 +38,22 @@ const loadDb = async () => {
 		}));
 		//	SEPARAR LOS PRODUCTOS POR PRECIO EN RELACION A LA CAPACIDAD
 		allPhones = relacionarPreciosCapacidad(allPhones);
-	
+
+
 		await Brand.bulkCreate(uniqueBrand); // a partir del arreglo filtrado cargo todos las categorias
 	    //await let allPhones2 = allPhones.map(())
+		for (i = 0; i < allPhones.length; i++) {
+        let phone = await Phones.create(allPhones[i]);
+		//console.log(phone.model, "modelo A VER")
+        let model = phone.model
+        let phoneBrand = data.filter((e) => e.model === model)
+		let brand = phoneBrand[0].brand
+		//console.log(phoneBrand, "EL BRANDDDDDDDDDDDD")
+        let brandId = await Brand.findOne({ where: { name: brand } });
+        await phone.addBrand(brandId.dataValues.id);
+		}
 		
-		
-		
-		await Phones.bulkCreate(allPhones); // a partir del arreglo filtrado cargo todos los objetos en la tabla PHONES
+		//await Phones.bulkCreate(allPhones); // a partir del arreglo filtrado cargo todos los objetos en la tabla PHONES
 	} catch (error) {
 		console.log(error);
 	}
