@@ -6,11 +6,10 @@ const initialState = {
   loading: false,
   filters: {
     ram: "",
-    category: "",
     capacity: "",
+    brand:"",
   },
-  productsReady:false,
-  categories: [],
+  brands: [],
   cart: [],
   search: "",
 };

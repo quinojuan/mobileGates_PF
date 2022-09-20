@@ -2,7 +2,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getAllProducts, getSort, setFilter, getProductsByNameAndFilters, getCart,} from "../../redux/Actions/index";
+import {getAllProducts, getSort, setFilter, getProductsByNameAndFilters, getCart, getCategories} from "../../redux/Actions/index";
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -18,6 +18,8 @@ export default function Home() {
   const allProducts = useSelector((state) => state.products);
   const filters = useSelector((state) => state.filters);
   const loading = useSelector((state) => state.loading);
+  const brands =useSelector((state)=>state.categories)
+  console.log(brands)
   const [firstTime, setFirstTime] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(9);
@@ -30,8 +32,10 @@ export default function Home() {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  
   useEffect(() => {
     dispatch(getCart());
+    dispatch(getCategories())
     !currentProducts.length && dispatch(getAllProducts());
   }, [dispatch]);
 
@@ -91,6 +95,7 @@ export default function Home() {
       <div class='btn-group'>
         <select class="form-select" aria-label="Default select example" name="ram" onChange={(e) => handleFilter(e)}>
           <option hidden>Filter by RAM</option>
+          <option value="">Todos</option>
           <option value="2">2 GB</option>
           <option value="3">3 GB</option>
           <option value="4">4 GB</option>
@@ -102,6 +107,7 @@ export default function Home() {
         </select>
         <select class="form-select" aria-label="Default select example" name="capacity" onChange={(e) => handleFilter(e)}>
           <option hidden>Almacenamiento</option>
+          <option value="">Todos</option>
           <option value="32">32 GB</option>
           <option value="64">64 GB</option>
           <option value="120">120 GB</option>
@@ -113,11 +119,12 @@ export default function Home() {
           <option value="512">512 GB</option>
           <option value="1">1 TB</option>
         </select>
-        <select class="form-select" aria-label="Default select example" name="category" onChange={(e) => handleFilter(e)}>
-          <option hidden>Categoria</option>
-          <option value="Notebooks">Notebooks</option>
-          <option value="Tablets">Tablets</option>
-          <option value="Phones">Celulares</option>
+        <select class="form-select" aria-label="Default select example" name="brand" onChange={(e) => handleFilter(e)}>
+          <option hidden>Marca</option>
+          <option value="">Todos</option>
+          {brands?.map((s) => (
+          <option key={s} value={s}>{s}</option>
+        ))}
         </select>
         <select class="form-select" aria-label="Default select example" onChange={(e) => handleSort(e)}>
           <option hidden>Orden alfabético</option>
@@ -146,7 +153,7 @@ export default function Home() {
                 <>
                   <Link class= "text-decoration-none"
                     key={s.id}
-                    to={`/products/${s.category.toLowerCase()}/${s.id}`}
+                    to={`/products/${s.id}`}
                   >
                     <Cards
                       model={s.model}
@@ -157,7 +164,7 @@ export default function Home() {
                       operative_system={s.operative_system}
                       capacity={s.capacity}
                       price={s.price[0]}
-                      category={s.category.toLowerCase()}
+                      
                     />
                   </Link>
                   <AddProducts id={s.id} />

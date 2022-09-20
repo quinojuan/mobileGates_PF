@@ -19,27 +19,13 @@ export const setSearch = (payload) => (dispatch) => {
   });
 };
 
-export function searchName(payload) {
-  return async function (dispatch) {
-    try {
-      var json = await axios.get(
-        "http://localhost:3001/products?name=" + payload
-      );
-      return dispatch({
-        type: "SEARCH_NAME",
-        payload: json.data,
-      });
-    } catch (error) {
-      Swal.fire("El producto que buscaste no existe");
-    }
-  };
-}
+
 
 export function getPhonesById(id) {
   return async function (dispatch) {
     try {
       dispatch(setLoading(true));
-      let json = await axios.get(`http://localhost:3001/products/phones/${id}`);
+      let json = await axios.get(`http://localhost:3001/products/${id}`);
       dispatch({
         type: "GET_PHONES_BY_ID",
         payload: json.data,
@@ -50,36 +36,7 @@ export function getPhonesById(id) {
     }
   };
 }
-export function getTabletsById(id) {
-  return async function (dispatch) {
-    try {
-      let json = await axios.get(
-        `http://localhost:3001/products/tablets/${id}`
-      );
-      return dispatch({
-        type: "GET_TABLETS_BY_ID",
-        payload: json.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-export function getNotebooksById(id) {
-  return async function (dispatch) {
-    try {
-      let json = await axios.get(
-        `http://localhost:3001/products/notebooks/${id}`
-      );
-      return dispatch({
-        type: "GET_NOTEBOOKS_BY_ID",
-        payload: json.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
+
 export function getClean(payload) {
   return {
     type: "GET_CLEAN",
@@ -145,12 +102,7 @@ export function deleteProductInCart(payload) {
     });
   };
 }
-export function getFilterByCapacity(payload) {
-  return {
-    type: "GET_FILTER_BY_CAPACITY",
-    payload,
-  };
-}
+
 
 export const getProductsByNameAndFilters =
   (search, filters) => async (dispatch) => {
@@ -179,7 +131,7 @@ export const getProductsByNameAndFilters =
     dispatch(setLoading(false));
   };
 export const getCategories = () => async (dispatch) => {
-  const resultado = await axios("http://localhost:3001/categories").then(
+  const resultado = await axios("http://localhost:3001/brands").then(
     (res) => res.data
   );
   dispatch({
