@@ -24,6 +24,7 @@ const loadDb = async () => {
 						image: art.image,
 						cpu: art.cpu,
 						description: art.description,
+						colors: art.colors
 				  }
 				: null
 		);

@@ -42,6 +42,10 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
+    colors:{
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    },
     weight: {
       type: DataTypes.FLOAT,
       allowNull: false,
