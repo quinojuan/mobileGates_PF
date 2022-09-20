@@ -14,6 +14,7 @@ export default function DetailsPhone(props) {
   useEffect(() => {
     dispatch(getPhonesById(id));
     dispatch(getClean());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
   const myProducts = useSelector((state) => state.details);
   console.log(myProducts);
