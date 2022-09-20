@@ -60,12 +60,49 @@ export default function DetailsPhone(props) {
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
+                    <h1 class="card-title">{myProducts && myProducts.brand}</h1>
                     <h1 class="card-title">{myProducts && myProducts.model}</h1>
-                    {/*<h3 class="card-text">Categoria: {myProducts && myProducts.category}</h3>
-                    <h3 class="card-text">Marca: {myProducts && myProducts.brand}</h3>*/}
                     <h5 class="card-text">
-                      Capacidad: {myProducts && myProducts.capacity}
+                      Capacidad:{" "}
+                      {myProducts && Number(myProducts.capacity) < 10
+                        ? myProducts.capacity + "TB"
+                        : myProducts.capacity + "GB"}
                     </h5>
+                    <h5>
+                      Sistema operativo:{" "}
+                      {myProducts && myProducts.operative_system}
+                    </h5>
+                    <h5>CPU: {myProducts && myProducts.cpu}.</h5>
+                    <h5>
+                      Memoria RAM:{" "}
+                      {myProducts &&
+                        myProducts.ram?.map((e) => " " + e + "GB.")}
+                    </h5>
+                    <h5>Dimensiones: {myProducts && myProducts.size}</h5>
+                    <h5>Tamaño: {myProducts && myProducts.inches}''.</h5>
+                    <h5>
+                      Camara principal: {myProducts && myProducts.main_camera}
+                      MPx.
+                    </h5>
+                    <h5>
+                      Camara frontal: {myProducts && myProducts.frontal_camera}
+                      Mpx.
+                    </h5>
+                    <h5>
+                      Precio:{" "}
+                      {myProducts && myProducts.price > 999
+                        ? "$" + parseFloat(myProducts.price / 1000).toFixed(3)
+                        : "$" + myProducts.price}
+                    </h5>
+                    <h5>Peso: {myProducts && myProducts.weight}g.</h5>
+                    <h5>
+                      Capacidad de la bateria:
+                      {myProducts && myProducts.battery > 999
+                        ? " " + parseFloat(myProducts.battery / 1000).toFixed(3)
+                        : " " + myProducts.battery}
+                      mAh.
+                    </h5>
+
                     <h6 class="card-text">
                       {myProducts && myProducts.description}{" "}
                     </h6>
