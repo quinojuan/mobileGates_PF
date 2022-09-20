@@ -12,6 +12,8 @@ const initialState = {
   brands: [],
   cart: [],
   search: "",
+  rams:[],
+  capacities:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -69,6 +71,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         categories: action.payload,
       };
+    case "GET_CAPACITY":
+      return{
+        ...state,
+        capacities:action.payload
+      }
+    case "GET_RAMS":
+      return{
+        ...state,
+        rams:action.payload
+      }
     case "SET_FILTER":
       return {
         ...state,
