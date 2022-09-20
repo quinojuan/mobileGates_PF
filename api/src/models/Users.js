@@ -4,12 +4,12 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Users",
     {
-      // id: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      //   primaryKey: true,
-      //   // defaultValue: DataTypes.UUIDV4,
-      // },
+      id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -25,13 +25,17 @@ module.exports = (sequelize) => {
             }
         }
       },
+      username:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
       password: {
         type: DataTypes.TEXT,
         allowNull: false
       }
       },
     {
-    
       freezeTableName: true, 
     }
   );

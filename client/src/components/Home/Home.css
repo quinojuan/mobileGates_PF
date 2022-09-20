@@ -18,3 +18,13 @@
   width:200px;
   margin: 0 auto;
 }
+
+.btn-reload{
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.active{
+  text-decoration-style: none;
+  font: bold;
+}
