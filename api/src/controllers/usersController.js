@@ -1,4 +1,6 @@
+const { use } = require('chai');
 const {Users} = require('../db.js')
+const bCrypt = require("bcryptjs")
 
 
 const getAllUsers = async(req, res) =>{
@@ -33,15 +35,18 @@ const getUserById = async(req, res) =>{
 const createUser = async(req, res) =>{
     try{
 
-        const {email, password, name} = req.body;
-        if(!email || !password) return res.status(404).json({message: 'id is not provided'});
+        let {email, password, name, username} = req.body;
+        if(!email || !password|| !username) return res.status(404).json({message: 'id is not provided'});
 
         const validation = await Users.findOne({where: {email: email}});
-        if(validation){
+        const validation2 = await Users.findOne({where: {username: username}})
+        if(validation && validation2){
             return res.status(404).json({message: 'user already exists'});
         }else{
-            const newUser = await Users.create({email, name, password});
-            return res.status(201).json({message: 'User created! :D'});
+            //aca se hashea la clave
+            password = bCrypt.hashSync(password, 10)
+            const newUser = await Users.create({email, name, password, username});
+            return res.status(201).json({message: `${newUser.username} created! :D`});
         };
     }catch(e){
         console.log(e);

@@ -1,3 +1,4 @@
+const { router } = require('../app');
 const { Tablets, Phones, Notebooks, Brand} = require('../db');
 
 // -------------------- GET ALL --------------------
@@ -16,6 +17,7 @@ const getAllProducts = async (req, res) => {
 		let presentacion = allPhones.map(({	
 			id,
 			model,
+			colors,
 			operative_system,
 			size,
 			inches,
@@ -33,6 +35,7 @@ const getAllProducts = async (req, res) => {
 			return  {
 				id,
 				model,
+				colors,
 				operative_system,
 				size,
 				inches,
@@ -120,6 +123,7 @@ const postPhone = async (req, res) => {
 			frontal_camera,
 			weight,
 			battery,
+			colors,
 			price,
 			image,
 			cpu,
@@ -141,7 +145,8 @@ const postPhone = async (req, res) => {
 			price &&
 			image &&
 			cpu &&
-			description
+			description &&
+			colors
 		) {
 			const validation = await Phones.findOne({ where: { model: model } });
 			if (validation === null) {
@@ -156,6 +161,7 @@ const postPhone = async (req, res) => {
 					capacity,
 					frontal_camera,
 					weight,
+					colors,
 					battery,
 					price,
 					image,
@@ -185,6 +191,7 @@ const postPhone = async (req, res) => {
 					ram,
 					capacity,
 					frontal_camera,
+					colors,
 					weight,
 					battery,
 					price,
@@ -209,6 +216,8 @@ const postPhone = async (req, res) => {
 		res.status(500).json({ message: 'Server error' });
 	}
 };
+
+
 
 module.exports = {
 	getAllProducts,
