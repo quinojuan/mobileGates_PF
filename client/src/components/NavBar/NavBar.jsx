@@ -65,8 +65,8 @@ export default function NavBar() {
     )
   } else if (user) {
     return (
-      <nav>
-        <div className="navbar navbar-expand-lg bg-dark">
+      <nav className='container'>
+        <div className="navbar fixed-top navbar navbar-expand-lg bg-dark">
           <div className="container-fluid">
             <a className="navbar-brand text-white" >Móvil Gates</a>
             <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

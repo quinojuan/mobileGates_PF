@@ -22,7 +22,7 @@ export default function Cards({model, image, brand, price, inches, operative_sys
         <div class="card w-25 mx-auto d-block text-decoration-none">
                         <Link class= "text-decoration-none text-succes"
                           key={id}
-                          to={`/products/${category.toLowerCase()}/${id}`}>
+                          to={`/products/${id}`}>
                              <img src={image} class="card-img-top" alt="img not found"></img>
                             
                               </Link>

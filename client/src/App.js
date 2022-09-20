@@ -1,9 +1,7 @@
 import './App.css';
 import {BrowserRouter, Route, Switch, Routes} from 'react-router-dom';
 import Home from './components/Home/Home';
-import DetailsNotebook from "./components/Details/DetailsNotebook";
 import DetailsPhone from './components/Details/DetailsPhone';
-import DetailsTablet from './components/Details/DetailsTablet';
 import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser'
 import Landing from './components/Landing/Landing';
@@ -27,9 +25,7 @@ function App() {
           </ProtectedRoute>
         }/>
         <Route exact path = '/home' element = {<Home/>}/>
-        <Route path="/products/notebooks/:id" element= {<DetailsNotebook/>}/>
-        <Route path="/products/phones/:id" element= {<DetailsPhone/>}/>
-        <Route path="/products/tablets/:id" element= {<DetailsTablet/>}/>
+        <Route path="/products/:id" element= {<DetailsPhone/>}/>
         <Route path="/home/login" element= {<Login/>}/>
         <Route path="/home/createuser" element= {<CreateUser/>}/>
         <Route path="/contacto" element= {<Contact/>}/>
