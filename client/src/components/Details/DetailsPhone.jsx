@@ -140,7 +140,7 @@ export default function DetailsPhone(props) {
             </div>
 </div>
 
-            </div> */}
+    </div> */}
     </div>
   );
 }
