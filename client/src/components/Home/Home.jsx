@@ -184,11 +184,11 @@ export default function Home() {
 						currentProducts.map((s) => {
 							return (
 								<>
-									<Link
+									{/* <Link
 										class="text-decoration-none"
 										key={s.id}
 										to={`/products/${s.id}`}
-									>
+									> */}
 										<Cards
 											model={s.model}
 											image={s.image}
@@ -199,7 +199,7 @@ export default function Home() {
 											capacity={s.capacity}
 											price={s.price[0]}
 										/>
-									</Link>
+									{/* </Link> */}
 									<AddProducts id={s.id} />
 								</>
 							);
