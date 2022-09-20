@@ -1,4 +1,3 @@
-const { use } = require('chai');
 const {Users} = require('../db.js')
 const bCrypt = require("bcryptjs")
 

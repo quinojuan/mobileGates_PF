@@ -10,14 +10,14 @@ const getAllPurchases = async (req, res) => {
 		res.status(500).json({ message: 'Server error' });
 	}
 };
-const postPurchase = async (res, req) =>{
+/* const postPurchase = async (res, req) =>{
 	try{
 		
 
 	}catch(e){
 		res.status(500).json({message: "server error"})
 	}
-}
+} */
 
 module.exports = {
 	getAllPurchases,

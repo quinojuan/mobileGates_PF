@@ -1,5 +1,4 @@
-const { router } = require('../app');
-const { Tablets, Phones, Notebooks, Brand} = require('../db');
+const { Phones, Brand} = require('../db');
 
 // -------------------- GET ALL --------------------
 
