@@ -154,6 +154,7 @@ export function getFilterByCapacity(payload) {
 
 export const getProductsByNameAndFilters =
   (search, filters) => async (dispatch) => {
+    dispatch(setLoading(true));
     if (!search) search = "";
     let filterString = "";
     for (const filter in filters) {
@@ -175,6 +176,7 @@ export const getProductsByNameAndFilters =
       payload: resultado,
     });
     //BUENA MANERA DE UTILIZAR EL AXIOS
+    dispatch(setLoading(false));
   };
 export const getCategories = () => async (dispatch) => {
   const resultado = await axios("http://localhost:3001/categories").then(

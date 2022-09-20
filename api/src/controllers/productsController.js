@@ -1,4 +1,4 @@
-const { Tablets, Phones, Notebooks } = require('../db');
+const { Tablets, Phones, Notebooks, Brand} = require('../db');
 
 // -------------------- GET ALL --------------------
 
@@ -6,9 +6,9 @@ const getAllProducts = async (req, res) => {
 	try {
 		const { ram, category, name, capacity } = req.query;
 		const allPhones = await Phones.findAll();
-		const allTablets = await Tablets.findAll();
-		const allNotebooks = await Notebooks.findAll();
-		let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
+		//const allTablets = await Tablets.findAll();
+		//const allNotebooks = await Notebooks.findAll();
+		let allProducts = await allPhones
 		if (req.query) {
 			if (ram) {
 				allProducts = allProducts.filter((product) =>
@@ -33,214 +33,6 @@ const getAllProducts = async (req, res) => {
 			}
 		}
 		res.status(200).json(allProducts);
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-// -------------------- TABLETS --------------------
-
-const getAllTablets = async (req, res) => {
-	try {
-		const allTablets = await Tablets.findAll();
-		return res.status(200).json(allTablets);
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const getTabletById = async (req, res) => {
-	try {
-		const { id } = req.params;
-		if (!id) res.ratus(404).json({ message: 'id is not provided' });
-		const validation = await Tablets.findByPk(id);
-		res.status(200).json(validation);
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const postTablet = async (req, res) => {
-	//PRUEBA POSTEANDO UNICAMENTE UNA TABLET (HABRÍA QUE CREAR UN MODEL DE PRODUCT ASI DEPENDE LA CATEGORÍA SE SUBE O TABLET O NOTEBOOK O PHONE)
-	try {
-		const {
-			category,
-			model,
-			brand,
-			operative_system,
-			size,
-			inches,
-			main_camera,
-			ram,
-			capacity,
-			frontal_camera,
-			weight,
-			battery,
-			price,
-			image,
-			cpu,
-			description,
-		} = req.body;
-
-		if (
-			category &&
-			model &&
-			brand &&
-			operative_system &&
-			size &&
-			inches &&
-			main_camera &&
-			ram &&
-			capacity &&
-			frontal_camera &&
-			weight &&
-			battery &&
-			price &&
-			image &&
-			cpu &&
-			description
-		) {
-			const validation = await Tablets.findOne({ where: { model: model } });
-			console.log(validation);
-			if (validation === null) {
-				const newTablet = await Tablets.create({
-					category,
-					model,
-					brand,
-					operative_system,
-					size,
-					inches,
-					main_camera,
-					ram,
-					capacity,
-					frontal_camera,
-					weight,
-					battery,
-					price,
-					image,
-					cpu,
-					description,
-				});
-				newTablet
-					? res.status(201).json(newTablet)
-					: res.status(404).json({ message: 'Error /post product' });
-			} else {
-				res.status(200).json({ mesage: 'product already exist' });
-			}
-		} else {
-			res.status(400).json({ message: 'error, missing info' });
-		}
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-// -------------------- NOTEBOOKS --------------------
-
-const getAllNotebooks = async (req, res) => {
-	try {
-		const allNotebooks = await Notebooks.findAll();
-		return res.status(200).json(allNotebooks);
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const getNotebookById = async (req, res) => {
-	try {
-		const { id } = req.params;
-		if (!id) res.ratus(404).json({ message: 'id is not provided' });
-		const validation = await Notebooks.findByPk(id);
-		res.status(200).json(validation);
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const postNotebook = async (req, res) => {
-	try {
-		const {
-			model,
-			category,
-			brand,
-			operative_system,
-			size,
-			inches,
-			description,
-			ram,
-			capacity,
-			frontal_camera,
-			weight,
-			battery,
-			price,
-			image,
-			cpu,
-			gpu,
-			display,
-			usb,
-			numpad,
-		} = req.body;
-
-		if (
-			category &&
-			model &&
-			brand &&
-			operative_system &&
-			size &&
-			inches &&
-			gpu &&
-			ram &&
-			capacity &&
-			frontal_camera &&
-			weight &&
-			battery &&
-			price &&
-			image &&
-			cpu &&
-			description &&
-			display &&
-			usb &&
-			numpad
-		) {
-			const validation = await Notebooks.findOne({ where: { model: model } });
-			console.log(validation);
-			if (validation === null) {
-				const newNotebook = await Notebooks.create({
-					model,
-					category,
-					brand,
-					operative_system,
-					size,
-					inches,
-					description,
-					ram,
-					capacity,
-					frontal_camera,
-					weight,
-					battery,
-					price,
-					image,
-					cpu,
-					gpu,
-					display,
-					usb,
-					numpad,
-				});
-				newNotebook
-					? res.status(201).json(newNotebook)
-					: res.status(404).json({ message: 'Error /post product' });
-			} else {
-				res.status(200).json({ mesage: 'product already exist' });
-			}
-		} else {
-			res.status(400).json({ message: 'error, missing info' });
-		}
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -292,11 +84,10 @@ const postPhone = async (req, res) => {
 			cpu,
 			description,
 		} = req.body;
-
+		
 		if (
 			category &&
 			model &&
-			brand &&
 			operative_system &&
 			size &&
 			inches &&
@@ -313,10 +104,9 @@ const postPhone = async (req, res) => {
 		) {
 			const validation = await Phones.findOne({ where: { model: model } });
 			if (validation === null) {
-				const newPhones = await Phones.create({
+				const newPhone = await Phones.create({
 					category,
 					model,
-					brand,
 					operative_system,
 					size,
 					inches,
@@ -331,8 +121,39 @@ const postPhone = async (req, res) => {
 					cpu,
 					description,
 				});
-				newPhones
-					? res.status(201).json(newPhones)
+
+				let brandId = await Brand.findOne({ where: { name: brand, } })
+                console.log(newPhone, "PHONEE")
+				console.log(brandId.dataValues.id,"ID??????")
+				await newPhone.addBrand(brandId.dataValues.id)
+				const phoneWithBrand = await Phones.findByPk(newPhone.id, {
+					include: [
+					  {
+						model: Brand,
+					  },
+					],
+				  });
+				  //phoneWithBrand = phoneWithBrand.Brands[0].name
+				 let presentacion = {
+					category,
+					model,
+					operative_system,
+					size,
+					inches,
+					main_camera,
+					ram,
+					capacity,
+					frontal_camera,
+					weight,
+					battery,
+					price,
+					image,
+					cpu,
+					description,
+					brand: phoneWithBrand.Brands[0].name
+				}
+				presentacion
+					? res.status(201).json(presentacion)
 					: res.status(404).json({ message: 'Error /post product' });
 			} else {
 				res.status(200).json({ mesage: 'product already exist' });
@@ -348,12 +169,6 @@ const postPhone = async (req, res) => {
 
 module.exports = {
 	getAllProducts,
-	postTablet,
-	getTabletById,
-	getAllTablets,
-	getAllNotebooks,
-	getNotebookById,
-	postNotebook,
 	getAllPhones,
 	getPhonesById,
 	postPhone,
