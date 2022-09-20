@@ -7,7 +7,7 @@ import {
   setSearch,
 } from "../../redux/Actions/index";
 import Swal from "sweetalert2";
-import "./SearchBar.css";
+// import "./SearchBar.css";
 
 export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
   const dispatch = useDispatch();
@@ -30,16 +30,16 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
   }
 
   return (
-    <div className="search-bar">
-      <h2>Qué producto estas buscando?</h2>
-      <input
+    <div  class="d-flex" role="search">
+      <input class="form-control me-2"
         type="text"
-        placeholder="Search..."
+        placeholder="Buscar producto"
         onChange={(e) => handleInputChange(e)}
       />
-      <button className="btn2" type="submit" onClick={(e) => handleSubmit(e)}>
-        Search
+      <button class="btn btn-light" type="submit" onClick={(e) => handleSubmit(e)}>
+        Buscar
       </button>
+      
     </div>
   );
 }
