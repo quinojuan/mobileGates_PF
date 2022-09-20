@@ -1,3 +1,4 @@
+import { async } from '@firebase/util';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 export function getAllProducts() {
@@ -136,3 +137,21 @@ export const getCategories = () => async (dispatch) => {
 		payload: resultado,
 	});
 };
+export const getRams = () => async(dispatch) => {
+	const json= await axios('http://localhost:3001/rams').then(
+		(res)=>res.data
+	);
+	dispatch({
+		type:"GET_RAMS",
+		payload:json
+	})
+}
+export const getCapacity = () => async(dispatch) => {
+	const json= await axios('http://localhost:3001/capacities').then(
+		(res)=>res.data
+	);
+	dispatch({
+		type:"GET_CAPACITY",
+		payload:json
+	})
+}

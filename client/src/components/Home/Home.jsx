@@ -10,6 +10,8 @@ import {
 	getCart,
 	getCategories,
 	setLoading,
+	getRams,
+	getCapacity,
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -27,7 +29,8 @@ export default function Home() {
 	const filters = useSelector((state) => state.filters);
 	const loading = useSelector((state) => state.loading);
 	const brands = useSelector((state) => state.categories);
-	console.log(brands);
+	const rams= useSelector((state)=>state.rams);
+	const capacity= useSelector((state)=>state.capacities)
 	const [firstTime, setFirstTime] = useState(true);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [productsPerPage, setProductsPerPage] = useState(9);
@@ -44,6 +47,8 @@ export default function Home() {
 	useEffect(() => {
 		dispatch(getCart());
 		dispatch(getCategories());
+		dispatch(getRams())
+		dispatch(getCapacity())
 		!currentProducts.length && dispatch(getAllProducts());
 	}, [dispatch]);
 
@@ -116,14 +121,10 @@ export default function Home() {
 				>
 					<option hidden>Filter by RAM</option>
 					<option value="">Todos</option>
-					<option value="2">2 GB</option>
-					<option value="3">3 GB</option>
-					<option value="4">4 GB</option>
-					<option value="6">6 GB</option>
-					<option value="8">8 GB</option>
-					<option value="16">16 GB</option>
-					<option value="32">32 GB</option>
-					<option value="64">64 GB</option>
+					{rams.map((s)=>(
+						<option key={s} value={s}>{s} GB</option>
+					))}
+
 				</select>
 				<select
 					class="form-select"
@@ -133,16 +134,12 @@ export default function Home() {
 				>
 					<option hidden>Almacenamiento</option>
 					<option value="">Todos</option>
-					<option value="32">32 GB</option>
-					<option value="64">64 GB</option>
-					<option value="120">120 GB</option>
-					<option value="128">128 GB</option>
-					<option value="240">240 GB</option>
-					<option value="256">256 GB</option>
-					<option value="400">400 GB</option>
-					<option value="480">480 GB</option>
-					<option value="512">512 GB</option>
-					<option value="1">1 TB</option>
+					{capacity.map((s)=>(
+						s<10?(
+						<option key={s} value={s}>{s} TB</option>
+					):
+					<option key={s} value={s}>{s} GB</option>
+					))}
 				</select>
 				<select
 					class="form-select"
