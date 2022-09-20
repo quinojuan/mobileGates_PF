@@ -6,10 +6,12 @@
 } */
 
 .cards {
-  display: grid;
+  display: contents;
   grid-gap: 40px 20px;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  margin-inline: 5%;
+  margin-left: 60%;
+  align-items: center;
+  justify-content: center; 
 
 }
 
@@ -33,4 +35,15 @@
   font-family: 'DynaPuff', cursive;
   font-size: 1.5rem;
   margin-top: -10%;
+}
+
+.cards-height{
+  height: 50%;
+}
+.text{
+  text-decoration: none;
+}
+
+.cards-text1{
+  text-decoration: none;
 }

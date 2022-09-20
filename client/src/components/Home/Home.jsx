@@ -7,7 +7,7 @@ import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import SearchBar from "../SearchBar/SearchBar";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Paginado from "../Paginated/Paginated";
 import AddProducts from "../AddProducts/AddProducts";
 import "./Home.css";
@@ -36,9 +36,9 @@ export default function Home() {
   }, [dispatch]);
 
   useEffect(() => {
-    !currentProducts.length &&
+    currentProducts.length &&
       dispatch(getProductsByNameAndFilters(search, filters));
-  }, [dispatch, filters, currentProducts, search]);
+  }, [dispatch, filters, search]);
   const [orden, setOrden] = useState("");
 
   useEffect(() => {
@@ -85,11 +85,11 @@ export default function Home() {
       <div className="home">
         <NavBar />
       </div>
-      <div>
-        <button onClick={(e) => handleReload(e)}>↻</button>
+      <div className="btn-reload" >
+        <button class="btn btn-dark" onClick={(e) => handleReload(e)}>↻</button>
       </div>
-      <div>
-        <select name="ram" onChange={(e) => handleFilter(e)}>
+      <div class='btn-group'>
+        <select class="form-select" aria-label="Default select example" name="ram" onChange={(e) => handleFilter(e)}>
           <option hidden>Filter by RAM</option>
           <option value="2">2 GB</option>
           <option value="3">3 GB</option>
@@ -100,7 +100,7 @@ export default function Home() {
           <option value="32">32 GB</option>
           <option value="64">64 GB</option>
         </select>
-        <select name="capacity" onChange={(e) => handleFilter(e)}>
+        <select class="form-select" aria-label="Default select example" name="capacity" onChange={(e) => handleFilter(e)}>
           <option hidden>Almacenamiento</option>
           <option value="32">32 GB</option>
           <option value="64">64 GB</option>
@@ -113,23 +113,23 @@ export default function Home() {
           <option value="512">512 GB</option>
           <option value="1">1 TB</option>
         </select>
-        <select name="category" onChange={(e) => handleFilter(e)}>
+        <select class="form-select" aria-label="Default select example" name="category" onChange={(e) => handleFilter(e)}>
           <option hidden>Categoria</option>
           <option value="Notebooks">Notebooks</option>
           <option value="Tablets">Tablets</option>
           <option value="Phones">Celulares</option>
         </select>
-        <select onChange={(e) => handleSort(e)}>
+        <select class="form-select" aria-label="Default select example" onChange={(e) => handleSort(e)}>
           <option hidden>Orden alfabético</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
       </div>
       <div>
-        <SearchBar
+        {/* <SearchBar
           setCurrentPage={setCurrentPage}
           setProductsPerPage={setProductsPerPage}
-        />
+        /> */}
       </div>
       <Paginado
         productsPerPage={productsPerPage}
@@ -144,19 +144,22 @@ export default function Home() {
             currentProducts.map((s) => {
               return (
                 <>
-                  <Link
+                  {/* <Link class= "text-decoration-none text-succes"
                     key={s.id}
                     to={`/products/${s.category.toLowerCase()}/${s.id}`}
-                  >
+                  > */}
                     <Cards
                       model={s.model}
                       image={s.image}
                       brand={s.brand}
                       id={s.id}
+                      inches={s.inches}
+                      operative_system={s.operative_system}
+                      capacity={s.capacity}
                       price={s.price[0]}
                       category={s.category.toLowerCase()}
                     />
-                  </Link>
+                  {/* </Link> */}
                   <AddProducts id={s.id} />
                 </>
               );

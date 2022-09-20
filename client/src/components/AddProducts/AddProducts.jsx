@@ -19,7 +19,7 @@ export default function AddProducts({id}){
 
     return (
         <div>
-            <button className={style.button} onClick={()=>handleCart()}>Add</button>
+            <button class="btn btn-dark" onClick={()=>handleCart()}>Add</button>
         </div>
     )
 }

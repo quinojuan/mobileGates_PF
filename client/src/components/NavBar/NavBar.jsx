@@ -74,19 +74,19 @@ export default function NavBar() {
             </h1>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button className="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-dark" type="submit">Search</button>
             </form>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
                   <a className="nav-link active text-white" aria-current="page" href="/home">Home</a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a className="nav-link active text-white" href="#">Productos</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#" onClick={()=> navigate("/products/Cart")}>Carrito 🛒</a>
                 </li>
