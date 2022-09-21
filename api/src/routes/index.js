@@ -6,6 +6,7 @@ const usersRouter = require('./usersRouter.js');
 const brandsRouter = require('./brandsRouter.js');
 const ramsRouter = require('./ramsRouter.js');
 const capacitiesRouter = require('./capacityRouter.js');
+const purchasesRouter = require('./purchasesRouter.js')
 const router = Router();
 
 // Configurar los routers
@@ -15,6 +16,6 @@ router.use('/products', productsRouter);
 router.use('/brands', brandsRouter);
 router.use('/rams', ramsRouter);
 router.use('/capacities', capacitiesRouter);
-
+router.use('/purchases', purchasesRouter)
 router.use('/users', usersRouter);
 module.exports = router;
