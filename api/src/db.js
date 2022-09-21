@@ -34,14 +34,14 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Brand, Phones, Users, Purchases, Rol } = sequelize.models;
+const { Brand, Phones, Users, Purchases,  } = sequelize.models;
 
 Brand.belongsToMany(Phones, {through: "PhoneBrand", foreignKey: "BrandId"})
 Phones.belongsToMany(Brand,{through: "PhoneBrand", foreignKey: "PhoneId" })
-Rol.belongsToMany(Users,{through:"UsersRol", foreignKey:"RolId"})
-Users.belongsToMany(Rol,{through:"UsersRol", foreignKey:"UsersId"})
 Purchases.belongsToMany(Users,{through:"UsersPurchases", foreignKey:"PurchasesId"})
 Users.belongsToMany(Purchases,{through:"UsersPurchases", foreignKey:"UsersId"})
+Purchases.belongsToMany(Phones,{through: "PhonePurchases", foreignKey: "PurchasesId" })
+Phones.belongsToMany(Purchases,{through: "PhonePurchases", foreignKey: "PhonesId" })
 
 
 // Aca vendrian las relaciones

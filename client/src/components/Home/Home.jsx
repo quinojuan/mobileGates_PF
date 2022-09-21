@@ -28,6 +28,7 @@ export default function Home() {
 	const dispatch = useDispatch();
 	const buscando = useSelector((state)=>state.searching)
 	const allProducts = useSelector((state) => state.products);
+	console.log(allProducts)
 	const filters = useSelector((state) => state.filters);
 	const loading = useSelector((state) => state.loading);
 	const brands = useSelector((state) => state.categories);
