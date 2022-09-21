@@ -109,6 +109,7 @@ export default function Home() {
 				<SearchBar 
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
+				weAreInHome={true}
 				/>
 			</div>
 			{/* <div className="btn-reload">
