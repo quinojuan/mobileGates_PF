@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCart, addToCart } from "../../redux/Actions";
 import style from "./AddProduct.module.css"
+import { Link } from "react-router-dom";
 
 export default function AddProducts({id}){
     
@@ -18,8 +19,8 @@ export default function AddProducts({id}){
     }
 
     return (
-        <div>
-            <button class="btn btn-dark" onClick={()=>handleCart()}>Add</button>
-        </div>
+        
+            <button type="button" class='btn btn-outline-success btn-sm' onClick={()=>handleCart()}>Agregar al Carrito</button>
+        
     )
 }

@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import "./NavBar.css"
 import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
-import Loading from '../Loading/Loading'
+import Loading from '../Loading/Loading';
+import {handleReload} from '../Home/Home'
+import { useState } from 'react';
+
+import SearchBar from '../SearchBar/SearchBar';
+
 
 
 export default function NavBar() {
-
+  const [currentPage, setCurrentPage] = useState(1);
   // const {user, logout, loading} = useAuth()
   // const navigate = useNavigate()
 
@@ -58,7 +63,12 @@ export default function NavBar() {
     await logout()
     navigate('/home/')
 
+    
   }
+  function handleReload(e) {
+    e.preventDefault();
+    window.location.reload();
+  }  
   if (loading) {
     return (
       <div><Loading /></div>
@@ -68,14 +78,15 @@ export default function NavBar() {
       <nav className='container'>
         <div className="navbar fixed-top navbar navbar-expand-lg bg-dark">
           <div className="container-fluid">
-            <a className="navbar-brand text-white" >Móvil Gates</a>
+            <Link class='navbar-brand text-white' onClick={(e) => handleReload(e)} >Móvil Gates</Link>
             <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </h1>
-            {/* <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button class="btn btn-dark" type="submit">Search</button>
-            </form> */}
+            <SearchBar 
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+        weAreInHome={false}
+				/>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">

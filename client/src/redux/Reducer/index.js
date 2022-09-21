@@ -14,7 +14,8 @@ const initialState = {
   search: "",
   rams:[],
   img:"",
-  capacities:[]
+  capacities:[],
+  searching:false
 };
 
 function rootReducer(state = initialState, action) {
@@ -67,6 +68,11 @@ function rootReducer(state = initialState, action) {
       ...state,
       img: state.details.image,
     }
+    case "SEARCHING":
+      return{
+        ...state,
+        searching : true
+      }
     case "GET_PRODUCTS_BY_NAME_AND_FILTERS":
       return {
         ...state,
