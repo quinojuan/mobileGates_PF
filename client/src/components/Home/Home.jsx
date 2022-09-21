@@ -105,7 +105,11 @@ export default function Home() {
 	return (
 		<div>
 			<div className="home">
-				<NavBar />
+				<NavBar/>
+				<SearchBar 
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+				/>
 			</div>
 			<div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>

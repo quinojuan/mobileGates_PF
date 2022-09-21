@@ -1,53 +1,149 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPhonesById, getClean } from "../../redux/Actions";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-
+import loadingPng from "../../images/Loading.png";
+//coment para commit
 export default function DetailsPhone(props) {
   const dispatch = useDispatch();
   const { id } = useParams();
-
-    useEffect(()=>{
-        dispatch(getPhonesById(id))
-        dispatch(getClean())
-    }, [dispatch])
-    const myProducts=useSelector((state)=>state.details)
-    console.log(myProducts)
-    return(
+  const loading = useSelector((state) => state.loading);
+  const myProducts = useSelector((state) => state.details);
+  const [img, setImg] = useState("");
+  useEffect(() => {
+    !Object.keys(myProducts).length&&dispatch(getPhonesById(id));
+    console.log(Object.keys(myProducts).length)
+    Object.keys(myProducts).length&&setImg(myProducts.image)
+    // return dispatch(getClean());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, myProducts]);
+  useEffect(()=>{
+    return dispatch(getClean())
+  }, [dispatch])
+  function handleSelectImage(e) {
+    e.preventDefault();
+    setImg(e.target.src);
+  }
+ 
+  //setInterval(loadingImage(),1500);
+  return (
+    <div>
+      {
         <div>
-            
-            {
-                
-                <div>
-                <NavBar />
-                <div className="container" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative'}}>
-                    <div class="card mb-3" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative'}}>
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src={myProducts && myProducts.image} alt="Not found" width="200px" height="250px"></img>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h1 class="card-title">{myProducts && myProducts.model}</h1>
-                                    <h3 class="card-text">Categoria: {myProducts && myProducts.category}</h3>
-                                    <h3 class="card-text">Marca: {myProducts && myProducts.brand}</h3>
-                                    <h5 class="card-text">Capacidad: {myProducts && myProducts.capacity}</h5>
-                                    <h6 class="card-text">{myProducts && myProducts.description} </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <NavBar />
+          <div
+            className="container"
+            style={{
+              maxWidth: "540px",
+              alignItems: "center",
+              display: "flex",
+              position: "relative",
+            }}
+          >
+            <div
+              class="card mb-3"
+              style={{
+                maxWidth: "540px",
+                alignItems: "center",
+                display: "flex",
+                position: "relative",
+              }}
+            >
+              <div class="row g-0">
+                <div class="col-md-4">
+                  {img?(
+                    <img
+                      src={img}
+                      alt="Not found"
+                      width="200px"
+                      height="250px"
+                    ></img>
+                  ) : (
+                    <img
+                      src={loadingPng}
+                      alt="no loading img founded"
+                      width="200px"
+                      height="250px"
+                    />
+                  )}
                 </div>
-                <div>
-                    <Link to="/home" class="btn btn-dark">Volver</Link>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h1 class="card-title">{myProducts && myProducts.brand}</h1>
+                    <h1 class="card-title">{myProducts && myProducts.model}</h1>
+                    <h5 class="card-text">
+                      Capacidad:{" "}
+                      {myProducts && Number(myProducts.capacity) < 10
+                        ? myProducts.capacity + "TB"
+                        : myProducts.capacity + "GB"}
+                    </h5>
+                    <h5>
+                      Sistema operativo:{" "}
+                      {myProducts && myProducts.operative_system}
+                    </h5>
+                    <h5>CPU: {myProducts && myProducts.cpu}.</h5>
+                    <h5>
+                      Memoria RAM:{" "}
+                      {myProducts &&
+                        myProducts.ram?.map((e) => " " + e + "GB.")}
+                    </h5>
+                    <h5>Dimensiones: {myProducts && myProducts.size}</h5>
+                    <h5>Tamaño: {myProducts && myProducts.inches}''.</h5>
+                    <h5>
+                      Camara principal: {myProducts && myProducts.main_camera}
+                      MPx.
+                    </h5>
+                    <h5>
+                      Camara frontal: {myProducts && myProducts.frontal_camera}
+                      Mpx.
+                    </h5>
+                    <h5>
+                      Precio:{" "}
+                      {myProducts && myProducts.price > 999
+                        ? "$" + parseFloat(myProducts.price / 1000).toFixed(3)
+                        : "$" + myProducts.price}
+                    </h5>
+                    <h5>Peso: {myProducts && myProducts.weight}g.</h5>
+                    <h5>
+                      Capacidad de la bateria:
+                      {myProducts && myProducts.battery > 999
+                        ? " " + parseFloat(myProducts.battery / 1000).toFixed(3)
+                        : " " + myProducts.battery}
+                      mAh.
+                    </h5>
+
+                    <h6 class="card-text">
+                      {myProducts && myProducts.description}{" "}
+                    </h6>
+
+                    <h4> Otros colores: </h4>
+                    {myProducts &&  
+                      myProducts.colors?.map((e) =>  (
+                        <img
+                          src={e}
+                          alt="img not fund"
+                          height="50px"
+                          width="30px"
+                          onClick={(e) => handleSelectImage(e)}
+                        />
+                      ))}
+                  </div>
                 </div>
-                <Footer />
+              </div>
             </div>
-            }
-            {/* <div>
+          </div>
+          <div>
+            <Link to="/home" class="btn btn-dark">
+              Volver
+            </Link>
+          </div>
+          <Footer />
+        </div>
+      }
+      {/* <div>
             <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js" ></script>
             <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet" ></link>
             
@@ -68,7 +164,7 @@ export default function DetailsPhone(props) {
             </div>
 </div>
 
-            </div> */}
-        </div>
-    )
+    </div> */}
+    </div>
+  );
 }

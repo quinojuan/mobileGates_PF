@@ -22,7 +22,7 @@ export default function Paginado({ productsPerPage, allProducts, paginado, chang
         <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
            <li class="page-item">
-                  { currentPage>0 && (
+                  { currentPage>1 && (
                        <button class="page-link" onClick={(e)=>handlePrevious(e)}>Anterior</button>
                    )
                    }
@@ -33,7 +33,7 @@ export default function Paginado({ productsPerPage, allProducts, paginado, chang
                    </li>
                ))}
            <li class="page-item">
-           { currentPage<23 && (
+           { currentPage<pageNumbers.length && (
                        <button class='page-link' onClick={(e)=>handleNext(e)}>Siguiente</button>
                    )
                    }
