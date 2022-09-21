@@ -6,12 +6,15 @@ const initialState = {
   loading: false,
   filters: {
     ram: "",
-    category: "",
     capacity: "",
+    brand:"",
   },
-  categories: [],
+  brands: [],
   cart: [],
   search: "",
+  rams:[],
+  img:"",
+  capacities:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -21,6 +24,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
         allProducts: action.payload,
+        productsReady: true
       };
     case "GET_PHONES_BY_ID":
       return {
@@ -58,6 +62,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         search: action.payload,
       };
+    case "GET_IMG":
+    return{
+      ...state,
+      img: state.details.image,
+    }
     case "GET_PRODUCTS_BY_NAME_AND_FILTERS":
       return {
         ...state,
@@ -68,6 +77,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         categories: action.payload,
       };
+    case "GET_CAPACITY":
+      return{
+        ...state,
+        capacities:action.payload
+      }
+    case "GET_RAMS":
+      return{
+        ...state,
+        rams:action.payload
+      }
     case "SET_FILTER":
       return {
         ...state,
