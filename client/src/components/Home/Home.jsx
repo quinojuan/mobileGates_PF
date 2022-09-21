@@ -63,10 +63,10 @@ export default function Home() {
 		currentProducts.length && setFirstTime(false);
 	}, [currentProducts]);
 
-	 /*function handleReload(e) {
+	 function handleReload(e) {
 		e.preventDefault();
 		window.location.reload();
-	}*/
+	}
 	function changePage(pageNumber) {
 		setCurrentPage(pageNumber);
 	}
@@ -122,11 +122,11 @@ export default function Home() {
 				weAreInHome={true}
 				/>
 			</div>
-			{/* <div className="btn-reload">
+			{ <div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>
-					↻
+					Reiniciar busqueda ↻
 				</button>
-			</div> */}
+			</div> }
 			<div class="btn-group">
 				<select
 					class="form-select"
