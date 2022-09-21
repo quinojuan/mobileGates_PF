@@ -5,8 +5,10 @@ import { getPhonesById, getClean } from "../../redux/Actions";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import loadingPng from "../../images/Loading.png";
+import AddProducts from "../AddProducts/AddProducts";
 
+import loadingPng from "../../images/Loading.png";
+//coment para commit
 export default function DetailsPhone(props) {
   const dispatch = useDispatch();
   const { id } = useParams();
