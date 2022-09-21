@@ -26,6 +26,7 @@ import Swat from 'sweetalert2';
 export default function Home() {
 	const dispatch = useDispatch();
 	const allProducts = useSelector((state) => state.products);
+	console.log(allProducts)
 	const filters = useSelector((state) => state.filters);
 	const loading = useSelector((state) => state.loading);
 	const brands = useSelector((state) => state.categories);
