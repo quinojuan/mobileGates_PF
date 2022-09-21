@@ -43,6 +43,13 @@ export function getClean(payload) {
 	};
 }
 
+export function getImg(payload){
+	return{
+		type: "GET_IMG",
+		payload
+	}
+}
+
 // export function getFilterByCategories(payload) {
 // 	return {
 // 		type: 'GET_FILTER_BY_CATEGORIES',

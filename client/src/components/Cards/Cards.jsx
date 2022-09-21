@@ -41,10 +41,12 @@ export default function Cards({
             {brand} {model}
           </h5>
           <h6 class="card-text">
-            {inches + '" - '} {operative_system + " -"} {capacity + "GB"}
+          {inches + '" - '} {operative_system + ' -'} {capacity<10 ? capacity + "TB" : capacity + "GB"}
           </h6>
           <div class="card-text">
-            <h3>{"$" + price}</h3>
+            <h3>{price > 999
+                        ? "$" + parseFloat(price / 1000).toFixed(3)
+                        : "$" + price}</h3>
           </div>
         </div>
       </div>
@@ -56,39 +58,18 @@ export default function Cards({
 
     
 
-    // <div className="container">
-    //     <div className="cards">
-    //     <img src={image} alt='Img not found' width='200px' height='250px'></img>
-    //     <h3>{model}</h3>
-    //     <h5>{"$"+price}</h5>
-    //     <h5>{brand}</h5>
-    // </div>
-    // </div>
-  );
+                
+     
+                    
+                 
+
+// <div className="container">
+//     <div className="cards">
+//     <img src={image} alt='Img not found' width='200px' height='250px'></img>
+//     <h3>{model}</h3>
+//     <h5>{"$"+price}</h5>
+//     <h5>{brand}</h5>
+// </div>
+// </div>
+)
 }
-/* <div class="container">
-<div className="row">
-<div className="col-md-4">
-<div class="card w-25 mx-auto">
-  <Link
-    class="text-decoration-none text-succes"
-    key={id}
-    to={`/products/${id}`}
-  >
-    <img src={image} class="card-img-top" alt="img not found"></img>
-  </Link>
-  <div class="card-body">
-    <h5 class="card-title text-decoration-none">
-      {brand} {model}
-    </h5>
-    <h6 class="card-text">
-      {inches + '" - '} {operative_system + " -"} {capacity + "GB"}
-    </h6>
-    <div class="card-text">
-      <h3>{"$" + price}</h3>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</div> */
