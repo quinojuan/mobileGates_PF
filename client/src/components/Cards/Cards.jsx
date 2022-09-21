@@ -28,9 +28,11 @@ export default function Cards({model, image, brand, price, inches, operative_sys
                               </Link>
                               <div class="card-body">
                                 <h5 class="card-title text-decoration-none">{brand} {model}</h5>
-                                <h6 class="card-text">{inches + '" - '} {operative_system + ' -'} {capacity + 'GB'}</h6>
+                                <h6 class="card-text">{inches + '" - '} {operative_system + ' -'} {capacity<10 ? capacity + "TB" : capacity + "GB"}</h6>
                                   <div class="card-text">
-                                    <h3>{"$" + price}</h3>
+                                    <h3>{price > 999
+                        ? "$" + parseFloat(price / 1000).toFixed(3)
+                        : "$" + price}</h3>
                                   </div>
                               </div>
                              </div>

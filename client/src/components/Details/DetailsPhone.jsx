@@ -115,8 +115,8 @@ export default function DetailsPhone(props) {
                     </h6>
 
                     <h4> Otros colores: </h4>
-                    {myProducts &&
-                      myProducts.colors?.map((e) => (
+                    {myProducts &&  
+                      myProducts.colors?.map((e) =>  (
                         <img
                           src={e}
                           alt="img not fund"
