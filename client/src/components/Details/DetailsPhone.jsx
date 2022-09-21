@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPhonesById, getClean } from "../../redux/Actions";
 import { Link, useParams } from "react-router-dom";
@@ -10,14 +10,20 @@ import loadingPng from "../../images/Loading.png";
 export default function DetailsPhone(props) {
   const dispatch = useDispatch();
   const { id } = useParams();
-
+  const loading = useSelector((state) => state.loading);
+  const myProducts = useSelector((state) => state.details);
+  const [img, setImg] = useState("");
   useEffect(() => {
     dispatch(getPhonesById(id));
     dispatch(getClean());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
-  const myProducts = useSelector((state) => state.details);
-  console.log(myProducts);
+  function handleSelectImage(e) {
+    e.preventDefault();
+    setImg(e.target.src);
+  }
+ 
+  //setInterval(loadingImage(),1500);
   return (
     <div>
       {
@@ -43,9 +49,9 @@ export default function DetailsPhone(props) {
             >
               <div class="row g-0">
                 <div class="col-md-4">
-                  {myProducts.image ? (
+                  {img?(
                     <img
-                      src={myProducts && myProducts.image}
+                      src={img}
                       alt="Not found"
                       width="200px"
                       height="250px"
@@ -107,6 +113,18 @@ export default function DetailsPhone(props) {
                     <h6 class="card-text">
                       {myProducts && myProducts.description}{" "}
                     </h6>
+
+                    <h4> Otros colores: </h4>
+                    {myProducts &&
+                      myProducts.colors?.map((e) => (
+                        <img
+                          src={e}
+                          alt="img not fund"
+                          height="50px"
+                          width="30px"
+                          onClick={(e) => handleSelectImage(e)}
+                        />
+                      ))}
                   </div>
                 </div>
               </div>
