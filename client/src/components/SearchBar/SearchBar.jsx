@@ -8,18 +8,24 @@ import {
 } from "../../redux/Actions/index";
 import Swal from "sweetalert2";
 import "./SearchBar.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
-export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
+
+export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreInHome }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const filters = useSelector((state) => state.filters);
-
+  const navigate = useNavigate();
   function handleInputChange(e) {
     e.preventDefault();
     setName(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
+    if(!weAreInHome){
+      dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
+      navigate("/home")
+    }
     if (name.length !== 0) {
       dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
       dispatch(setSearch(name.toLowerCase()));
@@ -28,10 +34,9 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
     }
     setCurrentPage(1);
   }
-
   return (
     <div className="search-bar">
-      <h2>Qué producto estas buscando?</h2>
+      {weAreInHome?(<h2>Qué producto estas buscando?</h2>):null}
       <input
         type="text"
         placeholder="Search..."
