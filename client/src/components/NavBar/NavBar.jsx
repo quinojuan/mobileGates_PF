@@ -5,7 +5,7 @@ import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading'
 import SearchBar from '../SearchBar/SearchBar';
-
+import Whatsapp from '../Whatsapp/Whatsapp'
 
 export default function NavBar() {
 
@@ -54,6 +54,9 @@ export default function NavBar() {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#" onClick={handleLogout}>Cerrar sesión</a>
+                </li>
+                <li className="nav-item">
+                  {/* <Whatsapp/> */}
                 </li>
               </ul>
             </div>
