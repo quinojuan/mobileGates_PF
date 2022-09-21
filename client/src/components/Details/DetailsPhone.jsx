@@ -14,10 +14,15 @@ export default function DetailsPhone(props) {
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
   useEffect(() => {
-    dispatch(getPhonesById(id));
-    dispatch(getClean());
+    !Object.keys(myProducts).length&&dispatch(getPhonesById(id));
+    console.log(Object.keys(myProducts).length)
+    Object.keys(myProducts).length&&setImg(myProducts.image)
+    // return dispatch(getClean());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, myProducts]);
+  useEffect(()=>{
+    return dispatch(getClean())
+  }, [dispatch])
   function handleSelectImage(e) {
     e.preventDefault();
     setImg(e.target.src);
