@@ -26,15 +26,16 @@ export default function Cart() {
 
         {/* <button onClick={() => navigate("/home")}></button> */}
         <div class="card" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative', width: '80%', height: '100%'}}>
-          {myCart.length &&
+          {myCart.length >0 ? 
             myCart.map((p) => {
               return (
                 <div key={p.id}>
                   <img src={p.image} height="300px" width="300px" class="card-img-top"></img>
                   <button class="btn btn-danger" onClick={() => dispatch(deleteProductInCart(p.id))}>Quitar del carrito</button>
                 </div>
-              )
-            })}
+              ) 
+            }): <div><h1>No se agregaron productos al carrito aun</h1></div>
+            }
         </div>
       </div>
       <div>
