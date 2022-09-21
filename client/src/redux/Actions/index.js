@@ -162,3 +162,10 @@ export const getCapacity = () => async(dispatch) => {
 		payload:json
 	})
 }
+
+export const searching =(payload)=>{
+	return {
+		type: "SEARCHING",
+		payload
+}
+}
