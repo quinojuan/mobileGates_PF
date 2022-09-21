@@ -61,7 +61,7 @@ export default function Home() {
 		currentProducts.length && setFirstTime(false);
 	}, [currentProducts]);
 
-	function handleReload(e) {
+	 function handleReload(e) {
 		e.preventDefault();
 		window.location.reload();
 	}
@@ -107,11 +107,11 @@ export default function Home() {
 			<div className="home">
 				<NavBar />
 			</div>
-			<div className="btn-reload">
+			{/* <div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>
 					↻
 				</button>
-			</div>
+			</div> */}
 			<div class="btn-group">
 				<select
 					class="form-select"
@@ -200,7 +200,7 @@ export default function Home() {
 											price={s.price[0]}
 										/>
 									{/* </Link> */}
-									<AddProducts id={s.id} />
+									{/* <AddProducts id={s.id} /> */}
 								</>
 							);
 						})

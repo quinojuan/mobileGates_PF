@@ -5,6 +5,7 @@ import { getPhonesById, getClean } from "../../redux/Actions";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import AddProducts from "../AddProducts/AddProducts";
 
 export default function DetailsPhone(props) {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ export default function DetailsPhone(props) {
                                     <h3 class="card-text">Marca: {myProducts && myProducts.brand}</h3>
                                     <h5 class="card-text">Capacidad: {myProducts && myProducts.capacity}</h5>
                                     <h6 class="card-text">{myProducts && myProducts.description} </h6>
+                                </div>
+                                <div>
+                                <AddProducts id={id} />
                                 </div>
                             </div>
                         </div>
