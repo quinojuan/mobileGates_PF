@@ -7,15 +7,15 @@ const initialState = {
   filters: {
     ram: "",
     capacity: "",
-    brand:"",
+    brand: "",
   },
   brands: [],
   cart: [],
   search: "",
-  rams:[],
-  img:"",
-  capacities:[],
-  searching:false
+  rams: [],
+  img: "",
+  capacities: [],
+  searching: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -25,7 +25,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
         allProducts: action.payload,
-        productsReady: true
+        productsReady: true,
       };
     case "GET_PHONES_BY_ID":
       return {
@@ -64,15 +64,15 @@ function rootReducer(state = initialState, action) {
         search: action.payload,
       };
     case "GET_IMG":
-    return{
-      ...state,
-      img: state.details.image,
-    }
-    case "SEARCHING":
-      return{
+      return {
         ...state,
-        searching : true
-      }
+        img: state.details.image,
+      };
+    case "SEARCHING":
+      return {
+        ...state,
+        searching: true,
+      };
     case "GET_PRODUCTS_BY_NAME_AND_FILTERS":
       return {
         ...state,
@@ -84,15 +84,15 @@ function rootReducer(state = initialState, action) {
         categories: action.payload,
       };
     case "GET_CAPACITY":
-      return{
+      return {
         ...state,
-        capacities:action.payload
-      }
+        capacities: action.payload,
+      };
     case "GET_RAMS":
-      return{
+      return {
         ...state,
-        rams:action.payload
-      }
+        rams: action.payload,
+      };
     case "SET_FILTER":
       return {
         ...state,
@@ -127,6 +127,7 @@ function rootReducer(state = initialState, action) {
         products: sortedArr,
       };
     case "ADD_TO_CART":
+      console.log("añadiendo al carrito desde reducer:", action.payload);
       let purchase = action.payload;
       //console.log(state.cart, "carrito redux")
       let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
@@ -164,7 +165,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
-
+    case "CLEAR_CART":
+      console.log("estamos en el case de clearCart")
+      return {
+        ...state,
+        cart: [],
+      };
     default:
       return state;
   }

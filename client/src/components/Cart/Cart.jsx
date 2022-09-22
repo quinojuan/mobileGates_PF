@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getCart, deleteProductInCart } from "../../redux/Actions";
+import { getCart, deleteProductInCart, handleClearCart} from "../../redux/Actions";
 import { useNavigate } from "react-router-dom";
 //import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
@@ -19,6 +19,7 @@ export default function Cart() {
     console.log(myCart, "CARRITO cart")
   }, [dispatch])
 
+
   return (
     <div>
       <NavBar />
@@ -29,9 +30,14 @@ export default function Cart() {
           {myCart.length >0 ? 
             myCart.map((p) => {
               return (
+                <div>
                 <div key={p.id}>
-                  <img src={p.image} height="300px" width="300px" class="card-img-top"></img>
-                  <button class="btn btn-danger" onClick={() => dispatch(deleteProductInCart(p.id))}>Quitar del carrito</button>
+                <img src={p.image} height="300px" width="300px" class="card-img-top"></img>
+                <button class="btn btn-danger" onClick={() => dispatch(deleteProductInCart(p.id))}>Quitar del carrito</button>
+                </div>
+                <div>
+                <button onClick={()=>handleClearCart()}>Limpiar carrito.</button>
+                </div>
                 </div>
               ) 
             }): <div><h1>No se agregaron productos al carrito aun</h1></div>
