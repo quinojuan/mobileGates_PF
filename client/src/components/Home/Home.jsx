@@ -12,7 +12,8 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
-	searching
+	searching,
+	getSortByPrice
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -82,6 +83,12 @@ export default function Home() {
 	function handleSort(e) {
 		e.preventDefault();
 		dispatch(getSort(e.target.value));
+		setCurrentPage(1);
+		setOrden(`Ordenado ${e.target.value}`);
+	}
+	function handleSortByPrice(e){
+		e.preventDefault();
+		dispatch(getSortByPrice(e.target.value));
 		setCurrentPage(1);
 		setOrden(`Ordenado ${e.target.value}`);
 	}
@@ -183,6 +190,15 @@ export default function Home() {
 					<option hidden>Orden alfabético</option>
 					<option value="A-Z">A-Z</option>
 					<option value="Z-A">Z-A</option>
+				</select>
+				<select
+					class="form-select"
+					aria-label="Default select example"
+					onChange={(e) => handleSortByPrice(e)}
+				>
+					<option hidden>Orden por precio</option>
+					<option value="High to low">Menor a mayor precio</option>
+					<option value="Low to high">Mayor a menor precio</option>
 				</select>
 			</div>
 			<div>
