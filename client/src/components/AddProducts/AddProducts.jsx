@@ -13,7 +13,7 @@ export default function AddProducts({id}){
     let product = products.filter((e)=>e.id === id)
 
     function handleCart(){
-        console.log(id, "EEEEE")
+        console.log(id, "ID")
         console.log(product, "PRODUCT")
         dispatch(addToCart(product))
     }

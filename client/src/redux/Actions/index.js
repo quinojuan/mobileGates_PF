@@ -90,6 +90,7 @@ export function setLoading(payload) {
 	};
 }
 export function addToCart(payload) {
+	console.log("añadiendo al carrito desde actions:", payload)
 	return {
 		type: 'ADD_TO_CART',
 		payload,
@@ -161,4 +162,36 @@ export const getCapacity = () => async(dispatch) => {
 		type:"GET_CAPACITY",
 		payload:json
 	})
+}
+
+export const searching =(payload)=>{
+	return {
+		type: "SEARCHING",
+		payload
+}
+}
+
+export const handleClearCart = ()=>{
+	return {
+		type: "CLEAR_CART",
+		
+	}
+}
+export async function getPurchase(){
+	return async function (dispatch) {
+        let json = await axios.get("http://localhost:3001/purchases");
+        return dispatch({
+            type: "GET_PURCHASE",
+            payload: json.data
+        })
+    }
+}
+
+export function postPurchase(payload) {
+    return async function (dispatch) {
+        const json = await axios.post("http://localhost:3001/purchases", payload)
+        console.log(json)
+        return json;
+
+    }
 }

@@ -25,15 +25,15 @@ export default function Cards({
     // </div>
 
     <div class="container">
-      <div className="row">
-      <div className="col">
+      <div class="row">
+      <div class="card-colums">
       <div class="card w-25 mx-auto">
         <Link
           class="text-succes"
           key={id}
           to={`/products/${id}`}
         >
-          <img src={image} class="card-img-top" alt="img not found"></img>
+          <img src={image} class="card-img-top img-fluid" height='250px' alt="img not found"></img>
         </Link>
         <button className="stock">EN STOCK</button>
         <div class="card-body">
