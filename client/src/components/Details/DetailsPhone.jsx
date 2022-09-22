@@ -138,6 +138,10 @@ export default function DetailsPhone(props) {
             </div>
           </div>
           <div>
+            <AddProducts
+            id={myProducts.id}/>
+            </div>
+          <div>
             <Link to="/home" class="btn btn-dark">
               Volver
             </Link>

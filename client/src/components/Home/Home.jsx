@@ -23,6 +23,7 @@ import Paginado from '../Paginated/Paginated';
 import AddProducts from '../AddProducts/AddProducts';
 import './Home.css';
 import Swat from 'sweetalert2';
+import Carousel from '../Carousel/Carousel';
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -117,17 +118,20 @@ export default function Home() {
 		<div>
 			<div className="home">
 				<NavBar/>
-				<SearchBar 
+				{/* <SearchBar 
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
 				weAreInHome={true}
-				/>
+				/> */}
+				{/* <div>
+				<Carousel/>
+				</div> */}
 			</div>
-			{ <div className="btn-reload">
+			{/* { <div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>
 					Reiniciar busqueda ↻
 				</button>
-			</div> }
+			</div> } */}
 			<div class="btn-group">
 				<select
 					class="form-select"
