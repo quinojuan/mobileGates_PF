@@ -5,10 +5,16 @@ import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import {handleReload} from '../Home/Home'
+import {searchBar} from '../SearchBar/SearchBar'
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {searchName, getProductsByNameAndFilters, setSearch} from "../../redux/Actions/index";
+import Swal from "sweetalert2";
 
 
 
-export default function NavBar() {
+
+export default function NavBar({setCurrentPage, setProductsPerPages}) {
 
   // const {user, logout, loading} = useAuth()
   // const navigate = useNavigate()
@@ -51,8 +57,9 @@ export default function NavBar() {
   //     </nav>
   //   )
   // }
-
-
+  const dispatch = useDispatch();
+  const filters = useSelector((state) => state.filters);
+  const [name, setName] = useState("");
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
 
@@ -66,6 +73,20 @@ export default function NavBar() {
     e.preventDefault();
     window.location.reload();
   }  
+  function handleInputChange(e) {
+    e.preventDefault();
+    setName(e.target.value);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (name.length !== 0) {
+      dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
+      dispatch(setSearch(name.toLowerCase()));
+    } else {
+      Swal.fire("Tienes que ingresar un producto a buscar");
+    }
+    setCurrentPage(1);
+  }
   if (loading) {
     return (
       <div><Loading /></div>
@@ -79,9 +100,9 @@ export default function NavBar() {
             <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </h1>
-            <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"></input>
-              <Link class='navbar-brand text-white' type="submit">Buscar</Link>
+            <form className="d-flex">
+              <input className="form-control me-2" type="text" placeholder="Buscar" aria-label="Search"  onChange={(e) => handleInputChange(e)}/>
+              <button class='btn btn-dark text-white' type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
             </form>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">

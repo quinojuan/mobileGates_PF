@@ -1,11 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  searchName,
-  getProductsByNameAndFilters,
-  setSearch,
-} from "../../redux/Actions/index";
+import {searchName, getProductsByNameAndFilters, setSearch} from "../../redux/Actions/index";
 import Swal from "sweetalert2";
 import "./SearchBar.css";
 
@@ -32,14 +28,16 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
   return (
     <div className="search-bar">
       <h2>Qué producto estas buscando?</h2>
+      <form>
       <input
         type="text"
         placeholder="Search..."
         onChange={(e) => handleInputChange(e)}
       />
-      <button className="btn2" type="submit" onClick={(e) => handleSubmit(e)}>
+      <button class="btn btn-dark" type="submit" onClick={(e) => handleSubmit(e)}>
         Search
       </button>
+      </form>
     </div>
   );
 }

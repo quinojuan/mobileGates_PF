@@ -22,6 +22,7 @@ import Paginado from '../Paginated/Paginated';
 import AddProducts from '../AddProducts/AddProducts';
 import './Home.css';
 import Swat from 'sweetalert2';
+import Carousel from '../Carousel/Carousel';
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -110,6 +111,9 @@ export default function Home() {
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
 				/>
+				{/* <div>
+				<Carousel/>
+				</div> */}
 			</div>
 			{/* <div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>
