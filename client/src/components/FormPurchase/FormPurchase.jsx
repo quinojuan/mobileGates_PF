@@ -1,7 +1,7 @@
 // import React from "react";
 // import { useEffect, useState } from "react";
 // import { Link, useHistory } from "react-router-dom";
-// // importo acciones que necesite
+// import { getPurchase, postPurchase } from "../../redux/Actions";
 // import { useDispatch, useSelector } from "react-redux";
 // import "./Create.css"
 // import Swal from "sweetalert2";
@@ -51,8 +51,8 @@
 //     // Validates 
 
 //     const dispatch = useDispatch()
-//     // const diet = useSelector(state => state.purchase)((FALTA ACTION))
-//     //  console.log(diet)
+//     // const purchase = useSelector(state => state.purchase)((FALTA ACTION))
+    
 //     let history = useHistory();
 //     const [errors, setErrors] = useState({})
 //     const [input, setInput] = useState({
@@ -92,7 +92,7 @@
 //         if (Object.values(errorSave).length !== 0) {
 //             alert("No pudimos realizar la compra, fijese los requisitos pedidos")
 //         } else {
-//             // dispatch(postPurchase(input))
+//             dispatch(postPurchase(input))
 //             Swal.fire("Compra realizada")
 //             setInput({
 //                 email: "",
@@ -110,7 +110,7 @@
 //     }
 
 //     useEffect(() => {
-//         // dispatch(getPurchase())
+//         // dispatch(getPurchase()) ((creo que va getUsers))
 //     }, [dispatch])
 
 

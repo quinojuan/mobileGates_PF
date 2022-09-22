@@ -16,6 +16,7 @@ const initialState = {
   img: "",
   capacities: [],
   searching: false,
+  purchases:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -172,6 +173,15 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: [],
       };
+      case "POST_PURCHASES":
+        return{
+          ...state
+        }
+      case "GET_PURCHASES":
+        return{
+          ...state,
+          purchases:action.payload
+        }
     default:
       return state;
   }
