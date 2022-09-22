@@ -130,7 +130,7 @@ function rootReducer(state = initialState, action) {
       console.log("añadiendo al carrito desde reducer:", action.payload);
       let purchase = action.payload;
       //console.log(state.cart, "carrito redux")
-      let myCartLS = JSON.parse(localStorage.getItem("cart")) || ['my-cart esta vacio'];
+      let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
       console.log(myCartLS, "MYCART LS");
       if (!myCartLS.some((el) => el.id == purchase[0].id)) {
         myCartLS.push(purchase[0]);
@@ -140,6 +140,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: [...state.cart, purchase[0]],
       };
+      
     case "GET_CART":
       let cartLS = JSON.parse(localStorage.getItem("cart"));
       if (!cartLS) {

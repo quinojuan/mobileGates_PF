@@ -19,8 +19,8 @@ export default function AddProducts({id}){
     }
 
     return (
-        
-            <button type="button" class='btn btn-outline-success btn-sm' onClick={()=>handleCart()}>Agregar al Carrito</button>
-        
+        <div className='button'>
+            <button type="button" class='btn btn-outline-primary btn-lg mb-3' onClick={()=>handleCart()}>Agregar al Carrito</button>
+        </div>
     )
 }
