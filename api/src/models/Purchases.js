@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
+      email:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       dni:{
         type: DataTypes.STRING,
         allowNull: false
@@ -31,7 +35,6 @@ module.exports = (sequelize) => {
     
       },
     {
-      timestamps: false,
       freezeTableName: true, 
     }
   );

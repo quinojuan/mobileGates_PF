@@ -1,21 +1,37 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {searchName, getProductsByNameAndFilters, setSearch} from "../../redux/Actions/index";
+import {
+  searchName,
+  getProductsByNameAndFilters,
+  setSearch,
+  searching
+} from "../../redux/Actions/index";
 import Swal from "sweetalert2";
 import "./SearchBar.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
+
+export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreInHome }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const filters = useSelector((state) => state.filters);
-
+  const navigate = useNavigate();
   function handleInputChange(e) {
     e.preventDefault();
     setName(e.target.value);
   }
+  useEffect(()=>{
+    dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
+  },[dispatch])
   function handleSubmit(e) {
     e.preventDefault();
+    dispatch(searching(true))
+    if(!weAreInHome){
+      dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
+      navigate("/home")
+    }
     if (name.length !== 0) {
       dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
       dispatch(setSearch(name.toLowerCase()));
@@ -24,62 +40,26 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages }) {
     }
     setCurrentPage(1);
   }
-
   return (
-    <div className="search-bar">
-      <h2>Qué producto estas buscando?</h2>
-      <form>
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => handleInputChange(e)}
-      />
-      <button class="btn btn-dark" type="submit" onClick={(e) => handleSubmit(e)}>
-        Search
-      </button>
-      </form>
-    </div>
+    // <div className="navbar bg-light">
+    //   {weAreInHome?(<h2>Qué producto estas buscando?</h2>):null}
+    //   <input class="form-control me-2"
+    //     type="text"
+    //     placeholder="Search..."
+    //     onChange={(e) => handleInputChange(e)}
+    //   />
+    //   <button class="btn btn-dark" type="submit" onClick={(e) => handleSubmit(e)}>
+    //     Search
+    //   </button>
+    // </div>
+
+<nav class="navbar bg-dark">
+<div class="container-fluid">
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" onChange={(e) => handleInputChange(e)} aria-label="Search"/>
+    <button class="btn btn-outline-success" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
+  </form>
+</div>
+</nav>
   );
 }
-
-// import React from "react";
-// import { useDispatch } from 'react-redux';
-// import { searchName } from '../../redux/Actions/index'
-// import { useState } from "react";
-
-// import "./SearchBar.css"
-
-// export default function SearchBar({setCurrentPage, setProductsPerPage }) {
-
-//     const dispatch = useDispatch()
-//     const [name, setName]=useState("")
-
-//     // function handleInputChange(e){
-//     //     e.preventDefault();
-//     //     setName(e.target.value)
-//     // }
-//     const info = (e) => {
-//         dispatch(searchName(e.target.value))
-//         setName(e.target.value)
-//      }
-//     function handleSubmit(e){
-//         e.preventDefault()
-//         if(name.length!==0){
-//             dispatch(searchName(name.toLowerCase()))
-//         } else {
-//             alert("Not found")
-//         }
-//         setCurrentPage(1)
-//         setName("")
-//     }
-
-//     return (
-//         <div className="search-bar">
-//             <h2>Qué producto estas buscando?</h2>
-//             {/* <input type="text" placeholder="Search..." onChange={(e)=>handleInputChange(e)} />  */}
-//             <input type="text" placeholder="Buscá un producto..." onChange={info} />
-//             {/* <button onClick={(e)=>handleSubmit(e)}>Search</button> */}
-//         </div>
-//     )
-
-// }

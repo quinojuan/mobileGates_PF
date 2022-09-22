@@ -33,6 +33,18 @@ module.exports = (sequelize) => {
       password: {
         type: DataTypes.TEXT,
         allowNull: false
+      },
+      admin:{
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+      }, 
+      superadmin:{
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+      },
+      active:{
+        type: DataTypes.INTEGER,
+        defaultValue: 1,
       }
       },
     {

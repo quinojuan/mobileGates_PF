@@ -5,17 +5,15 @@ import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import {handleReload} from '../Home/Home'
-import {searchBar} from '../SearchBar/SearchBar'
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {searchName, getProductsByNameAndFilters, setSearch} from "../../redux/Actions/index";
-import Swal from "sweetalert2";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import SearchBar from '../SearchBar/SearchBar';
+import { getProductsByNameAndFilters, setSearch } from '../../redux/Actions';
+import Swal from 'sweetalert2';
 
 
-
-
-export default function NavBar({setCurrentPage, setProductsPerPages}) {
-
+export default function NavBar() {
+  const [currentPage, setCurrentPage] = useState(1);
   // const {user, logout, loading} = useAuth()
   // const navigate = useNavigate()
 
@@ -96,14 +94,15 @@ export default function NavBar({setCurrentPage, setProductsPerPages}) {
       <nav className='container'>
         <div className="navbar fixed-top navbar navbar-expand-lg bg-dark">
           <div className="container-fluid">
-            <Link class='navbar-brand text-white' onClick={(e) => handleReload(e)} >Móvil Gates</Link>
-            <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <Link to='/home' class='navbar-brand text-white' className="nav-link active text-white" aria-current="page" >Móvil Gates</Link>
+            {/* <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
-            </h1>
-            <form className="d-flex">
-              <input className="form-control me-2" type="text" placeholder="Buscar" aria-label="Search"  onChange={(e) => handleInputChange(e)}/>
-              <button class='btn btn-dark text-white' type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
-            </form>
+            </h1> */}
+            <SearchBar
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+        weAreInHome={false}
+				/>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
@@ -139,10 +138,11 @@ export default function NavBar({setCurrentPage, setProductsPerPages}) {
             <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </h1>
-            <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <SearchBar 
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+        weAreInHome={false}
+				/>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">

@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "PhoneBrand",
+    "PhonePurchases",
     {
       id:{
         type: DataTypes.INTEGER,
@@ -16,14 +16,13 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: false
       },
-      BrandId:{
+      PurchasesId:{
         type: DataTypes.STRING,
         allowNull: false,
         primaryKey: false
       }
       },
     {
-      timestamps: false,
       freezeTableName: true, 
     }
   );
