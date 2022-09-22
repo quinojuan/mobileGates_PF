@@ -68,6 +68,12 @@ export function getSort(payload) {
 		payload,
 	};
 }
+export function getSortByPrice(payload){
+	return{
+		type:"GET_SORT_BY_PRICE",
+		payload
+	}
+}
 // export function getFilterByCapacity(payload) {
 // 	return {
 // 		type: 'GET_FILTER_BY_CAPACITY',
@@ -178,7 +184,7 @@ export const handleClearCart = ()=>{
 		
 	}
 }
-export async function getPurchase(){
+export function getPurchase(){
 	return async function (dispatch) {
         let json = await axios.get("http://localhost:3001/purchases");
         return dispatch({
@@ -195,4 +201,10 @@ export function postPurchase(payload) {
         return json;
 
     }
+}
+export function getPurchaseRepeat(payload){
+	return{
+		type:"GET_PURCHASE_REPEAT",
+		payload
+	}
 }

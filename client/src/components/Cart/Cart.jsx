@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import {
   getCart,
   deleteProductInCart,
-  handleClearCart,
 } from "../../redux/Actions";
 import { useNavigate } from "react-router-dom";
 //import { useState } from "react";
@@ -21,40 +20,35 @@ export default function Cart() {
     dispatch(getCart());
   }, [dispatch]);
 
-  console.log(myCart, "CARRITO cart");
+  console.log(myCart, "CARRITO cart")
+  function handleSuma(e){
+    e.preventDefault()
+    let suma=0
+    for(let i=0; i<myCart.length; i++) {
+    // suma+=myCart.map(s=>s.price[0])
+    suma+=myCart[i].price[0]
+    }
+    console.log(suma)
+    return suma;
+    
+                  
+    
+  }
   return (
     <div>
       <NavBar />
-      <div
-        className="container"
-        style={{
-          maxWidth: "540px",
-          alignItems: "center",
-          display: "flex",
-          position: "relative",
-        }}
-      >
-        {/* <button onClick={() => navigate("/home")}></button> */}
-        <div
-          class="card"
-          style={{
-            maxWidth: "540px",
-            alignItems: "center",
-            display: "flex",
-            position: "relative",
-            width: "80%",
-            height: "100%",
-          }}
-        >
-          <div>
-            {myCart.length > 0 ? (
-              <button onClick={() => handleClearCart()}>
-                Limpiar carrito.
-              </button>
-            ) : null}
-          </div>
-          {myCart.length > 0 ? (
+      <div className="container" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative' }}>
+      {myCart.length >0 ?
+        <button>
+          <Link to="/purchase">Comprar</Link>
+        </button> : null
+}
+
+        
+        <div class="card" style={{ maxWidth: '540px', alignItems: 'center', display: 'flex', position: 'relative', width: '80%', height: '100%'}}>
+          {myCart.length >0 ? 
             myCart?.map((p) => {
+              
               return (
                 <div>
                   <div key={p.id}>
@@ -76,13 +70,14 @@ export default function Cart() {
                 </div>
               );
             })
-          ) : (
+           : (
             <div>
               <h1>No se agregaron productos al carrito aun</h1>
             </div>
           )}
         </div>
       </div>
+      <h4>Costo total: ${(e)=>handleSuma(e)}</h4>
       <div>
         <Link to="/home" class="btn btn-dark" style={{ alignItems: "center" }}>
           Volver

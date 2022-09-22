@@ -16,7 +16,9 @@ const initialState = {
   img: "",
   capacities: [],
   searching: false,
-  purchases:[]
+  purchases:[],
+  repeat:[],
+  repetido: false
 };
 
 function rootReducer(state = initialState, action) {
@@ -127,6 +129,31 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: sortedArr,
       };
+    case "GET_SORT_BY_PRICE":
+      let sortedArr2 =
+        action.payload === "High to low"
+          ? state.allProducts.sort(function (a, b) {
+              if (a.price[0] > b.price[0]) {
+                return 1;
+              }
+              if (b.price[0] > a.price[0]) {
+                return -1;
+              }
+              return 0;
+            }) // sino.....
+          : state.allProducts.sort(function (a, b) {
+              if (a.price[0] > b.price[0]) {
+                return -1;
+              }
+              if (b.price[0] > a.price[0]) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        products: sortedArr2,
+      };
     case "ADD_TO_CART":
       console.log("añadiendo al carrito desde reducer:", action.payload);
       let purchase = action.payload;
@@ -181,6 +208,18 @@ function rootReducer(state = initialState, action) {
           ...state,
           purchases:action.payload
         }
+      case "GET_PURCHASE_REPEAT":
+        let repeat=state.cart.map((s)=>s.id.includes(action.payload.id))
+        if(repeat.includes(e=>e=true)){
+          return {
+            ...state,
+            repetido: true 
+          }
+        } else return {
+          ...state,
+          repetido: false
+        }
+        
     default:
       return state;
   }
