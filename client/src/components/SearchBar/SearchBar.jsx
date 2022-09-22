@@ -41,16 +41,25 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreIn
     setCurrentPage(1);
   }
   return (
-    <div className="search-bar">
-      {weAreInHome?(<h2>Qué producto estas buscando?</h2>):null}
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => handleInputChange(e)}
-      />
-      <button className="btn2" type="submit" onClick={(e) => handleSubmit(e)}>
-        Search
-      </button>
-    </div>
+    // <div className="navbar bg-light">
+    //   {weAreInHome?(<h2>Qué producto estas buscando?</h2>):null}
+    //   <input class="form-control me-2"
+    //     type="text"
+    //     placeholder="Search..."
+    //     onChange={(e) => handleInputChange(e)}
+    //   />
+    //   <button class="btn btn-dark" type="submit" onClick={(e) => handleSubmit(e)}>
+    //     Search
+    //   </button>
+    // </div>
+
+<nav class="navbar bg-dark">
+<div class="container-fluid">
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" onChange={(e) => handleInputChange(e)} aria-label="Search"/>
+    <button class="btn btn-outline-success" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
+  </form>
+</div>
+</nav>
   );
 }

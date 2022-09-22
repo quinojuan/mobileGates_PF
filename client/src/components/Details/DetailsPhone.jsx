@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPhonesById, getClean, addToCart } from "../../redux/Actions";
+import { getPhonesById, getClean } from "../../redux/Actions";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -16,20 +16,20 @@ export default function DetailsPhone(props) {
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
   useEffect(() => {
-    !Object.keys(myProducts).length && dispatch(getPhonesById(id));
-    console.log(Object.keys(myProducts).length);
-    Object.keys(myProducts).length && setImg(myProducts.image);
+    !Object.keys(myProducts).length&&dispatch(getPhonesById(id));
+    console.log(Object.keys(myProducts).length)
+    Object.keys(myProducts).length&&setImg(myProducts.image)
     // return dispatch(getClean());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, myProducts]);
-  useEffect(() => {
-    return dispatch(getClean());
-  }, [dispatch]);
+  useEffect(()=>{
+    return dispatch(getClean())
+  }, [dispatch])
   function handleSelectImage(e) {
     e.preventDefault();
     setImg(e.target.src);
   }
-
+ 
   //setInterval(loadingImage(),1500);
   return (
     <div>
@@ -56,7 +56,7 @@ export default function DetailsPhone(props) {
             >
               <div class="row g-0">
                 <div class="col-md-4">
-                  {img ? (
+                  {img?(
                     <img
                       src={img}
                       alt="Not found"
@@ -122,8 +122,8 @@ export default function DetailsPhone(props) {
                     </h6>
 
                     <h4> Otros colores: </h4>
-                    {myProducts &&
-                      myProducts.colors?.map((e) => (
+                    {myProducts &&  
+                      myProducts.colors?.map((e) =>  (
                         <img
                           src={e}
                           alt="img not fund"
@@ -136,8 +136,11 @@ export default function DetailsPhone(props) {
                 </div>
               </div>
             </div>
-            <AddProducts id={myProducts.id} />  {/*Este es el boton de agregar a carrito */}
           </div>
+          <div>
+            <AddProducts
+            id={myProducts.id}/>
+            </div>
           <div>
             <Link to="/home" class="btn btn-dark">
               Volver

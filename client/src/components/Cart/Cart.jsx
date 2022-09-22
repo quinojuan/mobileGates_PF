@@ -16,10 +16,10 @@ export default function Cart() {
 
   useEffect(() => {
     dispatch(getCart())
-    console.log(myCart, "CARRITO cart")
+    
   }, [dispatch])
 
-
+  console.log(myCart, "CARRITO cart")
   return (
     <div>
       <NavBar />
