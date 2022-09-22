@@ -38,8 +38,9 @@ export default function Cards({
         <button className="stock">EN STOCK</button>
         <div class="card-body">
           <h5 class="card-title text-decoration-none">
-            {brand} {model}
+            {brand} 
           </h5>
+          <h5>{model}</h5>
           <h6 class="card-text">
           {inches + '" - '} {operative_system + ' -'} {capacity<10 ? capacity + "TB" : capacity + "GB"}
           </h6>

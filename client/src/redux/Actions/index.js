@@ -172,6 +172,7 @@ export const searching =(payload)=>{
 }
 
 export const handleClearCart = ()=>{
+	alert("clickeado")
 	return {
 		type: "CLEAR_CART",
 		
