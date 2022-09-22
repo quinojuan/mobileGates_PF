@@ -5,6 +5,8 @@ import { getPhonesById, getClean } from "../../redux/Actions";
 import { Link, useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import AddProducts from "../AddProducts/AddProducts";
+
 import loadingPng from "../../images/Loading.png";
 //coment para commit
 export default function DetailsPhone(props) {
@@ -135,6 +137,10 @@ export default function DetailsPhone(props) {
               </div>
             </div>
           </div>
+          <div>
+            <AddProducts
+            id={myProducts.id}/>
+            </div>
           <div>
             <Link to="/home" class="btn btn-dark">
               Volver

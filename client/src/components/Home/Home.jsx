@@ -12,6 +12,7 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
+	searching
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -22,9 +23,11 @@ import Paginado from '../Paginated/Paginated';
 import AddProducts from '../AddProducts/AddProducts';
 import './Home.css';
 import Swat from 'sweetalert2';
+import Carousel from '../Carousel/Carousel';
 
 export default function Home() {
 	const dispatch = useDispatch();
+	const buscando = useSelector((state)=>state.searching)
 	const allProducts = useSelector((state) => state.products);
 	console.log(allProducts)
 	const filters = useSelector((state) => state.filters);
@@ -62,11 +65,10 @@ export default function Home() {
 		currentProducts.length && setFirstTime(false);
 	}, [currentProducts]);
 
-	function handleReload(e) {
+	 function handleReload(e) {
 		e.preventDefault();
 		window.location.reload();
 	}
-
 	function changePage(pageNumber) {
 		setCurrentPage(pageNumber);
 	}
@@ -102,21 +104,34 @@ export default function Home() {
 			);
 		}
 	}
+	function handleBuscando(e){
+		return (
+			<div>
+			<h1>
+			Buscando resultados de: "{e}"
+			</h1>
+			</div>
+		)
+	}
 
 	return (
 		<div>
 			<div className="home">
 				<NavBar/>
-				<SearchBar 
+				{/* <SearchBar 
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
-				/>
+				weAreInHome={true}
+				/> */}
+				{/* <div>
+				<Carousel/>
+				</div> */}
 			</div>
-			<div className="btn-reload">
+			{/* { <div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>
-					↻
+					Reiniciar busqueda ↻
 				</button>
-			</div>
+			</div> } */}
 			<div class="btn-group">
 				<select
 					class="form-select"
@@ -184,6 +199,7 @@ export default function Home() {
 				currentPage={currentPage}
 			/>
 			<div>
+			{buscando?handleBuscando(search):null}
 				{!loading ? (
 					currentProducts.length ? (
 						currentProducts.map((s) => {
@@ -205,7 +221,7 @@ export default function Home() {
 											price={s.price[0]}
 										/>
 									{/* </Link> */}
-									<AddProducts id={s.id} />
+									{/* <AddProducts id={s.id} /> */}
 								</>
 							);
 						})
