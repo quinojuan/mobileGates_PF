@@ -155,10 +155,7 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active text-white" href="/home/login">Ingresá</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active text-white" href="/home/createuser">Registrate</a>
+                  <a className="nav-link active text-white" href="/home/login">Ingresá | Registrate</a>
                 </li>
               </ul>
             </div>

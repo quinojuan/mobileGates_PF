@@ -44,11 +44,12 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const currentUser = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log(currentUser, "CURRENT USER")
       setLoading(false);
     });
     return () => currentUser();
   }, []);
-
+ console.log(user, "el user")
   return (
     <authContext.Provider
       value={{
