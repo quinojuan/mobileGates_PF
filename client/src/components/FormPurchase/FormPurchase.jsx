@@ -197,6 +197,11 @@ export default function FormPurchase() {
                     }
 
                 </div>
+                <div>
+                    
+                        {carts?.map((s)=>(<img src={s.image}/>))}
+                    
+                </div>
                 <button type="submit" onSubmit={(e)=>handleSubmit(e)}>Comprar</button>
 
             </form>
