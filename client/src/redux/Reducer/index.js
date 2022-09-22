@@ -14,7 +14,8 @@ const initialState = {
   search: "",
   rams:[],
   img:"",
-  capacities:[]
+  capacities:[],
+  purchases:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -158,6 +159,15 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
+      case "POST_PURCHASES":
+        return{
+          ...state
+        }
+      case "GET_PURCHASES":
+        return{
+          ...state,
+          purchases:action.payload
+        }
 
     default:
       return state;

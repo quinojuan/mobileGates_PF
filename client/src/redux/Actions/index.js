@@ -162,3 +162,22 @@ export const getCapacity = () => async(dispatch) => {
 		payload:json
 	})
 }
+
+export async function getPurchase(){
+	return async function (dispatch) {
+        let json = await axios.get("http://localhost:3001/purchases");
+        return dispatch({
+            type: "GET_PURCHASE",
+            payload: json.data
+        })
+    }
+}
+
+export function postPurchase(payload) {
+    return async function (dispatch) {
+        const json = await axios.post("http://localhost:3001/purchases", payload)
+        console.log(json)
+        return json;
+
+    }
+}
