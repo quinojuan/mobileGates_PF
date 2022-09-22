@@ -9,7 +9,7 @@ const getAllPurchases = async (req, res) => {
 				attributes: ['model']
 			  },{
 				model: Users,
-				attributes: ['username']
+				attributes: ['email']
 			  }
 			],
 		  }));
@@ -22,8 +22,7 @@ const getAllPurchases = async (req, res) => {
 				adress,
 				birthday,
 				creditCard,
-				email,
-				user: Users[0].username,
+				email: Users[0].username,
 				products: Phones[0].model
 			  } 
 			  

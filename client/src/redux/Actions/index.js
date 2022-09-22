@@ -83,6 +83,22 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 		},
 	});
 };
+
+export function addUser(payload) {
+    console.log(payload)
+    return async function () {
+		try{
+			const user = {
+				email: payload.email,
+				password: payload.password
+			}
+		  await axios.post('http://localhost:3001/users', user);
+		}catch(e){
+          console.log(e)
+		}
+    };
+}
+
 export function setLoading(payload) {
 	return {
 		type: 'SET_LOADING',

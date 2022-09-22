@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const signup = (email, password) => {
+    console.log(email,password, "SIGN UP")
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -41,11 +42,11 @@ export function AuthProvider({ children }) {
   const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
 
   useEffect(() => {
-    const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
+    const currentUser = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
-    return () => unsubuscribe();
+    return () => currentUser();
   }, []);
 
   return (
