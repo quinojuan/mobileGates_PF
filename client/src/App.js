@@ -10,6 +10,7 @@ import { AuthProvider } from './components/Context/authContext';
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import {IntlProvider} from 'react-intl'
 import Contact from './components/Contact/Contact';
+import Chat from './components/Chat/Chat';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="home/contact" element= {<Contact/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
+      <Chat />
     </div>
     </BrowserRouter>
     </AuthProvider>
