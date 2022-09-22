@@ -14,6 +14,9 @@ export default function NavBar() {
           <li class="nav-item">
             <a href="#" class="nav-link px-2 text-muted">Ayuda</a>
           </li>
+          <li class="nav-item">
+            <a href="/home/contact" class="nav-link px-2 text-muted">Contacto</a>
+          </li>
         </ul>
         <p class="text-center text-muted">Copyright © 2022 MóvilGates</p>
     </footer>
