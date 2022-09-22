@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getCart, addToCart } from "../../redux/Actions";
+import { getCart, addToCart, getPurchaseRepeat } from "../../redux/Actions";
 import style from "./AddProduct.module.css"
 import { Link } from "react-router-dom";
 import { useAuth } from '../Context/authContext';

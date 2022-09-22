@@ -16,7 +16,9 @@ const initialState = {
   img: "",
   capacities: [],
   searching: false,
-  purchases:[]
+  purchases:[],
+  repeat:[],
+  repetido: false
 };
 
 function rootReducer(state = initialState, action) {
@@ -206,6 +208,18 @@ function rootReducer(state = initialState, action) {
           ...state,
           purchases:action.payload
         }
+      case "GET_PURCHASE_REPEAT":
+        let repeat=state.cart.map((s)=>s.id.includes(action.payload.id))
+        if(repeat.includes(e=>e=true)){
+          return {
+            ...state,
+            repetido: true 
+          }
+        } else return {
+          ...state,
+          repetido: false
+        }
+        
     default:
       return state;
   }

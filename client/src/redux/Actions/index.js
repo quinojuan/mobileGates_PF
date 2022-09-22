@@ -201,3 +201,9 @@ export function postPurchase(payload) {
 
     }
 }
+export function getPurchaseRepeat(payload){
+	return{
+		type:"GET_PURCHASE_REPEAT",
+		payload
+	}
+}
