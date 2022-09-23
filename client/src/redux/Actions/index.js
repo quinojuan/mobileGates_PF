@@ -68,12 +68,6 @@ export function getSort(payload) {
 		payload,
 	};
 }
-export function getSortByPrice(payload){
-	return{
-		type:"GET_SORT_BY_PRICE",
-		payload
-	}
-}
 // export function getFilterByCapacity(payload) {
 // 	return {
 // 		type: 'GET_FILTER_BY_CAPACITY',
@@ -96,6 +90,7 @@ export function setLoading(payload) {
 	};
 }
 export function addToCart(payload) {
+	console.log("añadiendo al carrito desde actions:", payload)
 	return {
 		type: 'ADD_TO_CART',
 		payload,
@@ -176,14 +171,13 @@ export const searching =(payload)=>{
 }
 }
 
-export const handleClearCart = ()=>{
-	alert("clickeado")
+export const clearCart = ()=>{
 	return {
 		type: "CLEAR_CART",
 		
 	}
 }
-export function getPurchase(){
+export async function getPurchase(){
 	return async function (dispatch) {
         let json = await axios.get("http://localhost:3001/purchases");
         return dispatch({
@@ -196,13 +190,8 @@ export function getPurchase(){
 export function postPurchase(payload) {
     return async function (dispatch) {
         const json = await axios.post("http://localhost:3001/purchases", payload)
+        console.log(json)
         return json;
 
     }
-}
-export function getPurchaseRepeat(payload){
-	return{
-		type:"GET_PURCHASE_REPEAT",
-		payload
-	}
 }

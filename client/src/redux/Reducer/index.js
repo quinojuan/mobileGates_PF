@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 const initialState = {
   products: [],
   details: [],
@@ -17,9 +16,7 @@ const initialState = {
   img: "",
   capacities: [],
   searching: false,
-  purchases:[],
-  repeat:[],
-  repetido: false
+  purchases: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -49,7 +46,7 @@ function rootReducer(state = initialState, action) {
     case "GET_CLEAN":
       return {
         ...state,
-        details: [],
+        details: {},
       };
 
     case "SEARCH_NAME":
@@ -130,34 +127,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: sortedArr,
       };
-    case "GET_SORT_BY_PRICE":
-      let sortedArr2 =
-        action.payload === "High to low"
-          ? state.allProducts.sort(function (a, b) {
-              if (a.price[0] > b.price[0]) {
-                return 1;
-              }
-              if (b.price[0] > a.price[0]) {
-                return -1;
-              }
-              return 0;
-            }) // sino.....
-          : state.allProducts.sort(function (a, b) {
-              if (a.price[0] > b.price[0]) {
-                return -1;
-              }
-              if (b.price[0] > a.price[0]) {
-                return 1;
-              }
-              return 0;
-            });
-      return {
-        ...state,
-        products: sortedArr2,
-      };
     case "ADD_TO_CART":
+      console.log("añadiendo al carrito desde reducer:", action.payload);
       let purchase = action.payload;
+      //console.log(state.cart, "carrito redux")
       let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
+      console.log(myCartLS, "MYCART LS");
       if (!myCartLS.some((el) => el.id == purchase[0].id)) {
         myCartLS.push(purchase[0]);
         localStorage.setItem("cart", JSON.stringify(myCartLS));
@@ -176,7 +151,9 @@ function rootReducer(state = initialState, action) {
         cart: cartLS,
       };
     case "DELETE_PRODUCT_IN_CART":
+      //console.log(action.payload, "LLEGUE redux")
       let productsInLs = JSON.parse(localStorage.getItem("cart"));
+      //console.log(productsInLs, "products in ls")
       let myCarty = productsInLs.filter((el) => el.id !== action.payload);
       localStorage.setItem("cart", JSON.stringify(myCarty));
 
@@ -190,31 +167,24 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
     case "CLEAR_CART":
+      console.log("estamos en el case de clearCart");
+      let productsToDelete = JSON.parse(localStorage.getItem("cart"));
+      let cartToDelete = productsToDelete.filter((el) => 1 === 0);
+      localStorage.setItem("cart", JSON.stringify(cartToDelete));
       return {
         ...state,
-        cart: [],
+        cart: cartToDelete,
       };
-      case "POST_PURCHASES":
-        return{
-          ...state
-        }
-      case "GET_PURCHASES":
-        return{
-          ...state,
-          purchases:action.payload
-        }
-      case "GET_PURCHASE_REPEAT":
-        let repeat=state.cart.map((s)=>s.id.includes(action.payload.id))
-        if(repeat.includes(e=>e=true)){
-          return {
-            ...state,
-            repetido: true 
-          }
-        } else return {
-          ...state,
-          repetido: false
-        }
-        
+    case "POST_PURCHASES":
+      return {
+        ...state,
+      };
+    case "GET_PURCHASES":
+      return {
+        ...state,
+        purchases: action.payload,
+      };
+    
     default:
       return state;
   }

@@ -10,7 +10,6 @@ import { AuthProvider } from './components/Context/authContext';
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import {IntlProvider} from 'react-intl'
 import Contact from './components/Contact/Contact';
-import FormPurchase from './components/FormPurchase/FormPurchase';
 
 function App() {
   return (
@@ -25,17 +24,11 @@ function App() {
           <Cart/>
           </ProtectedRoute>
         }/>
-        <Route exact path="/purchase" element= {
-          <ProtectedRoute>
-          <FormPurchase/>
-          </ProtectedRoute>
-        }/>
         <Route exact path = '/home' element = {<Home/>}/>
         <Route path="/products/:id" element= {<DetailsPhone/>}/>
         <Route path="/home/login" element= {<Login/>}/>
         <Route path="/home/createuser" element= {<CreateUser/>}/>
         <Route path="/contacto" element= {<Contact/>}/>
-        
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
     </div>

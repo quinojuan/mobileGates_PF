@@ -12,8 +12,7 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
-	searching,
-	getSortByPrice
+	searching
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -88,12 +87,6 @@ export default function Home() {
 		setCurrentPage(1);
 		setOrden(`Ordenado ${e.target.value}`);
 	}
-	function handleSortByPrice(e){
-		e.preventDefault();
-		dispatch(getSortByPrice(e.target.value));
-		setCurrentPage(1);
-		setOrden(`Ordenado ${e.target.value}`);
-	}
 
 	function handleLoading() {
 		if (loading) {
@@ -122,6 +115,8 @@ export default function Home() {
 			</div>
 		)
 	}
+
+	function handleSortByPrice(){}
 
 	return (
 		<div>

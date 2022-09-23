@@ -2,38 +2,40 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPhonesById, getClean } from "../../redux/Actions";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
-import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
-
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
+  const loading = useSelector((state) => state.loading);
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
-
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
+    console.log(Object.keys(myProducts).length);
     Object.keys(myProducts).length && setImg(myProducts.image);
-  }, [dispatch, myProducts, id]);
-
-  function handleBack() {
-    dispatch(getClean());
-    navigate("/home");
-  }
-
+  }, [dispatch, myProducts]);
+  
+  
   function handleSelectImage(e) {
     e.preventDefault();
     setImg(e.target.src);
   }
+
+  function handleBack() {
+    dispatch(getClean());
+    navigate("/home")
+  }
+  
   return (
     <div>
       {
         <div>
+          <NavBar />
           <div
             className="container"
             style={{
@@ -139,7 +141,7 @@ export default function DetailsPhone(props) {
             <AddProducts id={myProducts.id} />
           </div>
           <div>
-            <button class="btn btn-dark" onClick={() => handleBack()}>
+            <button onClick={() => handleBack()} class="btn btn-dark">
               Volver
             </button>
           </div>
