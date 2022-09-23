@@ -57,7 +57,7 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreIn
 <div class="container-fluid">
   <form class="d-flex" role="search">
     <input class="form-control me-2" type="search" placeholder="Search" onChange={(e) => handleInputChange(e)} aria-label="Search"/>
-    <button class="btn btn-outline-success" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
+    <button class="btn btn-outline-light" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
   </form>
 </div>
 </nav>
