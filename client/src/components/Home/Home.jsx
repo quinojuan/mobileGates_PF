@@ -193,7 +193,7 @@ export default function Home() {
 					<option value="A-Z">A-Z</option>
 					<option value="Z-A">Z-A</option>
 				</select>
-				<select
+				{/* <select
 					class="form-select"
 					aria-label="Default select example"
 					onChange={(e) => handleSortByPrice(e)}
@@ -202,7 +202,7 @@ export default function Home() {
 					<option value="value">Mayor a menor precio</option>
 					<option value="High to low">Menor a mayor precio</option>
 					
-				</select>
+				</select> */}
 			</div>
 			<div>
 				{/* <SearchBar
