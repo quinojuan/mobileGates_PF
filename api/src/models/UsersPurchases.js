@@ -4,17 +4,25 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Rol",
+    "UserPurchases",
     {
       id:{
-        type: DataTypes.UUID,
-        allowNull: false,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
+      },
+      UserId:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        primaryKey: false
+      },
+      PurchasesId:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        primaryKey: false
       }
       },
     {
-      timestamps: false,
       freezeTableName: true, 
     }
   );

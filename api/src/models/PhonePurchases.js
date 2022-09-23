@@ -4,27 +4,22 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "ProductsColors",
+    "PhonePurchases",
     {
-      id: {
-        type: DataTypes.UUID,
-        allowNull: false,
+      id:{
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
       },
-      productsId: {
+      PhoneId:{
         type: DataTypes.STRING,
         allowNull: false,
-        primaryKey: false,
+        primaryKey: false
       },
-      colorsId:{
+      PurchasesId:{
         type: DataTypes.STRING,
         allowNull: false,
-        primaryKey: false,
-      },
-      url:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false,  
+        primaryKey: false
       }
       },
     {

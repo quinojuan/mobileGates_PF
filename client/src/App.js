@@ -1,26 +1,39 @@
 import './App.css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Routes} from 'react-router-dom';
 import Home from './components/Home/Home';
-import DetailsNotebook from "./components/Details/DetailsNotebook";
 import DetailsPhone from './components/Details/DetailsPhone';
-import DetailsTablet from './components/Details/DetailsTablet';
+import Login from './components/Login/Login';
+import CreateUser from './components/CreateUser/CreateUser'
 import Landing from './components/Landing/Landing';
 import Cart from './components/Cart/Cart';
+import { AuthProvider } from './components/Context/authContext';
+import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
+import {IntlProvider} from 'react-intl'
+import Contact from './components/Contact/Contact';
 
 function App() {
   return (
+    <AuthProvider>
+
     <BrowserRouter>
     <div className="App">
-      <Switch>
-        <Route exact path="/" component = {Landing} />
-        <Route exact path = '/home' component = {Home}/>
-        <Route path="/products/notebooks/:id" component= {DetailsNotebook}/>
-        <Route path="/products/phones/:id" component= {DetailsPhone}/>
-        <Route path="/products/tablets/:id" component= {DetailsTablet}/>
-        <Route path="/products/Cart" component= {Cart}/>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element = {<Landing/>} />
+        <Route exact path = '/products/Cart' element = {
+          <ProtectedRoute>
+          <Cart/>
+          </ProtectedRoute>
+        }/>
+        <Route exact path = '/home' element = {<Home/>}/>
+        <Route path="/products/:id" element= {<DetailsPhone/>}/>
+        <Route path="/home/login" element= {<Login/>}/>
+        <Route path="/home/createuser" element= {<CreateUser/>}/>
+        <Route path="/contacto" element= {<Contact/>}/>
+        {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
+      </Routes>
     </div>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

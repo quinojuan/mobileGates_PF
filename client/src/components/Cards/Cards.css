@@ -4,13 +4,28 @@
     border-radius: 8px;
 
 } */
-
+.cards-marg{
+  margin-bottom: 3%;
+}
 .cards {
-  display: grid;
+  display: contents;
   grid-gap: 40px 20px;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  margin-inline: 5%;
+  margin-left: 60%;
+  align-items: center;
+  justify-content: center; 
 
+}
+.stock{
+  background-color: rgba(109, 192, 84, 0.877);
+  position: absolute;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 10px;
+  border-radius: 3px;
+  border: none;
+  color: white;
 }
 
 
@@ -33,4 +48,15 @@
   font-family: 'DynaPuff', cursive;
   font-size: 1.5rem;
   margin-top: -10%;
+}
+
+.cards-height{
+  height: 50%;
+}
+.text{
+  text-decoration: none;
+}
+
+.cards-text1{
+  text-decoration: none;
 }

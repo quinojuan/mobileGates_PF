@@ -1,84 +1,22 @@
-const { Tablets, Phones, Notebooks } = require('../db');
+const { Phones, Brand} = require('../db');
 
 // -------------------- GET ALL --------------------
 
 const getAllProducts = async (req, res) => {
 	try {
-		const { ram, category, name, capacity } = req.query;
-		const allPhones = await Phones.findAll();
-		const allTablets = await Tablets.findAll();
-		const allNotebooks = await Notebooks.findAll();
+		const { ram, brand, name, capacity } = req.query;
+		const allPhones = await Phones.findAll(( {
+			include: [
+			  {
+				model: Brand,
+			  },
+			],
+		  }));
 
-    if (
-      allPhones.length === 0 ||
-      allNotebooks.length === 0 ||
-      allTablets.length === 0
-    )
-    return res.status(404).json({ message: "Error en find all" });
-    let allProducts = await allPhones.concat(allTablets).concat(allNotebooks);
-    if(req.query){
-      if(ram){
-        allProducts = allProducts.filter((product) => product.ram.includes(Number(ram)));
-      };
-      if(category){
-        allProducts = allProducts.filter((product) => product.category.toLowerCase().includes(category.toLowerCase()));
-      };
-      if(name){
-        //console.log(name.toLowerCase());
-        let model = name;
-        allProducts = allProducts.filter((product) => product.model.toLowerCase().includes(model.toLowerCase()));
-      };
-      if(capacity){
-        allProducts = allProducts.filter((product) => product.capacity.includes(capacity));
-      };
-    };
-    if (allProducts.length === 0)
-    return res.status(404).json({ message: "cannot find a product" });
-    res.status(201).json(allProducts);
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ message: "Server error" });
-  }
-};
-
-// -------------------- TABLETS --------------------
-
-const getAllTablets = async (req, res) => {
-	try {
-		const allTablets = await Tablets.findAll();
-		if (allTablets.length !== 0) {
-			return res.status(200).json(allTablets);
-		}
-		res.status(404).json({ message: 'Not found any tablet' });
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const getTabletById = async (req, res) => {
-	try {
-		const { id } = req.params;
-		if (!id) res.ratus(404).json({ message: 'id is not provided' });
-		const validation = await Tablets.findByPk(id);
-		if (!validation) {
-			res.status(404).json({ message: 'id not exists' });
-		} else {
-			res.status(201).json(validation);
-		}
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const postTablet = async (req, res) => {
-	//PRUEBA POSTEANDO UNICAMENTE UNA TABLET (HABRÍA QUE CREAR UN MODEL DE PRODUCT ASI DEPENDE LA CATEGORÍA SE SUBE O TABLET O NOTEBOOK O PHONE)
-	try {
-		const {
-			category,
+		let presentacion = allPhones.map(({	
+			id,
 			model,
-			brand,
+			colors,
 			operative_system,
 			size,
 			inches,
@@ -92,171 +30,52 @@ const postTablet = async (req, res) => {
 			image,
 			cpu,
 			description,
-		} = req.body;
-
-		if (
-			category &&
-			model &&
-			brand &&
-			operative_system &&
-			size &&
-			inches &&
-			main_camera &&
-			ram &&
-			capacity &&
-			frontal_camera &&
-			weight &&
-			battery &&
-			price &&
-			image &&
-			cpu &&
-			description
-		) {
-			const validation = await Tablets.findOne({ where: { model: model } });
-			console.log(validation);
-			if (validation === null) {
-				const newTablet = await Tablets.create({
-					category,
-					model,
-					brand,
-					operative_system,
-					size,
-					inches,
-					main_camera,
-					ram,
-					capacity,
-					frontal_camera,
-					weight,
-					battery,
-					price,
-					image,
-					cpu,
-					description,
-				});
-				newTablet
-					? res.status(201).json(newTablet)
-					: res.status(404).json({ message: 'Error /post product' });
-			} else {
-				res.status(200).json({ mesage: 'product already exist' });
+			Brands})=>{
+			return  {
+				id,
+				model,
+				colors,
+				operative_system,
+				size,
+				inches,
+				main_camera,
+				ram,
+				capacity,
+				frontal_camera,
+				weight,
+				battery,
+				price,
+				image,
+				cpu,
+				description,
+				brand: Brands[0].name
 			}
-		} else {
-			res.status(400).json({ message: 'error, missing info' });
-		}
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-// -------------------- NOTEBOOKS --------------------
-
-const getAllNotebooks = async (req, res) => {
-	try {
-		const allNotebooks = await Notebooks.findAll();
-		if (allNotebooks.length !== 0) {
-			return res.status(200).json(allNotebooks);
-		}
-		res.status(404).json({ message: 'Not found any tablet' });
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const getNotebookById = async (req, res) => {
-	try {
-		const { id } = req.params;
-		if (!id) res.ratus(404).json({ message: 'id is not provided' });
-		const validation = await Notebooks.findByPk(id);
-		if (validation.length === 0) {
-			res.status(404).json({ message: 'id not exists' });
-		} else {
-			res.status(201).json(validation);
-		}
-	} catch (e) {
-		console.log(e);
-		res.status(500).json({ message: 'Server error' });
-	}
-};
-
-const postNotebook = async (req, res) => {
-	try {
-		const {
-			model,
-			category,
-			brand,
-			operative_system,
-			size,
-			inches,
-			description,
-			ram,
-			capacity,
-			frontal_camera,
-			weight,
-			battery,
-			price,
-			image,
-			cpu,
-			gpu,
-			display,
-			usb,
-			numpad,
-		} = req.body;
-
-		if (
-			category &&
-			model &&
-			brand &&
-			operative_system &&
-			size &&
-			inches &&
-			gpu &&
-			ram &&
-			capacity &&
-			frontal_camera &&
-			weight &&
-			battery &&
-			price &&
-			image &&
-			cpu &&
-			description &&
-			display &&
-			usb &&
-			numpad
-		) {
-			const validation = await Notebooks.findOne({ where: { model: model } });
-			console.log(validation);
-			if (validation === null) {
-				const newNotebook = await Notebooks.create({
-					model,
-					category,
-					brand,
-					operative_system,
-					size,
-					inches,
-					description,
-					ram,
-					capacity,
-					frontal_camera,
-					weight,
-					battery,
-					price,
-					image,
-					cpu,
-					gpu,
-					display,
-					usb,
-					numpad,
-				});
-				newNotebook
-					? res.status(201).json(newNotebook)
-					: res.status(404).json({ message: 'Error /post product' });
-			} else {
-				res.status(200).json({ mesage: 'product already exist' });
+		})
+		
+		if (req.query) {
+			if (ram) {
+				presentacion = presentacion.filter((product) =>
+					product.ram.includes(Number(ram))
+				);
 			}
-		} else {
-			res.status(400).json({ message: 'error, missing info' });
+			if (brand) {
+				presentacion = presentacion.filter((product) =>
+					product.brand.toLowerCase().includes(brand.toLowerCase())
+				);
+			}
+			if (name) {
+				let model = name;
+				presentacion = presentacion.filter((product) =>
+					product.model.toLowerCase().includes(model.toLowerCase())
+				);
+			}
+			if (capacity) {
+				presentacion = presentacion.filter((product) =>
+					product.capacity.includes(capacity)
+				);
+			}
 		}
+		res.status(200).json(presentacion);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -265,29 +84,22 @@ const postNotebook = async (req, res) => {
 
 // -------------------- PHONES --------------------
 
-const getAllPhones = async (req, res) => {
+/* const getAllPhones = async (req, res) => {
 	try {
 		const allPhones = await Phones.findAll();
-		if (allPhones.length !== 0) {
-			return res.status(200).json(allPhones);
-		}
-		res.status(404).json({ message: 'Not found any phone' });
+		return res.status(200).json(allPhones);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
 	}
-};
+}; */
 
 const getPhonesById = async (req, res) => {
 	try {
 		const { id } = req.params;
 		if (!id) res.ratus(404).json({ message: 'id is not provided' });
 		const validation = await Phones.findByPk(id);
-		if (!validation) {
-			res.status(404).json({ message: 'id not exists' });
-		} else {
-			res.status(201).json(validation);
-		}
+		res.status(200).json(validation);
 	} catch (e) {
 		console.log(e);
 		res.status(500).json({ message: 'Server error' });
@@ -310,16 +122,16 @@ const postPhone = async (req, res) => {
 			frontal_camera,
 			weight,
 			battery,
+			colors,
 			price,
 			image,
 			cpu,
 			description,
 		} = req.body;
-
+		
 		if (
 			category &&
 			model &&
-			brand &&
 			operative_system &&
 			size &&
 			inches &&
@@ -332,14 +144,14 @@ const postPhone = async (req, res) => {
 			price &&
 			image &&
 			cpu &&
-			description
+			description &&
+			colors
 		) {
 			const validation = await Phones.findOne({ where: { model: model } });
 			if (validation === null) {
-				const newPhones = await Phones.create({
+				const newPhone = await Phones.create({
 					category,
 					model,
-					brand,
 					operative_system,
 					size,
 					inches,
@@ -348,14 +160,49 @@ const postPhone = async (req, res) => {
 					capacity,
 					frontal_camera,
 					weight,
+					colors,
 					battery,
 					price,
 					image,
 					cpu,
 					description,
 				});
-				newPhones
-					? res.status(201).json(newPhones)
+
+				let brandId = await Brand.findOne({ where: { name: brand, } })
+                //console.log(newPhone, "PHONEE")
+				//console.log(brandId.dataValues.id,"ID??????")
+				await newPhone.addBrand(brandId.dataValues.id)
+				const phoneWithBrand = await Phones.findByPk(newPhone.id, {
+					include: [
+					  {
+						model: Brand,
+					  },
+					],
+				  });
+				  //phoneWithBrand = phoneWithBrand.Brands[0].name
+				 let presentacion = {
+					category,
+					model,
+					operative_system,
+					size,
+					inches,
+					main_camera,
+					ram,
+					capacity,
+					frontal_camera,
+					colors,
+					weight,
+					battery,
+					price,
+					image,
+					cpu,
+					description,
+					brand: phoneWithBrand.Brands[0].name
+				}
+				//erik cuando veas esto, y digas "KE HORRIBLE KE ASKO", 
+				//bueno, tenes razon. es horrible. pero funca xd te amamos, los del back <3
+				presentacion
+					? res.status(201).json(presentacion)
 					: res.status(404).json({ message: 'Error /post product' });
 			} else {
 				res.status(200).json({ mesage: 'product already exist' });
@@ -369,15 +216,10 @@ const postPhone = async (req, res) => {
 	}
 };
 
+
+
 module.exports = {
 	getAllProducts,
-	postTablet,
-	getTabletById,
-	getAllTablets,
-	getAllNotebooks,
-	getNotebookById,
-	postNotebook,
-	getAllPhones,
 	getPhonesById,
 	postPhone,
 };

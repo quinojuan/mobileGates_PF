@@ -25,13 +25,29 @@ module.exports = (sequelize) => {
             }
         }
       },
+      username:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
       password: {
         type: DataTypes.TEXT,
         allowNull: false
+      },
+      admin:{
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+      }, 
+      superadmin:{
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+      },
+      active:{
+        type: DataTypes.INTEGER,
+        defaultValue: 1,
       }
       },
     {
-    
       freezeTableName: true, 
     }
   );

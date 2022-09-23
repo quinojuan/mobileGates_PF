@@ -1,6 +1,10 @@
-import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate  } from "react-router-dom";
 export default function Landing(){
-    History = useHistory();
-    History.push("/home")
+    const navigate = useNavigate();
+    useEffect(()=>{
+        navigate('/home')
+    },[navigate])
+    console.log("Ya paso el navigate")
     return(null)
 }

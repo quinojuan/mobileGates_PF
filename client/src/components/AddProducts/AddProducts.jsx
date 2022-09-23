@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCart, addToCart } from "../../redux/Actions";
 import style from "./AddProduct.module.css"
+import { Link } from "react-router-dom";
 
 export default function AddProducts({id}){
     
@@ -12,14 +13,14 @@ export default function AddProducts({id}){
     let product = products.filter((e)=>e.id === id)
 
     function handleCart(){
-        console.log(id, "EEEEE")
+        console.log(id, "ID")
         console.log(product, "PRODUCT")
         dispatch(addToCart(product))
     }
 
     return (
-        <div>
-            <button className={style.button} onClick={()=>handleCart()}>Add</button>
-        </div>
+        
+            <button type="button" class='btn btn-outline-success btn-sm' onClick={()=>handleCart()}>Agregar al Carrito</button>
+        
     )
 }

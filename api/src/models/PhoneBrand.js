@@ -4,20 +4,26 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Category",
+    "PhoneBrand",
     {
-      id: {
-        type: DataTypes.UUID,
-        allowNull: false,
+      id:{
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
       },
-      name: {
+      PhoneId:{
         type: DataTypes.STRING,
         allowNull: false,
+        primaryKey: false
       },
+      BrandId:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        primaryKey: false
+      }
       },
     {
+      timestamps: false,
       freezeTableName: true, 
     }
   );
