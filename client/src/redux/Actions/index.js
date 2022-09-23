@@ -96,7 +96,6 @@ export function setLoading(payload) {
 	};
 }
 export function addToCart(payload) {
-	console.log("añadiendo al carrito desde actions:", payload)
 	return {
 		type: 'ADD_TO_CART',
 		payload,
@@ -197,7 +196,6 @@ export function getPurchase(){
 export function postPurchase(payload) {
     return async function (dispatch) {
         const json = await axios.post("http://localhost:3001/purchases", payload)
-        console.log(json)
         return json;
 
     }
