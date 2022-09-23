@@ -25,6 +25,7 @@ import './Home.css';
 import Swat from 'sweetalert2';
 import Carousel from '../Carousel/Carousel';
 
+
 export default function Home() {
 	const dispatch = useDispatch();
 	const buscando = useSelector((state)=>state.searching)
@@ -210,6 +211,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
+									
 										<Cards
 											model={s.model}
 											image={s.image}
@@ -220,6 +222,7 @@ export default function Home() {
 											capacity={s.capacity}
 											price={s.price[0]}
 										/>
+										
 									{/* </Link> */}
 									{/* <AddProducts id={s.id} /> */}
 								</>

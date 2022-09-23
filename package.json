@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@chakra-ui/layout": "^2.1.7",
+    "@chakra-ui/react": "^2.3.4",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "firebase": "^9.10.0",
