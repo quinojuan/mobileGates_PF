@@ -130,23 +130,23 @@ export default function Home() {
 				setCurrentPage={setCurrentPage}
 				weAreInHome={true}
 				/> */}
-				{/* <div>
+				<div>
 				<Carousel/>
-				</div> */}
+				</div>
 			</div>
 			{/* { <div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>
 					Reiniciar busqueda ↻
 				</button>
 			</div> } */}
-			<div class="btn-group">
+			<div class="btn-group w-100 mt-2">
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					name="ram"
 					onChange={(e) => handleFilter(e)}
 				>
-					<option hidden>Filter by RAM</option>
+					<option hidden>Memoria RAM</option>
 					<option value="">Todos</option>
 					{rams.map((s)=>(
 						<option key={s} value={s}>{s} GB</option>
@@ -154,7 +154,7 @@ export default function Home() {
 
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					name="capacity"
 					onChange={(e) => handleFilter(e)}
@@ -169,7 +169,7 @@ export default function Home() {
 					))}
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					name="brand"
 					onChange={(e) => handleFilter(e)}
@@ -183,7 +183,7 @@ export default function Home() {
 					))}
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					onChange={(e) => handleSort(e)}
 				>
@@ -214,7 +214,7 @@ export default function Home() {
 				changePage={changePage}
 				currentPage={currentPage}
 			/>
-			<div>
+			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 justify-content-center'>
 			{buscando?handleBuscando(search):null}
 				{!loading ? (
 					currentProducts.length ? (
