@@ -34,7 +34,6 @@ export default function DetailsPhone(props) {
     <div>
       {
         <div>
-          <NavBar />
           <div
             className="container"
             style={{
