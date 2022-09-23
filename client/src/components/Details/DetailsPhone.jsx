@@ -2,40 +2,38 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPhonesById, getClean } from "../../redux/Actions";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
-
+import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
-//coment para commit
+
 export default function DetailsPhone(props) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
-  const loading = useSelector((state) => state.loading);
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
+
   useEffect(() => {
-    !Object.keys(myProducts).length&&dispatch(getPhonesById(id));
-    console.log(Object.keys(myProducts).length)
-    Object.keys(myProducts).length&&setImg(myProducts.image)
-    // return dispatch(getClean());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, myProducts]);
-  useEffect(()=>{
-    return dispatch(getClean())
-  }, [dispatch])
+    !Object.keys(myProducts).length && dispatch(getPhonesById(id));
+    Object.keys(myProducts).length && setImg(myProducts.image);
+  }, [dispatch, myProducts, id]);
+
+  function handleBack() {
+    dispatch(getClean());
+    navigate("/home");
+  }
+
   function handleSelectImage(e) {
     e.preventDefault();
     setImg(e.target.src);
   }
- 
-  //setInterval(loadingImage(),1500);
   return (
     <div>
       {
         <div>
-          <NavBar />
           <div
             className="container"
             style={{
@@ -56,7 +54,7 @@ export default function DetailsPhone(props) {
             >
               <div class="row g-0">
                 <div class="col-md-4">
-                  {img?(
+                  {img ? (
                     <img
                       src={img}
                       alt="Not found"
@@ -122,8 +120,8 @@ export default function DetailsPhone(props) {
                     </h6>
 
                     <h4> Otros colores: </h4>
-                    {myProducts &&  
-                      myProducts.colors?.map((e) =>  (
+                    {myProducts &&
+                      myProducts.colors?.map((e) => (
                         <img
                           src={e}
                           alt="img not fund"
@@ -138,13 +136,12 @@ export default function DetailsPhone(props) {
             </div>
           </div>
           <div>
-            <AddProducts
-            id={myProducts.id}/>
-            </div>
+            <AddProducts id={myProducts.id} />
+          </div>
           <div>
-            <Link to="/home" class="btn btn-dark">
+            <button class="btn btn-dark" onClick={() => handleBack()}>
               Volver
-            </Link>
+            </button>
           </div>
           <Footer />
         </div>
