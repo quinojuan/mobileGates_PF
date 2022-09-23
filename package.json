@@ -7,6 +7,7 @@
     "firebase": "^9.10.0",
     "mercadopago": "^1.5.14",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
     "react-intl": "^6.1.1",
     "react-router-dom": "^6.4.0",
     "react-whatsapp": "^0.3.0",

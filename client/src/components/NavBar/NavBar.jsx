@@ -4,13 +4,13 @@ import "./NavBar.css"
 import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
-import {handleReload} from '../Home/Home'
+import { handleReload } from '../Home/Home'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import { getProductsByNameAndFilters, setSearch } from '../../redux/Actions';
 import Swal from 'sweetalert2';
-
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function NavBar() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,12 +65,12 @@ export default function NavBar() {
     await logout()
     navigate('/home/')
 
-    
+
   }
   function handleReload(e) {
     e.preventDefault();
     window.location.reload();
-  }  
+  }
   function handleInputChange(e) {
     e.preventDefault();
     setName(e.target.value);
@@ -99,10 +99,10 @@ export default function NavBar() {
               <span className="navbar-toggler-icon"></span>
             </h1> */}
             <SearchBar
-				currentPage={currentPage}
-				setCurrentPage={setCurrentPage}
-        weAreInHome={false}
-				/>
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              weAreInHome={false}
+            />
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
@@ -115,10 +115,10 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li> */}
                 <li className="nav-item">
-                  <a className="nav-link active text-white" href="#" onClick={()=> navigate("/products/Cart")}>Carrito 🛒</a>
+                  <a className="nav-link active text-white" href="#" onClick={() => navigate("/products/Cart")}>Carrito 🛒</a>
                 </li>
                 <li className="nav-item">
-                  <h3 className='nav-link active text-white'>Hola {user.email}</h3>
+                  <h3 className='nav-link active text-white'>Hola, {user.email.split('@')[0]}</h3>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#" onClick={handleLogout}>Cerrar sesión</a>
@@ -127,6 +127,20 @@ export default function NavBar() {
             </div>
           </div>
         </div>
+         {/* <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Dropdown
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div> */}
       </nav>
     )
   } else {
@@ -138,11 +152,11 @@ export default function NavBar() {
             <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </h1>
-            <SearchBar 
-				currentPage={currentPage}
-				setCurrentPage={setCurrentPage}
-        weAreInHome={false}
-				/>
+            <SearchBar
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              weAreInHome={false}
+            />
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
