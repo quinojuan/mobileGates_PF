@@ -43,7 +43,9 @@ export default function Home() {
 	const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
 	const currentProducts =
 		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
 	const search = useSelector((s) => s.search);
+	const [price, setPrice]= useState("")
 	//console.log(allProducts);
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
@@ -197,8 +199,9 @@ export default function Home() {
 					onChange={(e) => handleSortByPrice(e)}
 				>
 					<option hidden>Orden por precio</option>
+					<option value="value">Mayor a menor precio</option>
 					<option value="High to low">Menor a mayor precio</option>
-					<option value="Low to high">Mayor a menor precio</option>
+					
 				</select>
 			</div>
 			<div>
