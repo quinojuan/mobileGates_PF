@@ -5,7 +5,7 @@ import {
   getCart,
   deleteProductInCart,
 } from "../../redux/Actions";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 //import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
   let myCart = useSelector((state) => state.cart);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
