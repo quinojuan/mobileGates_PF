@@ -30,7 +30,7 @@ export default function DetailsPhone(props) {
     dispatch(getClean());
     navigate("/home")
   }
-
+  
   return (
     <div>
       {

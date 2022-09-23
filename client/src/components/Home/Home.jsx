@@ -42,7 +42,9 @@ export default function Home() {
 	const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
 	const currentProducts =
 		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
 	const search = useSelector((s) => s.search);
+	const [price, setPrice]= useState("")
 	//console.log(allProducts);
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
@@ -114,6 +116,8 @@ export default function Home() {
 		)
 	}
 
+	function handleSortByPrice(){}
+
 	return (
 		<div>
 			<div className="home">
@@ -183,6 +187,16 @@ export default function Home() {
 					<option hidden>Orden alfabético</option>
 					<option value="A-Z">A-Z</option>
 					<option value="Z-A">Z-A</option>
+				</select>
+				<select
+					class="form-select"
+					aria-label="Default select example"
+					onChange={(e) => handleSortByPrice(e)}
+				>
+					<option hidden>Orden por precio</option>
+					<option value="value">Mayor a menor precio</option>
+					<option value="High to low">Menor a mayor precio</option>
+					
 				</select>
 			</div>
 			<div>

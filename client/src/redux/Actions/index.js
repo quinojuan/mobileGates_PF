@@ -171,7 +171,7 @@ export const searching =(payload)=>{
 }
 }
 
-export const handleClearCart = ()=>{
+export const clearCart = ()=>{
 	return {
 		type: "CLEAR_CART",
 		

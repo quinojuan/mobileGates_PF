@@ -16,7 +16,7 @@ const initialState = {
   img: "",
   capacities: [],
   searching: false,
-  purchases:[]
+  purchases: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -167,20 +167,24 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
     case "CLEAR_CART":
-      console.log("estamos en el case de clearCart")
+      console.log("estamos en el case de clearCart");
+      let productsToDelete = JSON.parse(localStorage.getItem("cart"));
+      let cartToDelete = productsToDelete.filter((el) => 1 === 0);
+      localStorage.setItem("cart", JSON.stringify(cartToDelete));
       return {
         ...state,
-        cart: [],
+        cart: cartToDelete,
       };
-      case "POST_PURCHASES":
-        return{
-          ...state
-        }
-      case "GET_PURCHASES":
-        return{
-          ...state,
-          purchases:action.payload
-        }
+    case "POST_PURCHASES":
+      return {
+        ...state,
+      };
+    case "GET_PURCHASES":
+      return {
+        ...state,
+        purchases: action.payload,
+      };
+    
     default:
       return state;
   }

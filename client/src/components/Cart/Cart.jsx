@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getCart, deleteProductInCart, handleClearCart} from "../../redux/Actions";
+import { getCart, deleteProductInCart, clearCart} from "../../redux/Actions";
 import { useNavigate } from "react-router-dom";
 //import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
@@ -18,6 +18,11 @@ export default function Cart() {
     dispatch(getCart())
     
   }, [dispatch])
+
+  function handleClearCart(){
+    dispatch(clearCart());
+    dispatch(getCart())
+  }
 
   console.log(myCart, "CARRITO cart")
   return (
@@ -36,12 +41,13 @@ export default function Cart() {
                 <button class="btn btn-danger" onClick={() => dispatch(deleteProductInCart(p.id))}>Quitar del carrito</button>
                 </div>
                 <div>
-                <button onClick={()=>handleClearCart()}>Limpiar carrito.</button>
+                
                 </div>
                 </div>
               ) 
             }): <div><h1>No se agregaron productos al carrito aun</h1></div>
             }
+            {<button onClick={()=>handleClearCart()}>Limpiar carrito.</button>}
         </div>
       </div>
       <div>
