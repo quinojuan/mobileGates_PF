@@ -22,7 +22,7 @@ export default function AddProducts({id}){
         console.log(product, "PRODUCT")
         if(sinAgregar){
         dispatch(addToCart(product))
-        Swap.fire("Producto agregado con exito.")
+        Swap.fire("Éxito","Producto agregado con exito.", "success")
         setSinAgregar(false)
         } else {
             Swap.fire("El producto ya ha sido añadido anteriormente.")
