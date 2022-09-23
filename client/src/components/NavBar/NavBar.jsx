@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import { getProductsByNameAndFilters, setSearch } from '../../redux/Actions';
 import Swal from 'sweetalert2';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 export default function NavBar() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -103,7 +103,7 @@ export default function NavBar() {
               setCurrentPage={setCurrentPage}
               weAreInHome={false}
             />
-            <div className="collapse navbar-collapse" id="navbarNav">
+            <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
                   <a className="nav-link active text-white" aria-current="page" href="/home">Home</a>
@@ -120,6 +120,18 @@ export default function NavBar() {
                 <li className="nav-item">
                   <h3 className='nav-link active text-white'>Hola, {user.email.split('@')[0]}</h3>
                 </li>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#" onClick={handleLogout}>Cerrar sesión</a>
                 </li>
@@ -127,20 +139,6 @@ export default function NavBar() {
             </div>
           </div>
         </div>
-         {/* <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                    <ul class="navbar-nav">
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div> */}
       </nav>
     )
   } else {
