@@ -24,7 +24,7 @@ export default function AddProducts({ id }) {
       dispatch(addToCart(product));
       Swap.fire("Éxito", "Producto agregado con exito.", "success");
     } else {
-      Swap.fire("El producto ya ha sido añadido anteriormente.");
+      Swap.fire("El producto ya ha sido añadido anteriormente.", "", "error");
     }
   }
 

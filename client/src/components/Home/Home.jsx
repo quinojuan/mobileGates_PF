@@ -97,7 +97,7 @@ export default function Home() {
 			);
 		} else {
 			if (!firstTime) {
-				Swat.fire('No se encontraron productos con su criterio de busqueda');
+				Swat.fire("No se encontraron productos con su criterio de busqueda", "", "warning");
 			}
 			return (
 				<div>
