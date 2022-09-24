@@ -14,47 +14,6 @@ import Swal from 'sweetalert2';
 
 export default function NavBar() {
   const [currentPage, setCurrentPage] = useState(1);
-  // const {user, logout, loading} = useAuth()
-  // const navigate = useNavigate()
-
-  // const handleLogout = async () => {
-  //   await logout()
-  //   navigate('/home/')
-
-  // }
-  // if (loading) {
-  //   return (
-  //     <div><Loading/></div>
-  //   )
-  // } else if (user){
-  //   return (
-  //     <nav>
-  //       <div>
-  //         <h1 classNameName='container-logo'>MóvilGates</h1>
-  //         <a href="/home" classNameName='container-nav'>Home</a>
-  //         <a href="#" classNameName='container-nav'>Productos</a>
-  //         <a href="#" classNameName='container-nav'>Quienes somos?</a>
-  //         <a href="#" classNameName='container-nav'> 🛒</a>
-  //         <h3 classNameName='container-nav'>Hola {user.email}</h3>
-  //         <button classNameName='container-nav' onClick={handleLogout}>Cerrar sesión</button>
-  //       </div>
-  //       <hr />
-  //     </nav>
-  //   )
-  // } else{
-  //   return (
-  //     <nav>
-  //       <div>
-  //         <h1 classNameName='container-logo'>MóvilGates</h1>
-  //         <a href="/home" classNameName='container-nav'>Home</a>
-  //         <a href="#" classNameName='container-nav'>Productos</a>
-  //         <a href="#" classNameName='container-nav'>Quienes somos?</a>
-  //         <a href="/home/login" classNameName='container-nav'>Ingresá | Registrate</a>
-  //       </div>
-  //       <hr />
-  //     </nav>
-  //   )
-  // }
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
   const [name, setName] = useState("");
@@ -117,21 +76,17 @@ export default function NavBar() {
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#" onClick={() => navigate("/products/Cart")}>Carrito 🛒</a>
                 </li>
-                <li className="nav-item">
-                  <h3 className='nav-link active text-white'>Hola, {user.email.split('@')[0]}</h3>
-                </li>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
+                <li class="nav-item dropdown">
+                  <div class="dropdown show">
+                    <a class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hola, {user.email.split('@')[0]}
                     </a>
-                    <ul className="dropdown-menu dropdown-menu-dark">
-                      <li><a className="dropdown-item" href="#">Action</a></li>
-                      <li><a className="dropdown-item" href="#">Another action</a></li>
-                      <li><a className="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                <li className="nav-item">
-                  <a className="nav-link active text-white" href="#" onClick={handleLogout}>Cerrar sesión</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Mi perfil</a>
+                      <a class="dropdown-item" href="/addproducts">Panel del admin</a>
+                      <a className="dropdown-item" href="#" onClick={handleLogout}>Cerrar sesión</a>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>

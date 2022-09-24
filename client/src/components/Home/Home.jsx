@@ -22,6 +22,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Paginado from '../Paginated/Paginated';
 import AddProducts from '../AddProducts/AddProducts';
+import Loading from '../Loading/Loading';
 import './Home.css';
 import Swat from 'sweetalert2';
 import Carousel from '../Carousel/Carousel';
@@ -100,7 +101,7 @@ export default function Home() {
 		if (loading) {
 			return (
 				<div>
-					<h1>Loading...</h1>
+					<div><Loading /></div>
 				</div>
 			);
 		} else {

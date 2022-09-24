@@ -51,7 +51,7 @@ export default function AddProducts() {
     }
 
     function handleSelectCapacity(e) {
-        if(!input.capacity.includes(e.target.value)){
+        if (!input.capacity.includes(e.target.value)) {
             setInput({
                 ...input,
                 capacity: [...input.capacity, e.target.value]
@@ -59,7 +59,7 @@ export default function AddProducts() {
         }
     }
 
-    let handleDeleteCapacity = (e) => {
+    function handleDeleteCapacity(e) {
         setInput({
             ...input,
             capacity: input.capacity.filter(el => el !== e)
@@ -67,7 +67,7 @@ export default function AddProducts() {
     }
 
     function handleSelectRAM(e) {
-        if(!input.ram.includes(e.target.value)){
+        if (!input.ram.includes(e.target.value)) {
             setInput({
                 ...input,
                 ram: [...input.ram, e.target.value]
@@ -75,11 +75,20 @@ export default function AddProducts() {
         }
     }
 
-    let handleDeleteRAM = (e) => {
+    function handleDeleteRAM(e) {
         setInput({
             ...input,
             ram: input.ram.filter(el => el !== e)
         })
+    }
+
+    function handlePrice(e){
+        if (!input.price.includes(e.target.value)) {
+            setInput({
+                ...input,
+                price: [...input.price, e.target.value]
+            })
+        }
     }
 
     function handleSubmit(e) {
@@ -142,19 +151,20 @@ export default function AddProducts() {
                                 {
                                     capacity?.map(el => {
                                         return (<option value={el.name} key={el.id}>{el.name}</option>)
-                                        
+
                                     })
                                 }
                             </select>
-                            <ul>
+                            <ul style={{ listStyle: 'none' }}>
                                 <li>
                                     {
                                         input.capacity.map(el =>
-                                            <div>
-                                                <h5>
+                                            <div class='mt-1'>
+                                                <span class="badge text-bg-dark">
                                                     {capacity?.find(p => p.name === el)?.name}
-                                                    <button onClick={() => handleDeleteCapacity(el)}>x</button>
-                                                </h5>
+                                                    {/* <button onClick={() => handleDeleteCapacity(el)}>x</button> */}
+                                                    <button type="button" onClick={() => handleDeleteCapacity(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                </span>
                                             </div>
                                         )
                                     }
@@ -173,19 +183,20 @@ export default function AddProducts() {
                                 {
                                     ram?.map(el => {
                                         return (<option value={el.name} key={el.id}>{el.name}</option>)
-                                        
+
                                     })
                                 }
                             </select>
-                            <ul>
+                            <ul style={{ listStyle: 'none' }}>
                                 <li>
                                     {
                                         input.ram.map(el =>
-                                            <div>
-                                                <h5>
+                                            <div class='mt-1'>
+                                                <span class="badge text-bg-dark">
                                                     {ram?.find(p => p.name === el)?.name}
-                                                    <button onClick={() => handleDeleteRAM(el)}>x</button>
-                                                </h5>
+                                                    {/* <button onClick={() => handleDeleteRAM(el)}>x</button> */}
+                                                    <button type="button" onClick={() => handleDeleteRAM(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                </span>
                                             </div>
                                         )
                                     }
@@ -254,7 +265,7 @@ export default function AddProducts() {
                         <div class="col">
                             <div class="input-group mb-3">
                                 <input type="text" name="price" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Añadir precio</button>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onChange={handlePrice}>Añadir precio</button>
                             </div>
                         </div>
                         <div class="col">
@@ -268,7 +279,7 @@ export default function AddProducts() {
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button type="button" class="btn btn-success">Añadir dispositivo</button>
+                        <button type="submit" class="btn btn-success" onChange={handleSubmit}>Añadir dispositivo</button>
                     </div>
                 </form>
             </div>
