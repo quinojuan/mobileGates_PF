@@ -50,7 +50,7 @@ export default function NavBar() {
             style={{ color: 'DodgerBlue' }}
           />
           <FontAwesomeIcon
-            icon={['fab', 'twitter']}
+            icon={["fa-brands fa-twitter" ]}
             className='h2 mr-4'
             style={{ color: 'DodgerBlue' }}
           />
