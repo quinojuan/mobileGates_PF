@@ -27,23 +27,24 @@ export default function Cards({
     <div class="container">
       <div class="row">
       <div class="card-colums">
-      <div class="card w-25 mx-auto">
+      <div class="card h-100 w-50 mx-auto bg-dark">
         <Link
           class="text-succes"
           key={id}
           to={`/products/${id}`}
         >
-          <img src={image} class="card-img-top img-fluid" height='250px' alt="img not found"></img>
+          <img src={image} style={{ height: '220px' }} class="card-img-top img-fluid bg-light"
+            alt="img not found"></img>
         </Link>
         <button className="stock">EN STOCK</button>
-        <div class="card-body">
+        <div class="card-body text-light">
           <h5 class="card-title text-decoration-none">
-            {brand} {model}
+            {brand} 
           </h5>
-          <h6 class="card-text">
+          <h6 class="lead">
           {inches + '" - '} {operative_system + ' -'} {capacity<10 ? capacity + "TB" : capacity + "GB"}
           </h6>
-          <div class="card-text">
+          <div class="card-title">
             <h3>{price > 999
                         ? "$" + parseFloat(price / 1000).toFixed(3)
                         : "$" + price}</h3>

@@ -118,7 +118,7 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#" onClick={()=> navigate("/products/Cart")}>Carrito 🛒</a>
                 </li>
                 <li className="nav-item">
-                  <h3 className='nav-link active text-white'>Hola {user.email}</h3>
+                <h3 className='nav-link active text-white'>Hola, {user.email.split('@')[0]}</h3>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#" onClick={handleLogout}>Cerrar sesión</a>
