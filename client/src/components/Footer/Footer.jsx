@@ -20,7 +20,8 @@ export default function NavBar() {
             Atención al cliente
           </h5>
           <p>0800-1234-0000</p>
-          <p>consultas@movilgates.com</p>
+          <p>movilgates@gmail.com</p>
+          
         </div>
       </div>
       <div className='col-md-3 d-flex'>
@@ -43,8 +44,11 @@ export default function NavBar() {
         <h5 className='text-uppercase font-weight-light text-light mb-3'>
         Términos y Condiciones
         </h5>
-        <div className=''>
-          <FontAwesomeIcon
+        
+        <i class="bi bi-instagram"></i>
+          <i class="bi bi-whatsapp"></i>
+          <i class="bi bi-github"></i>
+          {/* <FontAwesomeIcon
             icon={['fab', 'facebook']}
             className='h2 mr-4'
             style={{ color: 'DodgerBlue' }}
@@ -57,9 +61,9 @@ export default function NavBar() {
           <FontAwesomeIcon
             icon={['fab', 'instagram']}
             className='h2'
-            style={{ color: 'DodgerBlue' }}
-          />
-        </div>
+            style={{ color: 'DodgerBlue' }} */}
+          
+        
       </div>
       <p class="text-center text-muted text-light">Copyright © 2022 MóvilGates</p>
       <hr/>
