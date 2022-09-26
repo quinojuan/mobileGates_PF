@@ -36,6 +36,11 @@ module.exports = (sequelize) => {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 			},
+			id_transaction:{
+				type: DataTypes.TEXT,
+				unique: true,
+				allowNull: false,
+			  },
 			quantity: {
 				type: DataTypes.INTEGER,
 				defaultValue: 1,

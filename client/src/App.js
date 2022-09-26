@@ -11,6 +11,7 @@ import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import {IntlProvider} from 'react-intl'
 import Contact from './components/Contact/Contact';
 import FormPurchase from './components/FormPurchase/FormPurchase';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element = {<Landing/>} />
+        <Route exact path="/check" element = {<Checkout/>} />
         <Route exact path = '/products/Cart' element = {
           <ProtectedRoute>
           <Cart/>

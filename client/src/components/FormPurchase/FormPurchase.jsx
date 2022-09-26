@@ -5,6 +5,7 @@ import { getPurchase, postPurchase } from "../../redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
+import Checkout from "../Checkout/Checkout";
 
 
 export default function FormPurchase() {
@@ -86,11 +87,8 @@ export default function FormPurchase() {
         e.preventDefault()
         setErrors(validate(input));
         const errorSave = validate(input);
-        if(!input.email){
-            Swal.fire("Ingrese un email valido")
-        } else if(input.creditCard.length!==16){
-            Swal.fire("La tarjeta de credito debe tener 16 dígitos.")
-        } else if(input.dni.length!==8 || input.dni.length!==7){
+       
+        if(input.dni.length!==8 || input.dni.length!==7){
             Swal.fire("El DNI debe tener 7 u 8 digitos sin puntos.")
         } else if(!input.adress.length){
             Swal.fire("Debes completar tu dirección.")
@@ -110,6 +108,7 @@ export default function FormPurchase() {
                 birthday: "",
             })
             navigate("/home")
+
         }
 
 
@@ -130,34 +129,10 @@ export default function FormPurchase() {
                 <span>back</span>
             </Link>
 
+
             <form onSubmit={(e) => handleSubmit(e)} >
 
-                <label>Email</label>
-                <div>
-                    <input
-                        type="email"
-                        value={input.email}
-                        name="email"
-                        onChange={(e)=>handleChange(e)}
-                    />
-                    
-
-                </div>
-
-                <label>Tarjeta de credito</label>
-                <div>
-                    <input
-                        type="text"
-                        value={input.creditCard}
-                        name="creditCard"
-                        onChange={(e)=>handleChange(e)}
-                    />
-                    {
-                        errors.creditCard && (
-                            <p>{errors.creditCard}</p>
-                        )
-                    }
-                </div>
+               
 
                 <label>DNI</label>
                 <div>
@@ -210,7 +185,7 @@ export default function FormPurchase() {
                         {carts?.map((s)=>(<img src={s.image}/>))}
                     
                 </div>
-                <button type="submit" onSubmit={(e)=>handleSubmit(e)}>Comprar</button>
+                <button type="submit" onSubmit={(e)=>handleSubmit(e)}>SIGUIENTE</button>
 
             </form>
 
