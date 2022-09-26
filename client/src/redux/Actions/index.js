@@ -177,7 +177,7 @@ export const clearCart = ()=>{
 		
 	}
 }
-export async function getPurchase(){
+export function getPurchase(){
 	return async function (dispatch) {
         let json = await axios.get("http://localhost:3001/purchases");
         return dispatch({

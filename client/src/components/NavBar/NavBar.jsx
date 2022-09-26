@@ -81,7 +81,7 @@ export default function NavBar() {
       dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
       dispatch(setSearch(name.toLowerCase()));
     } else {
-      Swal.fire("Tienes que ingresar un producto a buscar");
+      Swal.fire("Tienes que ingresar un producto a buscar", "", "warning");
     }
     setCurrentPage(1);
   }
