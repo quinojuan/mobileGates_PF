@@ -16,6 +16,7 @@ const initialState = {
   rams: [],
   img: "",
   capacities: [],
+  price: [],
   searching: false,
   purchases: [],
   repeat: [],
@@ -198,7 +199,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state
       }
-    case "POST_PHONES":
+    case "POST_PRODUCTS":
       return {
         ...state
       }

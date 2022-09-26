@@ -82,7 +82,7 @@ export default function NavBar() {
                     Hola, {user.email.split('@')[0]}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="#">Mi perfil</a>
+                      {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
                       <a class="dropdown-item" href="/addproducts">Panel del admin</a>
                       <a className="dropdown-item" href="#" onClick={handleLogout}>Cerrar sesión</a>
                     </div>

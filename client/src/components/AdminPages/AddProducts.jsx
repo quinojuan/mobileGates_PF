@@ -15,6 +15,7 @@ export default function AddProducts() {
     const capacity = useSelector((state) => state.capacities)
     const ram = useSelector((state) => state.rams)
     const brand = useSelector((state) => state.categories)
+    const price = useSelector((state) => state.price)
 
     const [input, setInput] = useState({
         model: "",
@@ -77,6 +78,7 @@ export default function AddProducts() {
                 ram: [...input.ram, e.target.value]
             })
         }
+        console.log(input.ram)
     }
 
     function handleDeleteRAM(e) {
@@ -102,6 +104,8 @@ export default function AddProducts() {
                 price: [...input.price, e.target.value]
             })
         }
+        {console.log('el boton funciona')}
+        {console.log(input.price)}
     }
 
     function handleDeletePrice(e) {
@@ -164,7 +168,9 @@ export default function AddProducts() {
         }
 
         dispatch(postPhone(input))
-        Swal.fire("El dispositivo ha sido añadido con éxito!")
+        console.log(input)
+        console.log('creado con exito')
+        //Swal.fire("El dispositivo ha sido añadido con éxito!")
         setInput({
             model: "",
             brand: "",
@@ -182,8 +188,8 @@ export default function AddProducts() {
             capacity: [],
             price: []
         })
-        navigate("/home");
-        document.location.reload();
+        //navigate("/home");
+        //document.location.reload();
     }
 
     return (
@@ -334,23 +340,30 @@ export default function AddProducts() {
                     <div class="row mt-3">
                         <div class="col">
                             <div class="input-group mb-3">
-                                <input type="text" name="price" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onChange={handlePrice}>Añadir precio</button>
+                                <input type="text" name="price" onClick={() => handleChange()} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
 
-                                {/* <ul style={{ listStyle: 'none' }}>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(e) => handlePrice(e)}>Añadir precio</button>
+                                
+                                <ul style={{ listStyle: 'none' }}>
                                 <li>
                                     {
                                         input.price.map(el =>
                                             <div class='mt-1'>
+                                                {console.log('entro al map')}
+                                                {console.log(input.price)}
                                                 <span class="badge text-bg-dark">
                                                     {price?.find(p => p === el)}
+                                                    <h6>
+                                                        {el}
+                                                        {console.log(el)}
                                                     <button type="button" onClick={() => handleDeletePrice(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                    </h6>
                                                 </span>
                                             </div>
                                         )
                                     }
                                 </li>
-                            </ul> */}
+                            </ul>
                             </div>
                         </div>
                         <div class="col">
@@ -368,7 +381,7 @@ export default function AddProducts() {
                     </div>
                 </form>
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }
