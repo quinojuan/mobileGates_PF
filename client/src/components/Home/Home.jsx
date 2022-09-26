@@ -194,7 +194,7 @@ export default function Home() {
 					<option value="Z-A">Z-A</option>
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					onChange={(e) => handleSortByPrice(e)}
 				>
