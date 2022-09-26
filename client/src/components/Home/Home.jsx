@@ -12,7 +12,8 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
-	searching
+	searching,
+	getSortByPrice
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -42,7 +43,9 @@ export default function Home() {
 	const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
 	const currentProducts =
 		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
 	const search = useSelector((s) => s.search);
+	const [price, setPrice]= useState("")
 	//console.log(allProducts);
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
@@ -82,6 +85,12 @@ export default function Home() {
 	function handleSort(e) {
 		e.preventDefault();
 		dispatch(getSort(e.target.value));
+		setCurrentPage(1);
+		setOrden(`Ordenado ${e.target.value}`);
+	}
+	function handleSortByPrice(e){
+		e.preventDefault();
+		dispatch(getSortByPrice(e.target.value));
 		setCurrentPage(1);
 		setOrden(`Ordenado ${e.target.value}`);
 	}
@@ -183,6 +192,16 @@ export default function Home() {
 					<option hidden>Orden alfabético</option>
 					<option value="A-Z">A-Z</option>
 					<option value="Z-A">Z-A</option>
+				</select>
+				<select
+					class="form-select bg-dark text-light me-2"
+					aria-label="Default select example"
+					onChange={(e) => handleSortByPrice(e)}
+				>
+					<option hidden>Orden por precio</option>
+					<option value="value">Mayor a menor precio</option>
+					<option value="High to low">Menor a mayor precio</option>
+					
 				</select>
 			</div>
 			<div>

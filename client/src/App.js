@@ -15,6 +15,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import FormPurchase from './components/FormPurchase/FormPurchase';
+
+library.add(fab, faCheckSquare, faCoffee, fas)
 
 function App() {
   return (
@@ -29,11 +32,17 @@ function App() {
           <Cart/>
           </ProtectedRoute>
         }/>
+        <Route exact path="/purchase" element= {
+          <ProtectedRoute>
+          <FormPurchase/>
+          </ProtectedRoute>
+        }/>
         <Route exact path = '/home' element = {<Home/>}/>
         <Route path="/products/:id" element= {<DetailsPhone/>}/>
         <Route path="/home/login" element= {<Login/>}/>
         <Route path="/home/createuser" element= {<CreateUser/>}/>
         <Route path="/contacto" element= {<Contact/>}/>
+        
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
     </div>
