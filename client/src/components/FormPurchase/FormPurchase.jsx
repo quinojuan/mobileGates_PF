@@ -83,7 +83,6 @@ export default function FormPurchase() {
             Swal.fire("Debe completar con su fecha de nacimiento.")
         }
         if (Object.values(errorSave).length !== 0) {
-<<<<<<< HEAD
             Swal.fire("No pudimos realizar la compra, fijese los requisitos pedidos")
         } else  */
            // dispatch(postPurchase(input))
@@ -98,21 +97,6 @@ export default function FormPurchase() {
             dispatch(addInputPurchase(input))
             navigate("/check")
         
-=======
-            Swal.fire("Error al finalizar su compra. Verificar los datos ingresados")
-        } else {
-            dispatch(postPurchase(input))
-            Swal.fire("Compra realizada")
-            setInput({
-                email: "",
-                creditCard: "",
-                dni: "",
-                adress: "",
-                birthday: "",
-            })
-            navigate("/home")
-        }
->>>>>>> 16bc3356bcef34507b82bf3aeed10d6a7a1c82ab
     }
 
     useEffect(() => {
@@ -131,11 +115,6 @@ export default function FormPurchase() {
 
             <form onSubmit={(e) => handleSubmit(e)} >
 
-<<<<<<< HEAD
-               
-
-                <label>DNI</label>
-=======
                 {/* <label>Email</label>
                 <div>
                     <input
@@ -155,7 +134,7 @@ export default function FormPurchase() {
             </p>
             </div>
             </div>
-            <div className='col-md-12 mb-2 mt-5'>
+           {/*  <div className='col-md-12 mb-2 mt-5'>
                 <label>Tarjeta de credito</label>
                 <div>
                     <input
@@ -171,10 +150,9 @@ export default function FormPurchase() {
                         )
                     }
                 </div>
-                    </div>
+                    </div> */}
                     <div className='col-md-12 mb-2'>
                 <label >DNI</label>
->>>>>>> 16bc3356bcef34507b82bf3aeed10d6a7a1c82ab
                 <div>
                     <input
                         type="text"
@@ -221,26 +199,13 @@ export default function FormPurchase() {
                             <p>{errors.birthday}</p>
                         )
                     }
-<<<<<<< HEAD
-
-                </div>
-                <div>
-                    
-                        {carts?.map((s)=>(<img height="200px" width="200px" src={s.image}/>))}
-                    
-                </div>
-
-                <button type="submit" onSubmit={(e)=>handleSubmit(e)}>SIGUIENTE</button>
-
-=======
                 </div></div>
                 {/* <div className='row container w-25'>
                         {carts?.map((s)=>(<img src={s.image}/>))}
                 </div> */}
                 <div className='sendEmail'>
-                <button className='btn btn-primary' type="submit" onSubmit={(e)=>handleSubmit(e)}>Confirmar compra</button>
+                <button className='btn btn-primary' type="submit" onSubmit={(e)=>handleSubmit(e)}>Ir al metodo de pago</button>
                 </div>
->>>>>>> 16bc3356bcef34507b82bf3aeed10d6a7a1c82ab
             </form>
 
         
