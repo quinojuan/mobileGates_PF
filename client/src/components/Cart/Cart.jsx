@@ -6,23 +6,41 @@ import { getCart, deleteProductInCart, clearCart } from "../../redux/Actions";
 //import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function Cart() {
   let myCart = useSelector((state) => state.cart);
   //const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   useEffect(() => {
-    dispatch(getCart())
-    
-  }, [dispatch])
+    dispatch(getCart());
+  }, [dispatch]);
 
+  function acomodarPrecio(precio) {
+    let precioString = precio.toString();
+    let contador = 0;
+    let acumulador = [];
+    let acumuladorInvertido = []
+    for (let i = precioString.length - 1; i >= 0; i--) {
+      contador++;
+      if (contador === 3 && i>0) {
+        acumuladorInvertido.push(precioString[i]);
+        acumuladorInvertido.push(".");
+        contador = 0
+      } else {
+        acumuladorInvertido.push(precioString[i]);
+      }
+    }
+    for(let i=acumuladorInvertido.length - 1; i>=0;i--){
+      acumulador.push(acumuladorInvertido[i])
+    }
+    return acumulador.join("");
+  }
 
-
-  function handleClearCart(){
+  function handleClearCart() {
     dispatch(clearCart());
-    dispatch(getCart())
+    dispatch(getCart());
   }
 
   function handleSuma() {
@@ -31,8 +49,7 @@ export default function Cart() {
       suma += myCart[i].price[0];
     }
     console.log("SUMA:", suma);
-    suma = parseFloat(suma)/1000
-    return suma;
+    return acomodarPrecio(suma)
   }
   return (
     <div>
@@ -68,13 +85,17 @@ export default function Cart() {
               return (
                 <div>
                   <div key={p.id}>
-                    <img
-                      src={p.image}
-                      height="300px"
-                      width="300px"
-                      class="card-img-top"
-                      alt=""
-                    ></img>
+                    <Link to={`/products/${p.id}`}>
+                      <img
+                        src={p.image}
+                        height="300px"
+                        width="300px"
+                        class="card-img-top"
+                        alt=""
+                      ></img>
+                    </Link>
+                    <h2>{p.model}</h2>
+                    <h3>Precio: ${acomodarPrecio(p.price)}</h3>
                     <button
                       class="btn btn-danger"
                       onClick={() => dispatch(deleteProductInCart(p.id))}
@@ -84,19 +105,17 @@ export default function Cart() {
                   </div>
                   <div></div>
                 </div>
-                
               );
             })
-            
           ) : (
             <div>
               <h1>No se agregaron productos al carrito aun</h1>
             </div>
           )}
-        
-        {myCart.length>0 ?
-        (<button onClick={()=>handleClearCart()}>Limpiar carrito.</button>)
-        : null}
+
+          {myCart.length > 0 ? (
+            <button onClick={() => handleClearCart()}>Limpiar carrito.</button>
+          ) : null}
         </div>
       </div>
       <div>

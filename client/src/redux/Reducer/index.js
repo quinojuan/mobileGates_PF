@@ -184,7 +184,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         purchases: action.payload,
       };
-    
+    case "CLEAN_NULL":
+      return{
+        ...state,
+        cart:[]
+      }
     default:
       return state;
   }

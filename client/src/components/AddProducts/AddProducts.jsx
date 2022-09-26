@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { addToCart, getPurchaseRepeat, getCart } from "../../redux/Actions";
+import { addToCart, getPurchaseRepeat, getCart, cleanNull } from "../../redux/Actions";
 import style from "./AddProduct.module.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Context/authContext";
@@ -19,8 +19,7 @@ export default function AddProducts({ id }) {
   }, [dispatch]);
 
   function handleCart() {
-      
-      if (checkInCart()) {
+    if (checkInCart()) {
       dispatch(addToCart(product));
       Swap.fire("Éxito", "Producto agregado con exito.", "success");
     } else {
@@ -29,11 +28,16 @@ export default function AddProducts({ id }) {
   }
 
   function checkInCart() {
-    if (!cart.find(el=> el.id === product[0].id)) {
-      return true;
-    } else {
-      return false
-    }
+      if(cart[0]===null){
+        dispatch(cleanNull())
+        console.log("limpiando null");
+        checkInCart();
+      }
+    else if (!cart.find((el) => el.id === product[0].id)) {
+        return true;
+      } else {
+        return false;
+      }
   }
 
   if (user) {

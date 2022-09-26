@@ -195,3 +195,9 @@ export function postPurchase(payload) {
 
     }
 }
+
+export function cleanNull(){
+	return{
+		type: "CLEAN_NULL",
+	}
+}
