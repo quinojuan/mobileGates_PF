@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { postPhone, getCapacity, getRams } from "../../redux/Actions/index"
+import { postPhone, getCapacity, getRams, getCategories } from "../../redux/Actions/index"
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from "react-router-dom";
 
@@ -14,6 +14,7 @@ export default function AddProducts() {
 
     const capacity = useSelector((state) => state.capacities)
     const ram = useSelector((state) => state.rams)
+    const brand = useSelector((state) => state.categories)
 
     const [input, setInput] = useState({
         model: "",
@@ -22,14 +23,13 @@ export default function AddProducts() {
         size: "",
         cpu: "",
         image: "",
-        desciption: "",
+        description: "",
         inches: 0,
         main_camera: 0,
         frontal_camera: 0,
         weight: 0,
         battery: 0,
         ram: [],
-        colors: [],
         capacity: [],
         price: []
     })
@@ -41,6 +41,10 @@ export default function AddProducts() {
 
     useEffect(() => {
         dispatch(getRams())
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getCategories())
     }, [dispatch])
 
     function handleChange(e) {
@@ -82,6 +86,15 @@ export default function AddProducts() {
         })
     }
 
+    function handleSelectBrands(e) {
+        if (!input.brand.includes(e.target.value)) {
+            setInput({
+                ...input,
+                brand: [...input.ram, e.target.value]
+            })
+        }
+    }
+
     function handlePrice(e){
         if (!input.price.includes(e.target.value)) {
             setInput({
@@ -91,7 +104,64 @@ export default function AddProducts() {
         }
     }
 
+    function handleDeletePrice(e) {
+        setInput({
+            ...input,
+            price: input.price.filter(el => el !== e)
+        })
+    }
+
     function handleSubmit(e) {
+
+        if (!input.brand.length) {
+            e.preventDefault();
+            return Swal.fire("Debe seleccionar al menos una marca del dispositivo")
+        } else if (!input.model.length) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar el modelo del dispositivo')
+        } else if (input.image.length === 0){
+            e.preventDefault();
+            return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
+        }else if(!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar una URL válida')
+        } else if(!input.operative_system.length){
+            e.preventDefault();
+            return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
+        }else if(!input.size.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el tamaño del dispositivo')
+        }else if(!input.inches.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar las pulgadas del dispositivo')
+        }else if(!input.main_camera.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar los pixeles de la cámara trasera')
+        }else if(!input.frontal_camera.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar los pixeles de la cámara frontal')
+        }else if(!input.weight.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el peso del dispositivo')
+        }else if(!input.ram.length){
+            e.preventDefault();
+            return Swal.fire('Debes seleccionar al menos una memoria RAM')
+        }else if(!input.capacity.length){
+            e.preventDefault();
+            return Swal.fire('Debes seleccionar al menos una capacidad de almacenamiento')
+        }else if(!input.battery.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el tamaño de la bateria')
+        }else if(!input.cpu.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el modelo del procesador')
+        }else if(!input.price.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el precio del dispositivo')
+        }else if(!input.description.length){
+            e.preventDefault();
+            return Swal.fire('Debes ingresar la descripción del dispositivo')
+        }
 
         dispatch(postPhone(input))
         Swal.fire("El dispositivo ha sido añadido con éxito!")
@@ -102,14 +172,13 @@ export default function AddProducts() {
             size: "",
             cpu: "",
             image: "",
-            desciption: "",
+            description: "",
             inches: 0,
             main_camera: 0,
             frontal_camera: 0,
             weight: 0,
             battery: 0,
             ram: [],
-            colors: [],
             capacity: [],
             price: []
         })
@@ -126,7 +195,15 @@ export default function AddProducts() {
                     <div class="row mt-3">
                         <div class="col">
                             <label for="formFile" class="form-label">Marca</label>
-                            <input type="text" name="brand" onChange={handleChange} class="form-control" placeholder="Por ejemplo: Samsung" aria-label="First name"></input>
+                            <select class="form-select" onChange={(e) => handleSelectBrands(e)} aria-label="Default select example">
+                                <option value="" hidden name="brand">Elegí la marca</option>
+                                {
+                                    brand?.map(el => {
+                                        return (<option value={el} key={el}>{el}</option>)
+
+                                    })
+                                }
+                            </select>
                         </div>
                         <div class="col">
                             <label for="formFile" class="form-label">Modelo</label>
@@ -141,16 +218,11 @@ export default function AddProducts() {
                         <div class="col">
                             <label for="customRange3" class="form-label">Capacidad de almacenamiento</label>
                             <select class="form-select" onChange={(e) => handleSelectCapacity(e)} aria-label="Default select example">
-                                {/* <option value="32" name="capacity">32GB</option>
-                                <option value="64" name="capacity">64GB</option>
-                                <option value="128" name="capacity">128GB</option>
-                                <option value="256" name="capacity">256GB</option>
-                                <option value="512" name="capacity">512GB</option>
-                                <option value="1" name="capacity">1TB</option> */}
-                                <option value="" hidden name="capacity"></option>
+                                <option value="" hidden name="capacity">Elegí la capacidad</option>
                                 {
                                     capacity?.map(el => {
-                                        return (<option value={el.name} key={el.id}>{el.name}</option>)
+                                        return (<option value={el} key={el}>{el}</option>)
+                                        
 
                                     })
                                 }
@@ -161,9 +233,10 @@ export default function AddProducts() {
                                         input.capacity.map(el =>
                                             <div class='mt-1'>
                                                 <span class="badge text-bg-dark">
-                                                    {capacity?.find(p => p.name === el)?.name}
-                                                    {/* <button onClick={() => handleDeleteCapacity(el)}>x</button> */}
+                                                    {capacity?.find(p => p === el)}
+                                                    <h6>{el}
                                                     <button type="button" onClick={() => handleDeleteCapacity(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                    </h6>
                                                 </span>
                                             </div>
                                         )
@@ -174,15 +247,10 @@ export default function AddProducts() {
                         <div class="col">
                             <label for="customRange3" class="form-label">Memoria RAM</label>
                             <select class="form-select" onChange={(e) => handleSelectRAM(e)} aria-label="Default select example">
-                                {/* <option value="3" name="ram">3GB</option>
-                                <option value="4" name="ram">4GB</option>
-                                <option value="6" name="ram">6GB</option>
-                                <option value="8" name="ram">8GB</option>
-                                <option value="12" name="ram">12GB</option> */}
-                                <option value="" hidden name="ram"></option>
+                                <option value="" hidden name="ram">Elegí la memoria</option>
                                 {
                                     ram?.map(el => {
-                                        return (<option value={el.name} key={el.id}>{el.name}</option>)
+                                        return (<option value={el} key={el}>{el}</option>)
 
                                     })
                                 }
@@ -193,9 +261,11 @@ export default function AddProducts() {
                                         input.ram.map(el =>
                                             <div class='mt-1'>
                                                 <span class="badge text-bg-dark">
-                                                    {ram?.find(p => p.name === el)?.name}
-                                                    {/* <button onClick={() => handleDeleteRAM(el)}>x</button> */}
+                                                    {ram?.find(p => p === el)}
+                                                    <h6>
+                                                        {el}
                                                     <button type="button" onClick={() => handleDeleteRAM(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                    </h6>
                                                 </span>
                                             </div>
                                         )
@@ -243,7 +313,7 @@ export default function AddProducts() {
                             <input type="text" name="image" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    {/* <div class="row mt-3">
                         <label for="formFile" class="form-label">Imagenes adicionales</label>
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
@@ -260,12 +330,27 @@ export default function AddProducts() {
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
-                    </div>
+                    </div> */}
                     <div class="row mt-3">
                         <div class="col">
                             <div class="input-group mb-3">
                                 <input type="text" name="price" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2" onChange={handlePrice}>Añadir precio</button>
+
+                                {/* <ul style={{ listStyle: 'none' }}>
+                                <li>
+                                    {
+                                        input.price.map(el =>
+                                            <div class='mt-1'>
+                                                <span class="badge text-bg-dark">
+                                                    {price?.find(p => p === el)}
+                                                    <button type="button" onClick={() => handleDeletePrice(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                </span>
+                                            </div>
+                                        )
+                                    }
+                                </li>
+                            </ul> */}
                             </div>
                         </div>
                         <div class="col">
@@ -279,11 +364,11 @@ export default function AddProducts() {
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-success" onChange={handleSubmit}>Añadir dispositivo</button>
+                        <button type="submit" class="btn btn-success" onClick={(e) => handleSubmit(e)}>Añadir dispositivo</button>
                     </div>
                 </form>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

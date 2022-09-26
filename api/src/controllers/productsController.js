@@ -144,8 +144,7 @@ const postPhone = async (req, res) => {
 			price &&
 			image &&
 			cpu &&
-			description &&
-			colors
+			description 
 		) {
 			const validation = await Phones.findOne({ where: { model: model } });
 			if (validation === null) {
@@ -160,8 +159,8 @@ const postPhone = async (req, res) => {
 					capacity,
 					frontal_camera,
 					weight,
-					colors,
 					battery,
+					colors,
 					price,
 					image,
 					cpu,
@@ -200,7 +199,7 @@ const postPhone = async (req, res) => {
 					brand: phoneWithBrand.Brands[0].name
 				}
 				//erik cuando veas esto, y digas "KE HORRIBLE KE ASKO", 
-				//bueno, tenes razon. es horrible. pero funca xd te amamos, los del back <3
+				//bueno, tenes razon. es horrible. pero funca xd te amamos, los del back ❤️
 				presentacion
 					? res.status(201).json(presentacion)
 					: res.status(404).json({ message: 'Error /post product' });
@@ -215,7 +214,6 @@ const postPhone = async (req, res) => {
 		res.status(500).json({ message: 'Server error' });
 	}
 };
-
 
 
 module.exports = {

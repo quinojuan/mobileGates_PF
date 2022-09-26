@@ -209,7 +209,7 @@ export function getPurchaseRepeat(payload){
 
 export function postPhone(payload) {
     return async function (dispatch) {
-        const json = await axios.post("http://localhost:3001/phones", payload)
+        const json = await axios.post("http://localhost:3001/products", payload)
         return json
     }
 }
