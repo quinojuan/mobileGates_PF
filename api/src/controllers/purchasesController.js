@@ -16,12 +16,13 @@ const getAllPurchases = async (req, res) => {
             
          
 
-		  let presentacion = allPurchases.map(({dni,adress,birthday,creditCard,Users, Phones})=>{
+		  let presentacion = allPurchases.map(({dni,adress,birthday,creditCard,amount,Users, Phones})=>{
 			return {
 				dni,
 				adress,
 				birthday,
 				creditCard,
+				amount,
 				email: Users[0].email,
 				products: Phones[0].model
 			  } 
@@ -38,12 +39,13 @@ const getAllPurchases = async (req, res) => {
 
 const postPurchase = async (req, res) =>{
 	try{
-		const {dni, adress, birthday, creditCard, email, products } = req.body
+		const {dni, adress, birthday, creditCard, amount, email, products } = req.body
 		let newPurchase = await Purchases.create({
 			dni,
 			adress,
 			birthday,
 			creditCard,
+			amount,
 			email
 		})
 
@@ -73,6 +75,7 @@ const postPurchase = async (req, res) =>{
 		adress,
 		birthday,
 		creditCard,
+		amount,
 		email: purchaseWithUser.Users[0].email,
 		products: purchaseWithPhone.Phones[0].model
 	  } 
