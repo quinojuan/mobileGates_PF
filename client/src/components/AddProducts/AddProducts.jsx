@@ -33,7 +33,7 @@ export default function AddProducts({ id }) {
         console.log("limpiando null");
         checkInCart();
       }
-    else if (!cart.find((el) => el.id === product[0].id)) {
+    else if (!cart.find((el) => el.id === product[0].id) || !cart.find(el=>el.price === product[0].price)) {
         return true;
       } else {
         return false;
@@ -42,13 +42,15 @@ export default function AddProducts({ id }) {
 
   if (user) {
     return (
+      <div class='mb-3' >
       <button
         type="button"
-        class="btn btn-outline-success btn-sm"
+        class="btn btn-primary "
         onClick={() => handleCart()}
-      >
+        >
         Agregar al Carrito
-      </button>
+        </button>
+        </div>
     );
   } else {
     return <h1>Inicia sesión para poder realizar la compra</h1>;

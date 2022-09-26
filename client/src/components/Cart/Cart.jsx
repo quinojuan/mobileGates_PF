@@ -2,17 +2,16 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getCart, deleteProductInCart, clearCart } from "../../redux/Actions";
-//import { useNavigate } from "react-router-dom";
-//import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 
 export default function Cart() {
   let myCart = useSelector((state) => state.cart);
-  //const navigate = useNavigate();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getCart());
   }, [dispatch]);
@@ -38,6 +37,7 @@ export default function Cart() {
     return acumulador.join("");
   }
 
+
   function handleClearCart() {
     dispatch(clearCart());
     dispatch(getCart());
@@ -52,80 +52,77 @@ export default function Cart() {
     return acomodarPrecio(suma)
   }
   return (
-    <div>
-      <NavBar />
-      <div
-        className="container"
-        style={{
-          maxWidth: "540px",
-          alignItems: "center",
-          display: "flex",
-          position: "relative",
-        }}
-      >
-        {myCart.length > 0 ? (
-          <button>
-            <Link to="/purchase">Comprar</Link>
-          </button>
-        ) : null}
-
-        <div
-          class="card"
-          style={{
-            maxWidth: "540px",
-            alignItems: "center",
-            display: "flex",
-            position: "relative",
-            width: "80%",
-            height: "100%",
-          }}
-        >
+    <div >
+      <NavBar/>
+      <h1 class='mt-3'>
+        <FontAwesomeIcon
+          icon={['fas', 'shopping-cart']}
+          style={{ marginRight: '20px' }}
+        />
+        Carrito de compras
+      </h1>
+      <hr />
+      <div className="container mt-5 ms-auto me-auto w-100" >
+        
           {myCart.length > 0 ? (
             myCart?.map((p) => {
               return (
-                <div>
-                  <div key={p.id}>
+                <div class='container' style={{ minHeight: '50px' }}>
+                  {/* <div class='col lg-8' key={p.id}> */}
+                  <div className='card mt-1 p-1 w-50' key={p.id}>
+                    {/* <div class='col-md-20 ms-2 ' style={{ maxHeight: '700px'}}> */}
+                    <div className='row container' >
+                    <div className='col-md-4'>
                     <Link to={`/products/${p.id}`}>
-                      <img
-                        src={p.image}
-                        height="300px"
-                        width="300px"
-                        class="card-img-top"
-                        alt=""
-                      ></img>
+                    <img src={p.image} class="card-img w-100"alt=""/>
                     </Link>
-                    <h2>{p.model}</h2>
-                    <h3>Precio: ${acomodarPrecio(p.price)}</h3>
+                    </div>
+                  <div className='col-md-5'>
+                  <div className='card-body'>
+                    <h5 className='card-title'>{p.brand}{p.model}</h5>
+                    <p className='card-text'>
+                      {p.description.slice(0, 50) + '...'}
+                    </p>
+                  </div>
+                </div>
                     <button
-                      class="btn btn-danger"
+                      class="btn btn-danger btn-sm w-50 mx-auto"
                       onClick={() => dispatch(deleteProductInCart(p.id))}
-                    >
+                      >
                       Quitar del carrito
                     </button>
                   </div>
-                  <div></div>
+                  </div>
                 </div>
               );
             })
-          ) : (
-            <div>
-              <h1>No se agregaron productos al carrito aun</h1>
+            ) : (
+              <div class="alert alert-success mt-2 ms-5">
+              <h3 class="alert-heading">¡No se agregaron productos al carrito aun!</h3>
             </div>
           )}
-
-          {myCart.length > 0 ? (
-            <button onClick={() => handleClearCart()}>Limpiar carrito.</button>
-          ) : null}
+      </div>
+      <div className='col-md-5 p-5 position-absolute top-50 start-50'>
+      <div className='sticky-top'>
+        <h3 class="">Resumen</h3>
+        <hr />
+        <h4 class='mt-3'>Costo total: ${handleSuma()}</h4>
+            {myCart.length > 0 ? (
+              <button class='btn btn-primary w-50'>
+                <Link class='text-decoration-none text-light' to="/purchase">Comprar</Link>
+              </button>
+            ) : null}
+            {myCart.length > 0 ? (
+              <button onClick={() => handleClearCart()}>Limpiar carrito.</button>
+            ) : null}
         </div>
-      </div>
-      <div>
-        <h4>Costo total: ${handleSuma()}</h4>
-      </div>
-      <div>
+        </div>
+        
+      {/* <div>
         <Link to="/home" class="btn btn-dark" style={{ alignItems: "center" }}>
-          Volver
+        Volver
         </Link>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
