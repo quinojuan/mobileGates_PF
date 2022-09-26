@@ -18,6 +18,8 @@ const initialState = {
   capacities: [],
   searching: false,
   purchases:[],
+  inputPurchase: {},
+  getCheckout: {},
   repeat:[],
   repetido: false
 };
@@ -194,10 +196,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: [],
       };
-      case "POST_PURCHASES":
-        return{
-          ...state
-        }
       case "GET_PURCHASES":
         return{
           ...state,
@@ -214,6 +212,12 @@ function rootReducer(state = initialState, action) {
           ...state,
           repetido: false
         }
+        case "ADD_INPUT_PURCHASE":
+          return{
+            ...state,
+            inputPurchase: action.payload
+          }
+      
         
     default:
       return state;

@@ -1,15 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getPurchase, postPurchase } from "../../redux/Actions";
+import { getPurchase, addInputPurchase } from "../../redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
-import Checkout from "../Checkout/Checkout";
-
+import { useAuth } from '../Context/authContext';
 
 export default function FormPurchase() {
-
+    const { user } = useAuth()
 
     // Validates 
 
@@ -54,11 +53,11 @@ export default function FormPurchase() {
     let navigate = useNavigate();
     const [errors, setErrors] = useState({})
     const [input, setInput] = useState({
-        email: "",
-        creditCard: "",
         dni: "",
         adress: "",
         birthday: "",
+        email: user.email,
+        products: carts
     })
 
     const handleChange = (e) => {
@@ -83,11 +82,10 @@ export default function FormPurchase() {
     // }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        setErrors(validate(input));
-        const errorSave = validate(input);
-       
+       // setErrors(validate(input));
+       /*  const errorSave = validate(input);
         if(input.dni.length!==8 || input.dni.length!==7){
             Swal.fire("El DNI debe tener 7 u 8 digitos sin puntos.")
         } else if(!input.adress.length){
@@ -97,23 +95,19 @@ export default function FormPurchase() {
         }
         if (Object.values(errorSave).length !== 0) {
             Swal.fire("No pudimos realizar la compra, fijese los requisitos pedidos")
-        } else {
-            dispatch(postPurchase(input))
-            Swal.fire("Compra realizada")
-            setInput({
-                email: "",
-                creditCard: "",
-                dni: "",
-                adress: "",
-                birthday: "",
+        } else  */
+           // dispatch(postPurchase(input))
+           // Swal.fire("Compra realizada")
+           setInput({
+               dni: "",
+               adress: "",
+               birthday: "",
+               email: user.email,
+               products: carts
             })
-            navigate("/home")
-
-        }
-
-
-
-
+            dispatch(addInputPurchase(input))
+            navigate("/check")
+        
     }
 
     useEffect(() => {
@@ -182,9 +176,10 @@ export default function FormPurchase() {
                 </div>
                 <div>
                     
-                        {carts?.map((s)=>(<img src={s.image}/>))}
+                        {carts?.map((s)=>(<img height="200px" width="200px" src={s.image}/>))}
                     
                 </div>
+
                 <button type="submit" onSubmit={(e)=>handleSubmit(e)}>SIGUIENTE</button>
 
             </form>

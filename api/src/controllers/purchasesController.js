@@ -14,14 +14,11 @@ const getAllPurchases = async (req, res) => {
 			],
 		  }));
             
-         
-
-		  let presentacion = allPurchases.map(({dni,adress,birthday,creditCard,amount,Users, Phones})=>{
+		  let presentacion = allPurchases.map(({dni,adress,birthday,amount,Users, Phones})=>{
 			return {
 				dni,
 				adress,
 				birthday,
-				creditCard,
 				amount,
 				email: Users[0].email,
 				products: Phones[0].model
@@ -39,16 +36,15 @@ const getAllPurchases = async (req, res) => {
 
 const postPurchase = async (req, res) =>{
 	try{
-		const {dni, adress, birthday, creditCard, amount, email, products } = req.body
+		const {dni, adress, birthday, amount, email, products, transaction } = req.body
 		let newPurchase = await Purchases.create({
 			dni,
 			adress,
 			birthday,
-			creditCard,
 			amount,
-			email
+			id_transaction: transaction
 		})
-
+        //console.log(req.body, "a ver que llega por body")
 		//console.log(newPurchase, "LA COMPRITA")
 
 		let myUser = await Users.findOne({ where: { email: email } })
@@ -58,11 +54,9 @@ const postPurchase = async (req, res) =>{
 				model: Users
 			}]
 		})
-
 	   // console.log(myUser.dataValues, "UUUSER")
-
-	    let myPhone = await Phones.findOne({where:{ model: products}})
-		
+    
+	    let myPhone = await Phones.findOne({where:{ model: products[0].model}})
 	    await newPurchase.addPhones(myPhone.dataValues.id)
 	    const purchaseWithPhone = await Purchases.findByPk(newPurchase.id,{
 		  include:[{
@@ -74,8 +68,8 @@ const postPurchase = async (req, res) =>{
 		dni,
 		adress,
 		birthday,
-		creditCard,
 		amount,
+		id_transaction: transaction,
 		email: purchaseWithUser.Users[0].email,
 		products: purchaseWithPhone.Phones[0].model
 	  } 

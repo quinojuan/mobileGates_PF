@@ -69,13 +69,13 @@ module.exports = (sequelize) => {
 			type: DataTypes.TEXT, // si ponemos un String no son suficientes 256ch
 			allowNull: false,
 		},
-		stock: {
+	 	stock: {
 			type: DataTypes.INTEGER,
 			defaultValue: 30,
-		},
-		active: {
+		}, 
+		 active: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: true,
-		},
+		}, 
 	});
 };
