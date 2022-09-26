@@ -16,13 +16,13 @@ const getAllPurchases = async (req, res) => {
             
          
 
-		  let presentacion = allPurchases.map(({dni,adress,birthday,creditCard,email, Users, Phones})=>{
+		  let presentacion = allPurchases.map(({dni,adress,birthday,creditCard,Users, Phones})=>{
 			return {
 				dni,
 				adress,
 				birthday,
 				creditCard,
-				email: Users[0].username,
+				email: Users[0].email,
 				products: Phones[0].model
 			  } 
 			  
@@ -73,8 +73,7 @@ const postPurchase = async (req, res) =>{
 		adress,
 		birthday,
 		creditCard,
-		email,
-		user: purchaseWithUser.Users[0].username,
+		email: purchaseWithUser.Users[0].email,
 		products: purchaseWithPhone.Phones[0].model
 	  } 
 	  res.status(200).json(presentacion)
