@@ -12,7 +12,7 @@ import { getProductsByNameAndFilters, setSearch } from "../../redux/Actions";
 import Swal from "sweetalert2";
 
 export default function NavBar() {
-  const [currentPage, setCurrentPage] = useState(1);
+  
   // const {user, logout, loading} = useAuth()
   // const navigate = useNavigate()
 
@@ -59,7 +59,16 @@ export default function NavBar() {
   const [name, setName] = useState("");
   const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
-
+  const allProducts = useSelector((state) => state.products);
+  const [currentPage, setCurrentPage] = useState(1);
+	const [productsPerPage, setProductsPerPage] = useState(9);
+	const indexOfLastRecipe = currentPage * productsPerPage;
+	const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
+	const currentProducts =
+		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe)
+    const paginado = (pageNumber) => {
+      setCurrentPage(pageNumber)
+  }
   const handleLogout = async () => {
     await logout();
     navigate("/home/");
@@ -106,7 +115,9 @@ export default function NavBar() {
             </h1> */}
             <SearchBar
               currentPage={currentPage}
+              
               setCurrentPage={setCurrentPage}
+              Paginado={paginado}
               weAreInHome={false}
             />
             <div className="collapse navbar-collapse" id="navbarNav">

@@ -48,6 +48,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         details: {},
       };
+    
 
     case "SEARCH_NAME":
       return {
