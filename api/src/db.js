@@ -45,6 +45,11 @@ Faltarían las relaciones de Feedbacks
 -Los feedbacks están escritos por los usuarios
 
 */
+Feedbacks.belongsToMany(Phones, { through: 'PhoneFeedbacks', foreignKey: 'FeedbacksId' });
+Phones.belongsToMany(Feedbacks, { through: 'PhoneFeedbacks', foreignKey: 'PhoneId' });
+Feedbacks.belongsToMany(Users, { through: 'UsersFeedbacks', foreignKey: 'FeedbacksId' });
+Users.belongsToMany(Feedbacks, { through: 'UsersFeedbacks', foreignKey: 'UsersId' });
+
 Brand.belongsToMany(Phones, { through: 'PhoneBrand', foreignKey: 'BrandId' });
 Phones.belongsToMany(Brand, { through: 'PhoneBrand', foreignKey: 'PhoneId' });
 Purchases.belongsToMany(Users, {

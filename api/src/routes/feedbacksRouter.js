@@ -2,14 +2,14 @@ const { Router } = require('express');
 const router = Router();
 const {
 	getAllFeedbacks,
-	updateFeedback,
+	//updateFeedback,
 	postFeedback,
-	deleteFeedback,
+	//deleteFeedback,
 } = require('../controllers/feedbacksController');
 
 router.get('/', getAllFeedbacks);
-router.put('/', updateFeedback);
+//router.put('/', updateFeedback);
 router.post('/', postFeedback);
-router.delete('/:id', deleteFeedback);
+//router.delete('/:id', deleteFeedback);
 
 module.exports = router;

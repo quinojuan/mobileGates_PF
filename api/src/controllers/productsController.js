@@ -144,8 +144,7 @@ const postPhone = async (req, res) => {
 			price &&
 			image &&
 			cpu &&
-			description &&
-			colors
+			description 
 		) {
 			const validation = await Phones.findOne({ where: { model: model } });
 			if (validation === null) {
@@ -160,8 +159,8 @@ const postPhone = async (req, res) => {
 					capacity,
 					frontal_camera,
 					weight,
-					colors,
 					battery,
+					colors,
 					price,
 					image,
 					cpu,

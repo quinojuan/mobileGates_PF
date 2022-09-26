@@ -33,23 +33,20 @@ const getUserById = async(req, res) =>{
 
 const createUser = async(req, res) =>{
     try{
-
-        let {email, password, name, username} = req.body;
-        if(!email || !password|| !username) return res.status(404).json({message: 'id is not provided'});
+        let {email, password} = req.body;
+        if(!email || !password) return res.status(404).json({message: 'id is not provided'});
 
         const validation = await Users.findOne({where: {email: email}});
-        const validation2 = await Users.findOne({where: {username: username}})
-        if(validation && validation2){
+        if(validation){
             return res.status(404).json({message: 'user already exists'});
         }else{
             //aca se hashea la clave
             password = bCrypt.hashSync(password, 10)
-            const newUser = await Users.create({email, name, password, username});
-            return res.status(201).json({message: `${newUser.username} created! :D`});
+            const newUser = await Users.create({email, password});
+            return res.status(201).json({message: `${newUser.email} created! :D`});
         };
     }catch(e){
         console.log(e);
-		
         res.status(500).json({ message: 'Server error' });  
     };
 };
