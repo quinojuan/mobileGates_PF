@@ -42,6 +42,9 @@ const checkoOut = async (req, res) =>{
  const getCheckout = async (req, res) => {
     try{
         //console.log(idCheck, "ID EN EL GET")
+        //transaction
+        //amount
+        //status
         const check = await Checkout.findByPk(idCheck);
         res.status(201).json(check);  
     }catch(e){
