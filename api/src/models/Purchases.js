@@ -32,7 +32,15 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(10),
         allowNull: false
       },
-    
+      id_transaction:{
+        type: DataTypes.TEXT,
+        unique: true,
+        allowNull: false,
+      },
+      quantity:{
+        type: DataTypes.INTEGER,
+        defaultValue: 1
+      }
       },
     {
       freezeTableName: true, 
