@@ -14,9 +14,10 @@ const getAllFeedbacks = async (req, res) => {
 			  }
 			],
 		  }))
-		let presentacion = allFeedbacks.map(({comment, title, points, Phones, Users})=>{
+		let presentacion = allFeedbacks.map(({id, comment, title, points, Phones, Users})=>{
 			console.log(Users)
 			return {
+				id,
 				comment,
 				title,
 				points,
@@ -33,14 +34,23 @@ const getAllFeedbacks = async (req, res) => {
 	}
 };
 
-/* const updateFeedback = (req, res) => {
-	const { id } = req.query;
-	try {
-		//
+ const updateFeedback = async (req, res) => {
+	 try {
+		 const { id } = req.params;
+		 console.log(id, "IDDD")
+		//console.log(req.body, "BODY")
+		let [feedback] = await Feedbacks.update(req.body, {where: {id}})
+		console.log(feedback, "FEED")
+		if(feedback){
+			res.status(201).json(feedback)
+		} else{
+			res.status(404).json({message: 'Error /put feedbacks'})
+		}
 	} catch (e) {
 		console.log(e);
+		res.status(500).json({message: 'Error missing info'})
 	}
-};  */
+};  
 
 const postFeedback = async (req, res) => {
 	try {
@@ -108,7 +118,7 @@ const postFeedback = async (req, res) => {
 
 module.exports = {
 	getAllFeedbacks,
-	//updateFeedback,
+	updateFeedback,
 	postFeedback,
 	//deleteFeedback,
 };

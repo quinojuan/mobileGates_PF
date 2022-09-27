@@ -10,7 +10,15 @@ import { AuthProvider } from './components/Context/authContext';
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import {IntlProvider} from 'react-intl'
 import Contact from './components/Contact/Contact';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import FormPurchase from './components/FormPurchase/FormPurchase';
+import Checkout from './components/Checkout/Checkout';
+
+library.add(fab, faCheckSquare, faCoffee, fas)
 
 function App() {
   return (
@@ -20,6 +28,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element = {<Landing/>} />
+        <Route exact path="/check" element = {<Checkout/>} />
         <Route exact path = '/products/Cart' element = {
           <ProtectedRoute>
           <Cart/>
@@ -35,6 +44,8 @@ function App() {
         <Route path="/home/login" element= {<Login/>}/>
         <Route path="/home/createuser" element= {<CreateUser/>}/>
         <Route path="/contacto" element= {<Contact/>}/>
+    
+
         
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>

@@ -211,8 +211,9 @@ export function getPurchase(){
 
 export function postPurchase(payload) {
     return async function (dispatch) {
-        const json = await axios.post("http://localhost:3001/purchases", payload)
-        return json;
+		console.log(payload, "ACTION DE POSTPURCHASE")
+        const purchase = await axios.post("http://localhost:3001/purchases", payload)
+        return purchase
 
     }
 }
@@ -222,3 +223,14 @@ export function getPurchaseRepeat(payload){
 		payload
 	}
 }
+
+export function addInputPurchase(payload){
+	return function(dispatch){
+		return dispatch({
+			type: "ADD_INPUT_PURCHASE",
+			payload,
+		})
+	}
+}
+
+

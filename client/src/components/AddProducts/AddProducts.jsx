@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from '../Context/authContext';
 import Swap from "sweetalert2"
 
+
 export default function AddProducts({id}){
     
     const dispatch=useDispatch()
@@ -30,9 +31,9 @@ export default function AddProducts({id}){
     }
     if(user){
     return (
-        
-            <button type="button" class='btn btn-outline-success btn-sm' onClick={()=>handleCart()}>Agregar al Carrito</button>
-        
+            <div class='mb-3' >
+            <button type="button" class=' btn btn-primary ' onClick={()=>handleCart()}>Agregar al Carrito</button>
+            </div>
     )
 } else {
     return (

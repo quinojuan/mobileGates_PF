@@ -32,6 +32,7 @@ export default function DetailsPhone(props) {
   }
   return (
     <div>
+      <NavBar/>
       {
         <div>
           <div
