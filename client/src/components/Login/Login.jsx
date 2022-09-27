@@ -15,7 +15,7 @@ export default function Login() {
         password: ''
     })
 
-    const { login, loginWithGoogle, resetPassword } = useAuth();
+    const { login, loginWithGoogle, resetPassword, verification } = useAuth();
 
     const navigate = useNavigate()
 
@@ -28,21 +28,26 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setError('')
-        try {
-            await login(user.email, user.password)
-            navigate('/home/')
-            Swal.fire("Inicio exitoso");
-        } catch (error) {
-            // setError(error.message)
-            console.log(error.code)
-            if (error.code === "auth/invalid-email") {
-                //setError('Correo inválido')
-                Swal.fire("Correo inválido");
-            } else if (error.code === 'auth/wrong-password') {
-                //setError('Contraseña incorrecta')
-                Swal.fire("Contraseña incorrecta");
-            } else if(error.code === 'auth/user-disabled'){
-                Swal.fire("Esta cuenta se encuentra inhabilitada para este sitio")
+        if (user.emailVerified === false) {
+            Swal.fire("Debe verificar el mail, por favor revise su casilla de correo electrónico");
+        }
+        else {
+            try {
+                await login(user.email, user.password)
+                navigate('/home/')
+                Swal.fire("Inicio exitoso");
+            } catch (error) {
+                // setError(error.message)
+                console.log(error.code)
+                if (error.code === "auth/invalid-email") {
+                    //setError('Correo inválido')
+                    Swal.fire("Correo inválido");
+                } else if (error.code === 'auth/wrong-password') {
+                    //setError('Contraseña incorrecta')
+                    Swal.fire("Contraseña incorrecta");
+                } else if (error.code === 'auth/user-disabled') {
+                    Swal.fire("Esta cuenta se encuentra inhabilitada para este sitio")
+                }
             }
         }
     }
@@ -76,7 +81,7 @@ export default function Login() {
     return (
         <div>
             {error && <p>{error}</p>}
-            <NavBar/>
+            <NavBar />
             <div class='container'>
                 <div className="row">
                     <div className="col">
@@ -117,7 +122,7 @@ export default function Login() {
                 </div>
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

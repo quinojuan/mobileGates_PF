@@ -204,7 +204,7 @@ const postPhone = async (req, res) => {
 					brand: phoneWithBrand.Brands[0].name
 				}
 				//erik cuando veas esto, y digas "KE HORRIBLE KE ASKO", 
-				//bueno, tenes razon. es horrible. pero funca xd te amamos, los del back <3
+				//bueno, tenes razon. es horrible. pero funca xd te amamos, los del back ❤️
 				presentacion
 					? res.status(201).json(presentacion)
 					: res.status(404).json({ message: 'Error /post product' });
@@ -238,7 +238,6 @@ const updatePhone = async (req, res)=>{
        res.status(500).json({message: 'Error missing info'})
    }
 }
-
 
 
 module.exports = {

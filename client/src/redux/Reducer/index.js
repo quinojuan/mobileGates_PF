@@ -16,6 +16,7 @@ const initialState = {
   rams: [],
   img: "",
   capacities: [],
+  price: [],
   searching: false,
   purchases:[],
   inputPurchase: {},
@@ -111,23 +112,23 @@ function rootReducer(state = initialState, action) {
       let sortedArr =
         action.payload === "A-Z"
           ? state.products.sort(function (a, b) {
-              if (a.model.toLowerCase() > b.model.toLowerCase()) {
-                return 1;
-              }
-              if (b.model.toLowerCase() > a.model.toLowerCase()) {
-                return -1;
-              }
-              return 0;
-            }) // sino.....
+            if (a.model.toLowerCase() > b.model.toLowerCase()) {
+              return 1;
+            }
+            if (b.model.toLowerCase() > a.model.toLowerCase()) {
+              return -1;
+            }
+            return 0;
+          }) // sino.....
           : state.products.sort(function (a, b) {
-              if (a.model.toLowerCase() > b.model.toLowerCase()) {
-                return -1;
-              }
-              if (b.model.toLowerCase() > a.model.toLowerCase()) {
-                return 1;
-              }
-              return 0;
-            });
+            if (a.model.toLowerCase() > b.model.toLowerCase()) {
+              return -1;
+            }
+            if (b.model.toLowerCase() > a.model.toLowerCase()) {
+              return 1;
+            }
+            return 0;
+          });
       return {
         ...state,
         products: sortedArr,
@@ -136,23 +137,23 @@ function rootReducer(state = initialState, action) {
       let sortedArr2 =
         action.payload === "High to low"
           ? state.allProducts.sort(function (a, b) {
-              if (a.price[0] > b.price[0]) {
-                return 1;
-              }
-              if (b.price[0] > a.price[0]) {
-                return -1;
-              }
-              return 0;
-            }) // sino.....
+            if (a.price[0] > b.price[0]) {
+              return 1;
+            }
+            if (b.price[0] > a.price[0]) {
+              return -1;
+            }
+            return 0;
+          }) // sino.....
           : state.allProducts.sort(function (a, b) {
-              if (a.price[0] > b.price[0]) {
-                return -1;
-              }
-              if (b.price[0] > a.price[0]) {
-                return 1;
-              }
-              return 0;
-            });
+            if (a.price[0] > b.price[0]) {
+              return -1;
+            }
+            if (b.price[0] > a.price[0]) {
+              return 1;
+            }
+            return 0;
+          });
       return {
         ...state,
         products: sortedArr2,
@@ -210,7 +211,7 @@ function rootReducer(state = initialState, action) {
           }
         } else return {
           ...state,
-          repetido: false
+          repetido: true
         }
         case "ADD_INPUT_PURCHASE":
           return{

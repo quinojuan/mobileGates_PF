@@ -234,3 +234,9 @@ export function addInputPurchase(payload){
 }
 
 
+export function postPhone(payload) {
+    return async function (dispatch) {
+        const newPhone = await axios.post("http://localhost:3001/products", payload)
+        return newPhone
+    }
+}
