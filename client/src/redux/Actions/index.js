@@ -94,10 +94,10 @@ export function addUser(payload) {
     //console.log(payload)
     return async function () {
 		try{
-			const user = {
+			const newUser = {
 				email: payload.email,
 			}
-		  await axios.post('http://localhost:3001/users', user);
+		  await axios.post('http://localhost:3001/users', newUser);
 		}catch(e){
           console.log(e)
 		}
@@ -248,7 +248,6 @@ export function setFinalPrice(payload){
 		})
 	}
 }
-
 
 
 

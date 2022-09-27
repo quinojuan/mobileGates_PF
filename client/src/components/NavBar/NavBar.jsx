@@ -62,11 +62,10 @@ export default function NavBar() {
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
 
-  console.log(user, "USER EN NAV")
-/* 
+
   useEffect(()=>{
     dispatch(addUser(user))
-  },[dispatch])  */
+  },[dispatch])
 
 
   const handleLogout = async () => {
