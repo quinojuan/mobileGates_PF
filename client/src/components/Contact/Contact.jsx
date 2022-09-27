@@ -8,37 +8,37 @@ export default function Contact() {
     function sendEmail(e) {
         e.preventDefault();
 
-    emailjs.sendForm('gmailMessage', 'template_jzmq28i', e.target, '4RP4sjyCyb3MSOEae')
+        emailjs.sendForm('gmailMessage', 'template_jzmq28i', e.target, '4RP4sjyCyb3MSOEae')
 
-        .then((result) => {
-          Swal.fire("Mensaje enviado con éxito! 👍");
-           
-        }, (error) => {
-          Swal.fire("No se pudo enviar el mensaje")
-            
-        });
+            .then((result) => {
+                Swal.fire("Mensaje enviado con éxito! 👍");
+
+            }, (error) => {
+                Swal.fire("No se pudo enviar el mensaje")
+
+            });
         e.target.reset()
 
- 
+
     }
-    return(
+    return (
         <div>
             <div className="container">
-            <h2>Contato</h2>
-            <form onSubmit={sendEmail}>
+                <h2>Contato</h2>
+                <form onSubmit={sendEmail}>
                     <div className="row pt-5 mx-auto">
-                        
+
                         <div className="col-lg-8 col-sm-12 form-group mx-auto">
                             <label>Nombre</label>
-                            <input type="text" autoFocus className="form-control" required placeholder="Tu Nombre" name="name"/>
+                            <input type="text" autoFocus className="form-control" required placeholder="Tu Nombre" name="name" />
                         </div>
                         <div className="col-lg-8 col-sm-12 form-group pt-1 mx-auto">
-                        <label>Email</label>
-                            <input type="email" className="form-control" required placeholder="Tu email" name="email"/>
+                            <label>Email</label>
+                            <input type="email" className="form-control" required placeholder="Tu email" name="email" />
                         </div>
 
                         <div className="col-lg-8 col-sm-12 form-group pt-1 mx-auto">
-                        <label>Mensaje</label>
+                            <label>Mensaje</label>
                             <textarea className="form-control" id="" cols="30" rows="8" required placeholder="Escríbenos" name="message"></textarea>
                         </div>
                         <div className="col-lg-8 col-sm-12 pt-3 mx-auto">

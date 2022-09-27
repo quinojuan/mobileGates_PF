@@ -80,10 +80,11 @@ export default function NavBar() {
                   <div class="dropdown show">
                     <a class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Hola, {user.email.split('@')[0]}
+                    {/* {console.log(user)} */}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
-                      <a class="dropdown-item" href="/addproducts">Panel del admin</a>
+                      <a class="dropdown-item" href="/adminpages">Panel del admin</a>
                       <a className="dropdown-item" href="#" onClick={handleLogout}>Cerrar sesión</a>
                     </div>
                   </div>

@@ -15,7 +15,7 @@ export default function AddProducts() {
     const capacity = useSelector((state) => state.capacities)
     const ram = useSelector((state) => state.rams)
     const brand = useSelector((state) => state.categories)
-    const price = useSelector((state) => state.price)
+    const price = []
 
     const [input, setInput] = useState({
         model: "",
@@ -49,17 +49,25 @@ export default function AddProducts() {
     }, [dispatch])
 
     function handleChange(e) {
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value
-        })
+        if(isNaN(e.target.value)){
+            setInput({
+                ...input,
+                [(e.target.name)]: (e.target.value)
+            })
+        } else{
+            setInput({
+                ...input,
+                [(e.target.name)]: Number(e.target.value)
+            })
+        }
+       
     }
 
     function handleSelectCapacity(e) {
         if (!input.capacity.includes(e.target.value)) {
             setInput({
                 ...input,
-                capacity: [...input.capacity, e.target.value]
+                capacity: [...input.capacity, Number(e.target.value)]
             })
         }
     }
@@ -75,12 +83,21 @@ export default function AddProducts() {
         if (!input.ram.includes(e.target.value)) {
             setInput({
                 ...input,
-                ram: [...input.ram, e.target.value]
+                ram: [...input.ram, Number(e.target.value)]
             })
         }
-        console.log(input.ram)
     }
 
+    function handlePrice(e) {
+        console.log(input.price)
+        if (!input.price.includes(e.target.value)) {
+            setInput({
+                ...input,
+                price: [console.log("estoy en el array")]
+            })
+        }
+        console.log(input.price)
+    }
     function handleDeleteRAM(e) {
         setInput({
             ...input,
@@ -92,21 +109,21 @@ export default function AddProducts() {
         if (!input.brand.includes(e.target.value)) {
             setInput({
                 ...input,
-                brand: [...input.ram, e.target.value]
+                brand: e.target.value
             })
         }
     }
 
-    function handlePrice(e){
-        if (!input.price.includes(e.target.value)) {
-            setInput({
-                ...input,
-                price: [...input.price, e.target.value]
-            })
-        }
-        {console.log('el boton funciona')}
-        {console.log(input.price)}
-    }
+    
+    // function handlePrice(e) {
+    //     // if (!input.price.includes(e.target.value)) {
+    //     setInput({
+    //              ...input,
+    //             price: [...input.price, Number(e.target.value)]
+    //           })
+    //     // }
+    //     console.log(input.price)
+    // }
 
     function handleDeletePrice(e) {
         setInput({
@@ -117,77 +134,78 @@ export default function AddProducts() {
 
     function handleSubmit(e) {
 
-        if (!input.brand.length) {
-            e.preventDefault();
-            return Swal.fire("Debe seleccionar al menos una marca del dispositivo")
-        } else if (!input.model.length) {
-            e.preventDefault();
-            return Swal.fire('Debe ingresar el modelo del dispositivo')
-        } else if (input.image.length === 0){
-            e.preventDefault();
-            return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
-        }else if(!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
-            e.preventDefault();
-            return Swal.fire('Debe ingresar una URL válida')
-        } else if(!input.operative_system.length){
-            e.preventDefault();
-            return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
-        }else if(!input.size.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar el tamaño del dispositivo')
-        }else if(!input.inches.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar las pulgadas del dispositivo')
-        }else if(!input.main_camera.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar los pixeles de la cámara trasera')
-        }else if(!input.frontal_camera.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar los pixeles de la cámara frontal')
-        }else if(!input.weight.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar el peso del dispositivo')
-        }else if(!input.ram.length){
-            e.preventDefault();
-            return Swal.fire('Debes seleccionar al menos una memoria RAM')
-        }else if(!input.capacity.length){
-            e.preventDefault();
-            return Swal.fire('Debes seleccionar al menos una capacidad de almacenamiento')
-        }else if(!input.battery.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar el tamaño de la bateria')
-        }else if(!input.cpu.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar el modelo del procesador')
-        }else if(!input.price.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar el precio del dispositivo')
-        }else if(!input.description.length){
-            e.preventDefault();
-            return Swal.fire('Debes ingresar la descripción del dispositivo')
-        }
+        // if (!input.brand.length) {
+        //     e.preventDefault();
+        //     return Swal.fire("Debe seleccionar al menos una marca del dispositivo")
+        // } else if (!input.model.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debe ingresar el modelo del dispositivo')
+        
+        // } else if (input.image.length === 0) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
+        // } else if (!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debe ingresar una URL válida')
+        // } else if (!input.operative_system.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
+        // } else if (!input.size.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar el tamaño del dispositivo')
+        // } else if (!input.inches.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar las pulgadas del dispositivo')
+        // } else if (!input.main_camera.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar los pixeles de la cámara trasera')
+        // } else if (!input.frontal_camera.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar los pixeles de la cámara frontal')
+        // } else if (!input.weight.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar el peso del dispositivo')
+        // } else if (!input.ram.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes seleccionar al menos una memoria RAM')
+        // } else if (!input.capacity.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes seleccionar al menos una capacidad de almacenamiento')
+        // } else if (!input.battery.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar el tamaño de la bateria')
+        // } else if (!input.cpu.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar el modelo del procesador')
+        // } else if (!input.price.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar el precio del dispositivo')
+        // } else if (!input.description.length) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debes ingresar la descripción del dispositivo')
+        // }
 
-        dispatch(postPhone(input))
+        //dispatch(postPhone(input))
+        //Swal.fire("El dispositivo ha sido añadido con éxito!")
         console.log(input)
         console.log('creado con exito')
-        //Swal.fire("El dispositivo ha sido añadido con éxito!")
-        setInput({
-            model: "",
-            brand: "",
-            operative_system: "",
-            size: "",
-            cpu: "",
-            image: "",
-            description: "",
-            inches: 0,
-            main_camera: 0,
-            frontal_camera: 0,
-            weight: 0,
-            battery: 0,
-            ram: [],
-            capacity: [],
-            price: []
-        })
+        // setInput({
+        //     model: "",
+        //     brand: "",
+        //     operative_system: "",
+        //     size: "",
+        //     cpu: "",
+        //     image: "",
+        //     description: "",
+        //     inches: 0,
+        //     main_camera: 0,
+        //     frontal_camera: 0,
+        //     weight: 0,
+        //     battery: 0,
+        //     ram: [],
+        //     capacity: [],
+        //     price: []
+        // })
         //navigate("/home");
         //document.location.reload();
     }
@@ -228,7 +246,7 @@ export default function AddProducts() {
                                 {
                                     capacity?.map(el => {
                                         return (<option value={el} key={el}>{el}</option>)
-                                        
+
 
                                     })
                                 }
@@ -241,7 +259,7 @@ export default function AddProducts() {
                                                 <span class="badge text-bg-dark">
                                                     {capacity?.find(p => p === el)}
                                                     <h6>{el}
-                                                    <button type="button" onClick={() => handleDeleteCapacity(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                        <button type="button" onClick={() => handleDeleteCapacity(el)} class="btn-close btn-close-white" aria-label="Close"></button>
                                                     </h6>
                                                 </span>
                                             </div>
@@ -270,7 +288,7 @@ export default function AddProducts() {
                                                     {ram?.find(p => p === el)}
                                                     <h6>
                                                         {el}
-                                                    <button type="button" onClick={() => handleDeleteRAM(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                        <button type="button" onClick={() => handleDeleteRAM(el)} class="btn-close btn-close-white" aria-label="Close"></button>
                                                     </h6>
                                                 </span>
                                             </div>
@@ -340,30 +358,30 @@ export default function AddProducts() {
                     <div class="row mt-3">
                         <div class="col">
                             <div class="input-group mb-3">
-                                <input type="text" name="price" onClick={() => handleChange()} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
+                                <input type="text" name="price" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
 
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(e) => handlePrice(e)}>Añadir precio</button>
-                                
-                                <ul style={{ listStyle: 'none' }}>
-                                <li>
-                                    {
-                                        input.price.map(el =>
-                                            <div class='mt-1'>
-                                                {console.log('entro al map')}
-                                                {console.log(input.price)}
-                                                <span class="badge text-bg-dark">
-                                                    {price?.find(p => p === el)}
-                                                    <h6>
-                                                        {el}
-                                                        {console.log(el)}
-                                                    <button type="button" onClick={() => handleDeletePrice(el)} class="btn-close btn-close-white" aria-label="Close"></button>
-                                                    </h6>
-                                                </span>
-                                            </div>
-                                        )
-                                    }
-                                </li>
-                            </ul>
+
+                                {/* <ul style={{ listStyle: 'none' }}>
+                                    <li>
+                                        {
+                                            input.price.map(el =>
+                                                <div class='mt-1'>
+                                                    {console.log('entro al map')}
+                                                    {console.log(input.price)}
+                                                    <span class="badge text-bg-dark">
+                                                        {price?.find(p => p === el)}
+                                                        <h6>
+                                                            {el}
+                                                            {console.log(el)}
+                                                            <button type="button" onClick={() => handleDeletePrice(el)} class="btn-close btn-close-white" aria-label="Close"></button>
+                                                        </h6>
+                                                    </span>
+                                                </div>
+                                            )
+                                        }
+                                    </li>
+                                </ul> */}
                             </div>
                         </div>
                         <div class="col">
@@ -377,11 +395,12 @@ export default function AddProducts() {
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-success" onClick={(e) => handleSubmit(e)}>Añadir dispositivo</button>
+                        <button type="button" class="btn btn-success" onClick={(e) => handleSubmit(e)}>Añadir</button>
+                        <button type="button" class="btn btn-danger">Volver al Panel</button>
                     </div>
                 </form>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

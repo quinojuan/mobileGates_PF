@@ -199,7 +199,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state
       }
-    case "POST_PRODUCTS":
+    case "POST_PHONE":
       return {
         ...state
       }
