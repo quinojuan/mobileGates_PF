@@ -85,72 +85,7 @@ export default function Login() {
 
   return (
     <div>
-      {error && <p>{error}</p>}
-      <NavBar />
-      <div class="container">
-        <div className="row">
-          <div className="col"></div>
-
-          <div className="col  border border-5">
-            <form onSubmit={handleSubmit}>
-              <h1 class="fw-bold text-center py-5">Iniciá sesión</h1>
-
-              <div className="container w-100 mb-4">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">
-                  Email
-                </label>
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Ingresa tu mail"
-                  onChange={handleChange}
-                  class="form-control"
-                />
-                <label for="inputEmail3" class="col-sm-2 col-form-label">
-                  Contraseña
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="******"
-                  onChange={handleChange}
-                  class="form-control"
-                />
-              </div>
-              <button id="submit" type="submit" class="btn btn-primary">
-                Ingresar
-              </button>
-            </form>
-            <div class="d-grid container w-100">
-              <button class="btn btn-light" onClick={handleGoogleSignin}>
-                <img src={google} alt="image not found" width="32" />
-                Continuar con Google
-              </button>
-            </div>
-            <div class="my-3">
-              {/* <a href="/home/createuser" class="btn btn-secondary">No tenes cuenta? Registrate gratis</a>
-        <a href="#" onClick={handleResetPassword} class="btn btn-secondary">Olvidaste tu contraseña?</a> */}
-              <span>
-                No tenes cuenta?{" "}
-                <a href="/home/createuser">Registrate gratis</a>
-              </span>
-              <br />
-              <span>
-                <a href="#" onClick={handleResetPassword}>
-                  Olvidaste la contraseña?
-                </a>
-              </span>
-            </div>
-            <div>
-              <a href="/home" class="btn btn-primary">
-                Volver al inicio
-              </a>
-            </div>
-          </div>
-          <div className="col"></div>
-        </div>
-      </div>
-      <Footer />
+     
     </div>
   );
 }

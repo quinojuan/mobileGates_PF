@@ -30,7 +30,7 @@ export default function Carousel (){
         </div>
         <div className='carousel-item'>
           <img
-            src='https://www.grameenkart.com/admin/uploads/category_images/425188621_apple-sale-banner-2018.jpg'
+            src='https://about.att.com/ecms/dam/snr/2022/september2022/storylevelbanner/iconic_STORY_LEVEL_BANNER_1600x483.jpg'
             className='d-block w-100'
             style={{ maxHeight: '400px' }}
             alt='...'
