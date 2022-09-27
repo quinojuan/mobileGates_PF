@@ -7,6 +7,7 @@ const {
 	updatePhone
 } = require('../controllers/productsController');
 
+
 router.get('/', getAllProducts);
 router.get('/:id', getPhonesById);
 router.post('/', postPhone);

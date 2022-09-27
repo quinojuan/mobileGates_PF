@@ -56,7 +56,8 @@ const updateUser = async(req, res)=>{
     try {
         const { id } = req.params;
         //console.log(id, "IDDD")
-       //console.log(req.body, "BODY")
+      
+        //console.log(req.body, "BODY")
        let [updateUser]= await Users.update(req.body, {where: {id}})
        console.log(updateUser, "User")
        if(updateUser){

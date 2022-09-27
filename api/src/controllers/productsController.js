@@ -223,7 +223,8 @@ const postPhone = async (req, res) => {
 const updatePhone = async (req, res)=>{
 	try {
         const { id } = req.params;
-        //console.log(id, "IDDD")
+        
+		//console.log(id, "IDDD")
        //console.log(req.body, "BODY")
        let [updatePhone]= await Phones.update(req.body,{where: {id}})
       // console.log(updatePhone, "updatePhone")

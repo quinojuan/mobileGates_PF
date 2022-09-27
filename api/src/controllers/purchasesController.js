@@ -26,7 +26,8 @@ const getAllPurchases = async (req, res) => {
 			  
 		  })
 		  //console.log(presentacion, "COMPRITAS")
-		//allPurchases = allPurchases.map((purchase) => purchase.name);
+		
+		  //allPurchases = allPurchases.map((purchase) => purchase.name);
 		res.status(200).json(presentacion);
 	} catch (e) {
 		console.log(e);

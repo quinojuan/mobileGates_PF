@@ -37,7 +37,7 @@ const getAllFeedbacks = async (req, res) => {
  const updateFeedback = async (req, res) => {
 	 try {
 		 const { id } = req.params;
-		 //console.log(id, "IDDD")
+		 console.log(id, "IDDD")
 		//console.log(req.body, "BODY")
 		let [feedback] = await Feedbacks.update(req.body, {where: {id}})
 		console.log(feedback, "FEED")
