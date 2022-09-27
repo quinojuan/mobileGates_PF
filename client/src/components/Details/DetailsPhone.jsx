@@ -103,9 +103,9 @@ export default function DetailsPhone(props) {
                     </h5>
                     <h5>
                       Precio:{" "}
-                      {myProducts && myProducts.price > 999
+                    {myProducts && myProducts.price > 999
                         ? "$" + parseFloat(myProducts.price / 1000).toFixed(3)
-                        : "$" + myProducts.price}
+                        : "$" + myProducts.price} 
                     </h5>
                     <h5>Peso: {myProducts && myProducts.weight}g.</h5>
                     <h5>
