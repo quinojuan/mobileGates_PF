@@ -21,6 +21,7 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "stripe": "^10.12.0-beta.1",
     "sweetalert2": "^11.4.33",
     "web-vitals": "^2.1.4"
   },

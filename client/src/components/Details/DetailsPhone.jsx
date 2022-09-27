@@ -32,6 +32,7 @@ export default function DetailsPhone(props) {
   }
 
   function acomodarPrecio(precio) {
+    console.log("precio:", precio);
     let precioString = precio.toString();
     let contador = 0;
     let acumulador = [];
@@ -125,12 +126,12 @@ export default function DetailsPhone(props) {
                     </h5>
                     <h5>
                       Precio:{" $"}
-                      {acomodarPrecio(myProducts.price)}
+                      {myProducts.weight?acomodarPrecio(myProducts.price):null}
                     </h5>
-                    <h5>Peso: {acomodarPrecio(myProducts.weight)}g.</h5>
+                    <h5>Peso: {myProducts.weight?acomodarPrecio(myProducts.weight):null}g.</h5>
                     <h5>
                       Capacidad de la bateria:
-                      {acomodarPrecio(myProducts.battery)}
+                      {myProducts.battery?acomodarPrecio(myProducts.battery):null}
                       mAh.
                     </h5>
 
