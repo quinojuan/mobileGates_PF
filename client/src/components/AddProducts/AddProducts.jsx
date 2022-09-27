@@ -7,6 +7,7 @@ import style from "./AddProduct.module.css"
 import { Link } from "react-router-dom";
 import { useAuth } from '../Context/authContext';
 import Swap from "sweetalert2"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export default function AddProducts({id}){
@@ -31,8 +32,8 @@ export default function AddProducts({id}){
     }
     if(user){
     return (
-            <div class='mb-3' >
-            <button type="button" class=' btn btn-primary ' onClick={()=>handleCart()}>Agregar al Carrito</button>
+            <div class='mb-3'>
+            <button type="button" class=' btn btn-primary ' onClick={()=>handleCart()}><FontAwesomeIcon icon={['fas', 'cart-plus']} /> Agregar al Carrito</button>
             </div>
     )
 } else {
