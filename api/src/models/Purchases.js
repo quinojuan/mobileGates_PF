@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       },
       email:{
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       },
       dni:{
         type: DataTypes.STRING,
@@ -28,10 +28,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      creditCard:{
-        type: DataTypes.STRING(10),
-        allowNull: false
-      },
+      // creditCard:{
+      //   type: DataTypes.STRING(10),
+      //   allowNull: false
+      // },
       id_transaction:{
         type: DataTypes.TEXT,
         unique: true,

@@ -54,8 +54,6 @@ export default function FormPurchase() {
     let navigate = useNavigate();
     const [errors, setErrors] = useState({})
     const [input, setInput] = useState({
-        email: "",
-        creditCard: "",
         dni: "",
         adress: "",
         birthday: "",
@@ -101,13 +99,11 @@ export default function FormPurchase() {
             dispatch(postPurchase(input))
             Swal.fire("Compra realizada")
             setInput({
-                email: "",
-                creditCard: "",
                 dni: "",
                 adress: "",
                 birthday: "",
             })
-            navigate("/home")
+            navigate("/check")
 
         }
 

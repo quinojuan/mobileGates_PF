@@ -44,8 +44,6 @@ const postPurchase = async (req, res) =>{
 			dni,
 			adress,
 			birthday,
-			creditCard,
-			email
 		})
 
 		//console.log(newPurchase, "LA COMPRITA")
