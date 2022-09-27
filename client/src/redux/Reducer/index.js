@@ -166,6 +166,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
+    case "GET_USERS":
+      return{
+        ...state,
+        users:action.payload
+      }
     case "CLEAR_CART":
       console.log("estamos en el case de clearCart")
       return {

@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import CreateUser from './components/CreateUser/CreateUser'
 import Landing from './components/Landing/Landing';
 import Cart from './components/Cart/Cart';
+import UserPanel from './components/userPanel/userPanel';
 import { AuthProvider } from './components/Context/authContext';
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import {IntlProvider} from 'react-intl'
@@ -29,6 +30,7 @@ function App() {
         <Route path="/home/login" element= {<Login/>}/>
         <Route path="/home/createuser" element= {<CreateUser/>}/>
         <Route path="/contacto" element= {<Contact/>}/>
+        <Route path="/usuarios" element= {<UserPanel/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
     </div>
