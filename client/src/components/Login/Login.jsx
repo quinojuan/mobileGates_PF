@@ -93,6 +93,7 @@ export default function Login() {
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Contraseña</label>
                                 <input type="password" name='password' placeholder="******" onChange={handleChange} class="form-control" />
                             </div>
+                        </form>
                             <div class='d-grid container w-100'>
                                 <button id='submit' type='submit' class="btn btn-primary">Ingresar</button>
                                 <button class="btn btn-light" onClick={handleGoogleSignin}>
@@ -109,7 +110,6 @@ export default function Login() {
                             <div>
                                 <a href="/home" class="btn btn-primary">Volver al inicio</a>
                             </div>
-                        </form>
                     </div>
                     <div className="col">
 
