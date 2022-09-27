@@ -61,12 +61,13 @@ export default function NavBar() {
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
 
+  console.log(user, "USER EN NAV")
+
   const handleLogout = async () => {
     await logout()
-    navigate('/home/')
-
-    
+    navigate('/home/') 
   }
+
   function handleReload(e) {
     e.preventDefault();
     window.location.reload();
@@ -118,7 +119,7 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#" onClick={()=> navigate("/products/Cart")}>Carrito 🛒</a>
                 </li>
                 <li className="nav-item">
-                <h3 className='nav-link active text-white'>Hola, {user.email.split('@')[0]}</h3>
+                <h3 className='nav-link active text-white mt-1'>Hola, {user.email.split('@')[0]}</h3>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#" onClick={handleLogout}>Cerrar sesión</a>

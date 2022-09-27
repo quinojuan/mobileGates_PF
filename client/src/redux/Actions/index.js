@@ -89,6 +89,22 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 		},
 	});
 };
+
+export function addUser(payload) {
+    console.log(payload)
+    return async function () {
+		try{
+			const user = {
+				email: payload.email,
+				password: payload.password
+			}
+		  await axios.post('http://localhost:3001/users', user);
+		}catch(e){
+          console.log(e)
+		}
+    };
+}
+
 export function setLoading(payload) {
 	return {
 		type: 'SET_LOADING',
@@ -195,8 +211,9 @@ export function getPurchase(){
 
 export function postPurchase(payload) {
     return async function (dispatch) {
-        const json = await axios.post("http://localhost:3001/purchases", payload)
-        return json;
+		console.log(payload, "ACTION DE POSTPURCHASE")
+        const purchase = await axios.post("http://localhost:3001/purchases", payload)
+        return purchase
 
     }
 }
@@ -206,3 +223,14 @@ export function getPurchaseRepeat(payload){
 		payload
 	}
 }
+
+export function addInputPurchase(payload){
+	return function(dispatch){
+		return dispatch({
+			type: "ADD_INPUT_PURCHASE",
+			payload,
+		})
+	}
+}
+
+

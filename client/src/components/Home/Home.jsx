@@ -30,7 +30,7 @@ export default function Home() {
 	const dispatch = useDispatch();
 	const buscando = useSelector((state)=>state.searching)
 	const allProducts = useSelector((state) => state.products);
-	console.log(allProducts)
+	//console.log(allProducts)
 	const filters = useSelector((state) => state.filters);
 	const loading = useSelector((state) => state.loading);
 	const brands = useSelector((state) => state.categories);
@@ -194,7 +194,7 @@ export default function Home() {
 					<option value="Z-A">Z-A</option>
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					onChange={(e) => handleSortByPrice(e)}
 				>
