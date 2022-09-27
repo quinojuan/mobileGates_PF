@@ -30,9 +30,31 @@ export default function DetailsPhone(props) {
     e.preventDefault();
     setImg(e.target.src);
   }
+
+  function acomodarPrecio(precio) {
+    let precioString = precio.toString();
+    let contador = 0;
+    let acumulador = [];
+    let acumuladorInvertido = [];
+    for (let i = precioString.length - 1; i >= 0; i--) {
+      contador++;
+      if (contador === 3 && i > 0) {
+        acumuladorInvertido.push(precioString[i]);
+        acumuladorInvertido.push(".");
+        contador = 0;
+      } else {
+        acumuladorInvertido.push(precioString[i]);
+      }
+    }
+    for (let i = acumuladorInvertido.length - 1; i >= 0; i--) {
+      acumulador.push(acumuladorInvertido[i]);
+    }
+    return acumulador.join("");
+  }
+
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       {
         <div>
           <div
@@ -102,17 +124,13 @@ export default function DetailsPhone(props) {
                       Mpx.
                     </h5>
                     <h5>
-                      Precio:{" "}
-                    {myProducts && myProducts.price > 999
-                        ? "$" + parseFloat(myProducts.price / 1000).toFixed(3)
-                        : "$" + myProducts.price} 
+                      Precio:{" $"}
+                      {acomodarPrecio(myProducts.price)}
                     </h5>
-                    <h5>Peso: {myProducts && myProducts.weight}g.</h5>
+                    <h5>Peso: {acomodarPrecio(myProducts.weight)}g.</h5>
                     <h5>
                       Capacidad de la bateria:
-                      {myProducts && myProducts.battery > 999
-                        ? " " + parseFloat(myProducts.battery / 1000).toFixed(3)
-                        : " " + myProducts.battery}
+                      {acomodarPrecio(myProducts.battery)}
                       mAh.
                     </h5>
 
