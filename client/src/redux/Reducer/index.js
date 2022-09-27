@@ -21,7 +21,8 @@ const initialState = {
   inputPurchase: {},
   getCheckout: {},
   repeat:[],
-  repetido: false
+  repetido: false,
+  finalPrice: 0
 };
 
 function rootReducer(state = initialState, action) {
@@ -158,6 +159,7 @@ function rootReducer(state = initialState, action) {
         products: sortedArr2,
       };
     case "ADD_TO_CART":
+      //console.log(action.payload[0].id, "ID")
       let purchase = action.payload;
       let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
       if (!myCartLS.some((el) => el.id == purchase[0].id)) {
@@ -186,6 +188,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: myCarty,
       };
+      case "CLEAN_CART":
+        let arrayClean = []
+        localStorage.setItem("cart", JSON.stringify(arrayClean))
+        return{
+          ...state,
+          cart: []
+        }
 
     case "POST_USERS":
       return {
@@ -217,6 +226,12 @@ function rootReducer(state = initialState, action) {
             ...state,
             inputPurchase: action.payload
           }
+
+          case "FINAL_PRICE":
+            return{
+              ...state,
+              finalPrice: action.payload
+            }
       
         
     default:
