@@ -30,7 +30,10 @@ const getAllProducts = async (req, res) => {
 			image,
 			cpu,
 			description,
-			Brands})=>{
+			Brands,
+			stock,
+			active,
+		})=>{
 			return  {
 				id,
 				model,
@@ -48,7 +51,9 @@ const getAllProducts = async (req, res) => {
 				image,
 				cpu,
 				description,
-				brand: Brands[0].name
+				brand: Brands[0].name,
+				stock,
+				active
 			}
 		})
 		
@@ -215,10 +220,29 @@ const postPhone = async (req, res) => {
 	}
 };
 
+const updatePhone = async (req, res)=>{
+	try {
+        const { id } = req.params;
+        //console.log(id, "IDDD")
+       //console.log(req.body, "BODY")
+       let [updatePhone]= await Phones.update(req.body,{where: {id}})
+      // console.log(updatePhone, "updatePhone")
+       if(updatePhone){
+           res.status(201).json(updatePhone)
+       } else{
+           res.status(404).json({message: 'Error /put updatePhone'})
+       }
+   } catch (e) {
+       console.log(e);
+       res.status(500).json({message: 'Error missing info'})
+   }
+}
+
 
 
 module.exports = {
 	getAllProducts,
 	getPhonesById,
 	postPhone,
+	updatePhone
 };

@@ -55,6 +55,8 @@ const postPurchase = async (req, res) =>{
 			}]
 		})
 	   // console.log(myUser.dataValues, "UUUSER")
+
+	   //const promises = products.map()
     
 	    let myPhone = await Phones.findOne({where:{ model: products[0].model}})
 	    await newPurchase.addPhones(myPhone.dataValues.id)

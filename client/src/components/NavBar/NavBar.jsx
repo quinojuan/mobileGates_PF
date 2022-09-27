@@ -61,12 +61,13 @@ export default function NavBar() {
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
 
+  console.log(user, "USER EN NAV")
+
   const handleLogout = async () => {
     await logout()
-    navigate('/home/')
-
-    
+    navigate('/home/') 
   }
+
   function handleReload(e) {
     e.preventDefault();
     window.location.reload();

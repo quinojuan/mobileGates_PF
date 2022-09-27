@@ -38,14 +38,10 @@ const getAllFeedbacks = async (req, res) => {
 	 try {
 		 const { id } = req.params;
 		 //console.log(id, "IDDD")
-		const {comment, title, points} = req.body
 		//console.log(req.body, "BODY")
-		let feedback = await Feedbacks.findByPk(id)
+		let [feedback] = await Feedbacks.update(req.body, {where: {id}})
 		console.log(feedback, "FEED")
 		if(feedback){
-			feedback.title = title,
-			feedback.comment = comment,
-			feedback.points = points, 
 			res.status(201).json(feedback)
 		} else{
 			res.status(404).json({message: 'Error /put feedbacks'})
