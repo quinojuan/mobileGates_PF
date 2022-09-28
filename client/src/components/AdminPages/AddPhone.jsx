@@ -18,6 +18,7 @@ export default function AddProducts() {
     const price = []
 
     const [input, setInput] = useState({
+        category: "Phones",
         model: "",
         brand: "",
         operative_system: "",
@@ -49,25 +50,30 @@ export default function AddProducts() {
     }, [dispatch])
 
     function handleChange(e) {
-        if(isNaN(e.target.value)){
+        console.log(input);
+        if (isNaN(e.target.value)) {
             setInput({
                 ...input,
                 [(e.target.name)]: (e.target.value)
             })
-        } else{
+        } else {
             setInput({
                 ...input,
-                [(e.target.name)]: Number(e.target.value)
+                [(e.target.name)]: (e.target.value)
             })
         }
-       
+
     }
 
     function handleSelectCapacity(e) {
         if (!input.capacity.includes(e.target.value)) {
+            // setInput({
+            //     ...input,
+            //     capacity: [...input.capacity, Number(e.target.value)]
+            // })
             setInput({
                 ...input,
-                capacity: [...input.capacity, Number(e.target.value)]
+                capacity: [Number(e.target.value)]
             })
         }
     }
@@ -81,9 +87,13 @@ export default function AddProducts() {
 
     function handleSelectRAM(e) {
         if (!input.ram.includes(e.target.value)) {
+            // setInput({
+            //     ...input,
+            //     ram: [...input.ram, Number(e.target.value)]
+            // })
             setInput({
                 ...input,
-                ram: [...input.ram, Number(e.target.value)]
+                ram: [Number(e.target.value)]
             })
         }
     }
@@ -114,7 +124,7 @@ export default function AddProducts() {
         }
     }
 
-    
+
     // function handlePrice(e) {
     //     // if (!input.price.includes(e.target.value)) {
     //     setInput({
@@ -133,81 +143,82 @@ export default function AddProducts() {
     }
 
     function handleSubmit(e) {
+        input.price = [parseInt(input.price)]
+        if (!input.brand.length) {
+            e.preventDefault();
+            return Swal.fire("Debe seleccionar al menos una marca del dispositivo")
+        } else if (!input.model.length) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar el modelo del dispositivo')
 
-        // if (!input.brand.length) {
-        //     e.preventDefault();
-        //     return Swal.fire("Debe seleccionar al menos una marca del dispositivo")
-        // } else if (!input.model.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar el modelo del dispositivo')
-        
-        // } else if (input.image.length === 0) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
-        // } else if (!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar una URL válida')
-        // } else if (!input.operative_system.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
-        // } else if (!input.size.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el tamaño del dispositivo')
-        // } else if (!input.inches.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar las pulgadas del dispositivo')
-        // } else if (!input.main_camera.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar los pixeles de la cámara trasera')
-        // } else if (!input.frontal_camera.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar los pixeles de la cámara frontal')
-        // } else if (!input.weight.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el peso del dispositivo')
-        // } else if (!input.ram.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes seleccionar al menos una memoria RAM')
-        // } else if (!input.capacity.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes seleccionar al menos una capacidad de almacenamiento')
-        // } else if (!input.battery.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el tamaño de la bateria')
-        // } else if (!input.cpu.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el modelo del procesador')
-        // } else if (!input.price.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el precio del dispositivo')
-        // } else if (!input.description.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar la descripción del dispositivo')
-        // }
+        } else if (input.image.length === 0) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
+        } else if (!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar una URL válida')
+        } else if (!input.operative_system.length) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
+        } else if (!input.size.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el tamaño del dispositivo')
+        } else if (!input.inches.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar las pulgadas del dispositivo')
+        } else if (!input.main_camera.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar los pixeles de la cámara trasera')
+        } else if (!input.frontal_camera.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar los pixeles de la cámara frontal')
+        } else if (!input.weight.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el peso del dispositivo')
+        } else if (!input.ram.length) {
+            e.preventDefault();
+            return Swal.fire('Debes seleccionar al menos una memoria RAM')
+        } else if (!input.capacity.length) {
+            e.preventDefault();
+            return Swal.fire('Debes seleccionar al menos una capacidad de almacenamiento')
+        } else if (!input.battery.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el tamaño de la bateria')
+        } else if (!input.cpu.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el modelo del procesador')
+        } else if (!input.price.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el precio del dispositivo')
+        } else if (!input.description.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar la descripción del dispositivo')
+        }
 
-        //dispatch(postPhone(input))
-        //Swal.fire("El dispositivo ha sido añadido con éxito!")
+        dispatch(postPhone(input))
+        Swal.fire("El dispositivo ha sido añadido con éxito!")
         console.log(input)
         console.log('creado con exito')
-        // setInput({
-        //     model: "",
-        //     brand: "",
-        //     operative_system: "",
-        //     size: "",
-        //     cpu: "",
-        //     image: "",
-        //     description: "",
-        //     inches: 0,
-        //     main_camera: 0,
-        //     frontal_camera: 0,
-        //     weight: 0,
-        //     battery: 0,
-        //     ram: [],
-        //     capacity: [],
-        //     price: []
-        // })
-        //navigate("/home");
-        //document.location.reload();
+        setInput({
+            category: "Phones",
+            model: "",
+            brand: "",
+            operative_system: "",
+            size: "",
+            cpu: "",
+            image: "",
+            description: "",
+            inches: 0,
+            main_camera: 0,
+            frontal_camera: 0,
+            weight: 0,
+            battery: 0,
+            ram: [],
+            capacity: [],
+            price: []
+        })
+        navigate("/home");
+        document.location.reload();
     }
 
     return (
@@ -216,6 +227,12 @@ export default function AddProducts() {
             <div class="container w-50 mt-3">
                 <h1>Agregar un dispositivo</h1>
                 <form id="miForm" onSubmit={(e) => handleSubmit(e)}>
+                <fieldset disabled>
+                    <div class="col">
+                        <label for="disabledTextInput" class="form-label">Categoria</label>
+                        <input type="text" name='category' onChange={handleChange} id="disabledTextInput" class="form-control" placeholder="Phones"></input>
+                    </div>
+                    </fieldset>
                     <div class="row mt-3">
                         <div class="col">
                             <label for="formFile" class="form-label">Marca</label>
@@ -246,12 +263,11 @@ export default function AddProducts() {
                                 {
                                     capacity?.map(el => {
                                         return (<option value={el} key={el}>{el}</option>)
-
-
+                                        
                                     })
                                 }
                             </select>
-                            <ul style={{ listStyle: 'none' }}>
+                            {/* <ul style={{ listStyle: 'none' }}>
                                 <li>
                                     {
                                         input.capacity.map(el =>
@@ -259,6 +275,7 @@ export default function AddProducts() {
                                                 <span class="badge text-bg-dark">
                                                     {capacity?.find(p => p === el)}
                                                     <h6>{el}
+                                                    {console.log(el)}
                                                         <button type="button" onClick={() => handleDeleteCapacity(el)} class="btn-close btn-close-white" aria-label="Close"></button>
                                                     </h6>
                                                 </span>
@@ -266,7 +283,7 @@ export default function AddProducts() {
                                         )
                                     }
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                         <div class="col">
                             <label for="customRange3" class="form-label">Memoria RAM</label>
@@ -279,7 +296,7 @@ export default function AddProducts() {
                                     })
                                 }
                             </select>
-                            <ul style={{ listStyle: 'none' }}>
+                            {/* <ul style={{ listStyle: 'none' }}>
                                 <li>
                                     {
                                         input.ram.map(el =>
@@ -295,7 +312,7 @@ export default function AddProducts() {
                                         )
                                     }
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                         <div class="col">
                             <label for="customRange3" class="form-label">Tamaño de la pantalla</label>
@@ -342,15 +359,12 @@ export default function AddProducts() {
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
-
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
-
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
-
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
@@ -360,7 +374,7 @@ export default function AddProducts() {
                             <div class="input-group mb-3">
                                 <input type="text" name="price" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
 
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(e) => handlePrice(e)}>Añadir precio</button>
+                                {/* <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(e) => handlePrice(e)}>Añadir precio</button> */}
 
                                 {/* <ul style={{ listStyle: 'none' }}>
                                     <li>
