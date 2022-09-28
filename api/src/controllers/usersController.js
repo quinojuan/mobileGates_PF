@@ -22,7 +22,7 @@ const getUserById = async (req, res) => {
 			res.status(404).json({ message: 'id not exists' });
 		}
 		if (validation.active === false)
-			res.status(400).json({ message: 'user not active' });
+			return res.status(400).json({ message: 'user not active' });
 		res.status(201).json(validation);
 	} catch (e) {
 		console.log(e);
@@ -70,4 +70,22 @@ const updateUser = async (req, res) => {
 	}
 };
 
-module.exports = { getAllUsers, getUserById, createUser, updateUser };
+const deleteUser = async (req, res) => {
+	try {
+		const { id } = req.params;
+		let [deleteUser] = await Users.update({ active: 0 }, { where: { id } });
+		if (!deleteUser) return res.status(404).json({ message: 'user not found' });
+		else res.status(200).json({ message: 'user deleted' });
+	} catch (e) {
+		console.log(e);
+		res.status(500).json({ message: 'Server Error' });
+	}
+};
+
+module.exports = {
+	getAllUsers,
+	getUserById,
+	createUser,
+	updateUser,
+	deleteUser,
+};

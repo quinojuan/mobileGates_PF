@@ -107,7 +107,7 @@ const getPhonesById = async (req, res) => {
 		if (!id) res.ratus(404).json({ message: 'id is not provided' });
 		const validation = await Phones.findByPk(id);
 		if (validation.active === false)
-			res.status(400).json({ message: 'phone not active' });
+			return res.status(400).json({ message: 'phone not active' });
 		res.status(200).json(validation);
 	} catch (e) {
 		console.log(e);
@@ -243,9 +243,23 @@ const updatePhone = async (req, res) => {
 	}
 };
 
+const deletePhone = async (req, res) => {
+	try {
+		const { id } = req.params;
+		let [deletePhone] = await Phones.update({ active: 0 }, { where: { id } });
+		if (!deletePhone)
+			return res.status(404).json({ message: 'phone not found' });
+		res.status(200).json({ message: 'phone deleted' });
+	} catch (e) {
+		console.log(e);
+		res.status(500).json({ message: 'Server Error' });
+	}
+};
+
 module.exports = {
 	getAllProducts,
 	getPhonesById,
 	postPhone,
 	updatePhone,
+	deletePhone,
 };
