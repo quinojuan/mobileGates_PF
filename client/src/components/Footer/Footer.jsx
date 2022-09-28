@@ -45,12 +45,6 @@ export default function NavBar() {
         <h5 className='text-uppercase font-weight-light text-light mb-3'>
         Siguenos en las redes!
         </h5>
-<<<<<<< HEAD
-        <div className=''>
-          <FontAwesomeIcon
-            icon={'fa-brands fa-facebook'}
-            className='h2 me-4'
-=======
         
         <i class="bi bi-instagram"></i>
           <i class="bi bi-whatsapp"></i>
@@ -58,7 +52,6 @@ export default function NavBar() {
           {/* <FontAwesomeIcon
             icon={['fab', 'facebook']}
             className='h2 mr-4'
->>>>>>> 756791199ec4574db5f14fde1f6ba4f5c24fa357
             style={{ color: 'DodgerBlue' }}
           />
           <FontAwesomeIcon
@@ -69,16 +62,9 @@ export default function NavBar() {
           <FontAwesomeIcon
             icon={'fa-brands fa-instagram'}
             className='h2'
-<<<<<<< HEAD
-            style={{ color: 'DodgerBlue' }}
-          />
-          
-        </div>
-=======
             style={{ color: 'DodgerBlue' }} */}
           
         
->>>>>>> 756791199ec4574db5f14fde1f6ba4f5c24fa357
       </div>
       <p class="text-center text-muted text-light">Copyright © 2022 MóvilGates</p>
       <hr/>
