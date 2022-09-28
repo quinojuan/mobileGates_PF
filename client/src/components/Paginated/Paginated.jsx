@@ -21,7 +21,7 @@ export default function Paginado({ productsPerPage, allProducts, paginado, chang
     return (
         <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-           <li class="page-item">
+           <li class="page-item text-black">
                   { currentPage>1 && (
                        <button class="page-link" onClick={(e)=>handlePrevious(e)}>Anterior</button>
                    )
