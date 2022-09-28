@@ -13,13 +13,63 @@ import Swal from 'sweetalert2';
 
 
 export default function NavBar() {
-  const [currentPage, setCurrentPage] = useState(1);
+  
+  // const {user, logout, loading} = useAuth()
+  // const navigate = useNavigate()
+
+  // const handleLogout = async () => {
+  //   await logout()
+  //   navigate('/home/')
+
+  // }
+  // if (loading) {
+  //   return (
+  //     <div><Loading/></div>
+  //   )
+  // } else if (user){
+  //   return (
+  //     <nav>
+  //       <div>
+  //         <h1 classNameName='container-logo'>MóvilGates</h1>
+  //         <a href="/home" classNameName='container-nav'>Home</a>
+  //         <a href="#" classNameName='container-nav'>Productos</a>
+  //         <a href="#" classNameName='container-nav'>Quienes somos?</a>
+  //         <a href="#" classNameName='container-nav'> 🛒</a>
+  //         <h3 classNameName='container-nav'>Hola {user.email}</h3>
+  //         <button classNameName='container-nav' onClick={handleLogout}>Cerrar sesión</button>
+  //       </div>
+  //       <hr />
+  //     </nav>
+  //   )
+  // } else{
+  //   return (
+  //     <nav>
+  //       <div>
+  //         <h1 classNameName='container-logo'>MóvilGates</h1>
+  //         <a href="/home" classNameName='container-nav'>Home</a>
+  //         <a href="#" classNameName='container-nav'>Productos</a>
+  //         <a href="#" classNameName='container-nav'>Quienes somos?</a>
+  //         <a href="/home/login" classNameName='container-nav'>Ingresá | Registrate</a>
+  //       </div>
+  //       <hr />
+  //     </nav>
+  //   )
+  // }
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
   const [name, setName] = useState("");
-  const { user, logout, loading } = useAuth()
-  const navigate = useNavigate()
-
+  const { user, logout, loading } = useAuth();
+  const navigate = useNavigate();
+  const allProducts = useSelector((state) => state.products);
+  const [currentPage, setCurrentPage] = useState(1);
+	const [productsPerPage, setProductsPerPage] = useState(9);
+	const indexOfLastRecipe = currentPage * productsPerPage;
+	const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
+	const currentProducts =
+		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe)
+    const paginado = (pageNumber) => {
+      setCurrentPage(pageNumber)
+  }
   const handleLogout = async () => {
     await logout()
     navigate('/home/')
@@ -59,7 +109,9 @@ export default function NavBar() {
             </h1> */}
             <SearchBar
               currentPage={currentPage}
+              
               setCurrentPage={setCurrentPage}
+              Paginado={paginado}
               weAreInHome={false}
             />
             <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">

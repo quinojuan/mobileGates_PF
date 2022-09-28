@@ -43,6 +43,7 @@ export function getClean(payload) {
 	};
 }
 
+
 export function getImg(payload){
 	return{
 		type: "GET_IMG",

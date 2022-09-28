@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getPurchase, addInputPurchase } from "../../redux/Actions";
+import { getPurchase, postPurchase, getCleanPurchase, clearCart } from "../../redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
@@ -94,9 +94,9 @@ export default function FormPurchase() {
                email: user.email,
                products: carts
             })
-            dispatch(addInputPurchase(input))
-            navigate("/check")
-        
+            dispatch(clearCart())
+            navigate("/home")
+        }
     }
 
     useEffect(() => {
@@ -220,4 +220,4 @@ export default function FormPurchase() {
         
     )
 }
-}
+

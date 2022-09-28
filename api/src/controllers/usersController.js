@@ -68,4 +68,25 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, getUserById, createUser, updateUser };
+const deleteUser = async (req, res) =>{
+  try {
+    const {id} = req.params;
+    console.log(id);
+    if(!id || id.length !== 36) return res.satus(400).json({message: 'id error'});
+    const user = await Users.findByPk(id);
+    console.log(user);
+    if(!user) return res.status(400).json({message: 'canot find a user'});
+    await Users.destroy({
+      where: {
+        id: 1
+      }
+    });
+    res.status(200).json({message: 'done'});
+  }catch(e){
+    console.log(e);
+    res.status(500).json({message: 'Server error'})
+    
+  }
+}
+
+module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser };
