@@ -16,13 +16,17 @@ const initialState = {
   rams: [],
   img: "",
   capacities: [],
+  price: [],
   searching: false,
-  purchases:[],
+  purchases: [],
   inputPurchase: {},
   getCheckout: {},
-  repeat:[],
+  repeat: [],
   repetido: false,
-  finalPrice: 0
+  finalPrice: 0,
+  purchases: [],
+  repeat: [],
+  repetido: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -188,13 +192,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: myCarty,
       };
-      case "CLEAN_CART":
-        let arrayClean = []
-        localStorage.setItem("cart", JSON.stringify(arrayClean))
-        return{
-          ...state,
-          cart: []
-        }
+    case "CLEAN_CART":
+      let arrayClean = [];
+      localStorage.setItem("cart", JSON.stringify(arrayClean));
+      return {
+        ...state,
+        cart: [],
+      };
 
     case "POST_USERS":
       return {
@@ -205,35 +209,43 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: [],
       };
-      case "GET_PURCHASES":
-        return{
+    case "POST_PURCHASES":
+      return {
+        ...state,
+      };
+    case "POST_PHONE":
+      return {
+        ...state,
+      };
+    case "GET_PURCHASES":
+      return {
+        ...state,
+        purchases: action.payload,
+      };
+    case "GET_PURCHASE_REPEAT":
+      let repeat = state.cart.map((s) => s.id.includes(action.payload.id));
+      if (repeat.includes((e) => (e = true))) {
+        return {
           ...state,
-          purchases:action.payload
-        }
-      case "GET_PURCHASE_REPEAT":
-        let repeat=state.cart.map((s)=>s.id.includes(action.payload.id))
-        if(repeat.includes(e=>e=true)){
-          return {
-            ...state,
-            repetido: true 
-          }
-        } else return {
+          repetido: true,
+        };
+      } else
+        return {
           ...state,
-          repetido: false
-        }
-        case "ADD_INPUT_PURCHASE":
-          return{
-            ...state,
-            inputPurchase: action.payload
-          }
+          repetido: false,
+        };
+    case "ADD_INPUT_PURCHASE":
+      return {
+        ...state,
+        inputPurchase: action.payload,
+      };
 
-          case "FINAL_PRICE":
-            return{
-              ...state,
-              finalPrice: action.payload
-            }
-      
-        
+    case "FINAL_PRICE":
+      return {
+        ...state,
+        finalPrice: action.payload,
+      };
+
     default:
       return state;
   }

@@ -18,8 +18,12 @@ export default function Login() {
 
   const { login, loginWithGoogle, resetPassword } = useAuth();
 
+<<<<<<< HEAD
   const navigate = useNavigate();
   const dispatch = useDispatch();
+=======
+    const { login, loginWithGoogle, resetPassword, verification } = useAuth();
+>>>>>>> 756791199ec4574db5f14fde1f6ba4f5c24fa357
 
   const [error, setError] = useState();
 
@@ -50,6 +54,7 @@ export default function Login() {
     }
   };
 
+<<<<<<< HEAD
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
@@ -57,6 +62,33 @@ export default function Login() {
       Swal.fire("Inicio exitoso");
     } catch (error) {
       setError(error.message);
+=======
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setError('')
+        if (user.emailVerified === false) {
+            Swal.fire("Debe verificar el mail, por favor revise su casilla de correo electrónico");
+        }
+        else {
+            try {
+                await login(user.email, user.password)
+                navigate('/home/')
+                Swal.fire("Inicio exitoso");
+            } catch (error) {
+                // setError(error.message)
+                console.log(error.code)
+                if (error.code === "auth/invalid-email") {
+                    //setError('Correo inválido')
+                    Swal.fire("Correo inválido");
+                } else if (error.code === 'auth/wrong-password') {
+                    //setError('Contraseña incorrecta')
+                    Swal.fire("Contraseña incorrecta");
+                } else if (error.code === 'auth/user-disabled') {
+                    Swal.fire("Esta cuenta se encuentra inhabilitada para este sitio")
+                }
+            }
+        }
+>>>>>>> 756791199ec4574db5f14fde1f6ba4f5c24fa357
     }
   };
 
@@ -83,6 +115,7 @@ export default function Login() {
   //     dispatch(addUser(user))
   //   },[dispatch])
 
+<<<<<<< HEAD
   return (
     <div>
       {error && <p>{error}</p>}
@@ -90,6 +123,15 @@ export default function Login() {
       <div class="container">
         <div className="row">
           <div className="col"></div>
+=======
+    return (
+        <div>
+            {error && <p>{error}</p>}
+            <NavBar />
+            <div class='container'>
+                <div className="row">
+                    <div className="col">
+>>>>>>> 756791199ec4574db5f14fde1f6ba4f5c24fa357
 
           <div className="col  border border-5">
             <form onSubmit={handleSubmit}>
@@ -127,6 +169,7 @@ export default function Login() {
                 Continuar con Google
               </button>
             </div>
+<<<<<<< HEAD
             <div class="my-3">
               {/* <a href="/home/createuser" class="btn btn-secondary">No tenes cuenta? Registrate gratis</a>
         <a href="#" onClick={handleResetPassword} class="btn btn-secondary">Olvidaste tu contraseña?</a> */}
@@ -148,6 +191,9 @@ export default function Login() {
             </div>
           </div>
           <div className="col"></div>
+=======
+            <Footer />
+>>>>>>> 756791199ec4574db5f14fde1f6ba4f5c24fa357
         </div>
       </div>
       <Footer />

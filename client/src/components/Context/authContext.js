@@ -8,6 +8,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  getAuth,
+  sendEmailVerification
 } from "firebase/auth";
 import { auth } from "../../firebase";
 
@@ -41,6 +43,10 @@ export function AuthProvider({ children }) {
 
   const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
 
+  const verification = async (email) => sendEmailVerification(auth, email)
+
+  
+
   useEffect(() => {
     const currentUser = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -60,6 +66,7 @@ export function AuthProvider({ children }) {
         loading,
         loginWithGoogle,
         resetPassword,
+        verification
       }}
     >
       {children}
