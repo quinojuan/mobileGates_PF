@@ -49,6 +49,7 @@ export default function AddProducts() {
     }, [dispatch])
 
     function handleChange(e) {
+        console.log(input);
         if(isNaN(e.target.value)){
             setInput({
                 ...input,
@@ -57,7 +58,7 @@ export default function AddProducts() {
         } else{
             setInput({
                 ...input,
-                [(e.target.name)]: Number(e.target.value)
+                [(e.target.name)]:(e.target.value)
             })
         }
        
@@ -133,60 +134,60 @@ export default function AddProducts() {
     }
 
     function handleSubmit(e) {
-
-        // if (!input.brand.length) {
-        //     e.preventDefault();
-        //     return Swal.fire("Debe seleccionar al menos una marca del dispositivo")
-        // } else if (!input.model.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar el modelo del dispositivo')
+        input.price = [parseInt(input.price)]
+        if (!input.brand.length) {
+            e.preventDefault();
+            return Swal.fire("Debe seleccionar al menos una marca del dispositivo")
+        } else if (!input.model.length) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar el modelo del dispositivo')
         
-        // } else if (input.image.length === 0) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
-        // } else if (!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar una URL válida')
-        // } else if (!input.operative_system.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
-        // } else if (!input.size.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el tamaño del dispositivo')
-        // } else if (!input.inches.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar las pulgadas del dispositivo')
-        // } else if (!input.main_camera.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar los pixeles de la cámara trasera')
-        // } else if (!input.frontal_camera.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar los pixeles de la cámara frontal')
-        // } else if (!input.weight.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el peso del dispositivo')
-        // } else if (!input.ram.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes seleccionar al menos una memoria RAM')
-        // } else if (!input.capacity.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes seleccionar al menos una capacidad de almacenamiento')
-        // } else if (!input.battery.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el tamaño de la bateria')
-        // } else if (!input.cpu.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el modelo del procesador')
-        // } else if (!input.price.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar el precio del dispositivo')
-        // } else if (!input.description.length) {
-        //     e.preventDefault();
-        //     return Swal.fire('Debes ingresar la descripción del dispositivo')
-        // }
-
-        //dispatch(postPhone(input))
-        //Swal.fire("El dispositivo ha sido añadido con éxito!")
+        } else if (input.image.length === 0) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
+        } else if (!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar una URL válida')
+        } else if (!input.operative_system.length) {
+            e.preventDefault();
+            return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
+        } else if (!input.size.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el tamaño del dispositivo')
+        } else if (!input.inches.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar las pulgadas del dispositivo')
+        } else if (!input.main_camera.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar los pixeles de la cámara trasera')
+        } else if (!input.frontal_camera.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar los pixeles de la cámara frontal')
+        } else if (!input.weight.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el peso del dispositivo')
+        } else if (!input.ram.length) {
+            e.preventDefault();
+            return Swal.fire('Debes seleccionar al menos una memoria RAM')
+        } else if (!input.capacity.length) {
+            e.preventDefault();
+            return Swal.fire('Debes seleccionar al menos una capacidad de almacenamiento')
+        } else if (!input.battery.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el tamaño de la bateria')
+        } else if (!input.cpu.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el modelo del procesador')
+        } else if (!input.price.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar el precio del dispositivo')
+        } else if (!input.description.length) {
+            e.preventDefault();
+            return Swal.fire('Debes ingresar la descripción del dispositivo')
+        }
+        
+        dispatch(postPhone(input))
+        Swal.fire("El dispositivo ha sido añadido con éxito!")
         console.log(input)
         console.log('creado con exito')
         // setInput({
@@ -342,15 +343,12 @@ export default function AddProducts() {
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
-
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
-
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
-
                         <div class="col">
                             <input type="text" name="colors" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
                         </div>
@@ -360,7 +358,7 @@ export default function AddProducts() {
                             <div class="input-group mb-3">
                                 <input type="text" name="price" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
 
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(e) => handlePrice(e)}>Añadir precio</button>
+                                {/* <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(e) => handlePrice(e)}>Añadir precio</button> */}
 
                                 {/* <ul style={{ listStyle: 'none' }}>
                                     <li>
