@@ -162,17 +162,18 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: sortedArr2,
       };
+      
     case "ADD_TO_CART":
-      //console.log(action.payload[0].id, "ID")
+      console.log(action.payload, "REDUCERRRR")
       let purchase = action.payload;
       let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
-      if (!myCartLS.some((el) => el.id == purchase[0].id)) {
-        myCartLS.push(purchase[0]);
+      if (!myCartLS.some((el) => el.id == purchase.phone.id)) {
+        myCartLS.push(purchase);
         localStorage.setItem("cart", JSON.stringify(myCartLS));
       }
       return {
         ...state,
-        cart: [...state.cart, purchase[0]],
+        cart: [...state.cart, purchase],
       };
     case "GET_CART":
       let cartLS = JSON.parse(localStorage.getItem("cart"));

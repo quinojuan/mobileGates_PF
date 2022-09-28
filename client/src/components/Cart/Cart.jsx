@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCart, deleteProductInCart, setFinalPrice } from "../../redux/Actions";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -13,23 +13,69 @@ export default function Cart() {
   let myCart = useSelector((state) => state.cart);
   //const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [suma, setSuma]= useState(0)
+  const [count, setCount]= useState(1)
 
+/*     function decrease(e){
+        setCount(count - 1)
+        let total = 0;
+        for (let i = 0; i < myCart.length; i++) {
+          myCart[i].quantity = count
+          total += (myCart[i].phone.price[0] * myCart[i].quantity);
+        }
+        setSuma(total)  
+    }
+    function increase(e){
+      console.log(e," QUESTAPASANDO")
+      let phone =
+      e={
+        quantity: e.quantity + 1
+      }
+    } */
+
+
+    const handleCount = (prod, increase ) => {
+      let product = myCart.filter((e)=> e.phone.model === prod.phone.model)
+       console.log(product, "EL PHONE")
+      if(typeof increase === 'string'){
+        product[0]={ ...product[0],
+          quantity: product[0].quantity + 1
+       }
+       console.log(product, "EL PHONE")
+      }else{
+        product={
+          quantity: product.quantity + 1
+       }
+      }
+
+    }
   
   useEffect(() => {
     dispatch(getCart());
   }, [dispatch]);
   
+  console.log(myCart, "my cart a verrrrr")
 
   const handleSuma =()=> {
     let suma = 0;
     for (let i = 0; i < myCart.length; i++) {
-      suma += myCart[i].price[0];
+      suma += (myCart[i].phone.price[0] * myCart[i].quantity);
     }
     dispatch(setFinalPrice(suma))
     console.log("SUMA:", suma);
     suma = parseFloat(suma)/1000
     return suma;
   }
+   
+  useEffect(()=>{
+    let total = 0;
+    for (let i = 0; i < myCart.length; i++) {
+      myCart[i].quantity = count
+      total += (myCart[i].phone.price[0] * myCart[i].quantity);
+    }
+    setSuma(total)
+  },[dispatch])
+
 
   return (
     <div >
@@ -49,26 +95,29 @@ export default function Cart() {
               return (
                 <div class='container' style={{ minHeight: '50px' }}>
                   {/* <div class='col lg-8' key={p.id}> */}
-                  <div className='card mt-1 p-1 w-50' key={p.id}>
+                  <div className='card mt-1 p-1 w-50' key={p.phone.id}>
                     {/* <div class='col-md-20 ms-2 ' style={{ maxHeight: '700px'}}> */}
                     <div className='row container' >
                     <div className='col-md-4'>
-                    <img src={p.image} class="card-img w-100"alt=""/>
+                    <img src={p.phone.image} class="card-img w-100"alt=""/>
                     </div>
                   <div className='col-md-5'>
                   <div className='card-body'>
-                    <h5 className='card-title'>{p.brand}{p.model}</h5>
+                    <h5 className='card-title'>{p.phone.brand}{p.phone.model}</h5>
                     <p className='card-text'>
-                      {p.description.slice(0, 50) + '...'}
+                      {p.phone.description.slice(0, 50) + '...'}
                     </p>
                   </div>
                 </div>
                     <button
                       class="btn btn-danger btn-sm w-50 mx-auto"
-                      onClick={() => dispatch(deleteProductInCart(p.id))}
+                      onClick={() => dispatch(deleteProductInCart(p.phone.id))}
                       >
                       Quitar del carrito
                     </button>
+                    <button disabled={p.quantity<=1} onClick={()=>handleCount(p)}>-</button>
+                      <span>{p.quantity}</span>
+                    <button disabled={p.quantity>=30} onClick={()=>handleCount(p, "increase")}>+</button>
                   </div>
                   </div>
                 </div>
@@ -84,7 +133,7 @@ export default function Cart() {
       <div className='sticky-top'>
         <h3 class="">Resumen</h3>
         <hr />
-        <h4 class='mt-3'>Costo total: ${handleSuma()}</h4>
+        <h4 class='mt-3'>Costo total: ${suma}</h4>
             {myCart.length > 0 ? (
               <button class='btn btn-primary w-50'>
                 <Link class='text-decoration-none text-light' to="/purchase">Comprar</Link>

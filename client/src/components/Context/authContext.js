@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const signup = (email, password) => {
-    console.log(email,password, "SIGN UP")
+   // console.log(email,password, "SIGN UP")
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -50,12 +50,12 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const currentUser = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser, "CURRENT USER")
+     // console.log(currentUser, "CURRENT USER")
       setLoading(false);
     });
     return () => currentUser();
   }, []);
- console.log(user, "el user")
+ //console.log(user, "el user")
   return (
     <authContext.Provider
       value={{
