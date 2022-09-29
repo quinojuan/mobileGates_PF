@@ -18,15 +18,12 @@ const initialState = {
   capacities: [],
   price: [],
   searching: false,
-  purchases: [],
+  purchases:[],
   inputPurchase: {},
   getCheckout: {},
   repeat: [],
   repetido: false,
-  finalPrice: 0,
-  purchases: [],
-  repeat: [],
-  repetido: false,
+  finalPrice: 0
 };
 
 function rootReducer(state = initialState, action) {
@@ -216,37 +213,41 @@ function rootReducer(state = initialState, action) {
       };
     case "POST_PHONE":
       return {
-        ...state,
-      };
+        ...state
+      }
+      case "PUT_PHONE":
+      return {
+        ...state
+      }
     case "GET_PURCHASES":
       return {
         ...state,
-        purchases: action.payload,
-      };
-    case "GET_PURCHASE_REPEAT":
-      let repeat = state.cart.map((s) => s.id.includes(action.payload.id));
-      if (repeat.includes((e) => (e = true))) {
-        return {
+        purchases: action.payload
+      }
+      case "GET_PURCHASE_REPEAT":
+        let repeat=state.cart.map((s)=>s.id.includes(action.payload.id))
+        if(repeat.includes(e=>e=true)){
+          return {
+            ...state,
+            repetido: true 
+          }
+        } else return {
           ...state,
-          repetido: true,
-        };
-      } else
-        return {
-          ...state,
-          repetido: false,
-        };
-    case "ADD_INPUT_PURCHASE":
-      return {
-        ...state,
-        inputPurchase: action.payload,
-      };
+          repetido: false
+        }
+        case "ADD_INPUT_PURCHASE":
+          return{
+            ...state,
+            inputPurchase: action.payload
+          }
 
-    case "FINAL_PRICE":
-      return {
-        ...state,
-        finalPrice: action.payload,
-      };
-
+          case "FINAL_PRICE":
+            return{
+              ...state,
+              finalPrice: action.payload
+            }
+      
+        
     default:
       return state;
   }

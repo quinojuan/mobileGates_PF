@@ -16,6 +16,15 @@ export default function DetailsPhone(props) {
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
 
+  const [count, setCount]= useState(1)
+
+    function decrease(){
+        setCount(count-1)
+    }
+    function increase(){
+        setCount(count+1)
+    }
+
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);
@@ -155,8 +164,15 @@ export default function DetailsPhone(props) {
               </div>
             </div>
           </div>
+          <button disabled={count<=1} onClick={()=>decrease()}>-</button>
+            <span>{count}</span>
+            <button disabled={count>=30} onClick={()=>increase()}>+</button>
           <div>
-            <AddProducts id={myProducts.id} />
+            <AddProducts 
+                  id={myProducts.id}
+                  
+                  quantity={count}
+                  />
           </div>
           <div>
             <button class="btn btn-dark" onClick={() => handleBack()}>

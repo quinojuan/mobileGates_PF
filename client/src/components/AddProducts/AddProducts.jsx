@@ -10,22 +10,27 @@ import Swap from "sweetalert2"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-export default function AddProducts({id}){
-    
-    const dispatch=useDispatch()
-    const cart = useSelector((state)=>state.cart)
-    const { user, logout, loading } = useAuth()
-    const products = useSelector((state)=>state.products)
-    let product = products.filter((e)=>e.id === id)
-    const [sinAgregar, setSinAgregar]=useState((true))
+export default function AddProducts({ id, quantity }) {
 
-    function handleCart(){
+    const dispatch = useDispatch()
+    const cart = useSelector((state) => state.cart)
+    const { user, logout, loading } = useAuth()
+    const products = useSelector((state) => state.products)
+    let product = products.filter((e) => e.id === id)
+    const [sinAgregar, setSinAgregar] = useState((true))
+
+    let productPresentation = {
+        phone: product[0],
+        quantity: quantity
+    }
+
+    function handleCart() {
         console.log(id, "ID")
-        console.log(product, "PRODUCT")
-        if(sinAgregar){
-        dispatch(addToCart(product))
-        Swap.fire("Éxito","Producto agregado con exito.", "success")
-        setSinAgregar(false)
+        // console.log(product, "PRODUCT")
+        if (sinAgregar) {
+            dispatch(addToCart(productPresentation))
+            Swap.fire("Éxito", "Producto agregado con exito.", "success")
+            setSinAgregar(false)
         } else {
             Swap.fire("El producto ya ha sido añadido anteriormente.")
         }
@@ -35,12 +40,12 @@ export default function AddProducts({id}){
             <div class='mb-3'>
             <button type="button" class=' btn btn-primary ' onClick={()=>handleCart()}><FontAwesomeIcon icon={['fas', 'cart-plus']} /> Agregar al Carrito</button>
             </div>
-    )
-} else {
-    return (
-        <h1>
-            Inicia sesión para poder realizar la compra
-        </h1>
-    )
-}
+        )
+    } else {
+        return (
+            <h1>
+                Inicia sesión para poder realizar la compra
+            </h1>
+        )
+    }
 }

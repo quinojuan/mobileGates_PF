@@ -21,8 +21,9 @@ import AdminPages from './components/AdminPages/AdminPages';
 import AddPhone from './components/AdminPages/AddPhone';
 import ManageUser from './components/AdminPages/ManageUser';
 import ModifyPhone from './components/AdminPages/ModifyPhone';
-
+import PhonesTable from './components/AdminPages/PhonesTable';
 library.add(fab, faCheckSquare, faCoffee, fas)
+
 
 function App() {
   return (
@@ -32,7 +33,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element = {<Landing/>} />
-        <Route exact path="/check" element = {<Checkout/>} />
         <Route exact path = '/products/Cart' element = {
           <ProtectedRoute>
           <Cart/>
@@ -50,7 +50,8 @@ function App() {
         <Route path="/contacto" element= {<Contact/>}/>
         <Route path="/adminpages" element= {<AdminPages/>}/>
         <Route path="/addphone" element= {<AddPhone/>}/>
-        <Route path="/modifyphone" element= {<ModifyPhone/>}/>
+        <Route path="/phonestable" element= {<PhonesTable/>}/>
+        <Route path="/modifyphone/:id" element= {<ModifyPhone/>}/>
         <Route path="/manageuser" element= {<ManageUser/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>

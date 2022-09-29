@@ -117,13 +117,20 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li> */}
                 <li className="nav-item">
-                  <a className="nav-link active text-white" href="#" onClick={()=> navigate("/products/Cart")}>Carrito 🛒</a>
+                  <a className="nav-link active text-white" href="#" onClick={() => navigate("/products/Cart")}>Carrito 🛒</a>
                 </li>
-                <li className="nav-item">
-                <h3 className='nav-link active text-white mt-1'>Hola, {user.email.split('@')[0]}</h3>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active text-white" href="#" onClick={handleLogout}>Cerrar sesión</a>
+                <li class="nav-item dropdown">
+                  <div class="dropdown show">
+                    <a class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hola, {user.email.split('@')[0]}
+                    {/* {console.log(user)} */}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
+                      <a class="dropdown-item" href="/adminpages">Panel del admin</a>
+                      <a className="dropdown-item" href="#" onClick={handleLogout}>Cerrar sesión</a>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
