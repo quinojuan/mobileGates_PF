@@ -69,8 +69,15 @@ const postPurchase = async (req, res) =>{
 
 	   const promises = products.map((p) => {
           return new Promise(async (resolve, reject) => {
-			let myPhone = await Phones.findOne({where:{ model: p.model}})
+			let myPhone = await Phones.findOne({where:{ model: p.phone.model}})
 			await newPurchase.addPhones(myPhone.dataValues.id)
+			//preguntarle a req.body.products cuantas veces enviaron el mismo product
+			//en base a la cantidad de ese product, updatear el stock en BD
+            myPhone = {...myPhone.dataValues,
+                 stock: myPhone.dataValues.stock - p.quantity
+			} 
+			await Phones.update(myPhone, {where : {id: myPhone.id}})
+ 
 			//aca habria que descontarle del stock a dicho phone por cada quantity del producto en la compra
 			const purchaseWithPhone = await Purchases.findByPk(newPurchase.id,{
 				include:[{
