@@ -6,12 +6,13 @@ import {getAuth} from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDvZklp9b0w-cZrPgr8taiAMFS8eTG4Bs0",
-  authDomain: "login-movil-gates.firebaseapp.com",
-  projectId: "login-movil-gates",
-  storageBucket: "login-movil-gates.appspot.com",
-  messagingSenderId: "651955039492",
-  appId: "1:651955039492:web:e414e0ff2a7eaff4807451"
+  apiKey: "AIzaSyA1xMCuaRWXH2GpMtdjWa_8_WwuFs4e5-w",
+  authDomain: "proyecto-e64bf.firebaseapp.com",
+  databaseURL: "https://proyecto-e64bf-default-rtdb.firebaseio.com",
+  projectId: "proyecto-e64bf",
+  storageBucket: "proyecto-e64bf.appspot.com",
+  messagingSenderId: "214423963034",
+  appId: "1:214423963034:web:946426b252468df3116623"
 };
 
 // Initialize Firebase

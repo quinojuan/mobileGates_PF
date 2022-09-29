@@ -2,40 +2,78 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPhonesById, getClean } from "../../redux/Actions";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
-
+import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
-//coment para commit
+import Feedback from "../Feedbacks/Feedbacks";
+import { useAuth } from '../Context/authContext';
+
 export default function DetailsPhone(props) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
-  const loading = useSelector((state) => state.loading);
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
+  const [count, setCount]= useState(1)
+  const { user } = useAuth()
+    function decrease(){
+        setCount(count-1)
+    }
+    function increase(){
+        setCount(count+1)
+    }
+
+
+  function decrease() {
+    setCount(count - 1);
+  }
+  function increase() {
+    setCount(count + 1);
+  }
   useEffect(() => {
-    !Object.keys(myProducts).length&&dispatch(getPhonesById(id));
-    console.log(Object.keys(myProducts).length)
-    Object.keys(myProducts).length&&setImg(myProducts.image)
-    // return dispatch(getClean());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, myProducts]);
-  useEffect(()=>{
-    return dispatch(getClean())
-  }, [dispatch])
+    !Object.keys(myProducts).length && dispatch(getPhonesById(id));
+    Object.keys(myProducts).length && setImg(myProducts.image);
+  }, [dispatch, myProducts, id]);
+
+  function handleBack() {
+    dispatch(getClean());
+    navigate("/home");
+  }
+  
+
   function handleSelectImage(e) {
     e.preventDefault();
     setImg(e.target.src);
   }
- 
-  //setInterval(loadingImage(),1500);
+  function acomodarPrecio(precio) {
+    //console.log("precio:", precio);
+    let precioString = precio.toString();
+    let contador = 0;
+    let acumulador = [];
+    let acumuladorInvertido = [];
+    for (let i = precioString.length - 1; i >= 0; i--) {
+      contador++;
+      if (contador === 3 && i > 0) {
+        acumuladorInvertido.push(precioString[i]);
+        acumuladorInvertido.push(".");
+        contador = 0;
+      } else {
+        acumuladorInvertido.push(precioString[i]);
+      }
+    }
+    for (let i = acumuladorInvertido.length - 1; i >= 0; i--) {
+      acumulador.push(acumuladorInvertido[i]);
+    }
+    return acumulador.join("");
+  }
   return (
     <div>
+      <NavBar />
       {
         <div>
-          <NavBar />
           <div
             className="container"
             style={{
@@ -56,7 +94,7 @@ export default function DetailsPhone(props) {
             >
               <div class="row g-0">
                 <div class="col-md-4">
-                  {img?(
+                  {img ? (
                     <img
                       src={img}
                       alt="Not found"
@@ -103,17 +141,23 @@ export default function DetailsPhone(props) {
                       Mpx.
                     </h5>
                     <h5>
-                      Precio:{" "}
-                      {myProducts && myProducts.price > 999
-                        ? "$" + parseFloat(myProducts.price / 1000).toFixed(3)
-                        : "$" + myProducts.price}
+                      Precio:{" $"}
+                      {myProducts.weight
+                        ? acomodarPrecio(myProducts.price)
+                        : null}
                     </h5>
-                    <h5>Peso: {myProducts && myProducts.weight}g.</h5>
+                    <h5>
+                      Peso:{" "}
+                      {myProducts.weight
+                        ? acomodarPrecio(myProducts.weight)
+                        : null}
+                      g.
+                    </h5>
                     <h5>
                       Capacidad de la bateria:
-                      {myProducts && myProducts.battery > 999
-                        ? " " + parseFloat(myProducts.battery / 1000).toFixed(3)
-                        : " " + myProducts.battery}
+                      {myProducts.battery
+                        ? acomodarPrecio(myProducts.battery)
+                        : null}
                       mAh.
                     </h5>
 
@@ -122,8 +166,8 @@ export default function DetailsPhone(props) {
                     </h6>
 
                     <h4> Otros colores: </h4>
-                    {myProducts &&  
-                      myProducts.colors?.map((e) =>  (
+                    {myProducts &&
+                      myProducts.colors?.map((e) => (
                         <img
                           src={e}
                           alt="img not fund"
@@ -137,14 +181,23 @@ export default function DetailsPhone(props) {
               </div>
             </div>
           </div>
+          <button disabled={count<=1} onClick={()=>decrease()}>-</button>
+            <span>{count}</span>
+            <button disabled={count>=30} onClick={()=>increase()}>+</button>
           <div>
-            <AddProducts
-            id={myProducts.id}/>
-            </div>
+            <AddProducts id={myProducts.id} quantity={count} />
+          </div>
+          <h2>Deje su reseña:</h2>
+          <div className="dejarFeedback">
+            <Feedback
+            model = {myProducts?myProducts.model:"modelo inexistente"}
+            email = {user?user.email:"email invalido"}
+            />
+          </div>
           <div>
-            <Link to="/home" class="btn btn-dark">
+            <button class="btn btn-dark" onClick={() => handleBack()}>
               Volver
-            </Link>
+            </button>
           </div>
           <Footer />
         </div>

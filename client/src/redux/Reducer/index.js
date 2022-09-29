@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 const initialState = {
   products: [],
   details: [],
@@ -15,8 +16,18 @@ const initialState = {
   rams: [],
   img: "",
   capacities: [],
+  price: [],
   searching: false,
-  purchases:[]
+  inputPurchase: {},
+  getCheckout: {},
+  repeat: [],
+  repetido: false,
+  finalPrice: 0,
+  purchases: [],
+  repeat: [],
+  repetido: false,
+  feedback: {},
+  allFeedbacks: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -46,7 +57,7 @@ function rootReducer(state = initialState, action) {
     case "GET_CLEAN":
       return {
         ...state,
-        details: {},
+        details: [],
       };
 
     case "SEARCH_NAME":
@@ -105,7 +116,7 @@ function rootReducer(state = initialState, action) {
     case "GET_SORT":
       let sortedArr =
         action.payload === "A-Z"
-          ? state.products.sort(function (a, b) {
+          ? state.products.sort(function(a, b) {
               if (a.model.toLowerCase() > b.model.toLowerCase()) {
                 return 1;
               }
@@ -114,7 +125,7 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             }) // sino.....
-          : state.products.sort(function (a, b) {
+          : state.products.sort(function(a, b) {
               if (a.model.toLowerCase() > b.model.toLowerCase()) {
                 return -1;
               }
@@ -127,19 +138,44 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: sortedArr,
       };
+    case "GET_SORT_BY_PRICE":
+      let sortedArr2 =
+        action.payload === "High to low"
+          ? state.allProducts.sort(function(a, b) {
+              if (a.price[0] > b.price[0]) {
+                return 1;
+              }
+              if (b.price[0] > a.price[0]) {
+                return -1;
+              }
+              return 0;
+            }) // sino.....
+          : state.allProducts.sort(function(a, b) {
+              if (a.price[0] > b.price[0]) {
+                return -1;
+              }
+              if (b.price[0] > a.price[0]) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        products: sortedArr2,
+      };
+
     case "ADD_TO_CART":
-      console.log("añadiendo al carrito desde reducer:", action.payload);
+      console.log(action.payload, "REDUCERRRR");
       let purchase = action.payload;
-      //console.log(state.cart, "carrito redux")
       let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
-      console.log(myCartLS, "MYCART LS");
-      if (!myCartLS.some((el) => el.id == purchase[0].id)) {
-        myCartLS.push(purchase[0]);
+      console.log("MY CART LS:", myCartLS);
+      if (!myCartLS.some((el) => el.id == purchase.phone.id)) {
+        myCartLS.push(purchase);
         localStorage.setItem("cart", JSON.stringify(myCartLS));
       }
       return {
         ...state,
-        cart: [...state.cart, purchase[0]],
+        cart: [...state.cart, purchase],
       };
     case "GET_CART":
       let cartLS = JSON.parse(localStorage.getItem("cart"));
@@ -150,16 +186,24 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: cartLS,
       };
+
     case "DELETE_PRODUCT_IN_CART":
-      //console.log(action.payload, "LLEGUE redux")
+      console.log(action.payload, "reducer");
       let productsInLs = JSON.parse(localStorage.getItem("cart"));
-      //console.log(productsInLs, "products in ls")
-      let myCarty = productsInLs.filter((el) => el.id !== action.payload);
+      let myCarty = productsInLs.filter((el) => el.phone.id !== action.payload);
+      //pensar la logica de ir sacando de a 1 quantity
       localStorage.setItem("cart", JSON.stringify(myCarty));
 
       return {
         ...state,
         cart: myCarty,
+      };
+    case "CLEAN_CART":
+      let arrayClean = [];
+      localStorage.setItem("cart", JSON.stringify(arrayClean));
+      return {
+        ...state,
+        cart: [],
       };
 
     case "POST_USERS":
@@ -172,20 +216,63 @@ function rootReducer(state = initialState, action) {
         users:action.payload
       }
     case "CLEAR_CART":
-      console.log("estamos en el case de clearCart")
       return {
         ...state,
         cart: [],
       };
-      case "POST_PURCHASES":
-        return{
-          ...state
-        }
-      case "GET_PURCHASES":
-        return{
+    case "POST_PURCHASES":
+      return {
+        ...state,
+      };
+    case "POST_PHONE":
+      return {
+        ...state,
+      };
+    case "GET_PURCHASES":
+      return {
+        ...state,
+        purchases: action.payload,
+      };
+    case "GET_PURCHASE_REPEAT":
+      let repeat = state.cart.map((s) => s.id.includes(action.payload.id));
+      if (repeat.includes((e) => (e = true))) {
+        return {
           ...state,
-          purchases:action.payload
-        }
+          repetido: true,
+        };
+      } else
+        return {
+          ...state,
+          repetido: false,
+        };
+    case "ADD_INPUT_PURCHASE":
+      return {
+        ...state,
+        inputPurchase: action.payload,
+      };
+    case "PUT_PHONE":
+      return {
+        ...state,
+      };
+    case "GET_FEEDBACKS":
+      return {
+        ...state,
+        allFeedbacks: action.payload,
+      };
+
+    case "FINAL_PRICE":
+      return {
+        ...state,
+        finalPrice: action.payload,
+      };
+    case "POST_FEEDBACK":
+      return {
+        ...state,
+        feedback: action.payload,
+      };
+    case "PREVENT_CART_BUG":
+      return { ...state, cart: [] };
+
     default:
       return state;
   }

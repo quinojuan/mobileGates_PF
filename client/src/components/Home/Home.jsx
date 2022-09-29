@@ -12,7 +12,8 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
-	searching
+	getSortByPrice,
+	getClean
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -21,15 +22,17 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Paginado from '../Paginated/Paginated';
 import AddProducts from '../AddProducts/AddProducts';
+import Loading from '../Loading/Loading';
 import './Home.css';
 import Swat from 'sweetalert2';
 import Carousel from '../Carousel/Carousel';
+
 
 export default function Home() {
 	const dispatch = useDispatch();
 	const buscando = useSelector((state)=>state.searching)
 	const allProducts = useSelector((state) => state.products);
-	console.log(allProducts)
+	//console.log(allProducts)
 	const filters = useSelector((state) => state.filters);
 	const loading = useSelector((state) => state.loading);
 	const brands = useSelector((state) => state.categories);
@@ -42,7 +45,9 @@ export default function Home() {
 	const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
 	const currentProducts =
 		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
 	const search = useSelector((s) => s.search);
+	const [price, setPrice]= useState("")
 	//console.log(allProducts);
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
@@ -58,6 +63,7 @@ export default function Home() {
 
 	useEffect(() => {
 		dispatch(getProductsByNameAndFilters(search, filters));
+		dispatch(getClean());
 	}, [dispatch, filters, search]);
 	const [orden, setOrden] = useState('');
 
@@ -85,12 +91,18 @@ export default function Home() {
 		setCurrentPage(1);
 		setOrden(`Ordenado ${e.target.value}`);
 	}
+	function handleSortByPrice(e){
+		e.preventDefault();
+		dispatch(getSortByPrice(e.target.value));
+		setCurrentPage(1);
+		setOrden(`Ordenado ${e.target.value}`);
+	}
 
 	function handleLoading() {
 		if (loading) {
 			return (
 				<div>
-					<h1>Loading...</h1>
+					<div><Loading /></div>
 				</div>
 			);
 		} else {
@@ -123,23 +135,23 @@ export default function Home() {
 				setCurrentPage={setCurrentPage}
 				weAreInHome={true}
 				/> */}
-				{/* <div>
+				<div>
 				<Carousel/>
-				</div> */}
+				</div>
 			</div>
 			{/* { <div className="btn-reload">
 				<button class="btn btn-dark" onClick={(e) => handleReload(e)}>
 					Reiniciar busqueda ↻
 				</button>
 			</div> } */}
-			<div class="btn-group">
+			<div class="btn-group w-100 mt-2">
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					name="ram"
 					onChange={(e) => handleFilter(e)}
 				>
-					<option hidden>Filter by RAM</option>
+					<option hidden>Memoria RAM</option>
 					<option value="">Todos</option>
 					{rams.map((s)=>(
 						<option key={s} value={s}>{s} GB</option>
@@ -147,7 +159,7 @@ export default function Home() {
 
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					name="capacity"
 					onChange={(e) => handleFilter(e)}
@@ -162,7 +174,7 @@ export default function Home() {
 					))}
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					name="brand"
 					onChange={(e) => handleFilter(e)}
@@ -176,13 +188,23 @@ export default function Home() {
 					))}
 				</select>
 				<select
-					class="form-select"
+					class="form-select bg-dark text-light me-2"
 					aria-label="Default select example"
 					onChange={(e) => handleSort(e)}
 				>
 					<option hidden>Orden alfabético</option>
 					<option value="A-Z">A-Z</option>
 					<option value="Z-A">Z-A</option>
+				</select>
+				<select
+					class="form-select bg-dark text-light me-2"
+					aria-label="Default select example"
+					onChange={(e) => handleSortByPrice(e)}
+				>
+					<option hidden>Orden por precio</option>
+					<option value="value">Mayor a menor precio</option>
+					<option value="High to low">Menor a mayor precio</option>
+					
 				</select>
 			</div>
 			<div>
@@ -198,7 +220,7 @@ export default function Home() {
 				changePage={changePage}
 				currentPage={currentPage}
 			/>
-			<div>
+			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 justify-content-center'>
 			{buscando?handleBuscando(search):null}
 				{!loading ? (
 					currentProducts.length ? (
@@ -210,6 +232,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
+									
 										<Cards
 											model={s.model}
 											image={s.image}
@@ -220,6 +243,7 @@ export default function Home() {
 											capacity={s.capacity}
 											price={s.price[0]}
 										/>
+										
 									{/* </Link> */}
 									{/* <AddProducts id={s.id} /> */}
 								</>
