@@ -16,6 +16,15 @@ export default function DetailsPhone(props) {
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
 
+  const [count, setCount]= useState(1)
+
+    function decrease(){
+        setCount(count-1)
+    }
+    function increase(){
+        setCount(count+1)
+    }
+
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);
@@ -30,8 +39,32 @@ export default function DetailsPhone(props) {
     e.preventDefault();
     setImg(e.target.src);
   }
+
+  function acomodarPrecio(precio) {
+    console.log("precio:", precio);
+    let precioString = precio.toString();
+    let contador = 0;
+    let acumulador = [];
+    let acumuladorInvertido = [];
+    for (let i = precioString.length - 1; i >= 0; i--) {
+      contador++;
+      if (contador === 3 && i > 0) {
+        acumuladorInvertido.push(precioString[i]);
+        acumuladorInvertido.push(".");
+        contador = 0;
+      } else {
+        acumuladorInvertido.push(precioString[i]);
+      }
+    }
+    for (let i = acumuladorInvertido.length - 1; i >= 0; i--) {
+      acumulador.push(acumuladorInvertido[i]);
+    }
+    return acumulador.join("");
+  }
+
   return (
     <div>
+      <NavBar />
       {
         <div>
           <div
@@ -101,17 +134,13 @@ export default function DetailsPhone(props) {
                       Mpx.
                     </h5>
                     <h5>
-                      Precio:{" "}
-                      {myProducts && myProducts.price > 999
-                        ? "$" + parseFloat(myProducts.price / 1000).toFixed(3)
-                        : "$" + myProducts.price}
+                      Precio:{" $"}
+                      {myProducts.weight?acomodarPrecio(myProducts.price):null}
                     </h5>
-                    <h5>Peso: {myProducts && myProducts.weight}g.</h5>
+                    <h5>Peso: {myProducts.weight?acomodarPrecio(myProducts.weight):null}g.</h5>
                     <h5>
                       Capacidad de la bateria:
-                      {myProducts && myProducts.battery > 999
-                        ? " " + parseFloat(myProducts.battery / 1000).toFixed(3)
-                        : " " + myProducts.battery}
+                      {myProducts.battery?acomodarPrecio(myProducts.battery):null}
                       mAh.
                     </h5>
 
@@ -135,8 +164,15 @@ export default function DetailsPhone(props) {
               </div>
             </div>
           </div>
+          <button disabled={count<=1} onClick={()=>decrease()}>-</button>
+            <span>{count}</span>
+            <button disabled={count>=30} onClick={()=>increase()}>+</button>
           <div>
-            <AddProducts id={myProducts.id} />
+            <AddProducts 
+                  id={myProducts.id}
+                  
+                  quantity={count}
+                  />
           </div>
           <div>
             <button class="btn btn-dark" onClick={() => handleBack()}>

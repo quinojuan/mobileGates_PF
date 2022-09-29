@@ -44,7 +44,17 @@ export default function PhonesTable() {
                                         <Link to={`/modifyphone/${el.id}`}>
                                         <a href="#"  class="btn btn-warning">Modificar</a>
                                         </Link>
-                                        <button type="button" class="btn btn-danger">Eliminar</button>
+                                        <button 
+                                         onClick={() => {
+                                            Swal({
+                                              title: 'Eliminar',
+                                              text: '¿Seguro desea eliminar este usuario?',
+                                              icon: 'warning',
+                                              buttons: ['No', 'Si'],
+                                              dangerMode: true,
+                                            })
+                                          }}
+                                        type="button" class="btn btn-danger">Eliminar</button>
                                     </div>
                                 </td>
                             </tr>

@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {addUser} from "../../redux/Actions/index"
+import { useDispatch } from "react-redux";
 
 export default function CreateUser() {
 
@@ -12,6 +14,8 @@ export default function CreateUser() {
         email: '',
         password: ''
     })
+    
+    const dispatch = useDispatch()
 
     const { signup } = useAuth();
 
@@ -24,10 +28,12 @@ export default function CreateUser() {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        setError('')
         try {
+            e.preventDefault()
+            setError('')
             await signup(user.email, user.password)
+            //console.log()
+            dispatch(addUser(user))
             Swal.fire("Registro exitoso!");
             navigate("/home");
         } catch (error) {

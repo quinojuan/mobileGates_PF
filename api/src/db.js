@@ -4,10 +4,13 @@ const fs = require('fs');
 const path = require('path');
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/movilgates`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+const sequelize = new Sequelize(
+	`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/movilgates`,
+	{
+		logging: false, // set to console.log to see the raw SQL queries
+		native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+	}
+);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -34,15 +37,37 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Brand, Phones, Users, Purchases,  } = sequelize.models;
+const { Brand, Phones, Users, Purchases, Feedbacks } = sequelize.models;
+/*
 
-Brand.belongsToMany(Phones, {through: "PhoneBrand", foreignKey: "BrandId"})
-Phones.belongsToMany(Brand,{through: "PhoneBrand", foreignKey: "PhoneId" })
-Purchases.belongsToMany(Users,{through:"UsersPurchases", foreignKey:"PurchasesId"})
-Users.belongsToMany(Purchases,{through:"UsersPurchases", foreignKey:"UsersId"})
-Purchases.belongsToMany(Phones,{through: "PhonePurchases", foreignKey: "PurchasesId" })
-Phones.belongsToMany(Purchases,{through: "PhonePurchases", foreignKey: "PhonesId" })
+Faltarían las relaciones de Feedbacks
+-Todos los productos tiene feedbacks
+-Los feedbacks están escritos por los usuarios
 
+*/
+Feedbacks.belongsToMany(Phones, { through: 'PhoneFeedbacks', foreignKey: 'FeedbacksId' });
+Phones.belongsToMany(Feedbacks, { through: 'PhoneFeedbacks', foreignKey: 'PhoneId' });
+Feedbacks.belongsToMany(Users, { through: 'UsersFeedbacks', foreignKey: 'FeedbacksId' });
+Users.belongsToMany(Feedbacks, { through: 'UsersFeedbacks', foreignKey: 'UsersId' });
+
+Brand.belongsToMany(Phones, { through: 'PhoneBrand', foreignKey: 'BrandId' });
+Phones.belongsToMany(Brand, { through: 'PhoneBrand', foreignKey: 'PhoneId' });
+Purchases.belongsToMany(Users, {
+	through: 'UsersPurchases',
+	foreignKey: 'PurchasesId',
+});
+Users.belongsToMany(Purchases, {
+	through: 'UsersPurchases',
+	foreignKey: 'UsersId',
+});
+Purchases.belongsToMany(Phones, {
+	through: 'PhonePurchases',
+	foreignKey: 'PurchasesId',
+});
+Phones.belongsToMany(Purchases, {
+	through: 'PhonePurchases',
+	foreignKey: 'PhonesId',
+});
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
