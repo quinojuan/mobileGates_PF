@@ -262,7 +262,6 @@ export function postFeedback(payload) {
 }
 
 export function getFeedbacks(payload) {
-  console.log("FEEDBACK A ENVIAR:",payload)
   return async function (dispatch) {
     let feedBacks = await axios.get("http://localhost:3001/feedbacks");
     return dispatch({
