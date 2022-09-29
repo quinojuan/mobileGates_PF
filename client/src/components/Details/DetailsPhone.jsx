@@ -27,6 +27,12 @@ export default function DetailsPhone(props) {
     }
 
 
+  function decrease() {
+    setCount(count - 1);
+  }
+  function increase() {
+    setCount(count + 1);
+  }
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);
@@ -42,9 +48,8 @@ export default function DetailsPhone(props) {
     e.preventDefault();
     setImg(e.target.src);
   }
-
   function acomodarPrecio(precio) {
-    console.log("precio:", precio);
+    //console.log("precio:", precio);
     let precioString = precio.toString();
     let contador = 0;
     let acumulador = [];
@@ -64,7 +69,6 @@ export default function DetailsPhone(props) {
     }
     return acumulador.join("");
   }
-
   return (
     <div>
       <NavBar />
@@ -138,12 +142,22 @@ export default function DetailsPhone(props) {
                     </h5>
                     <h5>
                       Precio:{" $"}
-                      {myProducts.weight?acomodarPrecio(myProducts.price):null}
+                      {myProducts.weight
+                        ? acomodarPrecio(myProducts.price)
+                        : null}
                     </h5>
-                    <h5>Peso: {myProducts.weight?acomodarPrecio(myProducts.weight):null}g.</h5>
+                    <h5>
+                      Peso:{" "}
+                      {myProducts.weight
+                        ? acomodarPrecio(myProducts.weight)
+                        : null}
+                      g.
+                    </h5>
                     <h5>
                       Capacidad de la bateria:
-                      {myProducts.battery?acomodarPrecio(myProducts.battery):null}
+                      {myProducts.battery
+                        ? acomodarPrecio(myProducts.battery)
+                        : null}
                       mAh.
                     </h5>
 
