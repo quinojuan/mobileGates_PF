@@ -11,6 +11,7 @@ export default function ManageUser() {
       <div class="mt-3">
         <button type="button" class="btn btn-success">Modificar</button>
         <button type="button" class="btn btn-danger">Volver al Panel</button>
+        <button type="button" class="btn btn-danger">Eliminar usuario</button>
       </div>
 
       <Footer />
