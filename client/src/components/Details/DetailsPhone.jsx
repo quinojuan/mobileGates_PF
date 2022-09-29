@@ -8,6 +8,8 @@ import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
 import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
+import Feedback from "../Feedbacks/Feedbacks";
+import { useAuth } from '../Context/authContext';
 
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ export default function DetailsPhone(props) {
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
   const [count, setCount]= useState(1)
-
+  const { user } = useAuth()
     function decrease(){
         setCount(count-1)
     }
@@ -150,6 +152,13 @@ export default function DetailsPhone(props) {
             <button disabled={count>=30} onClick={()=>increase()}>+</button>
           <div>
             <AddProducts id={myProducts.id} quantity={count} />
+          </div>
+          <h2>Deje su reseña:</h2>
+          <div className="dejarFeedback">
+            <Feedback
+            model = {myProducts?myProducts.model:"modelo inexistente"}
+            email = {user?user.email:"email invalido"}
+            />
           </div>
           <div>
             <button class="btn btn-dark" onClick={() => handleBack()}>

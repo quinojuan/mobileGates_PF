@@ -27,6 +27,8 @@ const initialState = {
   purchases: [],
   repeat: [],
   repetido: false,
+  feedback:{},
+  allFeedbacks: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -249,6 +251,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         finalPrice: action.payload,
       };
+      case "POST_FEEDBACK":
+        return {
+          ...state,
+          feedback: action.payload,
+        };
+      case "GET_FEEDBACKS":
+        return {
+          ...state,
+          allFeedbacks:action.payload
+        };
 
     default:
       return state;

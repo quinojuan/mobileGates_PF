@@ -250,6 +250,28 @@ export function setFinalPrice(payload){
 	}
 }
 
+export function postFeedback(payload) {
+	return async function (dispatch) {
+	  console.log(payload, "ACTION DE FEEDBACKS");
+	  const feedback = await axios.post("http://localhost:3001/feedbacks",payload);
+	  return dispatch({
+		  type: "POST_FEEDBACK",
+		  payload: feedback
+	  })
+  };
+  }
+  
+  export function getFeedbacks(payload) {
+	console.log("FEEDBACK A ENVIAR:",payload)
+	return async function (dispatch) {
+	  let feedBacks = await axios.get("http://localhost:3001/feedbacks");
+	  return dispatch({
+		type: "GET_FEEDBACKS",
+		payload: feedBacks,
+	  });
+	};
+  }
+
 
 
 
