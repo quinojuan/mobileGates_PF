@@ -121,8 +121,9 @@ export function getCart() {
 		type: 'GET_CART',
 	};
 }
+
 export function deleteProductInCart(payload) {
-	return function (dispatch) {
+	return async function (dispatch) {
 		dispatch({
 			type: 'DELETE_PRODUCT_IN_CART',
 			payload,

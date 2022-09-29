@@ -9,7 +9,7 @@ import { useAuth } from '../Context/authContext';
 import Swap from "sweetalert2"
 
 
-export default function AddProducts({id}){
+export default function AddProducts({id, quantity}){
     
     const dispatch=useDispatch()
     const cart = useSelector((state)=>state.cart)
@@ -20,7 +20,7 @@ export default function AddProducts({id}){
 
     let productPresentation = { 
         phone: product[0],
-        quantity: 1
+        quantity: quantity
     }
 
     function handleCart(){

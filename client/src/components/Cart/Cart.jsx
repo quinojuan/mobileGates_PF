@@ -13,45 +13,28 @@ export default function Cart() {
   let myCart = useSelector((state) => state.cart);
   //const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [suma, setSuma]= useState(0)
-  const [count, setCount]= useState(1)
 
-/*     function decrease(e){
-        setCount(count - 1)
-        let total = 0;
-        for (let i = 0; i < myCart.length; i++) {
-          myCart[i].quantity = count
-          total += (myCart[i].phone.price[0] * myCart[i].quantity);
-        }
-        setSuma(total)  
-    }
-    function increase(e){
-      console.log(e," QUESTAPASANDO")
-      let phone =
-      e={
-        quantity: e.quantity + 1
+/* 
+    const handleCount = (prod, increase ) => {
+     if(typeof increase === 'string'){
+       for(let i = 0; i<myCart.length; i++){
+          if(myCart[i].phone.model === prod.phone.model){
+            myCart[i].quantity += 1
+          }
+       }
+  
+      }else{
+        for(let i = 0; i<myCart.length; i++){
+          if(myCart[i].phone.model === prod.phone.model){
+            myCart[i].quantity -= 1
+          }
+       }
       }
     } */
-
-
-    const handleCount = (prod, increase ) => {
-      let product = myCart.filter((e)=> e.phone.model === prod.phone.model)
-       console.log(product, "EL PHONE")
-      if(typeof increase === 'string'){
-        product[0]={ ...product[0],
-          quantity: product[0].quantity + 1
-       }
-       console.log(product, "EL PHONE")
-      }else{
-        product={
-          quantity: product.quantity + 1
-       }
-      }
-
-    }
   
   useEffect(() => {
     dispatch(getCart());
+   
   }, [dispatch]);
   
   console.log(myCart, "my cart a verrrrr")
@@ -66,15 +49,19 @@ export default function Cart() {
     suma = parseFloat(suma)/1000
     return suma;
   }
+
+  const handleDelete = (id) => {
+    dispatch(deleteProductInCart(id))
+  }
    
-  useEffect(()=>{
+/*   useEffect(()=>{
     let total = 0;
     for (let i = 0; i < myCart.length; i++) {
       myCart[i].quantity = count
       total += (myCart[i].phone.price[0] * myCart[i].quantity);
     }
     setSuma(total)
-  },[dispatch])
+  },[dispatch]) */
 
 
   return (
@@ -107,17 +94,16 @@ export default function Cart() {
                     <p className='card-text'>
                       {p.phone.description.slice(0, 50) + '...'}
                     </p>
+                    <h5 className='card-quantity'>Cantidad a comprar: {p.quantity}</h5>
                   </div>
                 </div>
                     <button
                       class="btn btn-danger btn-sm w-50 mx-auto"
-                      onClick={() => dispatch(deleteProductInCart(p.phone.id))}
+                      onClick={() => handleDelete(p.phone.id)}
                       >
                       Quitar del carrito
                     </button>
-                    <button disabled={p.quantity<=1} onClick={()=>handleCount(p)}>-</button>
-                      <span>{p.quantity}</span>
-                    <button disabled={p.quantity>=30} onClick={()=>handleCount(p, "increase")}>+</button>
+                  
                   </div>
                   </div>
                 </div>
@@ -133,7 +119,7 @@ export default function Cart() {
       <div className='sticky-top'>
         <h3 class="">Resumen</h3>
         <hr />
-        <h4 class='mt-3'>Costo total: ${suma}</h4>
+        <h4 class='mt-3'>Costo total: ${handleSuma()}</h4>
             {myCart.length > 0 ? (
               <button class='btn btn-primary w-50'>
                 <Link class='text-decoration-none text-light' to="/purchase">Comprar</Link>
