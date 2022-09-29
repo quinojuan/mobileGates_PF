@@ -213,14 +213,7 @@ export function postPhone(payload) {
         return newPhone
     }
 }
-export function addInputPurchase(payload){
-	return function(dispatch){
-		return dispatch({
-			type: "ADD_INPUT_PURCHASE",
-			payload,
-		})
-	}
-}
+
 export function addUser(payload) {
     //console.log(payload)
     return async function () {
@@ -233,6 +226,13 @@ export function addUser(payload) {
           console.log(e)
 		}
     };
+}
+export function cleanCart(){
+	return function(dispatch){
+      dispatch({
+		type: "CLEAN_CART",
+	  })
+	}
 }
 export function setFinalPrice(payload){
 	return function(dispatch){

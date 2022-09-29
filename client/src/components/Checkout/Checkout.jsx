@@ -41,7 +41,7 @@ const CheckOutForm = () =>{
          
          let estadoGlobal2 = {...estadoGlobal, ...dataCheck.data}
            console.log(estadoGlobal2, "ahora si el objeto a presentar en back")
-           dispatch(postPurchase(estadoGlobal2))
+            dispatch(postPurchase(estadoGlobal2))
             dispatch(cleanCart())
            navigate("/home") 
         }else{
