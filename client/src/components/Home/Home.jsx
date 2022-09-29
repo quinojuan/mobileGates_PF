@@ -12,8 +12,8 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
-	searching,
-	getSortByPrice
+	getSortByPrice,
+	getClean
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -63,6 +63,7 @@ export default function Home() {
 
 	useEffect(() => {
 		dispatch(getProductsByNameAndFilters(search, filters));
+		dispatch(getClean());
 	}, [dispatch, filters, search]);
 	const [orden, setOrden] = useState('');
 
