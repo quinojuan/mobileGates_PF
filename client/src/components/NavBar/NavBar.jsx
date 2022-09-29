@@ -58,18 +58,10 @@ export default function NavBar() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
   const [name, setName] = useState("");
-  const { user, logout, loading } = useAuth();
-  const navigate = useNavigate();
-  const allProducts = useSelector((state) => state.products);
-  const [currentPage, setCurrentPage] = useState(1);
-	const [productsPerPage, setProductsPerPage] = useState(9);
-	const indexOfLastRecipe = currentPage * productsPerPage;
-	const indexOfFirstRecipe = indexOfLastRecipe - productsPerPage;
-	const currentProducts =
-		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe)
-    const paginado = (pageNumber) => {
-      setCurrentPage(pageNumber)
-  }
+  const { user, logout, loading } = useAuth()
+  const navigate = useNavigate()
+ 
+
   const handleLogout = async () => {
     await logout()
     navigate('/home/')

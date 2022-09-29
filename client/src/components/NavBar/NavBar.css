@@ -1,22 +1,23 @@
-.container {
-	margin-bottom: 3%;
+.container{
+    margin-bottom: 3%;
 }
 
-.container-nav {
-	display: inline-block;
-	background: rgb(255, 255, 255);
-	color: rgb(253, 101, 6);
-	padding: 10px 30px;
-	text-decoration: none;
+.container-nav{
+    display: inline-block;
+    background: rgb(255, 255, 255);
+    color: rgb(253, 101, 6);
+    padding: 10px 30px;
+    text-decoration: none;
 }
 
-.container-nav:hover {
-	background: rgb(208, 136, 1);
-	color: white;
+.container-nav:hover{
+    background: rgb(208, 136, 1);
+    color: white;
 }
 
-.container-logo {
-	display: inline-block;
-	align-items: left;
-	justify-content: left;
+.container-logo{
+    display: inline-block;
+    align-items: left;
+    justify-content: left;
 }
+

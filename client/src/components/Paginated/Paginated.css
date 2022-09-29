@@ -1,23 +1,24 @@
 .paginated {
-	background: #ffefba;
-	background: -webkit-linear-gradient(to left, #ffffff, #ffefba);
-	background: linear-gradient(to left, #ffffff, #ffefba);
+    background: #FFEFBA;
+    background: -webkit-linear-gradient(to left, #FFFFFF, #FFEFBA);
+    background: linear-gradient(to left, #FFFFFF, #FFEFBA);
 }
 
 .nro {
-	margin-inline: 5px;
-	border-radius: 50px;
-	cursor: pointer;
-	color: rgb(34, 34, 34);
-	font-family: 'DynaPuff', cursive;
-	font-size: 1.5rem;
-	display: inline;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+    margin-inline: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: rgb(34, 34, 34);
+    font-family: 'DynaPuff', cursive;
+    font-size: 1.5rem;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .nro:hover {
-	cursor: pointer;
-	transform: scale(1.4);
+    cursor: pointer;
+    transform: scale(1.40);
 }
+
