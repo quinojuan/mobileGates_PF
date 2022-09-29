@@ -16,13 +16,16 @@ const initialState = {
   rams: [],
   img: "",
   capacities: [],
+  price: [],
   searching: false,
-  purchases: [],
   inputPurchase: {},
   getCheckout: {},
   repeat: [],
   repetido: false,
   finalPrice: 0,
+  purchases: [],
+  repeat: [],
+  repetido: false,
   feedback: {},
   allFeedbacks: [],
 };
@@ -113,7 +116,7 @@ function rootReducer(state = initialState, action) {
     case "GET_SORT":
       let sortedArr =
         action.payload === "A-Z"
-          ? state.products.sort(function (a, b) {
+          ? state.products.sort(function(a, b) {
               if (a.model.toLowerCase() > b.model.toLowerCase()) {
                 return 1;
               }
@@ -122,7 +125,7 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             }) // sino.....
-          : state.products.sort(function (a, b) {
+          : state.products.sort(function(a, b) {
               if (a.model.toLowerCase() > b.model.toLowerCase()) {
                 return -1;
               }
@@ -138,7 +141,7 @@ function rootReducer(state = initialState, action) {
     case "GET_SORT_BY_PRICE":
       let sortedArr2 =
         action.payload === "High to low"
-          ? state.allProducts.sort(function (a, b) {
+          ? state.allProducts.sort(function(a, b) {
               if (a.price[0] > b.price[0]) {
                 return 1;
               }
@@ -147,7 +150,7 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             }) // sino.....
-          : state.allProducts.sort(function (a, b) {
+          : state.allProducts.sort(function(a, b) {
               if (a.price[0] > b.price[0]) {
                 return -1;
               }
@@ -160,17 +163,19 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: sortedArr2,
       };
+
     case "ADD_TO_CART":
-      //console.log(action.payload[0].id, "ID")
+      console.log(action.payload, "REDUCERRRR");
       let purchase = action.payload;
       let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
-      if (!myCartLS.some((el) => el.id == purchase[0].id)) {
-        myCartLS.push(purchase[0]);
+      console.log("MY CART LS:", myCartLS);
+      if (!myCartLS.some((el) => el.id == purchase.phone.id)) {
+        myCartLS.push(purchase);
         localStorage.setItem("cart", JSON.stringify(myCartLS));
       }
       return {
         ...state,
-        cart: [...state.cart, purchase[0]],
+        cart: [...state.cart, purchase],
       };
     case "GET_CART":
       let cartLS = JSON.parse(localStorage.getItem("cart"));
@@ -181,9 +186,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: cartLS,
       };
+
     case "DELETE_PRODUCT_IN_CART":
+      console.log(action.payload, "reducer");
       let productsInLs = JSON.parse(localStorage.getItem("cart"));
-      let myCarty = productsInLs.filter((el) => el.id !== action.payload);
+      let myCarty = productsInLs.filter((el) => el.phone.id !== action.payload);
+      //pensar la logica de ir sacando de a 1 quantity
       localStorage.setItem("cart", JSON.stringify(myCarty));
 
       return {
@@ -207,6 +215,14 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: [],
       };
+    case "POST_PURCHASES":
+      return {
+        ...state,
+      };
+    case "POST_PHONE":
+      return {
+        ...state,
+      };
     case "GET_PURCHASES":
       return {
         ...state,
@@ -229,6 +245,15 @@ function rootReducer(state = initialState, action) {
         ...state,
         inputPurchase: action.payload,
       };
+    case "PUT_PHONE":
+      return {
+        ...state,
+      };
+    case "GET_FEEDBACKS":
+      return {
+        ...state,
+        allFeedbacks: action.payload,
+      };
 
     case "FINAL_PRICE":
       return {
@@ -240,11 +265,9 @@ function rootReducer(state = initialState, action) {
         ...state,
         feedback: action.payload,
       };
-    case "GET_FEEDBACKS":
-      return {
-        ...state,
-        allFeedbacks:action.payload
-      };
+    case "PREVENT_CART_BUG":
+      return { ...state, cart: [] };
+
     default:
       return state;
   }

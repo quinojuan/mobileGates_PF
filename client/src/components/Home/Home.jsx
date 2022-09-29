@@ -12,8 +12,8 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
-	searching,
-	getSortByPrice
+	getSortByPrice,
+	getClean
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -22,9 +22,11 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Paginado from '../Paginated/Paginated';
 import AddProducts from '../AddProducts/AddProducts';
+import Loading from '../Loading/Loading';
 import './Home.css';
 import Swat from 'sweetalert2';
 import Carousel from '../Carousel/Carousel';
+
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -61,6 +63,7 @@ export default function Home() {
 
 	useEffect(() => {
 		dispatch(getProductsByNameAndFilters(search, filters));
+		dispatch(getClean());
 	}, [dispatch, filters, search]);
 	const [orden, setOrden] = useState('');
 
@@ -99,7 +102,7 @@ export default function Home() {
 		if (loading) {
 			return (
 				<div>
-					<h1>Loading...</h1>
+					<div><Loading /></div>
 				</div>
 			);
 		} else {
@@ -229,6 +232,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
+									
 										<Cards
 											model={s.model}
 											image={s.image}
@@ -239,6 +243,7 @@ export default function Home() {
 											capacity={s.capacity}
 											price={s.price[0]}
 										/>
+										
 									{/* </Link> */}
 									{/* <AddProducts id={s.id} /> */}
 								</>

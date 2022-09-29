@@ -2,7 +2,7 @@ import { async } from "@firebase/util";
 import axios from "axios";
 import Swal from "sweetalert2";
 export function getAllProducts() {
-  return async function (dispatch) {
+  return async function(dispatch) {
     dispatch(setLoading(true));
     let json = await axios.get("http://localhost:3001/products");
     dispatch({
@@ -21,7 +21,7 @@ export const setSearch = (payload) => (dispatch) => {
 };
 
 export function getPhonesById(id) {
-  return async function (dispatch) {
+  return async function(dispatch) {
     try {
       dispatch(setLoading(true));
       let json = await axios.get(`http://localhost:3001/products/${id}`);
@@ -31,7 +31,7 @@ export function getPhonesById(id) {
       });
       dispatch(setLoading(false));
     } catch (error) {
-      console.log("EEROR EN GET PHONES POR ID:",error);
+      console.log(error);
     }
   };
 }
@@ -92,14 +92,14 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 
 export function addUser(payload) {
   //console.log(payload)
-  return async function () {
+  return async function() {
     try {
       const newUser = {
         email: payload.email,
       };
       await axios.post("http://localhost:3001/users", newUser);
     } catch (e) {
-      console.log("ERROR EN CREAR USER:",e);
+      console.log(e);
     }
   };
 }
@@ -122,7 +122,7 @@ export function getCart() {
   };
 }
 export function deleteProductInCart(payload) {
-  return function (dispatch) {
+  return function(dispatch) {
     dispatch({
       type: "DELETE_PRODUCT_IN_CART",
       payload,
@@ -131,39 +131,40 @@ export function deleteProductInCart(payload) {
 }
 
 export function cleanCart() {
-  return function (dispatch) {
+  return function(dispatch) {
     dispatch({
       type: "CLEAN_CART",
     });
   };
 }
 
-export const getProductsByNameAndFilters =
-  (search, filters) => async (dispatch) => {
-    dispatch(setLoading(true));
-    if (!search) search = "";
-    let filterString = "";
-    for (const filter in filters) {
-      filterString += "&" + filter + "=" + filters[filter];
-    }
-    //BUENA MANERA DE UTILIZAR EL AXIOS
-    const resultado = await axios
-      .get(
-        "http://localhost:3001/products?" +
-          "name=" +
-          search.toLowerCase().trim() +
-          filterString
-      )
-      //'http://localhost:3001/products?' +'name=' +search.toLowerCase().trim() +filterString
-      //http://localhost:3001/products?name=+&ram=&category=Tablets&capacity= EJEMPLO
-      .then((res) => res.data);
-    dispatch({
-      type: "GET_PRODUCTS_BY_NAME_AND_FILTERS",
-      payload: resultado,
-    });
-    //BUENA MANERA DE UTILIZAR EL AXIOS
-    dispatch(setLoading(false));
-  };
+export const getProductsByNameAndFilters = (search, filters) => async (
+  dispatch
+) => {
+  dispatch(setLoading(true));
+  if (!search) search = "";
+  let filterString = "";
+  for (const filter in filters) {
+    filterString += "&" + filter + "=" + filters[filter];
+  }
+  //BUENA MANERA DE UTILIZAR EL AXIOS
+  const resultado = await axios
+    .get(
+      "http://localhost:3001/products?" +
+        "name=" +
+        search.toLowerCase().trim() +
+        filterString
+    )
+    //'http://localhost:3001/products?' +'name=' +search.toLowerCase().trim() +filterString
+    //http://localhost:3001/products?name=+&ram=&category=Tablets&capacity= EJEMPLO
+    .then((res) => res.data);
+  dispatch({
+    type: "GET_PRODUCTS_BY_NAME_AND_FILTERS",
+    payload: resultado,
+  });
+  //BUENA MANERA DE UTILIZAR EL AXIOS
+  dispatch(setLoading(false));
+};
 export const getCategories = () => async (dispatch) => {
   const resultado = await axios("http://localhost:3001/brands").then(
     (res) => res.data
@@ -206,7 +207,7 @@ export const handleClearCart = () => {
   };
 };
 export function getPurchase() {
-  return async function (dispatch) {
+  return async function(dispatch) {
     let json = await axios.get("http://localhost:3001/purchases");
     return dispatch({
       type: "GET_PURCHASE",
@@ -216,7 +217,7 @@ export function getPurchase() {
 }
 
 export function postPurchase(payload) {
-  return async function (dispatch) {
+  return async function(dispatch) {
     console.log(payload, "ACTION DE POSTPURCHASE");
     const purchase = await axios.post(
       "http://localhost:3001/purchases",
@@ -233,7 +234,7 @@ export function getPurchaseRepeat(payload) {
 }
 
 export function addInputPurchase(payload) {
-  return function (dispatch) {
+  return function(dispatch) {
     return dispatch({
       type: "ADD_INPUT_PURCHASE",
       payload,
@@ -242,31 +243,67 @@ export function addInputPurchase(payload) {
 }
 
 export function setFinalPrice(payload) {
-  return function (dispatch) {
+  return function(dispatch) {
     return dispatch({
       type: "FINAL_PRICE",
       payload,
     });
   };
 }
-
 export function postFeedback(payload) {
-  return async function (dispatch) {
+  return async function(dispatch) {
     console.log(payload, "ACTION DE FEEDBACKS");
-    const feedback = await axios.post("http://localhost:3001/feedbacks",payload);
-	return dispatch({
-		type: "POST_FEEDBACK",
-		payload: feedback
-	})
-};
+    const feedback = await axios.post(
+      "http://localhost:3001/feedbacks",
+      payload
+    );
+    return dispatch({
+      type: "POST_FEEDBACK",
+      payload: feedback,
+    });
+  };
 }
 
 export function getFeedbacks(payload) {
-  return async function (dispatch) {
+  console.log("FEEDBACK A ENVIAR:", payload);
+  return async function(dispatch) {
     let feedBacks = await axios.get("http://localhost:3001/feedbacks");
     return dispatch({
       type: "GET_FEEDBACKS",
       payload: feedBacks,
     });
   };
+}
+
+export function postPhone(payload) {
+  return async function(dispatch) {
+    const newPhone = await axios.post(
+      "http://localhost:3001/products",
+      payload
+    );
+    return newPhone;
+  };
+}
+
+export function putPhone(id, payload) {
+  return async function() {
+    const modifyPhone = await axios.put(
+      `http://localhost:3001/products/${id}`,
+      payload
+    );
+    return modifyPhone;
+  };
+}
+
+export function deletePhone(id) {
+  return async function() {
+    const deletePhone = await axios.delete(
+      `http://localhost:3001/products/${id}`
+    );
+    return deletePhone;
+  };
+}
+
+export function preventCartBug() {
+  return { type: "PREVENT_CART_BUG" };
 }

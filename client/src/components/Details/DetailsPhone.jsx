@@ -9,15 +9,23 @@ import AddProducts from "../AddProducts/AddProducts";
 import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
-import { useAuth } from "../Context/authContext";
+import { useAuth } from '../Context/authContext';
+
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
-  const { user } = useAuth();
-  const [count, setCount] = useState(1);
+  const [count, setCount]= useState(1)
+  const { user } = useAuth()
+    function decrease(){
+        setCount(count-1)
+    }
+    function increase(){
+        setCount(count+1)
+    }
+
 
   function decrease() {
     setCount(count - 1);
@@ -34,6 +42,7 @@ export default function DetailsPhone(props) {
     dispatch(getClean());
     navigate("/home");
   }
+  
 
   function handleSelectImage(e) {
     e.preventDefault();
@@ -171,22 +180,18 @@ export default function DetailsPhone(props) {
                 </div>
               </div>
             </div>
-            <button disabled={count <= 1} onClick={() => decrease()}>
-              -
-            </button>
-            <span>{count}</span>
-            <button disabled={count >= 30} onClick={() => increase()}>
-              +
-            </button>
           </div>
+          <button disabled={count<=1} onClick={()=>decrease()}>-</button>
+            <span>{count}</span>
+            <button disabled={count>=30} onClick={()=>increase()}>+</button>
           <div>
             <AddProducts id={myProducts.id} quantity={count} />
           </div>
           <h2>Deje su reseña:</h2>
           <div className="dejarFeedback">
             <Feedback
-              model={myProducts ? myProducts.model : "modelo inexistente"}
-              email={user ? user.email : "email invalido"}
+            model = {myProducts?myProducts.model:"modelo inexistente"}
+            email = {user?user.email:"email invalido"}
             />
           </div>
           <div>

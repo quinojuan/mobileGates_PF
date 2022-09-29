@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { getCart, deleteProductInCart, setFinalPrice } from "../../redux/Actions";
+import { useEffect, useState } from "react";
+import { getCart, deleteProductInCart, setFinalPrice, preventCartBug} from "../../redux/Actions";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -13,10 +13,12 @@ export default function Cart() {
   let myCart = useSelector((state) => state.cart);
   //const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const carrito = useSelector(state=>state.cart)
+  const navigate = useNavigate();
   
   useEffect(() => {
     dispatch(getCart());
+   
   }, [dispatch]);
   
   function acomodarPrecio(precio) {
@@ -43,12 +45,23 @@ export default function Cart() {
   const handleSuma =()=> {
     let suma = 0;
     for (let i = 0; i < myCart.length; i++) {
-      suma += myCart[i].price[0];
+      suma += (myCart[i].phone.price[0] * myCart[i].quantity);
     }
     dispatch(setFinalPrice(suma))
     console.log("SUMA:", suma);
     
     return acomodarPrecio(suma);
+  }
+
+  const handleDelete = (id) => {
+    dispatch(deleteProductInCart(id))
+  }
+
+  function preventNullCart(){
+    if (carrito[0] === null){
+      dispatch(preventCartBug())
+    }
+    navigate("/purchase")
   }
 
   return (
@@ -69,26 +82,30 @@ export default function Cart() {
               return (
                 <div class='container' style={{ minHeight: '50px' }}>
                   {/* <div class='col lg-8' key={p.id}> */}
-                  <div className='card mt-1 p-1 w-50' key={p.id}>
+                  <div className='card mt-1 p-1 w-50' key={p.phone.id}>
                     {/* <div class='col-md-20 ms-2 ' style={{ maxHeight: '700px'}}> */}
                     <div className='row container' >
                     <div className='col-md-4'>
-                    <img src={p.image} class="card-img w-100"alt=""/>
+                    <img src={p.phone.image} class="card-img w-100"alt=""/>
                     </div>
                   <div className='col-md-5'>
                   <div className='card-body'>
-                    <h5 className='card-title'>{p.brand}{p.model}</h5>
+                    <h5 className='card-title'>{p.phone.brand} </h5>
+                    <h5 className='card-title'>{p.phone.model}</h5>
                     <p className='card-text'>
-                      {p.description.slice(0, 50) + '...'}
+                      {p.phone.description.slice(0, 50) + '...'}
                     </p>
+                    <h5 className='card-quantity'>Cantidad a comprar: {p.quantity}</h5>
                   </div>
                 </div>
+                <h5 className='card-quantity'>Cantidad a comprar: {p.quantity}</h5>
                     <button
                       class="btn btn-danger btn-sm w-50 mx-auto"
-                      onClick={() => dispatch(deleteProductInCart(p.id))}
+                      onClick={() => handleDelete(p.phone.id)}
                       >
                       Quitar del carrito
                     </button>
+                  
                   </div>
                   </div>
                 </div>
@@ -106,8 +123,8 @@ export default function Cart() {
         <hr />
         <h4 class='mt-3'>Costo total: ${handleSuma()}</h4>
             {myCart.length > 0 ? (
-              <button class='btn btn-primary w-50'>
-                <Link class='text-decoration-none text-light' to="/purchase">Comprar</Link>
+              <button class='btn btn-primary w-50' onClick={()=>preventNullCart()}>
+                <h4 class='text-decoration-none text-light'>Comprar</h4>
               </button>
             ) : null}
           

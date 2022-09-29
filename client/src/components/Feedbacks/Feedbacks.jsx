@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { postFeedback } from "../../redux/Actions";
+
+
 export default function Feedback({email,model}) {
   const myProducts = useSelector((state) => state.details);
   const dispatch = useDispatch();
