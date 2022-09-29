@@ -142,6 +142,10 @@ export default function AddProducts() {
         })
     }
 
+    function handlePanel() {
+        navigate("/adminpages");
+      }
+
     function handleSubmit(e) {
         input.price = [parseInt(input.price)]
         if (!input.brand.length) {
@@ -407,8 +411,8 @@ export default function AddProducts() {
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button type="button" class="btn btn-primary me-2" onClick={(e) => handleSubmit(e)}>Crear</button>
-                        <button type="button" class="btn btn-danger">Volver al Panel</button>
+                        <button type="button" class="btn btn-success" onClick={(e) => handleSubmit(e)}>Añadir</button>
+                        <button type="button" class="btn btn-danger"  onClick={(e) => handlePanel(e)}>Volver al Panel</button>
                     </div>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -17,24 +17,30 @@ export default function ModifyPhone() {
   const capacity = useSelector((state) => state.capacities)
   const ram = useSelector((state) => state.rams)
   const brand = useSelector((state) => state.categories)
+  const {id} = useParams()
+
+  let myPhone = products.filter((el) => el.id === id)
+  console.log('ESTE ES MI ID', myPhone)
 
   const [input, setInput] = useState({
-    model: "",
-    brand: "",
-    operative_system: "",
-    size: "",
-    cpu: "",
-    image: "",
-    description: "",
-    inches: 0,
-    main_camera: 0,
-    frontal_camera: 0,
-    weight: 0,
-    battery: 0,
-    ram: [],
-    capacity: [],
-    price: []
+    model: myPhone[0].model,
+    brand: myPhone[0].brand,
+    operative_system: myPhone[0].operative_system,
+    size: myPhone[0].size,
+    cpu: myPhone[0].cpu,
+    image: myPhone[0].image,
+    description: myPhone[0].description,
+    inches: myPhone[0].inches,
+    main_camera: myPhone[0].main_camera,
+    frontal_camera: myPhone[0].frontal_camera,
+    weight: myPhone[0].weight,
+    battery: myPhone[0].battery,
+    ram: myPhone[0].ram,
+    capacity: myPhone[0].capacity,
+    price: myPhone[0].price
   })
+
+  console.log(input)
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -52,27 +58,21 @@ export default function ModifyPhone() {
     dispatch(getCategories())
   }, [dispatch])
 
-  function handleChange(e) {
-    if (isNaN(e.target.value)) {
-      setInput({
+  const handleChange = (e) => {
+
+    setInput({
         ...input,
-        [(e.target.name)]: (e.target.value)
-      })
-    } else {
-      setInput({
-        ...input,
-        [(e.target.name)]: Number(e.target.value)
-      })
-    }
-  }
+        [e.target.name]: e.target.value
+    })
+}
 
   function handleSelectProducts(e) {
-    if (!input.products.includes(e.target.value)) {
-      setInput({
-        ...input,
-        products: [...input.products, Number(e.target.value)]
-      })
-    }
+
+    setInput({
+      ...input,
+      products: e.target.value.map(el => el.id)
+    })
+    console.log(input.products)
   }
 
   function handleSelectCapacity(e) {
@@ -116,6 +116,10 @@ export default function ModifyPhone() {
     }
   }
 
+  function handlePanel() {
+    navigate("/adminpages");
+  }
+
 
   return (
     <div>
@@ -123,25 +127,24 @@ export default function ModifyPhone() {
       <div class="container w-50 mt-3">
         <h1>Modificar un dispositivo</h1>
         <form id="miForm">
-        <div class="row mt-3">
-            <div class="col">
+          <div class="row mt-3">
+            {/* <div class="col">
               <label for="formFile" class="form-label" onChange={(e) => handleSelectProducts(e)}>Elegí el producto para editar</label>
-              <select class="form-select" aria-label="Default select example"></select>
-              {/* <option value="" hidden name="products">Todos los productos</option>
+              <select class="form-select" aria-label="Default select example">
+                <option value="" hidden name="products">Todos los productos</option>
                 {
                   products?.map(el => {
-                    return (<option value={el} key={el}>{el}</option>)
-
-
+                    return (<option value={el} key={el}>{el.model}</option>)
                   })
-                } */}
-            </div>
+                }
+              </select>
+            </div> */}
           </div>
           <div class="row mt-3">
             <div class="col">
               <label for="formFile" class="form-label">Marca</label>
               <select class="form-select" onChange={(e) => handleSelectBrands(e)} aria-label="Default select example">
-                <option value="" hidden name="brand">Elegí la marca</option>
+                <option value="" hidden name="brand">{myPhone[0].brand}</option>
                 {
                   brand?.map(el => {
                     return (<option value={el} key={el}>{el}</option>)
@@ -152,18 +155,18 @@ export default function ModifyPhone() {
             </div>
             <div class="col">
               <label for="formFile" class="form-label">Modelo</label>
-              <input type="text" name="model" onChange={handleChange} class="form-control" placeholder="Por ejemplo: S22 Ultra" aria-label="Last name"></input>
+              <input type="text" name="model" onChange={handleChange} class="form-control" placeholder={myPhone[0].model} aria-label="Last name"></input>
             </div>
             <div class="col">
               <label for="formFile" class="form-label">Sistema Operativo</label>
-              <input type="text" name="operative_system" onChange={handleChange} class="form-control" placeholder="Por ejemplo: Android 10" aria-label="First name"></input>
+              <input type="text" name="operative_system" onChange={handleChange} class="form-control" placeholder={myPhone[0].operative_system} aria-label="First name"></input>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col">
               <label for="customRange3" class="form-label">Capacidad de almacenamiento</label>
               <select class="form-select" onChange={(e) => handleSelectCapacity(e)} aria-label="Default select example">
-                <option value="" hidden name="capacity">Elegí la capacidad</option>
+                <option value="" hidden name="capacity">{myPhone[0].capacity}</option>
                 {
                   capacity?.map(el => {
                     return (<option value={el} key={el}>{el}</option>)
@@ -172,27 +175,11 @@ export default function ModifyPhone() {
                   })
                 }
               </select>
-              <ul style={{ listStyle: 'none' }}>
-                <li>
-                  {
-                    input.capacity.map(el =>
-                      <div class='mt-1'>
-                        <span class="badge text-bg-dark">
-                          {capacity?.find(p => p === el)}
-                          <h6>{el}
-                            <button type="button" onClick={() => handleDeleteCapacity(el)} class="btn-close btn-close-white" aria-label="Close"></button>
-                          </h6>
-                        </span>
-                      </div>
-                    )
-                  }
-                </li>
-              </ul>
             </div>
             <div class="col">
               <label for="customRange3" class="form-label">Memoria RAM</label>
               <select class="form-select" onChange={(e) => handleSelectRAM(e)} aria-label="Default select example">
-                <option value="" hidden name="ram">Elegí la memoria</option>
+                <option value="" hidden name="ram">{myPhone[0].ram}</option>
                 {
                   ram?.map(el => {
                     return (<option value={el} key={el}>{el}</option>)
@@ -200,23 +187,6 @@ export default function ModifyPhone() {
                   })
                 }
               </select>
-              <ul style={{ listStyle: 'none' }}>
-                <li>
-                  {
-                    input.ram.map(el =>
-                      <div class='mt-1'>
-                        <span class="badge text-bg-dark">
-                          {ram?.find(p => p === el)}
-                          <h6>
-                            {el}
-                            <button type="button" onClick={() => handleDeleteRAM(el)} class="btn-close btn-close-white" aria-label="Close"></button>
-                          </h6>
-                        </span>
-                      </div>
-                    )
-                  }
-                </li>
-              </ul>
             </div>
             <div class="col">
               <label for="customRange3" class="form-label">Tamaño de la pantalla</label>
@@ -227,41 +197,41 @@ export default function ModifyPhone() {
           <div class="row mt-3">
             <div class="col">
               <label for="formFile" class="form-label">Procesador</label>
-              <input type="text" name="cpu" onChange={handleChange} class="form-control" placeholder="Por ejemplo: Exynos 2200" aria-label="First name"></input>
+              <input type="text" name="cpu" onChange={handleChange} class="form-control" placeholder={myPhone[0].cpu} aria-label="First name"></input>
             </div>
             <div class="col">
               <label for="formFile" class="form-label">Tamaño</label>
-              <input type="text" name="size" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 12.38 x 5.86 x 0.76 cm" aria-label="Last name"></input>
+              <input type="text" name="size" onChange={handleChange} class="form-control" placeholder={myPhone[0].size} aria-label="Last name"></input>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col">
               <label for="formFile" class="form-label">Cámara frontal</label>
-              <input type="text" name="frontal_camera" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 32" aria-label="First name"></input>
+              <input type="text" name="frontal_camera" onChange={handleChange} class="form-control" placeholder={myPhone[0].frontal_camera} aria-label="First name"></input>
             </div>
             <div class="col">
               <label for="formFile" class="form-label">Cámara trasera</label>
-              <input type="text" name="main_camera" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 10" aria-label="Last name"></input>
+              <input type="text" name="main_camera" onChange={handleChange} class="form-control" placeholder={myPhone[0].main_camera} aria-label="Last name"></input>
             </div>
             <div class="col">
               <label for="formFile" class="form-label">Peso</label>
-              <input type="text" name="weight" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 175" aria-label="Last name"></input>
+              <input type="text" name="weight" onChange={handleChange} class="form-control" placeholder={myPhone[0].weight} aria-label="Last name"></input>
             </div>
             <div class="col">
               <label for="formFile" class="form-label">Bateria</label>
-              <input type="text" name="battery" onChange={handleChange} class="form-control" placeholder="Por ejemplo: 4500" aria-label="Last name"></input>
+              <input type="text" name="battery" onChange={handleChange} class="form-control" placeholder={myPhone[0].battery} aria-label="Last name"></input>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col">
               <label for="formFile" class="form-label">Imagen principal</label>
-              <input type="text" name="image" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
+              <input type="text" name="image" onChange={handleChange} class="form-control" placeholder={myPhone[0].image} id="basic-url" aria-describedby="basic-addon3"></input>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col">
               <div class="input-group mb-3">
-                <input type="text" name="price" class="form-control" placeholder="Por ejemplo: 250000" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
+                <input type="text" name="price" class="form-control" placeholder={myPhone[0].price} aria-label="Recipient's username" aria-describedby="button-addon2"></input>
 
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Añadir precio</button>
               </div>
@@ -273,13 +243,13 @@ export default function ModifyPhone() {
           <div class="row mt-1">
             <div class="col">
               <label for="exampleFormControlTextarea1" class="form-label">Añade una descripción</label>
-              <input class="form-control" id="exampleFormControlTextarea1" name="description" onChange={handleChange} rows="3"></input>
+              <input class="form-control" placeholder={myPhone[0].description} id="exampleFormControlTextarea1" name="description" onChange={handleChange} rows="3"></input>
             </div>
           </div>
 
         </form>
         <button type="button" class="btn btn-success">Modificar</button>
-        <button type="button" class="btn btn-danger">Volver al Panel</button>
+        <button type="button" class="btn btn-danger" onClick={(e) => handlePanel(e)}>Volver al Panel</button>
       </div>
       <Footer />
     </div>
