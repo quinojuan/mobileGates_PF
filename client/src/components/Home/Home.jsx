@@ -12,7 +12,8 @@ import {
 	setLoading,
 	getRams,
 	getCapacity,
-	searching
+	searching,
+	getSortByPrice
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -21,15 +22,17 @@ import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Paginado from '../Paginated/Paginated';
 import AddProducts from '../AddProducts/AddProducts';
+import Loading from '../Loading/Loading';
 import './Home.css';
 import Swat from 'sweetalert2';
 import Carousel from '../Carousel/Carousel';
+
 
 export default function Home() {
 	const dispatch = useDispatch();
 	const buscando = useSelector((state)=>state.searching)
 	const allProducts = useSelector((state) => state.products);
-	console.log(allProducts)
+	//console.log(allProducts)
 	const filters = useSelector((state) => state.filters);
 	const loading = useSelector((state) => state.loading);
 	const brands = useSelector((state) => state.categories);
@@ -87,17 +90,23 @@ export default function Home() {
 		setCurrentPage(1);
 		setOrden(`Ordenado ${e.target.value}`);
 	}
+	function handleSortByPrice(e){
+		e.preventDefault();
+		dispatch(getSortByPrice(e.target.value));
+		setCurrentPage(1);
+		setOrden(`Ordenado ${e.target.value}`);
+	}
 
 	function handleLoading() {
 		if (loading) {
 			return (
 				<div>
-					<h1>Loading...</h1>
+					<div><Loading /></div>
 				</div>
 			);
 		} else {
 			if (!firstTime) {
-				Swat.fire("No se encontraron productos con su criterio de busqueda", "", "warning");
+				Swat.fire('No se encontraron productos con su criterio de busqueda');
 			}
 			return (
 				<div>
@@ -115,8 +124,6 @@ export default function Home() {
 			</div>
 		)
 	}
-
-	function handleSortByPrice(){}
 
 	return (
 		<div>
@@ -224,6 +231,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
+									
 										<Cards
 											model={s.model}
 											image={s.image}
@@ -234,6 +242,7 @@ export default function Home() {
 											capacity={s.capacity}
 											price={s.price[0]}
 										/>
+										
 									{/* </Link> */}
 									{/* <AddProducts id={s.id} /> */}
 								</>

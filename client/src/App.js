@@ -16,8 +16,14 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import FormPurchase from './components/FormPurchase/FormPurchase';
-
+import AdminPages from './components/AdminPages/AdminPages';
+import AddPhone from './components/AdminPages/AddPhone';
+import ManageUser from './components/AdminPages/ManageUser';
+import ModifyPhone from './components/AdminPages/ModifyPhone';
+import Checkout from './components/Checkout/Checkout';
+import PhonesTable from './components/AdminPages/PhonesTable';
 library.add(fab, faCheckSquare, faCoffee, fas)
+
 
 function App() {
   return (
@@ -42,7 +48,11 @@ function App() {
         <Route path="/home/login" element= {<Login/>}/>
         <Route path="/home/createuser" element= {<CreateUser/>}/>
         <Route path="/contacto" element= {<Contact/>}/>
-        
+        <Route path="/adminpages" element= {<AdminPages/>}/>
+        <Route path="/addphone" element= {<AddPhone/>}/>
+        <Route path="/phonestable" element= {<PhonesTable/>}/>
+        <Route path="/modifyphone/:id" element= {<ModifyPhone/>}/>
+        <Route path="/manageuser" element= {<ManageUser/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
     </div>

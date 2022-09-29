@@ -12,10 +12,7 @@ module.exports = (sequelize) => {
 				primaryKey: true,
 				defaultValue: DataTypes.UUIDV4,
 			},
-			email: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
+			
 			dni: {
 				type: DataTypes.STRING,
 				allowNull: false,
@@ -28,14 +25,16 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 			},
-			creditCard: {
-				type: DataTypes.STRING(16),
-				allowNull: false,
-			},
-			quantity: {
+			amount:{
 				type: DataTypes.INTEGER,
-				defaultValue: 1,
+			     
 			},
+		 	 id_transaction:{
+				type: DataTypes.TEXT,
+				unique: true,
+				
+			  }, 
+		
 		},
 		{
 			freezeTableName: true,

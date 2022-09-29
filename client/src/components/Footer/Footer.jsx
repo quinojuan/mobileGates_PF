@@ -21,7 +21,8 @@ export default function NavBar() {
             Atención al cliente
           </h5>
           <p>0800-1234-0000</p>
-          <p>consultas@movilgates.com</p>
+          <p>movilgates@gmail.com</p>
+          
         </div>
       </div>
       <div className='col-md-3 d-flex'>

@@ -4,12 +4,12 @@ const {
 	getAllFeedbacks,
 	updateFeedback,
 	postFeedback,
-	deleteFeedback,
+	//deleteFeedback,
 } = require('../controllers/feedbacksController');
 
 router.get('/', getAllFeedbacks);
-router.put('/', updateFeedback);
+router.put('/:id', updateFeedback);
 router.post('/', postFeedback);
-router.delete('/:id', deleteFeedback);
+//router.delete('/:id', deleteFeedback);
 
 module.exports = router;

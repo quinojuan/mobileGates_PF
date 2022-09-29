@@ -1,14 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getPurchase, postPurchase, getCleanPurchase, clearCart } from "../../redux/Actions";
+import { getPurchase, addInputPurchase } from "../../redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
-
+import { useAuth } from '../Context/authContext';
 
 export default function FormPurchase() {
-
+    const { user } = useAuth()
 
     // Validates 
 
@@ -42,11 +42,11 @@ export default function FormPurchase() {
     let navigate = useNavigate();
     const [errors, setErrors] = useState({})
     const [input, setInput] = useState({
-        email: "",
-        creditCard: "",
         dni: "",
         adress: "",
         birthday: "",
+        email: user.email,
+        products: carts
     })
 
     const handleChange = (e) => {
@@ -71,15 +71,11 @@ export default function FormPurchase() {
     // }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        setErrors(validate(input));
-        const errorSave = validate(input);
-        if(!input.email){
-            Swal.fire("Ingrese un email valido")
-        } else if(input.creditCard.length!==16){
-            Swal.fire("La tarjeta de credito debe tener 16 dígitos.")
-        } else if(input.dni.length!==8 || input.dni.length!==7){
+       // setErrors(validate(input));
+       /*  const errorSave = validate(input);
+        if(input.dni.length!==8 || input.dni.length!==7){
             Swal.fire("El DNI debe tener 7 u 8 digitos sin puntos.")
         } else if(!input.adress.length){
             Swal.fire("Debes completar tu dirección.")
@@ -87,20 +83,20 @@ export default function FormPurchase() {
             Swal.fire("Debe completar con su fecha de nacimiento.")
         }
         if (Object.values(errorSave).length !== 0) {
-            Swal.fire("Error al finalizar su compra. Verificar los datos ingresados")
-        } else {
-            dispatch(postPurchase(input))
-            Swal.fire("Compra realizada", "", "success");
-            setInput({
-                email: "",
-                creditCard: "",
-                dni: "",
-                adress: "",
-                birthday: "",
+            Swal.fire("No pudimos realizar la compra, fijese los requisitos pedidos")
+        } else  */
+           // dispatch(postPurchase(input))
+           // Swal.fire("Compra realizada")
+           setInput({
+               dni: "",
+               adress: "",
+               birthday: "",
+               email: user.email,
+               products: carts
             })
-            dispatch(clearCart())
-            navigate("/home")
-        }
+            dispatch(addInputPurchase(input))
+            navigate("/check")
+        
     }
 
     useEffect(() => {
@@ -115,6 +111,7 @@ export default function FormPurchase() {
             {/* <Link to="/home">
                 <span >back</span>
             </Link> */}
+
 
             <form onSubmit={(e) => handleSubmit(e)} >
 
@@ -137,7 +134,7 @@ export default function FormPurchase() {
             </p>
             </div>
             </div>
-            <div className='col-md-12 mb-2 mt-5'>
+           {/*  <div className='col-md-12 mb-2 mt-5'>
                 <label>Tarjeta de credito</label>
                 <div>
                     <input
@@ -153,7 +150,7 @@ export default function FormPurchase() {
                         )
                     }
                 </div>
-                    </div>
+                    </div> */}
                     <div className='col-md-12 mb-2'>
                 <label >DNI</label>
                 <div>
@@ -207,7 +204,7 @@ export default function FormPurchase() {
                         {carts?.map((s)=>(<img src={s.image}/>))}
                 </div> */}
                 <div className='sendEmail'>
-                <button className='btn btn-primary' type="submit" onSubmit={(e)=>handleSubmit(e)}>Confirmar compra</button>
+                <button className='btn btn-primary' type="submit" onSubmit={(e)=>handleSubmit(e)}>Ir al metodo de pago</button>
                 </div>
             </form>
 

@@ -10,10 +10,6 @@ module.exports = (sequelize) => {
 				primaryKey: true,
 				defaultValue: DataTypes.UUIDV4,
 			},
-			name: {
-				type: DataTypes.STRING,
-				allowNull: false,
-			},
 			email: {
 				type: DataTypes.TEXT,
 				unique: true,
@@ -25,14 +21,9 @@ module.exports = (sequelize) => {
 					},
 				},
 			},
-			username: {
-				type: DataTypes.STRING,
-				allowNull: false,
-				unique: true,
-			},
 			password: {
 				type: DataTypes.TEXT,
-				allowNull: false,
+			
 			},
 			admin: {
 				type: DataTypes.BOOLEAN,

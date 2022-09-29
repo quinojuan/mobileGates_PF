@@ -2,34 +2,49 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPhonesById, getClean } from "../../redux/Actions";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
+import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
+import Feedback from "../Feedbacks/Feedbacks";
+import { useAuth } from '../Context/authContext';
+
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
-  const loading = useSelector((state) => state.loading);
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
+  const [count, setCount]= useState(1)
+  const { user } = useAuth()
+    function decrease(){
+        setCount(count-1)
+    }
+    function increase(){
+        setCount(count+1)
+    }
+
+
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
-    console.log(Object.keys(myProducts).length);
     Object.keys(myProducts).length && setImg(myProducts.image);
-  }, [dispatch, myProducts]);
+  }, [dispatch, myProducts, id]);
+
+  function handleBack() {
+    dispatch(getClean());
+    navigate("/home");
+  }
+  
 
   function handleSelectImage(e) {
     e.preventDefault();
     setImg(e.target.src);
   }
 
-  function handleBack() {
-    dispatch(getClean());
-    navigate("/home");
-  }
   function acomodarPrecio(precio) {
+    console.log("precio:", precio);
     let precioString = precio.toString();
     let contador = 0;
     let acumulador = [];
@@ -49,12 +64,12 @@ export default function DetailsPhone(props) {
     }
     return acumulador.join("");
   }
+
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       {
         <div>
-          <NavBar />
           <div
             className="container"
             style={{
@@ -123,12 +138,12 @@ export default function DetailsPhone(props) {
                     </h5>
                     <h5>
                       Precio:{" $"}
-                      {acomodarPrecio(Number(myProducts.price))}
+                      {myProducts.weight?acomodarPrecio(myProducts.price):null}
                     </h5>
-                    <h5>Peso: {myProducts && myProducts.weight}g.</h5>
+                    <h5>Peso: {myProducts.weight?acomodarPrecio(myProducts.weight):null}g.</h5>
                     <h5>
                       Capacidad de la bateria:
-                      {acomodarPrecio(Number(myProducts.battery))}
+                      {myProducts.battery?acomodarPrecio(myProducts.battery):null}
                       mAh.
                     </h5>
 
@@ -152,11 +167,21 @@ export default function DetailsPhone(props) {
               </div>
             </div>
           </div>
+          <button disabled={count<=1} onClick={()=>decrease()}>-</button>
+            <span>{count}</span>
+            <button disabled={count>=30} onClick={()=>increase()}>+</button>
           <div>
-            <AddProducts id={myProducts.id} />
+            <AddProducts id={myProducts.id} quantity={count} />
+          </div>
+          <h2>Deje su reseña:</h2>
+          <div className="dejarFeedback">
+            <Feedback
+            model = {myProducts?myProducts.model:"modelo inexistente"}
+            email = {user?user.email:"email invalido"}
+            />
           </div>
           <div>
-            <button onClick={() => handleBack()} class="btn btn-dark">
+            <button class="btn btn-dark" onClick={() => handleBack()}>
               Volver
             </button>
           </div>

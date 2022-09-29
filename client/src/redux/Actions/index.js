@@ -43,7 +43,6 @@ export function getClean(payload) {
 	};
 }
 
-
 export function getImg(payload){
 	return{
 		type: "GET_IMG",
@@ -69,6 +68,12 @@ export function getSort(payload) {
 		payload,
 	};
 }
+export function getSortByPrice(payload){
+	return{
+		type:"GET_SORT_BY_PRICE",
+		payload
+	}
+}
 // export function getFilterByCapacity(payload) {
 // 	return {
 // 		type: 'GET_FILTER_BY_CAPACITY',
@@ -84,6 +89,21 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 		},
 	});
 };
+
+export function addUser(payload) {
+    //console.log(payload)
+    return async function () {
+		try{
+			const newUser = {
+				email: payload.email,
+			}
+		  await axios.post('http://localhost:3001/users', newUser);
+		}catch(e){
+          console.log(e)
+		}
+    };
+}
+
 export function setLoading(payload) {
 	return {
 		type: 'SET_LOADING',
@@ -91,7 +111,6 @@ export function setLoading(payload) {
 	};
 }
 export function addToCart(payload) {
-	console.log("añadiendo al carrito desde actions:", payload)
 	return {
 		type: 'ADD_TO_CART',
 		payload,
@@ -109,6 +128,14 @@ export function deleteProductInCart(payload) {
 			payload,
 		});
 	};
+}
+
+export function cleanCart(){
+	return function(dispatch){
+      dispatch({
+		type: "CLEAN_CART",
+	  })
+	}
 }
 
 export const getProductsByNameAndFilters =
@@ -172,7 +199,8 @@ export const searching =(payload)=>{
 }
 }
 
-export const clearCart = ()=>{
+export const handleClearCart = ()=>{
+	alert("clickeado")
 	return {
 		type: "CLEAR_CART",
 		
@@ -190,15 +218,80 @@ export function getPurchase(){
 
 export function postPurchase(payload) {
     return async function (dispatch) {
-        const json = await axios.post("http://localhost:3001/purchases", payload)
-        console.log(json)
-        return json;
+		console.log(payload, "ACTION DE POSTPURCHASE")
+        const purchase = await axios.post("http://localhost:3001/purchases", payload)
+        return purchase
 
     }
 }
-
-export function cleanNull(){
+export function getPurchaseRepeat(payload){
 	return{
-		type: "CLEAN_NULL",
+		type:"GET_PURCHASE_REPEAT",
+		payload
 	}
 }
+
+export function addInputPurchase(payload){
+	return function(dispatch){
+		return dispatch({
+			type: "ADD_INPUT_PURCHASE",
+			payload,
+		})
+	}
+}
+
+export function setFinalPrice(payload){
+	return function(dispatch){
+		return dispatch({
+			type: "FINAL_PRICE",
+			payload
+		})
+	}
+}
+export function postFeedback(payload) {
+	return async function (dispatch) {
+	  console.log(payload, "ACTION DE FEEDBACKS");
+	  const feedback = await axios.post("http://localhost:3001/feedbacks",payload);
+	  return dispatch({
+		  type: "POST_FEEDBACK",
+		  payload: feedback
+	  })
+  };
+  }
+  
+  export function getFeedbacks(payload) {
+	console.log("FEEDBACK A ENVIAR:",payload)
+	return async function (dispatch) {
+	  let feedBacks = await axios.get("http://localhost:3001/feedbacks");
+	  return dispatch({
+		type: "GET_FEEDBACKS",
+		payload: feedBacks,
+	  });
+	};
+  }
+
+  export function postPhone(payload) {
+    return async function (dispatch) {
+        const newPhone = await axios.post("http://localhost:3001/products", payload)
+        return newPhone
+    }
+}
+
+export function putPhone(id, payload) {
+    return async function () {
+        const modifyPhone = await axios.put(`http://localhost:3001/products/${id}`, payload)
+		return modifyPhone
+    }
+}
+
+export function deletePhone(id){
+	return async function (){
+		const deletePhone = await axios.delete(`http://localhost:3001/products/${id}`)
+		return deletePhone
+	}
+}
+
+
+
+
+

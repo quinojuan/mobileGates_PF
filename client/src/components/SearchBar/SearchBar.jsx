@@ -36,7 +36,7 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreIn
       dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
       dispatch(setSearch(name.toLowerCase()));
     } else {
-      Swal.fire("Tienes que ingresar un producto a buscar", "", "warning");
+      Swal.fire("Tienes que ingresar un producto a buscar");
     }
     setCurrentPage(1);
   }
@@ -56,8 +56,8 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreIn
 <nav class="navbar bg-dark">
 <div class="container-fluid">
   <form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search" onChange={(e) => handleInputChange(e)} aria-label="Search"/>
-    <button class="btn btn-outline-light" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
+    <input class="form-control me-2" type="search" placeholder="Buscar" onChange={(e) => handleInputChange(e)} aria-label="Search"/>
+    <button class="btn btn-outline-light" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
   </form>
 </div>
 </nav>
