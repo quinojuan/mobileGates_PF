@@ -214,3 +214,26 @@ export function postPhone(payload) {
         return newPhone
     }
 }
+
+export function addUser(payload) {
+    //console.log(payload)
+    return async function () {
+        try{
+            const newUser = {
+                email: payload.email,
+            }
+          await axios.post('http://localhost:3001/users', newUser);
+        }catch(e){
+          console.log(e)
+        }
+    };
+};
+
+export function setFinalPrice(payload){
+    return function(dispatch){
+        return dispatch({
+            type: "FINAL_PRICE",
+            payload
+        })
+    }
+};
