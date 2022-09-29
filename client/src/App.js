@@ -21,6 +21,8 @@ import AdminPages from './components/AdminPages/AdminPages';
 import AddPhone from './components/AdminPages/AddPhone';
 import ManageUser from './components/AdminPages/ManageUser';
 import ModifyPhone from './components/AdminPages/ModifyPhone';
+library.add(fab, faCheckSquare, faCoffee, fas)
+
 
 library.add(fab, faCheckSquare, faCoffee, fas)
 function App() {
