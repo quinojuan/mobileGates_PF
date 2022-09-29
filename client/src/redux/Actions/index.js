@@ -91,14 +91,13 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 };
 
 export function addUser(payload) {
-    console.log(payload)
+    //console.log(payload)
     return async function () {
 		try{
-			const user = {
+			const newUser = {
 				email: payload.email,
-				password: payload.password
 			}
-		  await axios.post('http://localhost:3001/users', user);
+		  await axios.post('http://localhost:3001/users', newUser);
 		}catch(e){
           console.log(e)
 		}
@@ -129,6 +128,14 @@ export function deleteProductInCart(payload) {
 			payload,
 		});
 	};
+}
+
+export function cleanCart(){
+	return function(dispatch){
+      dispatch({
+		type: "CLEAN_CART",
+	  })
+	}
 }
 
 export const getProductsByNameAndFilters =
@@ -233,10 +240,16 @@ export function addInputPurchase(payload){
 	}
 }
 
-
-export function postPhone(payload) {
-    return async function (dispatch) {
-        const newPhone = await axios.post("http://localhost:3001/products", payload)
-        return newPhone
-    }
+export function setFinalPrice(payload){
+	return function(dispatch){
+		return dispatch({
+			type: "FINAL_PRICE",
+			payload
+		})
+	}
 }
+
+
+
+
+

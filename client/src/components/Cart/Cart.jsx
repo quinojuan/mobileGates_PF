@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getCart, deleteProductInCart } from "../../redux/Actions";
+import { getCart, deleteProductInCart, setFinalPrice } from "../../redux/Actions";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
@@ -14,19 +14,43 @@ export default function Cart() {
   //const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  
   useEffect(() => {
     dispatch(getCart());
   }, [dispatch]);
+  
+  function acomodarPrecio(precio) {
+    let precioString = precio.toString();
+    let contador = 0;
+    let acumulador = [];
+    let acumuladorInvertido = []
+    for (let i = precioString.length - 1; i >= 0; i--) {
+      contador++;
+      if (contador === 3 && i>0) {
+        acumuladorInvertido.push(precioString[i]);
+        acumuladorInvertido.push(".");
+        contador = 0
+      } else {
+        acumuladorInvertido.push(precioString[i]);
+      }
+    }
+    for(let i=acumuladorInvertido.length - 1; i>=0;i--){
+      acumulador.push(acumuladorInvertido[i])
+    }
+    return acumulador.join("");
+  }
 
-  function handleSuma() {
+  const handleSuma =()=> {
     let suma = 0;
     for (let i = 0; i < myCart.length; i++) {
       suma += myCart[i].price[0];
     }
+    dispatch(setFinalPrice(suma))
     console.log("SUMA:", suma);
-    suma = parseFloat(suma)/1000
-    return suma;
+    
+    return acomodarPrecio(suma);
   }
+
   return (
     <div >
       <NavBar/>
