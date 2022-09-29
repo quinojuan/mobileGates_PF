@@ -248,17 +248,58 @@ export function setFinalPrice(payload){
 		})
 	}
 }
-
-export function getAllUsers(){
+export function postFeedback(payload) {
 	return async function (dispatch) {
-		
+	  console.log(payload, "ACTION DE FEEDBACKS");
+	  const feedback = await axios.post("http://localhost:3001/feedbacks",payload);
+	  return dispatch({
+		  type: "POST_FEEDBACK",
+		  payload: feedback
+	  })
+  };
+  }
+  
+  export function getFeedbacks(payload) {
+	console.log("FEEDBACK A ENVIAR:",payload)
+	return async function (dispatch) {
+	  let feedBacks = await axios.get("http://localhost:3001/feedbacks");
+	  return dispatch({
+		type: "GET_FEEDBACKS",
+		payload: feedBacks,
+	  });
+	};
+  }
+
+  export function postPhone(payload) {
+    return async function (dispatch) {
+        const newPhone = await axios.post("http://localhost:3001/products", payload)
+        return newPhone
+    }
+}
+
+export function putPhone(id, payload) {
+    return async function () {
+        const modifyPhone = await axios.put(`http://localhost:3001/products/${id}`, payload)
+		return modifyPhone
+    }
+}
+
+export function deletePhone(id){
+	return async function (){
+		const deletePhone = await axios.delete(`http://localhost:3001/products/${id}`)
+		return deletePhone
+	}
+}
+
+export function getAllProducts() {
+	return async function (dispatch) {
 		let json = await axios.get('http://localhost:3001/users');
 		dispatch({
 			type: 'GET_ALL_USERS',
 			payload: json.data,
 		});
 	};
-};
+}
 
 
 

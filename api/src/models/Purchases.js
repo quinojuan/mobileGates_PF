@@ -34,10 +34,7 @@ module.exports = (sequelize) => {
 				unique: true,
 				
 			  }, 
-			quantity: {
-				type: DataTypes.INTEGER,
-				defaultValue: 1,
-			},
+		
 		},
 		{
 			freezeTableName: true,
