@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getCart, deleteProductInCart, setFinalPrice, preventCartBug} from "../../redux/Actions";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
