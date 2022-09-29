@@ -53,6 +53,7 @@ function App() {
         <Route path="/phonestable" element= {<PhonesTable/>}/>
         <Route path="/modifyphone/:id" element= {<ModifyPhone/>}/>
         <Route path="/manageuser" element= {<ManageUser/>}/>
+        <Route path="/check" element= {<Checkout/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
     </div>

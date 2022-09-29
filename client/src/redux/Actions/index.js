@@ -91,7 +91,7 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 };
 
 export function addUser(payload) {
-  //console.log(payload)
+  console.log("Payload en addUser-actions",payload)
   return async function() {
     try {
       const newUser = {
