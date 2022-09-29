@@ -1,52 +1,38 @@
-import emailjs from "emailjs-com";
-import React from 'react';
-import Swal from "sweetalert2";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function Contact() {
-
-
-    function sendEmail(e) {
-        e.preventDefault();
-
-        emailjs.sendForm('gmailMessage', 'template_jzmq28i', e.target, '4RP4sjyCyb3MSOEae')
-
-            .then((result) => {
-                Swal.fire("Mensaje enviado con éxito! 👍");
-
-            }, (error) => {
-                Swal.fire("No se pudo enviar el mensaje")
-
-            });
-        e.target.reset()
-
-
-    }
-    return (
-        <div>
-            <div className="container">
-                <h2>Contato</h2>
-                <form onSubmit={sendEmail}>
-                    <div className="row pt-5 mx-auto">
-
-                        <div className="col-lg-8 col-sm-12 form-group mx-auto">
-                            <label>Nombre</label>
-                            <input type="text" autoFocus className="form-control" required placeholder="Tu Nombre" name="name" />
-                        </div>
-                        <div className="col-lg-8 col-sm-12 form-group pt-1 mx-auto">
-                            <label>Email</label>
-                            <input type="email" className="form-control" required placeholder="Tu email" name="email" />
-                        </div>
-
-                        <div className="col-lg-8 col-sm-12 form-group pt-1 mx-auto">
-                            <label>Mensaje</label>
-                            <textarea className="form-control" id="" cols="30" rows="8" required placeholder="Escríbenos" name="message"></textarea>
-                        </div>
-                        <div className="col-lg-8 col-sm-12 pt-3 mx-auto">
-                            <input type="submit" className="btn btn-info" value="Enviar"></input>
-                        </div>
-                    </div>
-                </form>
-            </div>
+export default function Contact(){
+    return(
+        <div class="container-sm">
+            <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"></input>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
         </div>
     )
 }
