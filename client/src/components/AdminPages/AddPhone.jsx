@@ -154,6 +154,7 @@ export default function AddProducts() {
         } else if (!input.model.length) {
             e.preventDefault();
             return Swal.fire('Debe ingresar el modelo del dispositivo')
+
         } else if (input.image.length === 0) {
             e.preventDefault();
             return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
@@ -197,6 +198,7 @@ export default function AddProducts() {
             e.preventDefault();
             return Swal.fire('Debes ingresar la descripción del dispositivo')
         }
+
         dispatch(postPhone(input))
         Swal.fire("El dispositivo ha sido añadido con éxito!")
         console.log(input)
@@ -227,7 +229,7 @@ export default function AddProducts() {
         <div>
             <NavBar />
             <div class="container w-50 mt-3">
-                <h1 class='mt-3'>Agregar un dispositivo</h1>
+                <h1>Agregar un dispositivo</h1>
                 <form id="miForm" onSubmit={(e) => handleSubmit(e)}>
                 <fieldset disabled>
                     <div class="col">
