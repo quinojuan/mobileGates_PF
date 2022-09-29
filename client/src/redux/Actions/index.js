@@ -121,9 +121,8 @@ export function getCart() {
 		type: 'GET_CART',
 	};
 }
-
 export function deleteProductInCart(payload) {
-	return async function (dispatch) {
+	return function (dispatch) {
 		dispatch({
 			type: 'DELETE_PRODUCT_IN_CART',
 			payload,
@@ -249,7 +248,6 @@ export function setFinalPrice(payload){
 		})
 	}
 }
-
 export function postFeedback(payload) {
 	return async function (dispatch) {
 	  console.log(payload, "ACTION DE FEEDBACKS");
@@ -276,10 +274,3 @@ export function postFeedback(payload) {
 
 
 
-
-export function postPhone(payload) {
-    return async function (dispatch) {
-        const newPhone = await axios.post("http://localhost:3001/products", payload)
-        return newPhone
-    }
-}

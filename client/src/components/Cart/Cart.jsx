@@ -37,7 +37,26 @@ export default function Cart() {
    
   }, [dispatch]);
   
-  console.log(myCart, "my cart a verrrrr")
+  function acomodarPrecio(precio) {
+    let precioString = precio.toString();
+    let contador = 0;
+    let acumulador = [];
+    let acumuladorInvertido = []
+    for (let i = precioString.length - 1; i >= 0; i--) {
+      contador++;
+      if (contador === 3 && i>0) {
+        acumuladorInvertido.push(precioString[i]);
+        acumuladorInvertido.push(".");
+        contador = 0
+      } else {
+        acumuladorInvertido.push(precioString[i]);
+      }
+    }
+    for(let i=acumuladorInvertido.length - 1; i>=0;i--){
+      acumulador.push(acumuladorInvertido[i])
+    }
+    return acumulador.join("");
+  }
 
   const handleSuma =()=> {
     let suma = 0;
@@ -46,8 +65,8 @@ export default function Cart() {
     }
     dispatch(setFinalPrice(suma))
     console.log("SUMA:", suma);
-    suma = parseFloat(suma)/1000
-    return suma;
+    
+    return acomodarPrecio(suma);
   }
 
   const handleDelete = (id) => {
