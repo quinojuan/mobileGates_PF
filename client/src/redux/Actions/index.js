@@ -89,21 +89,6 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 		},
 	});
 };
-
-export function addUser(payload) {
-    //console.log(payload)
-    return async function () {
-		try{
-			const newUser = {
-				email: payload.email,
-			}
-		  await axios.post('http://localhost:3001/users', newUser);
-		}catch(e){
-          console.log(e)
-		}
-    };
-}
-
 export function setLoading(payload) {
 	return {
 		type: 'SET_LOADING',
@@ -128,14 +113,6 @@ export function deleteProductInCart(payload) {
 			payload,
 		});
 	};
-}
-
-export function cleanCart(){
-	return function(dispatch){
-      dispatch({
-		type: "CLEAN_CART",
-	  })
-	}
 }
 
 export const getProductsByNameAndFilters =
@@ -218,9 +195,8 @@ export function getPurchase(){
 
 export function postPurchase(payload) {
     return async function (dispatch) {
-		console.log(payload, "ACTION DE POSTPURCHASE")
-        const purchase = await axios.post("http://localhost:3001/purchases", payload)
-        return purchase
+        const json = await axios.post("http://localhost:3001/purchases", payload)
+        return json;
 
     }
 }
@@ -231,6 +207,12 @@ export function getPurchaseRepeat(payload){
 	}
 }
 
+export function postPhone(payload) {
+    return async function (dispatch) {
+        const newPhone = await axios.post("http://localhost:3001/products", payload)
+        return newPhone
+    }
+}
 export function addInputPurchase(payload){
 	return function(dispatch){
 		return dispatch({
@@ -239,7 +221,19 @@ export function addInputPurchase(payload){
 		})
 	}
 }
-
+export function addUser(payload) {
+    //console.log(payload)
+    return async function () {
+		try{
+			const newUser = {
+				email: payload.email,
+			}
+		  await axios.post('http://localhost:3001/users', newUser);
+		}catch(e){
+          console.log(e)
+		}
+    };
+}
 export function setFinalPrice(payload){
 	return function(dispatch){
 		return dispatch({
@@ -248,13 +242,3 @@ export function setFinalPrice(payload){
 		})
 	}
 }
-
-export function postPhone(payload) {
-    return async function (dispatch) {
-        const newPhone = await axios.post("http://localhost:3001/products", payload)
-        return newPhone
-    }
-}
-
-
-
