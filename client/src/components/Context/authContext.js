@@ -8,8 +8,6 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
-  getAuth,
-  sendEmailVerification
 } from "firebase/auth";
 import { auth } from "../../firebase";
 
@@ -26,6 +24,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const signup = (email, password) => {
+    console.log(email,password, "SIGN UP")
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -42,18 +41,15 @@ export function AuthProvider({ children }) {
 
   const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
 
-  const verification = async (email) => sendEmailVerification(auth, email)
-
-  
-
   useEffect(() => {
-    const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
+    const currentUser = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      console.log(currentUser, "CURRENT USER")
       setLoading(false);
     });
-    return () => unsubuscribe();
+    return () => currentUser();
   }, []);
-
+ console.log(user, "el user")
   return (
     <authContext.Provider
       value={{
@@ -64,7 +60,6 @@ export function AuthProvider({ children }) {
         loading,
         loginWithGoogle,
         resetPassword,
-        verification
       }}
     >
       {children}

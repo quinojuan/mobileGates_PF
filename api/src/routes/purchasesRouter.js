@@ -4,5 +4,6 @@ const { postPurchase, getAllPurchases } = require('../controllers/purchasesContr
 
 router.get('/', getAllPurchases);
 router.post('/', postPurchase)
+router.post('/sendmail')
 
 module.exports = router;

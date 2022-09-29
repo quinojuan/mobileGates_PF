@@ -17,10 +17,12 @@
     "react-router-dom": "^6.4.0",
     "react-scripts": "4.0.3",
     "react-simple-chatbot": "^0.6.1",
+    "react-stripe-js": "^1.1.2",
     "react-toastify": "^9.0.8",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "stripe": "^10.11.0",
     "sweetalert2": "^11.4.33",
     "web-vitals": "^2.1.4"
   },

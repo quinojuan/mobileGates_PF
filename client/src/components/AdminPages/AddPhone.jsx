@@ -199,30 +199,30 @@ export default function AddProducts() {
             return Swal.fire('Debes ingresar la descripción del dispositivo')
         }
 
-        dispatch(postPhone(input))
-        Swal.fire("El dispositivo ha sido añadido con éxito!")
-        console.log(input)
-        console.log('creado con exito')
-        setInput({
-            category: "Phones",
-            model: "",
-            brand: "",
-            operative_system: "",
-            size: "",
-            cpu: "",
-            image: "",
-            description: "",
-            inches: 0,
-            main_camera: 0,
-            frontal_camera: 0,
-            weight: 0,
-            battery: 0,
-            ram: [],
-            capacity: [],
-            price: []
-        })
-        navigate("/home");
-        document.location.reload();
+        // dispatch(postPhone(input))
+        // Swal.fire("El dispositivo ha sido añadido con éxito!")
+        // console.log(input)
+        // console.log('creado con exito')
+        // setInput({
+        //     category: "Phones",
+        //     model: "",
+        //     brand: "",
+        //     operative_system: "",
+        //     size: "",
+        //     cpu: "",
+        //     image: "",
+        //     description: "",
+        //     inches: 0,
+        //     main_camera: 0,
+        //     frontal_camera: 0,
+        //     weight: 0,
+        //     battery: 0,
+        //     ram: [],
+        //     capacity: [],
+        //     price: []
+        // })
+        // navigate("/home");
+        // document.location.reload();
     }
 
     return (

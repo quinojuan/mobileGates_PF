@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getCart, deleteProductInCart, setFinalPrice } from "../../redux/Actions";
+import { getCart, deleteProductInCart, setFinalPrice, handleClearCart } from "../../redux/Actions";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
@@ -49,8 +49,12 @@ export default function Cart() {
     console.log("SUMA:", suma);
     
     return acomodarPrecio(suma);
-  }
+  };
 
+  const handleClearCart = () =>{
+    return dispatch(handleClearCart());
+  }
+  
   return (
     <div >
       <NavBar/>
