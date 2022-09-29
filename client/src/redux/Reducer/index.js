@@ -18,7 +18,6 @@ const initialState = {
   capacities: [],
   price: [],
   searching: false,
-  purchases: [],
   inputPurchase: {},
   getCheckout: {},
   repeat: [],
@@ -245,23 +244,27 @@ function rootReducer(state = initialState, action) {
         ...state,
         inputPurchase: action.payload,
       };
-
-    case "FINAL_PRICE":
-      return {
-        ...state,
-        finalPrice: action.payload,
-      };
       case "POST_FEEDBACK":
         return {
-          ...state,
-          feedback: action.payload,
-        };
+        ...state
+      }
+      case "PUT_PHONE":
+      return {
+        ...state
+      }
       case "GET_FEEDBACKS":
         return {
           ...state,
           allFeedbacks:action.payload
         };
 
+          case "FINAL_PRICE":
+            return{
+              ...state,
+              finalPrice: action.payload
+            }
+      
+        
     default:
       return state;
   }

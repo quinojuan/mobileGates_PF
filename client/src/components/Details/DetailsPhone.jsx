@@ -26,6 +26,7 @@ export default function DetailsPhone(props) {
         setCount(count+1)
     }
 
+
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);

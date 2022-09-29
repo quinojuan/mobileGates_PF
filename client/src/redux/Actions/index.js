@@ -270,6 +270,27 @@ export function postFeedback(payload) {
 	};
   }
 
+  export function postPhone(payload) {
+    return async function (dispatch) {
+        const newPhone = await axios.post("http://localhost:3001/products", payload)
+        return newPhone
+    }
+}
+
+export function putPhone(id, payload) {
+    return async function () {
+        const modifyPhone = await axios.put(`http://localhost:3001/products/${id}`, payload)
+		return modifyPhone
+    }
+}
+
+export function deletePhone(id){
+	return async function (){
+		const deletePhone = await axios.delete(`http://localhost:3001/products/${id}`)
+		return deletePhone
+	}
+}
+
 
 
 
