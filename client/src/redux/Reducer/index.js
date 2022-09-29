@@ -176,12 +176,13 @@ function rootReducer(state = initialState, action) {
       };
     case "GET_CART":
       let cartLS = JSON.parse(localStorage.getItem("cart"));
+      console.log("CARRITO DEL LOCALSTORAGE en el mismo momento que entro ", )
       if (!cartLS) {
         cartLS = [];
       }
       return {
         ...state,
-        cart: cartLS,
+        cart: [...state.cart, ...cartLS],
       };
     case "DELETE_PRODUCT_IN_CART":
       let productsInLs = JSON.parse(localStorage.getItem("cart"));
