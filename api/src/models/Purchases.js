@@ -12,7 +12,6 @@ module.exports = (sequelize) => {
 				primaryKey: true,
 				defaultValue: DataTypes.UUIDV4,
 			},
-			
 			dni: {
 				type: DataTypes.STRING,
 				allowNull: false,
@@ -27,14 +26,13 @@ module.exports = (sequelize) => {
 			},
 			amount:{
 				type: DataTypes.INTEGER,
-			     
+			     allowNull: false
 			},
 		 	 id_transaction:{
 				type: DataTypes.TEXT,
 				unique: true,
-				
 			  }, 
-		
+
 		},
 		{
 			freezeTableName: true,

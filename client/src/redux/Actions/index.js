@@ -94,10 +94,10 @@ export function addUser(payload) {
   //console.log("Payload en addUser-actions", payload);
   return async function() {
     try {
-      const newUser = {
+    /*   const newUser = {
         email: payload.email,
-      };
-      await axios.post("http://localhost:3001/users", newUser);
+      }; */
+      await axios.post("http://localhost:3001/users", payload);
     } catch (e) {
       console.log(e);
     }
@@ -114,12 +114,6 @@ export function getUsers(){
   }
 }
 
-/* export function deleteUser(id){
-  return async function(){
-    let deletedUser = await axios.delete(`http://localhost:3001/users/${id}`)
-     return deletedUser.data
-  }
-} */
 export function deleteUser(id){
   console.log(id, "id EN AXXXXXXXXXCTION")
 	return async function(dispatch){

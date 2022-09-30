@@ -23,7 +23,6 @@ module.exports = (sequelize) => {
 			},
 			password: {
 				type: DataTypes.TEXT,
-			
 			},
 			admin: {
 				type: DataTypes.BOOLEAN,

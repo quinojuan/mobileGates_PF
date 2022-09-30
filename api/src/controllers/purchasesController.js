@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 
 
 const getAllPurchases = async (req, res) => {
+  //falta devolver la quantiy
   try {
     const allPurchases = await Purchases.findAll({
       include: [
@@ -16,16 +17,22 @@ const getAllPurchases = async (req, res) => {
         },
       ],
     });
-
+    //console.log(allPurchases[0].dataValues.Phones, "a ver")
     let presentacion = allPurchases.map(
-      ({ dni, adress, birthday, amount, Users, Phones }) => {
+      ({ dni, adress, birthday, amount, Users, Phones, id, id_transaction }) => {
+        let productPresent = []
+        for(let i = 0; i<Phones.length; i++){
+          productPresent.push(Phones[i].model)
+        }
         return {
+          id,
+          id_transaction,
           dni,
           adress,
           birthday,
           amount,
           email: Users[0].email,
-          products: Phones[0].model,
+          products: productPresent
         };
       }
     );
@@ -43,14 +50,16 @@ const postPurchase = async (req, res) => {
   try {
     const { dni, adress, birthday, amount, email, products, transaction } =
       req.body;
-    let newPurchase = await Purchases.create({
-      dni,
-      adress,
-      birthday,
-      amount,
-      id_transaction: transaction,
-    });
-    //console.log(req.body, "a ver que llega por body")
+
+      let newPurchase = await Purchases.create({
+        dni,
+        adress,
+        birthday,
+        amount,
+        id_transaction: transaction,
+      }); 
+     
+   // console.log(req.body, "a ver que llega por body")
     //console.log(newPurchase, "LA COMPRITA")
 
     let myUser = await Users.findOne({ where: { email: email } });
@@ -70,7 +79,7 @@ const postPurchase = async (req, res) => {
       birthday,
       amount,
       id_transaction: transaction,
-      email: purchaseWithUser.Users[0].email,
+      email: email,
       products: [],
     };
 
@@ -85,15 +94,14 @@ const postPurchase = async (req, res) => {
           stock: myPhone.dataValues.stock - p.quantity,
         };
         await Phones.update(myPhone, { where: { id: myPhone.id } });
-
         //aca habria que descontarle del stock a dicho phone por cada quantity del producto en la compra
-        const purchaseWithPhone = await Purchases.findByPk(newPurchase.id, {
+        const purchaseWithPhone = await Purchases.findByPk(newPurchase.id/* ,  {
           include: [
             {
               model: Phones,
             },
           ],
-        });
+        }  */);
         resolve(presentacion.products.push(purchaseWithPhone));
         reject((err) => console.log(err));
       });
