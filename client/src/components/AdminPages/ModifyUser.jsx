@@ -28,6 +28,23 @@ export default function ModifyUser() {
   useEffect(() => {
     dispatch(getUsers())
   }, [dispatch])
+  // var miCheckbox = document.getElementById('miElementoCheckbox');
+
+  // ('El valor inicial del checkbox es ' + miCheckbox.checked);
+
+  // miCheckbox.addEventListener('click', function() {
+  //   if(miCheckbox.checked) {
+  //     setInput({
+  //       ...input,
+  //       admin: true
+  //     })
+  //   } else {
+  //     setInput({
+  //       ...input,
+  //       admin: false
+  //     })
+  //   }
+  // });
 
   const handleChange = () => {
     if(input.admin === true){

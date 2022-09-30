@@ -15,6 +15,7 @@ export default function AdminPages() {
           <a href="/addphone" class="btn btn-success">Agregar un producto</a>
           <a href="/phonestable" class="btn btn-danger">Modificar un producto</a>
           <a href="/manageuser" class="btn btn-dark">Administrar usuarios</a>
+          <a href="/allpurchases" class="btn btn-dark">Todas las compras</a>
         </div>
       </div>
       <Footer />

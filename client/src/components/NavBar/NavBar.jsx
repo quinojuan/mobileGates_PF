@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 
 
 export default function NavBar() {
-  
+  const [currentPage, setCurrentPage] = useState(1);
   // const {user, logout, loading} = useAuth()
   // const navigate = useNavigate()
 
