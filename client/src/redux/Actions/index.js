@@ -307,3 +307,10 @@ export function deletePhone(id) {
 export function preventCartBug() {
   return { type: "PREVENT_CART_BUG" };
 }
+
+export function getUserData(payload){
+  return{
+    type: "GET_USER_DATA",
+    payload
+  }
+}

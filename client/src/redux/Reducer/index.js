@@ -24,10 +24,9 @@ const initialState = {
   repetido: false,
   finalPrice: 0,
   purchases: [],
-  repeat: [],
-  repetido: false,
   feedback: {},
   allFeedbacks: [],
+  loggedUser: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -267,7 +266,13 @@ function rootReducer(state = initialState, action) {
       };
     case "PREVENT_CART_BUG":
       return { ...state, cart: [] };
-
+    case "GET_USER_DATA":
+      return{
+        ...state,
+        loggedUser: action.payload
+      }
+    
+    
     default:
       return state;
   }
