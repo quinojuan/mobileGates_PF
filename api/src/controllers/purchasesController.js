@@ -17,16 +17,20 @@ const getAllPurchases = async (req, res) => {
         },
       ],
     });
-
+    console.log(allPurchases[0].dataValues.Phones, "a ver")
     let presentacion = allPurchases.map(
       ({ dni, adress, birthday, amount, Users, Phones }) => {
+        let productPresent = []
+        for(let i = 0; i<Phones.length; i++){
+          productPresent.push(Phones[i].model)
+        }
         return {
           dni,
           adress,
           birthday,
           amount,
           email: Users[0].email,
-          products: Phones[0].model,
+          products: productPresent
         };
       }
     );
@@ -53,7 +57,7 @@ const postPurchase = async (req, res) => {
         id_transaction: transaction,
       }); 
      
-    console.log(req.body, "a ver que llega por body")
+   // console.log(req.body, "a ver que llega por body")
     //console.log(newPurchase, "LA COMPRITA")
 
     let myUser = await Users.findOne({ where: { email: email } });
@@ -73,7 +77,7 @@ const postPurchase = async (req, res) => {
       birthday,
       amount,
       id_transaction: transaction,
-      email: purchaseWithUser.Users[0].email,
+      email: email,
       products: [],
     };
 
@@ -88,15 +92,14 @@ const postPurchase = async (req, res) => {
           stock: myPhone.dataValues.stock - p.quantity,
         };
         await Phones.update(myPhone, { where: { id: myPhone.id } });
-
         //aca habria que descontarle del stock a dicho phone por cada quantity del producto en la compra
-        const purchaseWithPhone = await Purchases.findByPk(newPurchase.id, {
+        const purchaseWithPhone = await Purchases.findByPk(newPurchase.id/* ,  {
           include: [
             {
               model: Phones,
             },
           ],
-        });
+        }  */);
         resolve(presentacion.products.push(purchaseWithPhone));
         reject((err) => console.log(err));
       });
