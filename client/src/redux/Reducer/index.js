@@ -28,6 +28,7 @@ const initialState = {
   repetido: false,
   feedback: {},
   allFeedbacks: [],
+  qas: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -212,9 +213,10 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
     case "GET_USERS":
+      console.log("Users en redux", action.payload)
       return{
         ...state,
-        users:action.payload
+        users: action.payload.data
       }
     case "CLEAR_CART":
       return {
@@ -256,9 +258,10 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
     case "GET_FEEDBACKS":
+      console.log(action.payload)
       return {
         ...state,
-        allFeedbacks: action.payload,
+        allFeedbacks: action.payload.data,
       };
 
     case "FINAL_PRICE":
@@ -273,6 +276,12 @@ function rootReducer(state = initialState, action) {
       };
     case "PREVENT_CART_BUG":
       return { ...state, cart: [] };
+
+    case "GET_QAS":
+      return {
+        ...state,
+        qas: action.payload
+      }
 
     default:
       return state;

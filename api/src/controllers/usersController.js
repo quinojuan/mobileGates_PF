@@ -43,7 +43,7 @@ const createUser = async (req, res) => {
 			//aca se hashea la clave
 			// password = bCrypt.hashSync(password, 10)
 			const newUser = await Users.findOrCreate({ where: { email } });
-			return res.status(201).json({ message: `${newUser.email} created! :D` });
+			return res.status(201).json({ message: `${email} created! :D` });
 		}
 	} catch (e) {
 		console.log(e);
