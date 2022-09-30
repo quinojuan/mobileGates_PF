@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPhonesById, getClean } from "../../redux/Actions";
+import { getPhonesById, getClean, getFeedbacks } from "../../redux/Actions";
 import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -9,6 +9,7 @@ import AddProducts from "../AddProducts/AddProducts";
 import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
+import Qas from "../Qas/Qas";
 import { useAuth } from '../Context/authContext';
 
 export default function DetailsPhone(props) {
@@ -19,13 +20,7 @@ export default function DetailsPhone(props) {
   const [img, setImg] = useState("");
   const [count, setCount]= useState(1)
   const { user } = useAuth()
-    function decrease(){
-        setCount(count-1)
-    }
-    function increase(){
-        setCount(count+1)
-    }
-
+  const feedbacks = useSelector((state)=>state.allFeedbacks)
 
   function decrease() {
     setCount(count - 1);
@@ -43,6 +38,9 @@ export default function DetailsPhone(props) {
     navigate("/home");
   }
   
+  useEffect(()=>{
+    dispatch(getFeedbacks())
+  },[dispatch])
 
   function handleSelectImage(e) {
     e.preventDefault();
@@ -187,6 +185,7 @@ export default function DetailsPhone(props) {
           <div>
             <AddProducts id={myProducts.id} quantity={count} />
           </div>
+          <hr></hr>
           <h2>Deje su reseña:</h2>
           <div className="dejarFeedback">
             <Feedback
@@ -194,6 +193,37 @@ export default function DetailsPhone(props) {
             email = {user?user.email:"email invalido"}
             />
           </div>
+          <hr></hr>
+          <h2>Preguntas sobre el producto:</h2>
+          <div>
+            <Qas
+            model = {myProducts?myProducts.model:"modelo inexistente"}
+            email = {user?user.email:"email invalido"}
+            />
+          </div>
+          <hr></hr>
+           <div>
+            {feedbacks.length>0?feedbacks.map((e)=> { 
+              return(
+                <>
+                <div>
+                  <a>{e.title}</a>
+                  <br/>
+                  <a>de: {e.email}</a>
+                  <br/>
+                  <a>{e.points}</a>
+                  <br/>
+                  <a>Reseña: </a>
+                  <br/>
+                  <a>{e.comment}</a>
+                </div>
+                <br/>
+                </>
+              )
+              })
+            : null
+          }
+          </div> 
           <div>
             <button class="btn btn-dark" onClick={() => handleBack()}>
               Volver
