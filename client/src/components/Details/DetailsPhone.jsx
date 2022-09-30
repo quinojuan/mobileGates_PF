@@ -198,7 +198,7 @@ export default function DetailsPhone(props) {
           <div>
             <Qas
             model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {user?user.email:"email invalido"}
+            email = {usuarioLogeado?usuarioLogeado.email:"email invalido"}
             />
           </div>
           <hr></hr>
