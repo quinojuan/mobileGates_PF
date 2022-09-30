@@ -91,7 +91,7 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 };
 
 export function addUser(payload) {
-  console.log("Payload en addUser-actions",payload)
+  console.log("Payload en addUser-actions", payload);
   return async function() {
     try {
       const newUser = {
@@ -306,4 +306,17 @@ export function deletePhone(id) {
 
 export function preventCartBug() {
   return { type: "PREVENT_CART_BUG" };
+}
+
+export function purchaseMail(payload) {
+  return async function() {
+    await axios.post("http://localhost:3001/purchases/purchasemail", payload);
+  };
+}
+
+// esta action se va a utilizar al momento de simular el despacho del producto.
+export function shippingMail(payload) {
+  return async function() {
+    await axios.post("http://localhost:3001/purchases/shippingmail", payload);
+  };
 }
