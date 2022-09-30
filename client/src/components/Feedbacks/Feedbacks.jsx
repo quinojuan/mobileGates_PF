@@ -16,8 +16,8 @@ export default function Feedback({email,model}) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log("Email ES:", email);
-    console.log("model es:", model);
+    //console.log("Email ES:", email);
+    //console.log("model es:", model);
     if (e.target.name === "points") {
       setFeedback({
         ...feedback,
@@ -72,7 +72,7 @@ export default function Feedback({email,model}) {
         step="0.1"
         onChange={(e) => handleChange(e)}
       />
-      <button onClick={() => post()}>onSubmit</button>
+      <button onClick={() => post()}>Enviar</button>
     </div>
   );
 }

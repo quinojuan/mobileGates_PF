@@ -32,8 +32,8 @@ const getUserById = async (req, res) => {
 
 const createUser = async (req, res) => {
 	try {
-		let { email } = req.body;
-		//console.log(req.body, "bodyyy")
+		let { email, password} = req.body;
+		console.log(req.body, "bodyyy")
 		if (!email) return res.status(404).json({ message: 'id is not provided' });
 
 		const validation = await Users.findOne({ where: { email: email } });
@@ -41,9 +41,9 @@ const createUser = async (req, res) => {
 			return res.status(404).json({ message: 'user already exists' });
 		} else {
 			//aca se hashea la clave
-			// password = bCrypt.hashSync(password, 10)
+			password = bCrypt.hashSync(password, 10)
 			const newUser = await Users.findOrCreate({ where: { email } });
-			return res.status(201).json({ message: `${newUser.email} created! :D` });
+			return res.status(201).json({ message: `${email} created! :D` });
 		}
 	} catch (e) {
 		console.log(e);

@@ -91,17 +91,48 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 };
 
 export function addUser(payload) {
-  console.log("Payload en addUser-actions", payload);
+  //console.log("Payload en addUser-actions", payload);
   return async function() {
     try {
-      const newUser = {
+    /*   const newUser = {
         email: payload.email,
-      };
-      await axios.post("http://localhost:3001/users", newUser);
+      }; */
+      await axios.post("http://localhost:3001/users", payload);
     } catch (e) {
       console.log(e);
     }
   };
+}
+
+export function getUsers(){
+  return async function(dispatch){
+    let users = await axios.get("http://localhost:3001/users")
+     dispatch({
+      type: "GET_USERS",
+      payload: users
+     })
+  }
+}
+
+export function deleteUser(id){
+  console.log(id, "id EN AXXXXXXXXXCTION")
+	return async function(dispatch){
+		let json = await axios.delete("http://localhost:3001/users/" + id)
+		return dispatch({
+			type: "DELETE_USER",
+			payload: json.data
+		});
+	};
+};
+
+export function updateUser(id, payload){
+	return async function() {
+		const modifyUser = await axios.put(
+		  `http://localhost:3001/users/${id}`,
+		  payload
+		);
+		return modifyUser;
+	};
 }
 
 export function setLoading(payload) {
@@ -265,12 +296,12 @@ export function postFeedback(payload) {
 }
 
 export function getFeedbacks(payload) {
-  console.log("FEEDBACK A ENVIAR:", payload);
+ // console.log("FEEDBACK A ENVIAR:", payload);
   return async function(dispatch) {
     let feedBacks = await axios.get("http://localhost:3001/feedbacks");
     return dispatch({
       type: "GET_FEEDBACKS",
-      payload: feedBacks,
+      payload: feedBacks
     });
   };
 }
@@ -318,5 +349,22 @@ export function purchaseMail(payload) {
 export function shippingMail(payload) {
   return async function() {
     await axios.post("http://localhost:3001/purchases/shippingmail", payload);
+  };
+}
+
+export function postQa(payload){
+  console.log(payload, "LA CTION POST QAS")
+   return async function(){
+    await axios.post("http://localhost:3001/qas", payload)
+   }
+}
+
+export function getQas(payload){
+  return async function(dispatch) {
+    let qas = await axios.get("http://localhost:3001/qas");
+    return dispatch({
+      type: "GET_QAS",
+      payload: qas,
+    });
   };
 }
