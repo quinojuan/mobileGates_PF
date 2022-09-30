@@ -27,14 +27,13 @@ module.exports = (sequelize) => {
 			},
 			amount:{
 				type: DataTypes.INTEGER,
-			     
+			     allowNull: false
 			},
 		 	 id_transaction:{
 				type: DataTypes.TEXT,
 				unique: true,
-				
 			  }, 
-		
+
 		},
 		{
 			freezeTableName: true,

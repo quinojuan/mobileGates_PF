@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 
 
 const getAllPurchases = async (req, res) => {
+  //falta devolver la quantiy
   try {
     const allPurchases = await Purchases.findAll({
       include: [
@@ -43,14 +44,16 @@ const postPurchase = async (req, res) => {
   try {
     const { dni, adress, birthday, amount, email, products, transaction } =
       req.body;
-    let newPurchase = await Purchases.create({
-      dni,
-      adress,
-      birthday,
-      amount,
-      id_transaction: transaction,
-    });
-    //console.log(req.body, "a ver que llega por body")
+
+      let newPurchase = await Purchases.create({
+        dni,
+        adress,
+        birthday,
+        amount,
+        id_transaction: transaction,
+      }); 
+     
+    console.log(req.body, "a ver que llega por body")
     //console.log(newPurchase, "LA COMPRITA")
 
     let myUser = await Users.findOne({ where: { email: email } });
