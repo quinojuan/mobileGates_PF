@@ -210,6 +210,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
+    case "GET_USERS":
+      return{
+        ...state,
+        users:action.payload
+      }
     case "CLEAR_CART":
       return {
         ...state,
