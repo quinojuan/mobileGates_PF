@@ -26,8 +26,8 @@ const initialState = {
   purchases: [],
   repeat: [],
   repetido: false,
-  feedback:{},
-  allFeedbacks: []
+  feedback: {},
+  allFeedbacks: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -117,7 +117,7 @@ function rootReducer(state = initialState, action) {
     case "GET_SORT":
       let sortedArr =
         action.payload === "A-Z"
-          ? state.products.sort(function (a, b) {
+          ? state.products.sort(function(a, b) {
               if (a.model.toLowerCase() > b.model.toLowerCase()) {
                 return 1;
               }
@@ -126,7 +126,7 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             }) // sino.....
-          : state.products.sort(function (a, b) {
+          : state.products.sort(function(a, b) {
               if (a.model.toLowerCase() > b.model.toLowerCase()) {
                 return -1;
               }
@@ -142,7 +142,7 @@ function rootReducer(state = initialState, action) {
     case "GET_SORT_BY_PRICE":
       let sortedArr2 =
         action.payload === "High to low"
-          ? state.allProducts.sort(function (a, b) {
+          ? state.allProducts.sort(function(a, b) {
               if (a.price[0] > b.price[0]) {
                 return 1;
               }
@@ -151,7 +151,7 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             }) // sino.....
-          : state.allProducts.sort(function (a, b) {
+          : state.allProducts.sort(function(a, b) {
               if (a.price[0] > b.price[0]) {
                 return -1;
               }
@@ -164,11 +164,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         products: sortedArr2,
       };
-      
+
     case "ADD_TO_CART":
-      console.log(action.payload, "REDUCERRRR")
+      console.log(action.payload, "REDUCERRRR");
       let purchase = action.payload;
       let myCartLS = JSON.parse(localStorage.getItem("cart")) || [];
+      console.log("MY CART LS:", myCartLS);
       if (!myCartLS.some((el) => el.id == purchase.phone.id)) {
         myCartLS.push(purchase);
         localStorage.setItem("cart", JSON.stringify(myCartLS));
@@ -186,9 +187,9 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: cartLS,
       };
-    
+
     case "DELETE_PRODUCT_IN_CART":
-      console.log(action.payload, "reducer")
+      console.log(action.payload, "reducer");
       let productsInLs = JSON.parse(localStorage.getItem("cart"));
       let myCarty = productsInLs.filter((el) => el.phone.id !== action.payload);
       //pensar la logica de ir sacando de a 1 quantity
@@ -210,6 +211,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
+    case "GET_USERS":
+      return{
+        ...state,
+        users:action.payload
+      }
     case "CLEAR_CART":
       return {
         ...state,
@@ -245,27 +251,29 @@ function rootReducer(state = initialState, action) {
         ...state,
         inputPurchase: action.payload,
       };
-      case "POST_FEEDBACK":
-        return {
-        ...state
-      }
-      case "PUT_PHONE":
+    case "PUT_PHONE":
       return {
-        ...state
-      }
-      case "GET_FEEDBACKS":
-        return {
-          ...state,
-          allFeedbacks:action.payload
-        };
+        ...state,
+      };
+    case "GET_FEEDBACKS":
+      return {
+        ...state,
+        allFeedbacks: action.payload,
+      };
 
-          case "FINAL_PRICE":
-            return{
-              ...state,
-              finalPrice: action.payload
-            }
-      
-        
+    case "FINAL_PRICE":
+      return {
+        ...state,
+        finalPrice: action.payload,
+      };
+    case "POST_FEEDBACK":
+      return {
+        ...state,
+        feedback: action.payload,
+      };
+    case "PREVENT_CART_BUG":
+      return { ...state, cart: [] };
+
     default:
       return state;
   }

@@ -60,13 +60,13 @@ function acomodarPrecio(precio) {
         <button className="stock">EN STOCK</button>
         <div class="card-body text-light">
           <h5 class="card-title text-decoration-none">
-            {brand} 
+            {model} 
           </h5>
           <h6 class="lead">
           {inches + '" - '} {operative_system + ' -'} {capacity<10 ? capacity + "TB" : capacity + "GB"}
           </h6>
           <div class="card-title">
-            <h3>{acomodarPrecio(price)}</h3>
+            <h3>${acomodarPrecio(price)}</h3>
           </div>
         </div>
       </div>
