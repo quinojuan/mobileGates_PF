@@ -24,12 +24,11 @@ const initialState = {
   repetido: false,
   finalPrice: 0,
   purchases: [],
-  repeat: [],
-  repetido: false,
   feedback: {},
   allFeedbacks: [],
   qas: [],
-  usersID: []
+  usersID: [],
+  loggedUser: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -287,6 +286,11 @@ function rootReducer(state = initialState, action) {
       return{
         ...state,
         usersID: action.payload
+      }
+      case "GET_USER_DATA":
+      return{
+        ...state,
+        loggedUser: action.payload
       }
 
     default:

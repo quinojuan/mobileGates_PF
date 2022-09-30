@@ -378,3 +378,9 @@ export function getQas(payload){
     });
   };
 }
+export function getUserData(payload){
+  return{
+    type: "GET_USER_DATA",
+    payload
+  }
+}

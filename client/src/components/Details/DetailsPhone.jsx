@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
 import Qas from "../Qas/Qas";
-import { useAuth } from '../Context/authContext';
+
 
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
@@ -19,15 +19,15 @@ export default function DetailsPhone(props) {
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
   const [count, setCount]= useState(1)
-  const { user } = useAuth()
+  const usuarioLogeado = useSelector(state=>state.loggedUser)
   const feedbacks = useSelector((state)=>state.allFeedbacks)
-
-  function decrease() {
-    setCount(count - 1);
-  }
-  function increase() {
-    setCount(count + 1);
-  }
+  console.log("USUARIO LOGEADO:", usuarioLogeado)
+    function decrease(){
+        setCount(count-1)
+    }
+    function increase(){
+        setCount(count+1)
+    }
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);
@@ -190,7 +190,7 @@ export default function DetailsPhone(props) {
           <div className="dejarFeedback">
             <Feedback
             model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {user?user.email:"email invalido"}
+            email = {usuarioLogeado?usuarioLogeado.email:"email invalido"}
             />
           </div>
           <hr></hr>
