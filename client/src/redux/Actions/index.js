@@ -1,4 +1,5 @@
 import { async } from "@firebase/util";
+import { Action } from "@remix-run/router";
 import axios from "axios";
 import Swal from "sweetalert2";
 export function getAllProducts() {
@@ -110,6 +111,15 @@ export function getUsers(){
      dispatch({
       type: "GET_USERS",
       payload: users
+     })
+  }
+}
+export function getUsersById(id){
+  return async function(dispatch){
+    let users = await axios.get("http://localhost:3001/users"+id)
+     dispatch({
+      type: "GET_USERS_BY_ID",
+      payload: users.data
      })
   }
 }

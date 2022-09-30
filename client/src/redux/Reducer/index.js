@@ -28,7 +28,8 @@ const initialState = {
   repetido: false,
   feedback: {},
   allFeedbacks: [],
-  qas: []
+  qas: [],
+  usersID: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -281,6 +282,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         qas: action.payload
+      }
+    case "GET_USERS_BY_ID":
+      return{
+        ...state,
+        usersID: action.payload
       }
 
     default:

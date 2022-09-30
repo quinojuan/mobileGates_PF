@@ -10,33 +10,34 @@ import { useAuth } from '../Context/authContext';
 export default function UserPanel(){
     const purchases=useSelector((state)=>state.purchases)
     const users= useSelector((state)=>state.users)
+    const usersByID=useSelector((state)=>state.usersID)
     const dispatch=useDispatch()
     const navigate=useNavigate()
-    const { user } = useAuth()
-    console.log(user)
+    // const { user } = useAuth()
+    // console.log(user)
     useEffect(()=>{
         dispatch(getPurchase())
       },[dispatch])
-      let purchaseUser=purchases.filter((s)=>s.email===user.email)
+      let filterUser=usersByID.filter((s)=>s.id===usersByID.id)
       return (
         <div>
           <NavBar />
           <div class="mt-3">
-            {purchaseUser.length?purchaseUser.map((u)=>{
+            {filterUser.length?filterUser.map((u)=>{
 
               return(
               <div>
                 <br/>
-                {u.products}
+                
                 {u.email}
 
                 
                 
               </div>
               )
-            }):<h1>Aun no hay compras</h1>}
+            }):<h1>No hay ordenes previas</h1>}
             <hr/>
-            <button type="button" class="btn btn-danger" onClick={()=>navigate("/adminpages")}>Volver al Panel</button>
+            <button type="button" class="btn btn-danger" onClick={()=>navigate("/home")}>Volver al inicio</button>
           </div>
     
           <Footer />
