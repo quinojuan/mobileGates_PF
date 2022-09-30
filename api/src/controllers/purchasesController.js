@@ -17,7 +17,7 @@ const getAllPurchases = async (req, res) => {
         },
       ],
     });
-    console.log(allPurchases[0].dataValues.Phones, "a ver")
+    //console.log(allPurchases[0].dataValues.Phones, "a ver")
     let presentacion = allPurchases.map(
       ({ dni, adress, birthday, amount, Users, Phones }) => {
         let productPresent = []
@@ -25,6 +25,8 @@ const getAllPurchases = async (req, res) => {
           productPresent.push(Phones[i].model)
         }
         return {
+          id,
+          id_transaction,
           dni,
           adress,
           birthday,
