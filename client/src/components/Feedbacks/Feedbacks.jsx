@@ -111,14 +111,14 @@ export default function Feedback({ email, model }) {
                 <label className='label'>★</label>
               </p>
             
-            <label>Escribe una reseña</label>
+            <label>Agrega un comentario</label>
             <textarea
               className='form-control'
               rows='3'
               name='comments'
               onChange={handleChange}
 
-              placeholder='Describe que te parecio el producto'
+              placeholder='Mi producto me pareció...'
             />
             <input
               className='text-right btn btn-outline-info mt-2'

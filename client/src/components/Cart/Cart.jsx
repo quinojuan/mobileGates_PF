@@ -8,6 +8,18 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
+const addCartButton = {
+  color: 'white',
+  backgroundColor: 'DodgerBlue',
+  margin: '10px',
+  paddingLeft: '15px',
+  paddingRight: '15px',
+  paddingTop: '8px',
+  paddingBottom: '8px',
+  borderRadius: '5px',
+  fontSize: '15px',
+}
+
 
 export default function Cart() {
   let myCart = useSelector((state) => state.cart);
@@ -123,8 +135,8 @@ export default function Cart() {
         <hr />
         <h4 class='mt-3'>Costo total: ${handleSuma()}</h4>
             {myCart.length > 0 ? (
-              <button class='btn btn-primary w-50' onClick={()=>preventNullCart()}>
-                <h4 class='text-decoration-none text-light'>Comprar</h4>
+              <button  onClick={()=>preventNullCart()}
+                class='text-decoration-none text-light w-50' style={addCartButton}>Comprar
               </button>
             ) : null}
           

@@ -100,9 +100,7 @@ export default function DetailsPhone(props) {
     <div>
     <NavBar />
         <div style={wrapper}>
-        
-          <h2 class='text-black-50'>{renderBrand()} {myProducts.model}</h2>
-  
+          <h3 className='d-flex text-black-50'>{renderBrand()}: {myProducts.model}</h3>
           <hr />
           <div style={wrapperContent}>
           
@@ -154,7 +152,7 @@ export default function DetailsPhone(props) {
           </div>
           
           <hr/>
-          <h4>Dejanos tu opinion</h4>
+          <h4>¿Qué te pareció tu producto?</h4>
           
             <Feedback
               model={myProducts ? myProducts.model : "modelo inexistente"}
@@ -166,6 +164,83 @@ export default function DetailsPhone(props) {
               Volver
             </button>
           </div> */}
+              <hr/>
+              <h3 class="d-flex fw-normal">Especificación</h3>
+              <br/>
+              <div class='col-lg-6 pl-0 pull-left'>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Marca </b>
+                     : {myProductWithBrand[0].brand}
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Molelo </b>
+                     : {myProducts.model}
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Sistema Operativo </b>
+                     : {myProducts.operative_system}
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Procesador </b>
+                     : {myProducts.cpu}
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Memoria </b>
+                     : {myProducts.ram} GB
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Almacenamiento </b>
+                     : {myProducts.capacity} GB
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Pantalla </b>
+                     : {myProducts.inches}''
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Camara Principal </b>
+                     : {myProducts.main_camera}px
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Camara Frontal </b>
+                     : {myProducts.frontal_camera}px
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Bateria </b>
+                     : {myProducts.battery} mAH Li-ion
+                   </p>
+                </span>
+                <span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Dimensiones </b>
+                     : {myProducts.size} 
+                   </p>
+                </span><span class='col-lg-12 pl-0 pr-0' >
+                  <p class='d-flex mb-0'>
+                    <b>Peso </b>
+                     : {myProducts.weight} g
+                   </p>
+                </span>
+                
+              </div>
               </div>
       
       <Footer />
