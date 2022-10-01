@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
 import Qas from "../Qas/Qas";
-import { useAuth } from '../Context/authContext';
+import { useAuth } from "../Context/authContext";
 
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
@@ -18,36 +18,17 @@ export default function DetailsPhone(props) {
   const { id } = useParams();
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
-<<<<<<< HEAD
-  const [count, setCount]= useState(1)
-  const usuarioLogeado = useSelector(state=>state.loggedUser)
-  const feedbacks = useSelector((state)=>state.allFeedbacks)
-  
-  console.log("USUARIO LOGEADO:", usuarioLogeado)
-    function decrease(){
-        setCount(count-1)
-    }
-    function increase(){
-        setCount(count+1)
-    }
-=======
-  const [count, setCount] = useState(1)
-  const { user } = useAuth()
-  function decrease() {
-    setCount(count - 1)
-  }
-  function increase() {
-    setCount(count + 1)
-  }
+  const [count, setCount] = useState(1);
+  const usuarioLogeado = useSelector((state) => state.loggedUser);
+  const feedbacks = useSelector((state) => state.allFeedbacks);
 
-
+  console.log("USUARIO LOGEADO:", usuarioLogeado);
   function decrease() {
     setCount(count - 1);
   }
   function increase() {
     setCount(count + 1);
   }
->>>>>>> 4ebeef4ae799361b6435616342d53edd42df4c90
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);
@@ -57,14 +38,10 @@ export default function DetailsPhone(props) {
     dispatch(getClean());
     navigate("/home");
   }
-<<<<<<< HEAD
-  
-  useEffect(()=>{
-    dispatch(getFeedbacks())
-  },[dispatch])
-=======
 
->>>>>>> 4ebeef4ae799361b6435616342d53edd42df4c90
+  useEffect(() => {
+    dispatch(getFeedbacks());
+  }, [dispatch]);
 
   function handleSelectImage(e) {
     e.preventDefault();
@@ -203,69 +180,82 @@ export default function DetailsPhone(props) {
               </div>
             </div>
           </div>
-          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <button type="button" class="btn btn-danger" disabled={count <= 1} onClick={() => decrease()}>-</button>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic mixed styles example"
+          >
+            <button
+              type="button"
+              class="btn btn-danger"
+              disabled={count <= 1}
+              onClick={() => decrease()}
+            >
+              -
+            </button>
             <span class="fs-3 px-3">{count}</span>
-            <button type="button" class="btn btn-success" disabled={count >= myProducts.stock} onClick={() => increase()}>+</button>
-            {console.log("cantidad de stock",myProducts.stock)}
+            <button
+              type="button"
+              class="btn btn-success"
+              disabled={count >= myProducts.stock}
+              onClick={() => increase()}
+            >
+              +
+            </button>
+            {console.log("cantidad de stock", myProducts.stock)}
           </div>
           <div class="mt-3">
-          {myProducts.stock?
-          <div>
-            <h4>Stock disponible</h4>
-            <span class="fs-3 px-3">{myProducts.stock}</span>
-            <AddProducts id={myProducts.id} quantity={count} />
+            {myProducts.stock ? (
+              <div>
+                <h4>Stock disponible</h4>
+                <span class="fs-3 px-3">{myProducts.stock}</span>
+                <AddProducts id={myProducts.id} quantity={count} />
+              </div>
+            ) : (
+              <span class="fs-3 px-3">
+                No hay stock disponible de este producto
+              </span>
+            )}
           </div>
-<<<<<<< HEAD
           <hr></hr>
           <h2>Deje su reseña:</h2>
           <div className="dejarFeedback">
             <Feedback
-            model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {usuarioLogeado?usuarioLogeado.email:"email invalido"}
-=======
-          : <span class="fs-3 px-3">No hay stock disponible de este producto</span>
-        }
-          </div>
-          <h4>Deje su reseña</h4>
-          <div className="dejarFeedback">
-            <Feedback
               model={myProducts ? myProducts.model : "modelo inexistente"}
-              email={user ? user.email : "email invalido"}
->>>>>>> 4ebeef4ae799361b6435616342d53edd42df4c90
+              email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
             />
           </div>
           <hr></hr>
           <h2>Preguntas sobre el producto:</h2>
           <div>
             <Qas
-            model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {usuarioLogeado?usuarioLogeado.email:"email invalido"}
+              model={myProducts ? myProducts.model : "modelo inexistente"}
+              email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
             />
           </div>
           <hr></hr>
-           <div>
-            {feedbacks.length>0?feedbacks.map((e)=> { 
-              return(
-                <>
-                <div>
-                  <a>{e.title}</a>
-                  <br/>
-                  <a>de: {e.email}</a>
-                  <br/>
-                  <a>{e.points}</a>
-                  <br/>
-                  <a>Reseña: </a>
-                  <br/>
-                  <a>{e.comment}</a>
-                </div>
-                <br/>
-                </>
-              )
-              })
-            : null
-          }
-          </div> 
+          <div>
+            {feedbacks.length > 0
+              ? feedbacks.map((e) => {
+                  return (
+                    <>
+                      <div>
+                        <a>{e.title}</a>
+                        <br />
+                        <a>de: {e.email}</a>
+                        <br />
+                        <a>{e.points}</a>
+                        <br />
+                        <a>Reseña: </a>
+                        <br />
+                        <a>{e.comment}</a>
+                      </div>
+                      <br />
+                    </>
+                  );
+                })
+              : null}
+          </div>
           <div>
             <button class="btn btn-dark" onClick={() => handleBack()}>
               Volver

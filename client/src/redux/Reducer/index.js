@@ -229,7 +229,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
-    case "GET_PURCHASES":
+    case "GET_PURCHASE":
       return {
         ...state,
         purchases: action.payload,
