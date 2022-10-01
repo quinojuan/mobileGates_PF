@@ -33,7 +33,7 @@ const getUserById = async (req, res) => {
 const createUser = async (req, res) => {
 	try {
 		let { email, password} = req.body;
-		console.log(req.body, "bodyyy")
+		//console.log(req.body, "bodyyy")
 		if (!email) return res.status(404).json({ message: 'id is not provided' });
 
 		const validation = await Users.findOne({ where: { email: email } });
