@@ -184,10 +184,18 @@ export default function DetailsPhone(props) {
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-danger" disabled={count <= 1} onClick={() => decrease()}>-</button>
             <span class="fs-3 px-3">{count}</span>
-            <button type="button" class="btn btn-success" disabled={count >= 30} onClick={() => increase()}>+</button>
+            <button type="button" class="btn btn-success" disabled={count >= myProducts.stock} onClick={() => increase()}>+</button>
+            {console.log("cantidad de stock",myProducts.stock)}
           </div>
           <div class="mt-3">
+          {myProducts.stock?
+          <div>
+            <h4>Stock disponible</h4>
+            <span class="fs-3 px-3">{myProducts.stock}</span>
             <AddProducts id={myProducts.id} quantity={count} />
+          </div>
+          : <span class="fs-3 px-3">No hay stock disponible de este producto</span>
+        }
           </div>
           <h4>Deje su reseña</h4>
           <div className="dejarFeedback">

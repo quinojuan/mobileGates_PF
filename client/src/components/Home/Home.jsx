@@ -232,7 +232,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
-									
+									{console.log("este es mi current card", currentProducts)}
 										<Cards
 											model={s.model}
 											image={s.image}
@@ -242,6 +242,7 @@ export default function Home() {
 											operative_system={s.operative_system}
 											capacity={s.capacity}
 											price={s.price[0]}
+											stock={s.stock}
 										/>
 										
 									{/* </Link> */}

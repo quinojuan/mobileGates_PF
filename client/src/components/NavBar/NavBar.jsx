@@ -11,7 +11,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import { getProductsByNameAndFilters, setSearch, addUser } from '../../redux/Actions';
 import Swal from 'sweetalert2';
 import image from "../../images/mglogo.jpg"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export default function NavBar() {
@@ -62,7 +62,7 @@ export default function NavBar() {
   const [name, setName] = useState("");
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
-
+  console.log("MI USUARIO ",user)
 
   useEffect(() => {
     dispatch(addUser(user))
@@ -121,7 +121,13 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li> */}
                 <li className="nav-item">
-                  <a className="nav-link active text-white" href="#" onClick={() => navigate("/products/Cart")}>Carrito 🛒</a>
+                  <a className="nav-link active" href="#" onClick={() => navigate("/products/Cart")}>
+                  <FontAwesomeIcon 
+                    icon="fa-solid fa-cart-shopping" 
+                    className='h5 me-2'
+                    style={{ color: 'DodgerBlue' }}
+                    />
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                   <div class="dropdown show">

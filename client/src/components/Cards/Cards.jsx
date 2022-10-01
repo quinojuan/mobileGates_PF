@@ -13,6 +13,7 @@ export default function Cards({
   capacity,
   category,
   id,
+  stock
 }) 
 {
 function acomodarPrecio(precio) {
@@ -57,7 +58,10 @@ function acomodarPrecio(precio) {
           <img src={image} style={{ height: '220px' }} class="card-img-top img-fluid bg-light"
             alt="img not found"></img>
         </Link>
-        <button className="stock">EN STOCK</button>
+        {stock?
+        <button className="stock">EN STOCK</button>:
+        <button className="sin-stock">SIN STOCK</button>
+        }
         <div class="card-body text-light">
           <h5 class="card-title text-decoration-none">
             {model} 
