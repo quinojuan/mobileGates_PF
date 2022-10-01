@@ -12,6 +12,7 @@
     "mercadopago": "^1.5.14",
     "react": "^18.2.0",
     "react-fontawesome": "^1.7.1",
+    "react-icons": "^4.4.0",
     "react-intl": "^6.1.1",
     "react-router-dom": "^6.4.0",
     "react-whatsapp": "^0.3.0",

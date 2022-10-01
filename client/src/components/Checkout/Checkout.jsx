@@ -18,7 +18,7 @@ const CheckOutForm = () =>{
     const stripe = useStripe();
     const element = useElements();
     const price = useSelector((state)=> state.finalPrice)
-    console.log(price, "PRICEEE")
+    //console.log(price, "PRICEEE")
     const estadoGlobal = useSelector((state)=>state.inputPurchase)
 
 

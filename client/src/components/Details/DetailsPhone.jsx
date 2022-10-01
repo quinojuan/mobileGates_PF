@@ -8,6 +8,27 @@ import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
 import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
+import Feedback from "../Feedbacks/Feedbacks";
+import { useAuth } from '../Context/authContext';
+import './DetailsPhone.css'
+
+
+const wrapper = {
+  maxWidth: '1000px',
+  width: '100%',
+  border: '1px solid #333',
+  margin: '30px auto',
+  padding: '20px',
+}
+const wrapperContent = {
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  alignItems: 'center',
+}
+const image = {
+  maxWidth: '500px',
+  width: '100%',
+}
 
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
@@ -15,16 +36,18 @@ export default function DetailsPhone(props) {
   const { id } = useParams();
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
+  const [count, setCount] = useState(1)
+  const { user } = useAuth()
 
-  const [count, setCount]= useState(1)
-
-    function decrease(){
-        setCount(count-1)
-    }
-    function increase(){
-        setCount(count+1)
-    }
-
+  const allProducts = useSelector(state => state.products)
+  const myProductWithBrand = allProducts.filter((e)=> e.id == id)
+ 
+  function decrease() {
+    setCount(count - 1);
+  }
+  function increase() {
+    setCount(count + 1);
+  }
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);
@@ -35,13 +58,13 @@ export default function DetailsPhone(props) {
     navigate("/home");
   }
 
+
   function handleSelectImage(e) {
     e.preventDefault();
     setImg(e.target.src);
   }
-
   function acomodarPrecio(precio) {
-    console.log("precio:", precio);
+    //console.log("precio:", precio);
     let precioString = precio.toString();
     let contador = 0;
     let acumulador = [];
@@ -62,126 +85,90 @@ export default function DetailsPhone(props) {
     return acumulador.join("");
   }
 
+  let stock_quantity = myProducts.stock
+
+  var isOutOfStock = false
+
+  if (stock_quantity === 0) {
+    isOutOfStock = true
+  }
+
+  function renderBrand (){
+    return myProductWithBrand[0].brand? myProductWithBrand[0].brand : 'loading'
+  }
   return (
     <div>
-      <NavBar />
-      {
-        <div>
-          <div
-            className="container"
-            style={{
-              maxWidth: "540px",
-              alignItems: "center",
-              display: "flex",
-              position: "relative",
-            }}
-          >
-            <div
-              class="card mb-3"
-              style={{
-                maxWidth: "540px",
-                alignItems: "center",
-                display: "flex",
-                position: "relative",
-              }}
-            >
-              <div class="row g-0">
-                <div class="col-md-4">
+    <NavBar />
+        <div style={wrapper}>
+        
+          <h2 class='text-black-50'>{renderBrand()} {myProducts.model}</h2>
+  
+          <hr />
+          <div style={wrapperContent}>
+          
                   {img ? (
                     <img
-                      src={img}
-                      alt="Not found"
-                      width="200px"
-                      height="250px"
+                    src={img}
+                    alt="Not found"
+                    style={image}
+                    // width="200px"
+                    // height="250px"
                     ></img>
-                  ) : (
-                    <img
+                    ) : (
+                      <img
                       src={loadingPng}
                       alt="no loading img founded"
-                      width="200px"
-                      height="250px"
-                    />
-                  )}
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h1 class="card-title">{myProducts && myProducts.brand}</h1>
-                    <h1 class="card-title">{myProducts && myProducts.model}</h1>
-                    <h5 class="card-text">
-                      Capacidad:{" "}
-                      {myProducts && Number(myProducts.capacity) < 10
-                        ? myProducts.capacity + "TB"
-                        : myProducts.capacity + "GB"}
-                    </h5>
-                    <h5>
-                      Sistema operativo:{" "}
-                      {myProducts && myProducts.operative_system}
-                    </h5>
-                    <h5>CPU: {myProducts && myProducts.cpu}.</h5>
-                    <h5>
-                      Memoria RAM:{" "}
-                      {myProducts &&
-                        myProducts.ram?.map((e) => " " + e + "GB.")}
-                    </h5>
-                    <h5>Dimensiones: {myProducts && myProducts.size}</h5>
-                    <h5>Tamaño: {myProducts && myProducts.inches}''.</h5>
-                    <h5>
-                      Camara principal: {myProducts && myProducts.main_camera}
-                      MPx.
-                    </h5>
-                    <h5>
-                      Camara frontal: {myProducts && myProducts.frontal_camera}
-                      Mpx.
-                    </h5>
-                    <h5>
-                      Precio:{" $"}
-                      {myProducts.weight?acomodarPrecio(myProducts.price):null}
-                    </h5>
-                    <h5>Peso: {myProducts.weight?acomodarPrecio(myProducts.weight):null}g.</h5>
-                    <h5>
-                      Capacidad de la bateria:
-                      {myProducts.battery?acomodarPrecio(myProducts.battery):null}
-                      mAh.
-                    </h5>
+                      // width="200px"
+                      // height="250px"
+                      />
+                      )}
+                {/* </div> */}
+                <div className='p-3'>
+                <h3 className='display-3'>${myProducts.price}</h3>
+                <div>
 
-                    <h6 class="card-text">
-                      {myProducts && myProducts.description}{" "}
-                    </h6>
-
-                    <h4> Otros colores: </h4>
-                    {myProducts &&
-                      myProducts.colors?.map((e) => (
-                        <img
-                          src={e}
-                          alt="img not fund"
-                          height="50px"
-                          width="30px"
-                          onClick={(e) => handleSelectImage(e)}
-                        />
-                      ))}
-                  </div>
-                </div>
+            Stock:
+            {isOutOfStock ? (
+              <div className='out-stock-style'>
+                <h4>{myProductWithBrand[0].stock}Sin Stock</h4>
               </div>
+            ) : (
+              <div className='in-stock'>
+                <h4>Quedan {myProductWithBrand[0].stock} en stock</h4>
+              </div>
+            )}
+          </div>
+          <hr />
+            <p className='lead'>{myProducts.description}</p>
+                 
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-outline-dark" disabled={count <= 1} onClick={() => decrease()}>-</button>
+            <span class="fs-3 px-3">{count}</span>
+            <button type="button" class="btn btn-outline-dark" disabled={count >= myProducts.stock} onClick={() => increase()}>+</button>
+          </div>
+          <hr />
+          <div class='flex-wrap'>
+            <AddProducts id={myProducts.id} quantity={count} />
             </div>
           </div>
-          <button disabled={count<=1} onClick={()=>decrease()}>-</button>
-            <span>{count}</span>
-            <button disabled={count>=30} onClick={()=>increase()}>+</button>
-          <div>
-            <AddProducts 
-                  id={myProducts.id}
-                  
-                  quantity={count}
-                  />
           </div>
-          <div>
+          
+          <hr/>
+          <h4>Dejanos tu opinion</h4>
+          
+            <Feedback
+              model={myProducts ? myProducts.model : "modelo inexistente"}
+              email={user ? user.email : "email invalido"}
+              />
+          {/* </div> */}
+          {/* <div>
             <button class="btn btn-dark" onClick={() => handleBack()}>
               Volver
             </button>
-          </div>
-          <Footer />
-        </div>
-      }
+          </div> */}
+              </div>
+      
+      <Footer />
       {/* <div>
             <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js" ></script>
             <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet" ></link>

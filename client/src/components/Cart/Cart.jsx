@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { getCart, deleteProductInCart, setFinalPrice } from "../../redux/Actions";
+import { useEffect, useState } from "react";
+import { getCart, deleteProductInCart, setFinalPrice, preventCartBug} from "../../redux/Actions";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -13,32 +13,34 @@ export default function Cart() {
   let myCart = useSelector((state) => state.cart);
   //const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(myCart)
+  const carrito = useSelector(state=>state.cart)
+  const navigate = useNavigate();
   
   useEffect(() => {
     dispatch(getCart());
+   
   }, [dispatch]);
   
-  // function acomodarPrecio(precio) {
-  //   let precioString = precio.toString();
-  //   let contador = 0;
-  //   let acumulador = [];
-  //   let acumuladorInvertido = []
-  //   for (let i = precioString.length - 1; i >= 0; i--) {
-  //     contador++;
-  //     if (contador === 3 && i>0) {
-  //       acumuladorInvertido.push(precioString[i]);
-  //       acumuladorInvertido.push(".");
-  //       contador = 0
-  //     } else {
-  //       acumuladorInvertido.push(precioString[i]);
-  //     }
-  //   }
-  //   for(let i=acumuladorInvertido.length - 1; i>=0;i--){
-  //     acumulador.push(acumuladorInvertido[i])
-  //   }
-  //   return acumulador.join("");
-  // }
+  function acomodarPrecio(precio) {
+    let precioString = precio.toString();
+    let contador = 0;
+    let acumulador = [];
+    let acumuladorInvertido = []
+    for (let i = precioString.length - 1; i >= 0; i--) {
+      contador++;
+      if (contador === 3 && i>0) {
+        acumuladorInvertido.push(precioString[i]);
+        acumuladorInvertido.push(".");
+        contador = 0
+      } else {
+        acumuladorInvertido.push(precioString[i]);
+      }
+    }
+    for(let i=acumuladorInvertido.length - 1; i>=0;i--){
+      acumulador.push(acumuladorInvertido[i])
+    }
+    return acumulador.join("");
+  }
 
   const handleSuma =()=> {
     let suma = 0;
@@ -47,14 +49,25 @@ export default function Cart() {
     }
     dispatch(setFinalPrice(suma))
     console.log("SUMA:", suma);
-    suma = parseFloat(suma)/1000
-    return suma;
+    
+    return acomodarPrecio(suma);
+  }
+
+  const handleDelete = (id) => {
+    dispatch(deleteProductInCart(id))
+  }
+
+  function preventNullCart(){
+    if (carrito[0] === null){
+      dispatch(preventCartBug())
+    }
+    navigate("/purchase")
   }
 
   return (
     <div >
       <NavBar/>
-      <h1 class='mt-3'>
+      <h1 class='mt-5'>
         <FontAwesomeIcon
           icon={['fas', 'shopping-cart']}
           style={{ marginRight: '20px' }}
@@ -77,19 +90,22 @@ export default function Cart() {
                     </div>
                   <div className='col-md-5'>
                   <div className='card-body'>
-                    <h5 className='card-title'>{p.phone.brand}{p.phone.model}</h5>
+                    <h5 className='card-title'>{p.phone.brand} </h5>
+                    <h5 className='card-title'>{p.phone.model}</h5>
                     <p className='card-text'>
                       {p.phone.description.slice(0, 50) + '...'}
                     </p>
+                    <h5 className='card-quantity'>Cantidad a comprar: {p.quantity}</h5>
                   </div>
                 </div>
                 <h5 className='card-quantity'>Cantidad a comprar: {p.quantity}</h5>
                     <button
                       class="btn btn-danger btn-sm w-50 mx-auto"
-                      onClick={() => dispatch(deleteProductInCart(p.phone.id))}
+                      onClick={() => handleDelete(p.phone.id)}
                       >
                       Quitar del carrito
                     </button>
+                  
                   </div>
                   </div>
                 </div>
@@ -107,8 +123,8 @@ export default function Cart() {
         <hr />
         <h4 class='mt-3'>Costo total: ${handleSuma()}</h4>
             {myCart.length > 0 ? (
-              <button class='btn btn-primary w-50'>
-                <Link class='text-decoration-none text-light' to="/purchase">Comprar</Link>
+              <button class='btn btn-primary w-50' onClick={()=>preventNullCart()}>
+                <h4 class='text-decoration-none text-light'>Comprar</h4>
               </button>
             ) : null}
           

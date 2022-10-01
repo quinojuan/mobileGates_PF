@@ -1,0 +1,56 @@
+/* .container{
+    padding: 3% 0 3% 0; 
+  
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+
+.button{
+    width: 20px;
+    height: 5px;
+    color: green;
+} */
+
+
+
+
+.displayNone {
+    display: none;
+}
+  
+.out-stock-style{
+    color: red;
+    font-size: 12px;
+}
+  
+.in-stock{
+    color: green;
+    font-size: 12px;
+}
+  
+  /* estilo de las estrellas de reviews */
+  .input[type="radio"] {
+  color: transparent;
+  
+  }
+  
+  .label {
+    color: grey;
+    font-size: 35px;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  .label:hover,
+  .label:hover ~ label  {
+    color: orange;
+    
+  }
+  
+  .input[type="radio"]:checked ~ label{
+    color: orange;
+  }

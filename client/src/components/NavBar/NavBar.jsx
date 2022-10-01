@@ -4,12 +4,13 @@ import "./NavBar.css"
 import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
-import {handleReload} from '../Home/Home'
+import { handleReload } from '../Home/Home'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import { getProductsByNameAndFilters, setSearch, addUser } from '../../redux/Actions';
 import Swal from 'sweetalert2';
+import image from "../../images/mglogo.jpg"
 
 
 
@@ -63,20 +64,20 @@ export default function NavBar() {
   const navigate = useNavigate()
 
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(addUser(user))
-  },[dispatch])
+  }, [dispatch])
 
 
   const handleLogout = async () => {
     await logout()
-    navigate('/home/') 
+    navigate('/home/')
   }
-   
+
   function handleReload(e) {
     e.preventDefault();
     window.location.reload();
-  }  
+  }
   function handleInputChange(e) {
     e.preventDefault();
     setName(e.target.value);
@@ -91,24 +92,27 @@ export default function NavBar() {
     }
     setCurrentPage(1);
   }
- if (user) {
+  if (user) {
     return (
       <nav className='container'>
-        <div className="navbar fixed-top navbar navbar-expand-lg bg-dark">
+        <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
           <div className="container-fluid">
             <Link to='/home' class='navbar-brand text-white' className="nav-link active text-white" aria-current="page" >Móvil Gates</Link>
             {/* <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </h1> */}
             <SearchBar
-				currentPage={currentPage}
-				setCurrentPage={setCurrentPage}
-        weAreInHome={false}
-				/>
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              weAreInHome={false}
+            />
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <a className="nav-link active text-white" aria-current="page" href="/home">Home</a>
+                  {/*  <a className="nav-link active text-white" aria-current="page" href="/home">Home</a> */}
                 </li>
                 {/* <li className="nav-item">
                   <a className="nav-link active text-white" href="#">Productos</a>
@@ -122,8 +126,8 @@ export default function NavBar() {
                 <li class="nav-item dropdown">
                   <div class="dropdown show">
                     <a class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hola, {user.email.split('@')[0]}
-                    {/* {console.log(user)} */}
+                      Hola, {user.email.split('@')[0]}
+                      {/* {console.log(user)} */}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
@@ -147,11 +151,14 @@ export default function NavBar() {
             <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </h1>
-            <SearchBar 
-				currentPage={currentPage}
-				setCurrentPage={setCurrentPage}
-        weAreInHome={false}
-				/>
+            <SearchBar
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              weAreInHome={false}
+            />
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
