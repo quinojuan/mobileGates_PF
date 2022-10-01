@@ -7,12 +7,14 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  sendEmailVerification
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../../redux/Actions";
 
 const authContext = createContext();
+
 export const useAuth = () => {
   const userLogeado = useSelector((state) => state.loggedUser);
   const dispatch = useDispatch();
@@ -39,6 +41,10 @@ export function AuthProvider({ children }) {
     // console.log(email,password, "SIGN UP")
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser)
+  }
 
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);

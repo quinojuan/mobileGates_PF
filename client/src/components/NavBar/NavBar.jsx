@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 
 export default function NavBar() {
   const [currentPage, setCurrentPage] = useState(1);
+  const loggedUser = useSelector(state => state.loggedUser)
   // const {user, logout, loading} = useAuth()
   // const navigate = useNavigate()
 
@@ -64,7 +65,7 @@ export default function NavBar() {
 
 
   useEffect(()=>{
-    dispatch(addUser(user))
+    dispatch(addUser(loggedUser))
   },[dispatch])
 
 
@@ -122,8 +123,9 @@ export default function NavBar() {
                 <li class="nav-item dropdown">
                   <div class="dropdown show">
                     <a class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hola, {user.email.split('@')[0]}
-                    {/* {console.log(user)} */}
+                    Hola, {loggedUser.displayName}
+                    {/* antes la linea era: */}
+                    {/* user.email.split('@')[0] */}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
