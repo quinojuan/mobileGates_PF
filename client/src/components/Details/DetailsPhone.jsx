@@ -235,6 +235,7 @@ export default function DetailsPhone(props) {
           </div>
           <hr></hr>
           <div>
+            
             {feedbacks.length > 0
               ? feedbacks.map((e) => {
                   return (
