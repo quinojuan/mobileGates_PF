@@ -24,11 +24,10 @@ const initialState = {
   repetido: false,
   finalPrice: 0,
   purchases: [],
-  repeat: [],
-  repetido: false,
   feedback: {},
   allFeedbacks: [],
-  qas: []
+  qas: [],
+  loggedUser: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -230,7 +229,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
-    case "GET_PURCHASES":
+    case "GET_PURCHASE":
       return {
         ...state,
         purchases: action.payload,
@@ -282,6 +281,19 @@ function rootReducer(state = initialState, action) {
         qas: action.payload
       }
 
+    case "GET_USER_DATA":
+      return{
+        ...state,
+        loggedUser: action.payload
+      }
+    
+      case "ADD_DISPLAY_NAME":
+      return{
+        ...state,
+        loggedUser: {...state.loggedUser, displayName: action.payload.name} // password: action.payload.password (ver si la necesito)
+      }
+    
+    
     default:
       return state;
   }

@@ -368,3 +368,22 @@ export function getQas(payload){
     });
   };
 }
+export function getUserData(payload){
+  return{
+    type: "GET_USER_DATA",
+    payload
+  }
+}
+
+export function addDisplayName(payload){
+  return{
+    type: "ADD_DISPLAY_NAME",
+    payload
+  }
+}
+
+export function addUserToDb(payload) {
+  return async function() {
+    await axios.post("http://localhost:3001/users", payload);
+  };
+}
