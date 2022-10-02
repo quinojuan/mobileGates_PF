@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
 import Qas from "../Qas/Qas";
-import { useAuth } from '../Context/authContext';
+import { useAuth } from "../Context/authContext";
 
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
@@ -18,9 +18,9 @@ export default function DetailsPhone(props) {
   const { id } = useParams();
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
-  const [count, setCount]= useState(1)
-  const { user } = useAuth()
-  const feedbacks = useSelector((state)=>state.allFeedbacks)
+  const [count, setCount] = useState(1);
+  const usuarioLogeado = useSelector((state) => state.loggedUser);
+  const feedbacks = useSelector((state) => state.allFeedbacks);
 
   function decrease() {
     setCount(count - 1);
@@ -37,10 +37,10 @@ export default function DetailsPhone(props) {
     dispatch(getClean());
     navigate("/home");
   }
-  
-  useEffect(()=>{
-    dispatch(getFeedbacks())
-  },[dispatch])
+
+  useEffect(() => {
+    dispatch(getFeedbacks());
+  }, [dispatch]);
 
   function handleSelectImage(e) {
     e.preventDefault();
@@ -73,7 +73,7 @@ export default function DetailsPhone(props) {
       {
         <div>
           <div
-            className="container"
+            className="container mt-5"
             style={{
               maxWidth: "540px",
               alignItems: "center",
@@ -179,51 +179,83 @@ export default function DetailsPhone(props) {
               </div>
             </div>
           </div>
-          <button disabled={count<=1} onClick={()=>decrease()}>-</button>
-            <span>{count}</span>
-            <button disabled={count>=30} onClick={()=>increase()}>+</button>
-          <div>
-            <AddProducts id={myProducts.id} quantity={count} />
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic mixed styles example"
+          >
+            <button
+              type="button"
+              class="btn btn-danger"
+              disabled={count <= 1}
+              onClick={() => decrease()}
+            >
+              -
+            </button>
+            <span class="fs-3 px-3">{count}</span>
+            <button
+              type="button"
+              class="btn btn-success"
+              disabled={count >= myProducts.stock}
+              onClick={() => increase()}
+            >
+              +
+            </button>
+            {console.log("cantidad de stock", myProducts.stock)}
+          </div>
+          <div class="mt-3">
+            {myProducts.stock ? (
+              <div>
+                <h4>Stock disponible</h4>
+                <span class="fs-3 px-3">{myProducts.stock}</span>
+                <AddProducts id={myProducts.id} quantity={count} />
+              </div>
+            ) : (
+              <span class="fs-3 px-3">
+                No hay stock disponible de este producto
+              </span>
+            )}
           </div>
           <hr></hr>
           <h2>Deje su reseña:</h2>
           <div className="dejarFeedback">
             <Feedback
-            model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {user?user.email:"email invalido"}
+              model={myProducts ? myProducts.model : "modelo inexistente"}
+              email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
             />
           </div>
           <hr></hr>
           <h2>Preguntas sobre el producto:</h2>
           <div>
             <Qas
-            model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {user?user.email:"email invalido"}
+              model={myProducts ? myProducts.model : "modelo inexistente"}
+              email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
             />
           </div>
           <hr></hr>
-           <div>
-            {feedbacks.length>0?feedbacks.map((e)=> { 
-              return(
-                <>
-                <div>
-                  <a>{e.title}</a>
-                  <br/>
-                  <a>de: {e.email}</a>
-                  <br/>
-                  <a>{e.points}</a>
-                  <br/>
-                  <a>Reseña: </a>
-                  <br/>
-                  <a>{e.comment}</a>
-                </div>
-                <br/>
-                </>
-              )
-              })
-            : null
-          }
-          </div> 
+          <div>
+            
+            {feedbacks.length > 0
+              ? feedbacks.map((e) => {
+                  return (
+                    <>
+                      <div>
+                        <a>{e.title}</a>
+                        <br />
+                        <a>de: {e.email}</a>
+                        <br />
+                        <a>{e.points}</a>
+                        <br />
+                        <a>Reseña: </a>
+                        <br />
+                        <a>{e.comment}</a>
+                      </div>
+                      <br />
+                    </>
+                  );
+                })
+              : null}
+          </div>
           <div>
             <button class="btn btn-dark" onClick={() => handleBack()}>
               Volver
