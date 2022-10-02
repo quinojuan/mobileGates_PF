@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { postFeedback } from "../../redux/Actions";
 
 
-export default function Feedback({email,model}) {
+export default function Feedback({ email, model }) {
   const myProducts = useSelector((state) => state.details);
   const dispatch = useDispatch();
   const [feedback, setFeedback] = useState({
@@ -16,8 +16,8 @@ export default function Feedback({email,model}) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log("Email ES:", email);
-    console.log("model es:", model);
+    //console.log("Email ES:", email);
+    //console.log("model es:", model);
     if (e.target.name === "points") {
       setFeedback({
         ...feedback,
@@ -51,28 +51,39 @@ export default function Feedback({email,model}) {
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        name="title"
-        onChange={(e) => handleChange(e)}
-        placeholder="Resumen de tu reseña"
-      />
-      <input
-        type="text"
-        name="comment"
-        placeholder="Deje su reseña"
-        onChange={(e) => handleChange(e)}
-      />
-      <input
-        type="range"
-        name="points"
-        min="1"
-        max="5"
-        step="0.1"
-        onChange={(e) => handleChange(e)}
-      />
-      <button onClick={() => post()}>onSubmit</button>
+    <div class="container w-25 border border-5">
+      <form class="mt-3 px-3 p-3">
+        <div class="mb-3">
+          <input
+            class="form-control"
+            type="text"
+            name="title"
+            onChange={(e) => handleChange(e)}
+            placeholder="Resumen de tu reseña"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            class="form-control"
+            type="text"
+            name="comment"
+            placeholder="Deje su reseña"
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            
+            type="range"
+            name="points"
+            min="1"
+            max="5"
+            step="0.1"
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <button class="btn btn-success" onClick={() => post()}>Enviar</button>
+      </form>
     </div>
   );
 }
