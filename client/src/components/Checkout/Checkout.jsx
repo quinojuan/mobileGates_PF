@@ -22,14 +22,13 @@ const CheckOutForm = () => {
   const navigate = useNavigate();
   const stripe = useStripe();
   const element = useElements();
+  const loggedUser = useSelector(state => state.loggedUser)
   const price = useSelector((state) => state.finalPrice);
   //console.log(price, "PRICEEE")
   const estadoGlobal = useSelector((state) => state.inputPurchase);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: element.getElement(CardElement),

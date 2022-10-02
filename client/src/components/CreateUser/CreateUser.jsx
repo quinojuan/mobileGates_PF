@@ -11,7 +11,6 @@ import { auth } from "../../firebase";
 import { sendEmailVerification } from "firebase/auth";
 
 export default function CreateUser() {
-  const loggedUser = useSelector((state) => state.loggedUser);
   const [error, setError] = useState();
   const [user, setUser] = useState({
     email: "",
