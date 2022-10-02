@@ -18,6 +18,7 @@ const authContext = createContext();
 export const useAuth = () => {
   const userLogeado = useSelector((state) => state.loggedUser);
   const dispatch = useDispatch();
+  
   const context = useContext(authContext);
 
   console.log(" CONTEXT: ", context);

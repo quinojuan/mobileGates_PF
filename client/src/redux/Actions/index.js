@@ -374,3 +374,16 @@ export function getUserData(payload){
     payload
   }
 }
+
+export function addDisplayName(payload){
+  return{
+    type: "ADD_DISPLAY_NAME",
+    payload
+  }
+}
+
+export function addUserToDb(payload) {
+  return async function() {
+    await axios.post("http://localhost:3001/users", payload);
+  };
+}

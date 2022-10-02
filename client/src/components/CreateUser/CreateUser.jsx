@@ -1,28 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { addUser } from "../../redux/Actions/index";
-import { useDispatch } from "react-redux";
+import { addDisplayName, addUserToDb } from "../../redux/Actions/index";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../firebase";
 import { sendEmailVerification } from "firebase/auth";
 
 export default function CreateUser() {
+  const loggedUser = useSelector((state) => state.loggedUser);
+  const [error, setError] = useState();
   const [user, setUser] = useState({
     email: "",
     password: "",
+    name: "",
   });
 
   const dispatch = useDispatch();
-
-  const { signup } = useAuth();
-
   const navigate = useNavigate();
 
-  const [error, setError] = useState();
+  const { signup } = useAuth();
 
   const handleChange = ({ target: { name, value } }) => {
     setUser({ ...user, [name]: value });
@@ -33,13 +33,10 @@ export default function CreateUser() {
       e.preventDefault();
       setError("");
       await signup(user.email, user.password);
-      sendEmailVerification(auth.currentUser).then(() => {
-        console.log("Email verification sent!")
+      await sendEmailVerification(auth.currentUser).then(() => {
+        console.log("Email verification sent!");
       });
-      // sendEmailVerification(auth.currentUser)
-
-      // dispatch(addUser(user))
-      Swal.fire("Registro exitoso!");
+      Swal.fire("Te enviamos un mail para confirmar tu cuenta!");
       navigate("/home");
     } catch (error) {
       // setError(error.message)
@@ -58,6 +55,7 @@ export default function CreateUser() {
       }
     }
   };
+
   return (
     <div>
       {error && <p>{error}</p>}
@@ -69,6 +67,14 @@ export default function CreateUser() {
             <form onSubmit={handleSubmit}>
               <h1 class="fw-bold text-center py-5">Registrate gratis</h1>
               <div className="container w-100 mb-4">
+                <label class="col-form-label">Nombre y apellido</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Ingresa tu nombre y apellido"
+                  onChange={handleChange}
+                  class="form-control"
+                />
                 <label class="col-sm-2 col-form-label">Email</label>
                 <input
                   type="text"

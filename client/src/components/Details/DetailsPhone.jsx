@@ -22,7 +22,6 @@ export default function DetailsPhone(props) {
   const usuarioLogeado = useSelector((state) => state.loggedUser);
   const feedbacks = useSelector((state) => state.allFeedbacks);
 
-  console.log("USUARIO LOGEADO:", usuarioLogeado);
   function decrease() {
     setCount(count - 1);
   }

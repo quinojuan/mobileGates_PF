@@ -234,7 +234,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
-									{console.log("este es mi current card", currentProducts)}
+									{/* {console.log("este es mi current card", currentProducts)} */}
 										<Cards
 											model={s.model}
 											image={s.image}
