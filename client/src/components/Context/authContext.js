@@ -17,13 +17,12 @@ export const useAuth = () => {
   const userLogeado = useSelector((state) => state.loggedUser);
   const dispatch = useDispatch();
   const context = useContext(authContext);
-
-  console.log(" CONTEXT: ", context);
   const { user } = context;
+
   if (user) {
-    console.log("Entro a user del primer if", userLogeado)
+    //console.log("Entro a user del primer if", userLogeado)
     if (!Object.keys(userLogeado).length) {
-    console.log("Entro a userlogeado del 2do if")
+    //console.log("Entro a userlogeado del 2do if")
       dispatch(getUserData(user));
     }
   }
