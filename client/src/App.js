@@ -24,7 +24,7 @@ import Checkout from './components/Checkout/Checkout';
 import PhonesTable from './components/AdminPages/PhonesTable';
 import ModifyUser from './components/AdminPages/ModifyUser';
 import AllPurchases from "./components/AdminPages/AllPurchases"
-import UserPanel from './components/UserPage/UserPanel';
+import UserPanel from './components/userPanel/userPanel';
 import UserPurchases from './components/userPanel/UserPurchases';
 import PurchaseDetail from "./components/userPanel/PurchaseDetail"
 library.add(fab, faCheckSquare, faCoffee, fas)
