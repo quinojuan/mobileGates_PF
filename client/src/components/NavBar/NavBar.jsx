@@ -31,14 +31,14 @@ const buttonStyle = {
  
 
 export default function NavBar() {
-  const loggedUser = useSelector((state) => state.loggedUser);
+  const logedUser = useSelector((state) => state.loggedUser);
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
   const [name, setName] = useState("");
   const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
-
+  const usersAdmin = useSelector(state=>state.usersAdmins)
   const handleLogout = async () => {
     await logout();
     navigate("/home/");
@@ -62,7 +62,18 @@ export default function NavBar() {
     }
     setCurrentPage(1);
   }
-  if (loggedUser) {
+  const mail = logedUser?logedUser.email:"esto no es un email"
+  let funcionAuxiliar = (email)=>{
+    if (usersAdmin.filter(e => e.email === email).length > 0) {
+        return true
+      } else {
+        return false
+      }
+}
+
+  
+  if (funcionAuxiliar(mail)) {
+    console.log("ENTRANDO AL PRIMER IF")
     return (
       <nav className="container">
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -128,10 +139,7 @@ export default function NavBar() {
                       aria-expanded="false"
                     >
                        <FontAwesomeIcon icon={['fas', 'user']} /> 
-                      Hola, {loggedUser.displayName}
-                      
-                      {/* antes la linea 137 era: */}
-                      {/* user.email.split('@')[0] */}
+                      Hola, {logedUser.displayName}
                     </a>
                     <div
                       class="dropdown-menu"
@@ -149,7 +157,7 @@ export default function NavBar() {
                         href="#"
                         onClick={handleLogout}
                       >
-                        Cerrar sesión
+                      Cerrar sesión
                       </a>
                     </div>
                   </div>
@@ -161,6 +169,7 @@ export default function NavBar() {
       </nav>
     );
   } else {
+    console.log("ENTRANDO AL 2DO IF");
     return (
       <nav>
         <div className="navbar navbar-expand-lg bg-dark">
@@ -206,17 +215,18 @@ export default function NavBar() {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#">
-                    Productos
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active text-white" href="#">
                     Quienes somos?
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="/home/login">
-                    Ingresá | Registrate
+                    Ingresá
+                  </a>
+                </li>
+                <li>|</li>
+                <li className="nav-item">
+                  <a className="nav-link active text-white" href="/home/createuser">
+                    Registrate
                   </a>
                 </li>
               </ul>
