@@ -384,12 +384,12 @@ export function getUserData(payload){
     payload
   }
 }
-export function getUsersDetail(id){
+export function getPurchasesDetail(id){
   return async function(dispatch){
       try{
-          var json= await axios.get(`http://localhost:3001/users/${id}`);
+          var json= await axios.get(`http://localhost:3001/purchases/${id}`);
           return dispatch({
-              type:"GET_USERS_DETAIL",
+              type:"GET_PURCHASES_ID",
               payload:json.data
           })
       } catch(error){

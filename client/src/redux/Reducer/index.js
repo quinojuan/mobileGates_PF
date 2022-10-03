@@ -29,6 +29,7 @@ const initialState = {
   qas: [],
   usersID: [],
   usersDetail: [],
+  purchasesDetail:[],
   loggedUser: {}
 };
 
@@ -293,6 +294,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         loggedUser: action.payload
       }
+      case "GET_PURCHASES_ID":
+        return{
+          ...state,
+          purchasesDetail:action.payload
+
+        }
     
 
     default:

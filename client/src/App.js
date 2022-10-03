@@ -63,8 +63,8 @@ function App() {
         <Route path="/allpurchases" element= {<AllPurchases/>}/>
         <Route path="/userpanel" element= {<UserPanel/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
-        <Route path= "/userpurchases/:id" element={<PurchaseDetail/>}/>
         <Route exact path= "/userpurchases" component={<UserPurchases/>}/>
+        <Route path= "/userpurchase/:id" element={<PurchaseDetail/>}/>
       </Routes>
     </div>
     </BrowserRouter>
