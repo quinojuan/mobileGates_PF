@@ -127,7 +127,7 @@ export default function FormPurchase() {
                 </div> */}
                 <div className='list-group-item-secondary'>
                 <div className='jumbotron jumbotron-fluid text-center py-2'>
-            <h4 className='display-4'> Confirmación de Compra </h4>
+            <h4 className='display-4 mt-3'> Confirmación de Compra </h4>
             <hr />
             <p className='lead'>
               {' '}

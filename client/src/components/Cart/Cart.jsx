@@ -136,7 +136,7 @@ export default function Cart() {
         <h4 class='mt-3'>Costo total: ${handleSuma()}</h4>
             {myCart.length > 0 ? (
               <button  onClick={()=>preventNullCart()}
-                class='text-decoration-none text-light w-50' style={addCartButton}>Comprar
+                class='btn btn-primary text-decoration-none text-light w-50' style={addCartButton}>Comprar
               </button>
             ) : null}
           

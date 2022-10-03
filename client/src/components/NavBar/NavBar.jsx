@@ -11,7 +11,19 @@ import SearchBar from '../SearchBar/SearchBar';
 import { getProductsByNameAndFilters, setSearch, addUser } from '../../redux/Actions';
 import Swal from 'sweetalert2';
 import image from "../../images/mglogo.jpg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+const buttonStyle = {
+  color: 'white',
+  backgroundColor: 'DodgerBlue',
+  marginRight: '10px',
+  paddingLeft: '15px',
+  paddingRight: '15px',
+  paddingTop: '7px',
+  paddingBottom: '7px',
+  borderRadius: '5px',
+  fontSize: '15px',
+}
 
 
 export default function NavBar() {
@@ -62,7 +74,7 @@ export default function NavBar() {
   const [name, setName] = useState("");
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
-
+  console.log("MI USUARIO ",user)
 
   useEffect(() => {
     dispatch(addUser(user))
@@ -97,7 +109,7 @@ export default function NavBar() {
       <nav className='container'>
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
           <div className="container-fluid">
-            <Link to='/home' class='navbar-brand text-white' className="nav-link active text-white" aria-current="page" >Móvil Gates</Link>
+            <Link to='/home' class='navbar-brand text-white' className="nav-link active text-white" aria-current="page">Móvil Gates</Link>
             {/* <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </h1> */}
@@ -121,12 +133,18 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li> */}
                 <li className="nav-item">
-                  <a className="nav-link active text-white" href="#" onClick={() => navigate("/products/Cart")}>Carrito 🛒</a>
+                  <a className="nav-link active" href="#" onClick={() => navigate("/products/Cart")}>
+                  <FontAwesomeIcon 
+                    icon="fa-solid fa-cart-shopping" 
+                    className='h5 me-2'
+                    style={{ color: 'DodgerBlue' }}
+                    />
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                   <div class="dropdown show">
-                    <a class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Hola, {user.email.split('@')[0]}
+                    <a type='button' style={buttonStyle} class='nav-link dropdown-toggle' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <FontAwesomeIcon icon={['fas', 'user']} /> {user.email.split('@')[0]}
                       {/* {console.log(user)} */}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

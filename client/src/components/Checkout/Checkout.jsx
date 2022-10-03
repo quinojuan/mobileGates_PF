@@ -8,7 +8,17 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
+const addCartButton = {
+    color: 'white',
+    backgroundColor: 'DodgerBlue',
+    margin: '10px',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    borderRadius: '5px',
+    fontSize: '15px',
+  }
 
 const stripePromise = loadStripe('pk_test_51Lm1TVK1EwVhNCq68YLlfHrPYO6g5jOMh5oTgzSercKkEo1RAgFdwEZ89w2dFni5DwDTm0Fx1mlSvGk3AaXwOxbQ00h8CiddUO');
 
@@ -51,8 +61,10 @@ const CheckOutForm = () =>{
     };
 
     return <form onSubmit={handleSubmit}>
+        <div class="" >
         <CardElement/>
-        <button >BUY</button>
+        </div>
+        <button class='btn btn-primary text-decoration-none text-light w-50' style={addCartButton}>BUY</button>
     </form>
     
 };
