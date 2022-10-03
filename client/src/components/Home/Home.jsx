@@ -14,7 +14,8 @@ import {
 	getCapacity,
 	getSortByPrice,
 	getClean,
-	getFeedbacks
+	getFeedbacks,
+	getUsers,
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -53,8 +54,9 @@ export default function Home() {
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
-
+	const USERS  = useSelector(state=>state.users)
 	useEffect(() => {
+		dispatch(getUsers())
 		dispatch(getCart());
 		dispatch(getCategories());
 		dispatch(getRams())

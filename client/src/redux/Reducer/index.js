@@ -29,6 +29,7 @@ const initialState = {
 	qas: [],
 	loggedUser: {},
     purchasesDetail: [],
+	usersAdmins: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -212,10 +213,12 @@ function rootReducer(state = initialState, action) {
 				...state,
 			};
 		case 'GET_USERS':
-			console.log('Users en redux', action.payload);
+			let arreglo = action.payload.data;
+			let filtrado = arreglo.filter(e=>e.admin===true)
 			return {
 				...state,
 				users: action.payload.data,
+				usersAdmins: filtrado
 			};
 		case 'CLEAR_CART':
 			return {
