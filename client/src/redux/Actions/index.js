@@ -240,8 +240,9 @@ export const handleClearCart = () => {
 export function getPurchase() {
 	return async function(dispatch) {
 		let json = await axios.get('http://localhost:3001/purchases');
+		console.log(json, "la aXXXXXION")
 		return dispatch({
-			type: 'GET_PURCHASE',
+			type: 'GET_PURCHASES',
 			payload: json.data,
 		});
 	};
@@ -257,6 +258,21 @@ export function postPurchase(payload) {
 		return purchase;
 	};
 }
+
+export function getPurchasesDetail(id){
+	return async function(dispatch){
+		try{
+			var json= await axios.get(`http://localhost:3001/purchases/${id}`);
+			return dispatch({
+				type:"GET_PURCHASES_ID",
+				payload:json.data
+			})
+		} catch(error){
+			console.log(error)
+		}
+	}
+  }
+
 export function getPurchaseRepeat(payload) {
 	return {
 		type: 'GET_PURCHASE_REPEAT',
@@ -307,6 +323,7 @@ export function getFeedbacks(payload) {
 }
 
 export function postPhone(payload) {
+	console.log(payload)
 	return async function(dispatch) {
 		const newPhone = await axios.post(
 			'http://localhost:3001/products',

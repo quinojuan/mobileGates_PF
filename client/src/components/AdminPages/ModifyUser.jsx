@@ -28,17 +28,34 @@ export default function ModifyUser() {
   useEffect(() => {
     dispatch(getUsers())
   }, [dispatch])
+  // var miCheckbox = document.getElementById('miElementoCheckbox');
 
-  const handleChange = () => {
-    if(input.admin === true){
+  // ('El valor inicial del checkbox es ' + miCheckbox.checked);
+
+  // miCheckbox.addEventListener('click', function() {
+  //   if(miCheckbox.checked) {
+  //     setInput({
+  //       ...input,
+  //       admin: true
+  //     })
+  //   } else {
+  //     setInput({
+  //       ...input,
+  //       admin: false
+  //     })
+  //   }
+  // });
+
+  const handleChange = (e) => {
+    if(e.target.value === "true"){
         setInput({
           ...input,
-          admin: false
+          admin: true
         })
     } else{
         setInput({
           ...input,
-          admin: true
+          admin: false
         })
     } 
   }
@@ -70,7 +87,12 @@ export default function ModifyUser() {
 
             <div class="col">
               <label for="formFile" class="form-label">Admin</label>
-              <input type="checkbox" name="admin" onChange={()=>handleChange()} class="form-control is-valid" placeholder={myPhone[0].model} id="checkboxid" aria-label="Last name"/>
+              {/* <input type="checkbox" name="admin" onChange={()=>handleChange()} class="form-control is-valid" placeholder={myPhone[0].model} id="checkboxid" aria-label="Last name"/> */}
+              <select onChange={(e)=>handleChange(e)}>
+                <option hidden>Admin?</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
             </div>
            
           </div>
