@@ -493,6 +493,8 @@ export default function AddProducts() {
 							<label for="formFile" class="form-label">
 								Imagen principal
 							</label>
+
+							{/* ACÁ TENGO QUE AGREGAR LA PARTE DE PONER UNA IMATEN A UN CELUUUUU */}
 							<input
 								type="text"
 								name="image"
