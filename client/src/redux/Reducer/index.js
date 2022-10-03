@@ -28,6 +28,7 @@ const initialState = {
   allFeedbacks: [],
   qas: [],
   usersID: [],
+  usersDetail: [],
   loggedUser: {}
 };
 
@@ -292,6 +293,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         loggedUser: action.payload
       }
+    
 
     default:
       return state;

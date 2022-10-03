@@ -25,7 +25,8 @@ import PhonesTable from './components/AdminPages/PhonesTable';
 import ModifyUser from './components/AdminPages/ModifyUser';
 import AllPurchases from "./components/AdminPages/AllPurchases"
 import UserPanel from './components/UserPage/UserPanel';
-
+import UserPurchases from './components/userPanel/UserPurchases';
+import PurchaseDetail from "./components/userPanel/PurchaseDetail"
 library.add(fab, faCheckSquare, faCoffee, fas)
 
 
@@ -62,6 +63,8 @@ function App() {
         <Route path="/allpurchases" element= {<AllPurchases/>}/>
         <Route path="/userpanel" element= {<UserPanel/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
+        <Route path= "/userpurchases/:id" element={<PurchaseDetail/>}/>
+        <Route exact path= "/userpurchases" component={<UserPurchases/>}/>
       </Routes>
     </div>
     </BrowserRouter>

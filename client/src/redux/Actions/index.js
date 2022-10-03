@@ -384,3 +384,16 @@ export function getUserData(payload){
     payload
   }
 }
+export function getUsersDetail(id){
+  return async function(dispatch){
+      try{
+          var json= await axios.get(`http://localhost:3001/users/${id}`);
+          return dispatch({
+              type:"GET_USERS_DETAIL",
+              payload:json.data
+          })
+      } catch(error){
+          console.log(error)
+      }
+  }
+}
