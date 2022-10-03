@@ -62,7 +62,7 @@ export default function NavBar() {
   const [name, setName] = useState("");
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
-  console.log("MI USUARIO ",user)
+ 
 
   useEffect(() => {
     dispatch(addUser(user))

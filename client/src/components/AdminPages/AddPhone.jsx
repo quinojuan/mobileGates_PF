@@ -124,6 +124,21 @@ export default function AddProducts() {
         }
     }
 
+    function handleConverterImage(files){
+        Array.from(files).forEach(el=>{
+            let reader = new FileReader()
+            reader.readAsDataURL(el)
+            reader.onload=function(){
+                let aux=[]
+                let base64=reader.result
+                aux=base64.split(',')
+                aux=aux.toString()
+                console.log("mi codigo",aux[1])
+            }
+        })
+        
+    }
+
 
     // function handlePrice(e) {
     //     // if (!input.price.includes(e.target.value)) {
@@ -144,7 +159,7 @@ export default function AddProducts() {
 
     function handlePanel() {
         navigate("/adminpages");
-      }
+    }
 
     function handleSubmit(e) {
         input.price = [parseInt(input.price)]
@@ -155,12 +170,12 @@ export default function AddProducts() {
             e.preventDefault();
             return Swal.fire('Debe ingresar el modelo del dispositivo')
 
-        } else if (input.image.length === 0) {
-            e.preventDefault();
-            return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
-        } else if (!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
-            e.preventDefault();
-            return Swal.fire('Debe ingresar una URL válida')
+        // } else if (input.image.length === 0) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debe ingresar la URL de la imagen del dispositivo')
+        // } else if (!(/https:\/\/[a-zA-Z./-]+/gm).test(input.image)) {
+        //     e.preventDefault();
+        //     return Swal.fire('Debe ingresar una URL válida')
         } else if (!input.operative_system.length) {
             e.preventDefault();
             return Swal.fire('Debe ingresar el sistema operativo del dispositivo')
@@ -201,7 +216,7 @@ export default function AddProducts() {
 
         dispatch(postPhone(input))
         Swal.fire("El dispositivo ha sido añadido con éxito!")
-        console.log(input)
+        console.log("este es mi nuevo producto",input)
         console.log('creado con exito')
         setInput({
             category: "Phones",
@@ -231,11 +246,11 @@ export default function AddProducts() {
             <div class="container w-50 mt-3">
                 <h1>Agregar un dispositivo</h1>
                 <form id="miForm" onSubmit={(e) => handleSubmit(e)}>
-                <fieldset disabled>
-                    <div class="col">
-                        <label for="disabledTextInput" class="form-label">Categoria</label>
-                        <input type="text" name='category' onChange={handleChange} id="disabledTextInput" class="form-control" placeholder="Phones"></input>
-                    </div>
+                    <fieldset disabled>
+                        <div class="col">
+                            <label for="disabledTextInput" class="form-label">Categoria</label>
+                            <input type="text" name='category' onChange={handleChange} id="disabledTextInput" class="form-control" placeholder="Phones"></input>
+                        </div>
                     </fieldset>
                     <div class="row mt-3">
                         <div class="col">
@@ -267,7 +282,7 @@ export default function AddProducts() {
                                 {
                                     capacity?.map(el => {
                                         return (<option value={el} key={el}>{el}</option>)
-                                        
+
                                     })
                                 }
                             </select>
@@ -355,7 +370,9 @@ export default function AddProducts() {
                     <div class="row mt-3">
                         <div class="col">
                             <label for="formFile" class="form-label">Imagen principal</label>
-                            <input type="text" name="image" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input>
+                            <input class="form-control" name="image" type="file" id="formFile" onChange={(e)=>handleConverterImage(e.target.files)}></input>
+                            {/* <label for="formFile" class="form-label">Imagen principal</label>
+                            <input type="text" name="image" onChange={handleChange} class="form-control" id="basic-url" aria-describedby="basic-addon3"></input> */}
                         </div>
                     </div>
                     {/* <div class="row mt-3">
@@ -414,7 +431,7 @@ export default function AddProducts() {
                     </div>
                     <div class="mt-3">
                         <button type="button" class="btn btn-success" onClick={(e) => handleSubmit(e)}>Añadir</button>
-                        <button type="button" class="btn btn-danger"  onClick={(e) => handlePanel(e)}>Volver al Panel</button>
+                        <button type="button" class="btn btn-danger" onClick={(e) => handlePanel(e)}>Volver al Panel</button>
                     </div>
                 </form>
             </div>
