@@ -1,19 +1,29 @@
-const admin = require("firebase-admin")
+const admin = require("firebase-admin");
 
 const auth = admin.initializeApp().auth();
 
 const getAllUsersFromFirebase = async (req, res) => {
-	let users = await auth.listUsers()
-	res.json(users)
-}
+  try {
+    let users = await auth.listUsers();
+    res.json(users);
+    console.log(users);
+  } catch (error) {
+    return res.json({ message: error });
+  }
+};
 
 const getUserByIdOfFirebase = async (req, res) => {
-	const { id } = req.params
-	let user = await auth.getUser(id)
-	res.json(user)
-}
+  try {
+    const { id } = req.params;
+    if (!id) return res.status(400).json("No ID provided!");
+    let user = await auth.getUser(id);
+    return res.json(user);
+  } catch (error) {
+    return res.json({ message: error });
+  }
+};
 
 module.exports = {
-    getUserByIdOfFirebase,
-    getAllUsersFromFirebase
-}
+  getUserByIdOfFirebase,
+  getAllUsersFromFirebase,
+};
