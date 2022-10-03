@@ -215,6 +215,7 @@ export default function Home() {
           setProductsPerPage={setProductsPerPage}
         /> */}
 			</div>
+			<div class='mt-3'>
 			<Paginado
 				productsPerPage={productsPerPage}
 				allProducts={allProducts?.length}
@@ -222,6 +223,7 @@ export default function Home() {
 				changePage={changePage}
 				currentPage={currentPage}
 			/>
+			</div>
 			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 justify-content-center'>
 			{buscando?handleBuscando(search):null}
 				{!loading ? (
@@ -234,7 +236,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
-									
+									{/* {console.log("este es mi current card", currentProducts)} */}
 										<Cards
 											model={s.model}
 											image={s.image}
@@ -244,6 +246,7 @@ export default function Home() {
 											operative_system={s.operative_system}
 											capacity={s.capacity}
 											price={s.price[0]}
+											stock={s.stock}
 										/>
 										
 									{/* </Link> */}

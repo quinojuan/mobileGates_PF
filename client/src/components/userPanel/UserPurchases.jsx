@@ -10,20 +10,19 @@ import { useAuth } from '../Context/authContext';
 export default function UserPurchases(){
     const dispatch=useDispatch()
     const purchases=useSelector((state)=>state.purchases)
-    console.log(purchases)
-    // const logged=useSelector((state)=>state.loggedUser)
-    // console.log(logged)
-    // const userLogin=purchases&&purchases.filter(s=>s.email===logged.email)
+    const logged=useSelector((state)=>state.loggedUser)
+    console.log(purchases, "COMPRITAS BIEN PERRAZAS")
+    console.log(logged, "USUARIOS BIEN PERRAZOS")
+    const userLogin = purchases&&purchases.filter(s=>s.email === logged.email)
     useEffect(()=>{
         dispatch(getPurchase())
     }, [])
     return (
         <div>
-        {/* {userLogin.length ? userLogin : "Aun no hay compras"}
+        {userLogin.length ? userLogin : "Aun no hay compras"}
         <button>
             <Link to= "/userpanel">Volver</Link>
-        </button> */}
-        <h1>Hola</h1>
+        </button>
         </div>
     )
 

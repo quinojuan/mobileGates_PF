@@ -7,9 +7,16 @@ import Footer from '../Footer/Footer'
 import { useNavigate } from "react-router-dom";
 
 export default function AllPurchases(){
+<<<<<<< HEAD
     const purchases=useSelector((state)=>state.purchases)
     const dispatch=useDispatch()
     const navigate=useNavigate()
+=======
+    const purchases = useSelector((state)=>state.purchases)
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
+    console.log(purchases, "AbER LAS COMPRINIAS")
+>>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
     useEffect(()=>{
         dispatch(getPurchase())
       },[dispatch])
@@ -22,11 +29,23 @@ export default function AllPurchases(){
               return(
               <div>
                 <br/>
+<<<<<<< HEAD
                 {u.products}
                 {u.email}
 
                 
                 
+=======
+                {u.email}
+                <br/>
+                {u.amount}
+                {u.products.map((p)=> (
+                    <div>
+                        <p>{p.phone}</p>
+                        <p>{p.quantity}</p>
+                    </div>
+                ))}
+>>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
               </div>
               )
             }):<h1>Aun no hay compras</h1>}
@@ -37,4 +56,8 @@ export default function AllPurchases(){
           <Footer />
         </div>
       )
+<<<<<<< HEAD
     }
+=======
+    }
+>>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d

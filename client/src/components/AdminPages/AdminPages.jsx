@@ -1,11 +1,17 @@
 import { Navigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch} from 'react-redux'
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import administrar from '../../images/administrar.png'
+import { useEffect } from 'react'
+import {getPurchase} from "../../redux/Actions"
+
 
 export default function AdminPages() {
-
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getPurchase())
+  },[dispatch])
 
   return (
     <div>

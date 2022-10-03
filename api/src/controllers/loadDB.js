@@ -1,4 +1,4 @@
-const { Phones, Brand } = require('../db'); // requiero el modelo
+const { Phones, Brand, Quantities } = require('../db'); // requiero el modelo
 const data = require('../JSONFINALFINAL.json'); // me traigo el Json
 const { relacionarPreciosCapacidad } = require('../helpers');
 
@@ -37,9 +37,12 @@ const loadDb = async () => {
 		uniqueBrand = uniqueBrand.map((c) => ({
 			name: c,
 		}));
+
+		for(let i = 1; i<31; i++){
+           await Quantities.create({quantity: i})
+		}
 		//	SEPARAR LOS PRODUCTOS POR PRECIO EN RELACION A LA CAPACIDAD
 		allPhones = relacionarPreciosCapacidad(allPhones);
-
 
 		await Brand.bulkCreate(uniqueBrand); // a partir del arreglo filtrado cargo todos las categorias
 	    //await let allPhones2 = allPhones.map(())
@@ -52,7 +55,9 @@ const loadDb = async () => {
 		//console.log(phoneBrand, "EL BRANDDDDDDDDDDDD")
         let brandId = await Brand.findOne({ where: { name: brand } });
         await phone.addBrand(brandId.dataValues.id);
+
 		}
+
 		
 		//await Phones.bulkCreate(allPhones); // a partir del arreglo filtrado cargo todos los objetos en la tabla PHONES
 	} catch (error) {

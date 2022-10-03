@@ -1,5 +1,6 @@
-const { Purchases, Users, Phones } = require("../db.js");
+const { Purchases, Users, Phones, Quantities } = require("../db.js");
 const nodemailer = require("nodemailer");
+
 
 
 const getAllPurchases = async (req, res) => {
@@ -15,15 +16,38 @@ const getAllPurchases = async (req, res) => {
           model: Users,
           attributes: ["email"],
         },
+        {
+          model: Quantities,
+        }
       ],
     });
-    //console.log(allPurchases[0].dataValues.Phones, "a ver")
     let presentacion = allPurchases.map(
-      ({ dni, adress, birthday, amount, Users, Phones, id, id_transaction }) => {
+      ({ dni, adress, birthday, amount, Users, Phones, id, id_transaction, Quantities }) => {
         let productPresent = []
+        for(let j = 0; j<Quantities.length;j++){
         for(let i = 0; i<Phones.length; i++){
-          productPresent.push(Phones[i].model)
+          if(Phones[i].PhonePurchases.PurchasesId === Quantities[j].PurchasesQuantities.PurchasesId){
+           let productWithQuantity = {
+             phone: Phones[i].model,
+             quantity: Quantities[i].quantity
+            }
+            if(!productPresent.includes(productWithQuantity)){
+              productPresent.push(productWithQuantity)
+            }
+          } 
         }
+      }
+     //este es el momento que me multiplica los productos por cada relacion en la pegada.
+     //entonces lo que sigue es basicamente una limpieza de los elementos repetidos
+      let productsMap = productPresent.map(item=>{
+          return [item.phone,item]
+      });
+      var productsMapArr = new Map(productsMap); // Pares de clave y valor
+      
+      let productsClean = [...productsMapArr.values()]; // Conversión a un array
+      //hasta aca xd
+      console.log(productsClean);
+
         return {
           id,
           id_transaction,
@@ -32,7 +56,7 @@ const getAllPurchases = async (req, res) => {
           birthday,
           amount,
           email: Users[0].email,
-          products: productPresent
+          products: productsClean,
         };
       }
     );
@@ -59,20 +83,7 @@ const postPurchase = async (req, res) => {
         id_transaction: transaction,
       }); 
      
-   // console.log(req.body, "a ver que llega por body")
-    //console.log(newPurchase, "LA COMPRITA")
-
-    let myUser = await Users.findOne({ where: { email: email } });
-    await newPurchase.addUsers(myUser.dataValues.id);
-    const purchaseWithUser = await Purchases.findByPk(newPurchase.id, {
-      include: [
-        {
-          model: Users,
-        },
-      ],
-    });
-    // console.log(myUser.dataValues, "UUUSER")
-
+    
     let presentacion = {
       dni,
       adress,
@@ -83,38 +94,59 @@ const postPurchase = async (req, res) => {
       products: [],
     };
 
-    const promises = products.map((p) => {
+    //Relacion con user:
+    let myUser = await Users.findOne({ where: { email: email } });
+    await newPurchase.addUsers(myUser.dataValues.id);
+    const purchaseWithUser = await Purchases.findByPk(newPurchase.id, {
+      include: [
+        {
+          model: Users,
+        },
+      ],
+    });
+   
+    
+    //Relacion con phones:
+    const promisesPhones = products.map((p) => {
       return new Promise(async (resolve, reject) => {
         let myPhone = await Phones.findOne({ where: { model: p.phone.model } });
         await newPurchase.addPhones(myPhone.dataValues.id);
-        //preguntarle a req.body.products cuantas veces enviaron el mismo product
-        //en base a la cantidad de ese product, updatear el stock en BD
         myPhone = {
           ...myPhone.dataValues,
           stock: myPhone.dataValues.stock - p.quantity,
         };
         await Phones.update(myPhone, { where: { id: myPhone.id } });
-        //aca habria que descontarle del stock a dicho phone por cada quantity del producto en la compra
-        const purchaseWithPhone = await Purchases.findByPk(newPurchase.id/* ,  {
+      
+        const purchaseWithPhone = await Purchases.findByPk(newPurchase.id,   {
           include: [
             {
               model: Phones,
             },
           ],
-        }  */);
+        } );
         resolve(presentacion.products.push(purchaseWithPhone));
         reject((err) => console.log(err));
       });
     });
-    await Promise.all(promises);
+    await Promise.all(promisesPhones);
 
-    /*    let myPhone = await Phones.findOne({where:{ model: products[0].model}})
-	    await newPurchase.addPhones(myPhone.dataValues.id)
-	    const purchaseWithPhone = await Purchases.findByPk(newPurchase.id,{
-		  include:[{
-			model: Phones
-		   }]
-	     }) */
+
+
+    //relacion con quantities
+    
+    const promisesQuantities = products.map((q) => {
+      return new Promise(async (resolve, reject) => {
+        let myPhone2 = await Phones.findOne({ where: { model: q.phone.model } })
+        let quan = await Quantities.findOne({where:{quantity: q.quantity}})
+          await myPhone2.addQuantities(quan.dataValues.id)
+          await newPurchase.addQuantities(quan.dataValues.id)
+        resolve(presentacion.products.push(quan));
+        reject((err) => console.log(err));
+      });
+    });
+    await Promise.all(promisesQuantities); 
+  
+
 
     res.status(200).json(presentacion);
   } catch (e) {

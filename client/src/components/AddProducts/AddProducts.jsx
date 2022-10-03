@@ -7,7 +7,20 @@ import style from "./AddProduct.module.css"
 import { Link } from "react-router-dom";
 import { useAuth } from '../Context/authContext';
 import Swap from "sweetalert2"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+
+const addCartButton = {
+    color: 'white',
+    backgroundColor: 'DodgerBlue',
+    margin: '10px',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    borderRadius: '5px',
+    fontSize: '15px',
+  }
 
 export default function AddProducts({id, quantity}){
     
@@ -22,6 +35,7 @@ export default function AddProducts({id, quantity}){
         phone: product[0],
         quantity: quantity
     }
+    var isOutOfStock = false
 
     function handleCart(){
         //console.log(id, "ID")
@@ -36,8 +50,9 @@ export default function AddProducts({id, quantity}){
     }
     if(user){
     return (
-            <div class='mb-3' >
-            <button type="button" class=' btn btn-primary ' onClick={()=>handleCart()}>Agregar al Carrito</button>
+        
+        <div className='p-3'>
+            <button type="button"  className={`${isOutOfStock ? 'displayNone' : ''}`}style={addCartButton} onClick={()=>handleCart()}><FontAwesomeIcon icon={['fas', 'cart-plus']} /> Agregar al Carrito</button>
             </div>
     )
 } else {
