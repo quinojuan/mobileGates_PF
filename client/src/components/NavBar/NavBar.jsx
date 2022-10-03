@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { useAuth } from "../Context/authContext";
 import { useNavigate } from "react-router-dom";
-// import Loading from "../Loading/Loading";
-// import { handleReload } from "../Home/Home";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 import {
@@ -13,8 +10,25 @@ import {
   setSearch
 } from "../../redux/Actions";
 import Swal from "sweetalert2";
-// import image from "../../images/mglogo.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Loading from '../Loading/Loading';
+import { handleReload } from '../Home/Home'
+import { useState, useEffect } from 'react';
+import image from "../../images/mglogo.jpg"
+
+
+const buttonStyle = {
+  color: 'white',
+  backgroundColor: 'DodgerBlue',
+  marginRight: '10px',
+  paddingLeft: '15px',
+  paddingRight: '15px',
+  paddingTop: '7px',
+  paddingBottom: '7px',
+  borderRadius: '5px',
+  fontSize: '15px',
+}
+
 
 export default function NavBar() {
   const loggedUser = useSelector((state) => state.loggedUser);
@@ -48,7 +62,7 @@ export default function NavBar() {
     }
     setCurrentPage(1);
   }
-  if (user) {
+  if (loggedUser) {
     return (
       <nav className="container">
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -113,7 +127,9 @@ export default function NavBar() {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
+                       <FontAwesomeIcon icon={['fas', 'user']} /> 
                       Hola, {loggedUser.displayName}
+                      
                       {/* antes la linea 137 era: */}
                       {/* user.email.split('@')[0] */}
                     </a>

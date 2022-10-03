@@ -221,7 +221,7 @@ function rootReducer(state = initialState, action) {
 				...state,
 				cart: [],
 			};
-		case 'POST_PURCHASES':
+		case 'POST_PURCHASE':
 			return {
 				...state,
 			};
@@ -229,7 +229,7 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 			};
-		case 'GET_PURCHASE':
+		case 'GET_PURCHASES':
 			return {
 				...state,
 				purchases: action.payload,
