@@ -307,6 +307,7 @@ export function getFeedbacks(payload) {
 }
 
 export function postPhone(payload) {
+	console.log(payload)
 	return async function(dispatch) {
 		const newPhone = await axios.post(
 			'http://localhost:3001/products',
