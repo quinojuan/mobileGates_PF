@@ -23,6 +23,10 @@ import ManageUser from './components/AdminPages/ManageUser';
 import ModifyPhone from './components/AdminPages/ModifyPhone';
 import PhonesTable from './components/AdminPages/PhonesTable';
 import ModifyUser from './components/AdminPages/ModifyUser'
+import AllPurchases from "./components/AdminPages/AllPurchases"
+import UserPanel from './components/userPanel/UserPanel';
+import UserPurchases from './components/userPanel/UserPurchases';
+import PurchaseDetail from "./components/userPanel/PurchaseDetail"
 library.add(fab, faCheckSquare, faCoffee, fas)
 
 
@@ -56,6 +60,10 @@ function App() {
         <Route path="/manageuser" element= {<ManageUser/>}/>
         <Route path="/modifyuser/:id" element= {<ModifyUser/>}/>
         <Route path="/check" element= {<Checkout/>}/>
+        <Route path="/allpurchases" element= {<AllPurchases/>}/>
+        <Route path="/userpanel" element= {<UserPanel/>}/>
+        <Route path= "/userpurchases" component={<UserPurchases/>}/>
+        <Route path= "/userpurchase/:id" element={<PurchaseDetail/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
     </div>

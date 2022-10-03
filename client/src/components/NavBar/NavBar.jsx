@@ -28,7 +28,7 @@ const buttonStyle = {
   borderRadius: '5px',
   fontSize: '15px',
 }
-
+ 
 
 export default function NavBar() {
   const loggedUser = useSelector((state) => state.loggedUser);
@@ -140,6 +140,9 @@ export default function NavBar() {
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
                       <a class="dropdown-item" href="/adminpages">
                         Panel del admin
+                      </a>
+                      <a class="dropdown-item" href="/userpanel">
+                        Panel del Usuario
                       </a>
                       <a
                         className="dropdown-item"
