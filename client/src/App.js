@@ -24,9 +24,11 @@ import ModifyPhone from './components/AdminPages/ModifyPhone';
 import PhonesTable from './components/AdminPages/PhonesTable';
 import ModifyUser from './components/AdminPages/ModifyUser'
 import AllPurchases from "./components/AdminPages/AllPurchases"
+import ManageQuestions from "./components/AdminPages/ManageQuestions"
 import UserPanel from './components/userPanel/userPanel';
 import UserPurchases from './components/userPanel/UserPurchases';
 import PurchaseDetail from "./components/userPanel/PurchaseDetail"
+import AnswerQuestion from "./components/AdminPages/AnswerQuestion"
 library.add(fab, faCheckSquare, faCoffee, fas)
 
 
@@ -60,6 +62,9 @@ function App() {
         <Route path="/userpanel" element= {<UserPanel/>}/>
         <Route path= "/userpurchases" component={<UserPurchases/>}/>
         <Route path= "/userpurchase/:id" element={<PurchaseDetail/>}/>
+        <Route path= "/managequestions" element={<ManageQuestions/>}/>
+        <Route path= "/qas/:id" element={<AnswerQuestion/>}/>
+     
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
       </Routes>
     </div>

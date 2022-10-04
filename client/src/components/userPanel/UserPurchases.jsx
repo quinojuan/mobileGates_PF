@@ -23,10 +23,12 @@ export default function UserPurchases(){
         <h1>userPurchases</h1>
         {console.log("logged:",logged)}
         {console.log("userLogin:",userLogin)}
+         <NavBar/>
         {userLogin.length ? userLogin : "Aun no hay compras"}
-        <button>
+          <button>
             <Link to= "/userpanel">Volver</Link>
-        </button>
+           </button>
+         <Footer/>
         </div>
     )
 

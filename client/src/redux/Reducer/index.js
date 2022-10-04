@@ -290,6 +290,7 @@ function rootReducer(state = initialState, action) {
 				...state,
 				qas: action.payload,
 			};
+	   
 
 		case 'GET_USER_DATA':
 			return {
