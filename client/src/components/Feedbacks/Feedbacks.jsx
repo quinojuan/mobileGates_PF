@@ -18,7 +18,7 @@ const addCartButton = {
   }
 
 
-export default function Feedback({ email, model }) {
+export default function Feedbacks({ email, model }) {
   const myProducts = useSelector((state) => state.details);
   const dispatch = useDispatch();
   const [feedback, setFeedback] = useState({

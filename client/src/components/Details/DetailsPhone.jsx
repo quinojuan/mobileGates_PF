@@ -111,7 +111,7 @@ export default function DetailsPhone(props) {
           
                   {img ? (
                     <img
-                    src={img}
+                    src={img.includes("http") ? img : `data:image/jpeg;base64,${img}`}
                     alt="Not found"
                     style={image}
                     // width="200px"

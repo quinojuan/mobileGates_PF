@@ -5,7 +5,7 @@ import { useAuth } from "../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
-import { getProductsByNameAndFilters, setSearch } from "../../redux/Actions";
+import { getProductsByNameAndFilters, getUsers, setSearch } from "../../redux/Actions";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loading from "../Loading/Loading";
@@ -38,7 +38,9 @@ export default function NavBar() {
     await logout();
     navigate("/home/");
   };
-
+  useEffect(()=>{
+    dispatch(getUsers())
+  },[dispatch])
   function handleReload(e) {
     e.preventDefault();
     window.location.reload();

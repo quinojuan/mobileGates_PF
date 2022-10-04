@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 import { getQas, updateQa } from "../../redux/Actions"
 
 
-export default function ModifyUser() {
+export default function ManageQuestions() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userQuestions = useSelector((state) => state.qas)

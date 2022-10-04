@@ -5,7 +5,8 @@ import { useNavigate, Link, Navigate } from "react-router-dom";
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import { getPurchase, getUsers } from "../../redux/Actions";
-import { useAuth } from '../Context/authContext';
+import Feedback from "../Feedbacks/Feedbacks"
+
 
 export default function UserPurchases(){
     const dispatch=useDispatch()
@@ -23,11 +24,23 @@ export default function UserPurchases(){
         dispatch(getPurchase())
     }, [dispatch])
     return (
+        
         <div>
+            <NavBar/>
             {purchases.length ? purchases.map((s)=>{
                 return(
                     <div> 
-                        <h1>ID de compra: {s.id}</h1>
+                        <h1>Tu compra: {s.products.map((s)=>{
+                            return(
+                            <div>
+                            <p>{s.phone}</p>
+                            <p>{s.quantity}</p>
+                            <Feedback
+                                model={s.phone}
+                                email={logged.email}
+                            />
+                            </div>
+            )})}</h1>
                         <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button>
                     </div>
                 )
@@ -41,7 +54,7 @@ export default function UserPurchases(){
                     
                 
             
-            
+            <Footer/>
          
         </div>
     )
