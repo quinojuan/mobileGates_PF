@@ -300,6 +300,7 @@ function rootReducer(state = initialState, action) {
 				...state,
 				loggedUser: { ...state.loggedUser, displayName: action.payload.name }, // password: action.payload.password (ver si la necesito)
 			};
+			
 
 		default:
 			return state;

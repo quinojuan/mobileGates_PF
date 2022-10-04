@@ -3,7 +3,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getUsers, getPurchase, getPurchasesDetail } from "../../redux/Actions";
+import { getUsers, getPurchase, getPurchasesDetail, getCleanPurchases } from "../../redux/Actions";
 import { useParams, Link } from "react-router-dom";
 
 
@@ -19,6 +19,7 @@ export default function PurchaseDetail(){
     
     useEffect(()=>{
         dispatch(getPurchase())
+        
     },[dispatch])
     return(
     <div>
@@ -29,11 +30,13 @@ export default function PurchaseDetail(){
     {
                 purchases.length > 0 ?
                     <div>
-                        <h3 >Dirección: {purchases[0].adress}</h3>
-                        <h3>Productos {purchases[0].products.map(s => s.phone).join(" || ")}</h3>
-                        <h3>Amount: ${purchases[0].amount}</h3>
-                        <h5 >DNI: {purchases[0].dni}</h5>
-                        <h5>Fecha de nacimiento:{purchases[0].birthday} </h5>
+                        <h1>Detalles del pedido</h1>
+                        <h5>Total: ${myPurchase[0].amount} </h5>
+                        <h5>Productos: {myPurchase[0].products.map(s => s.phone).join(" , ")}</h5>
+                        <h3>Dirección de facturación</h3>
+                        <h5 >Dirección: {myPurchase[0].adress}</h5>
+                        <h5 >DNI: {myPurchase[0].dni}</h5>
+                        <h5>Fecha de nacimiento:{myPurchase[0].birthday} </h5>
                     </div> : <div><div><h4>Loading...</h4></div></div>
             }
             
