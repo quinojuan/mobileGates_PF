@@ -50,12 +50,10 @@ export default function Home() {
 		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
 	const search = useSelector((s) => s.search);
-	const [price, setPrice]= useState("")
-	//console.log(allProducts);
+	const [price, setPrice]= useState("");
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
-	const USERS  = useSelector(state=>state.users)
 	useEffect(() => {
 		dispatch(getUsers())
 		dispatch(getCart());
