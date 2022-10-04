@@ -28,12 +28,8 @@ const initialState = {
 	allFeedbacks: [],
 	qas: [],
 	loggedUser: {},
-<<<<<<< HEAD
     purchasesDetail: [],
 	usersAdmins: [],
-=======
-	purchasesDetail: [],
->>>>>>> d8b63e4dc15415ba4363604bca13f18d1c52dcd4
 };
 
 function rootReducer(state = initialState, action) {
@@ -305,10 +301,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				loggedUser: { ...state.loggedUser, displayName: action.payload.name }, // password: action.payload.password (ver si la necesito)
 			};
-<<<<<<< HEAD
-			
-
-=======
 		case 'MODIFY_USER':
 			let newUsers = state.users.filter(
 				(user) => user.id !== action.payload.id
@@ -317,7 +309,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				users: [...newUsers, action.payload],
 			};
->>>>>>> d8b63e4dc15415ba4363604bca13f18d1c52dcd4
 		default:
 			return state;
 	}

@@ -74,47 +74,12 @@ function App() {
 						<Route path="/managequestions" element={<ManageQuestions />} />
 						<Route path="/qas/:id" element={<AnswerQuestion />} />
 
-<<<<<<< HEAD
-    <BrowserRouter>
-    <div className="App">
-      <Routes>
-        <Route exact path="/" element = {<Landing/>} />
-        <Route exact path = '/products/Cart' element = {
-          <ProtectedRoute>
-          <Cart/>
-          </ProtectedRoute>
-        }/>
-        <Route exact path="/home/purchase" element= {<FormPurchase/>}/>
-        <Route exact path = '/home' element = {<Home/>}/>
-        <Route path="/products/:id" element= {<DetailsPhone/>}/>
-        <Route path="/home/login" element= {<Login/>}/>
-        <Route path="/home/createuser" element= {<CreateUser/>}/>
-        <Route path="/contacto" element= {<Contact/>}/>
-        <Route path="/adminpages" element= {<AdminPages/>}/>
-        <Route path="/addphone" element= {<AddPhone/>}/>
-        <Route path="/phonestable" element= {<PhonesTable/>}/>
-        <Route path="/modifyphone/:id" element= {<ModifyPhone/>}/>
-        <Route path="/manageuser" element= {<ManageUser/>}/>
-        <Route path="/modifyuser/:id" element= {<ModifyUser/>}/>
-        <Route path="/check" element= {<Checkout/>}/>
-        <Route path="/allpurchases" element= {<AllPurchases/>}/>
-        <Route path="/userpanel" element= {<UserPanel/>}/>
-        {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
-        <Route path= "/userpurchases" element={<UserPurchases/>}/>
-        <Route exact path= "userpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
-      </Routes>
-    </div>
-    </BrowserRouter>
-    </AuthProvider>
-  );
-=======
 						{/* <Route path="/products/Cart" element= {<Cart/>}/> */}
 					</Routes>
 				</div>
 			</BrowserRouter>
 		</AuthProvider>
 	);
->>>>>>> d8b63e4dc15415ba4363604bca13f18d1c52dcd4
 }
 
 export default App;
