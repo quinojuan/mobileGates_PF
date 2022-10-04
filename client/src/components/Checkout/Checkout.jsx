@@ -7,6 +7,7 @@ import {postPurchase, getCheck, cleanCart} from "../../redux/Actions/index"
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
 
 const addCartButton = {
     color: 'white',
@@ -60,11 +61,14 @@ const CheckOutForm = () =>{
         
     };
 
-    return <form onSubmit={handleSubmit}>
-        <div class="" >
-        <CardElement/>
+    return <form onSubmit={handleSubmit} class='card card-body'>
+        <img src="https://static.vecteezy.com/system/resources/previews/006/059/902/original/three-credit-cards-icon-debit-card-sign-free-vector.jpg" 
+            alt="" 
+            class='img-fluid' />
+        <div class='form-group'>
+        <CardElement class='form-control'/>
         </div>
-        <button class='btn btn-primary text-decoration-none text-light w-50' style={addCartButton}>BUY</button>
+        <button class='btn btn-primary text-decoration-none text-light' style={addCartButton}>Comprar</button>
     </form>
     
 };
@@ -73,7 +77,20 @@ const CheckOutForm = () =>{
 export default function Checkout(){
     return(
         <Elements stripe={stripePromise}>
-        <CheckOutForm/>
+            <NavBar/>
+            <div className='list-group-item-secondary'>
+            <div className='jumbotron jumbotron-fluid text-center py-2'>
+            <h4 className='display-4 mt-5'> Metodo de pago </h4>
+            </div>
+            </div>
+            <hr/>
+        <div class='container p-4'>
+            <div class='row'>
+                <div class='col-md-4 offset-md-4'>
+                    <CheckOutForm/>
+                </div>
+            </div>
+        </div>
         </Elements>
     );
 };

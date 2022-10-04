@@ -9,6 +9,19 @@ import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 import { useAuth } from '../Context/authContext';
 
+
+const addCartButton = {
+    color: 'white',
+    backgroundColor: 'DodgerBlue',
+    margin: '10px',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    borderRadius: '5px',
+    fontSize: '15px',
+  }
+
 export default function FormPurchase() {
     const { user } = useAuth()
 
@@ -109,7 +122,7 @@ export default function FormPurchase() {
     return (
         <div>
         <NavBar/>
-        <div >
+        <div>
             {/* <Link to="/home">
                 <span >back</span>
             </Link> */}
@@ -127,7 +140,7 @@ export default function FormPurchase() {
                 </div> */}
                 <div className='list-group-item-secondary'>
                 <div className='jumbotron jumbotron-fluid text-center py-2'>
-            <h4 className='display-4 mt-3'> Confirmación de Compra </h4>
+            <h4 className='display-4 mt-5'> Confirmación de Compra </h4>
             <hr />
             <p className='lead'>
               {' '}
@@ -153,7 +166,7 @@ export default function FormPurchase() {
                     }
                 </div>
                     </div> */}
-                    <div className='col-md-12 mb-2'>
+                    <div className='col-md-12 mb-2 mt-3'>
                 <label >DNI</label>
                 <div>
                     <input
@@ -206,7 +219,7 @@ export default function FormPurchase() {
                         {carts?.map((s)=>(<img src={s.image}/>))}
                 </div> */}
                 <div className='sendEmail'>
-                <button className='btn btn-primary' type="submit" onSubmit={(e)=>handleSubmit(e)}>Ir al metodo de pago</button>
+                <button class='btn btn-primary text-decoration-none text-light' style={addCartButton} type="submit" onSubmit={(e)=>handleSubmit(e)}>Ir al metodo de pago</button>
                 </div>
             </form>
 

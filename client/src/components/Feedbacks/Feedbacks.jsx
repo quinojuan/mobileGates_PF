@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { postFeedback } from "../../redux/Actions";
+import './Feedbacks.css'
 
-const addCartButton = {
-  color: 'black',
-  backgroundColor: 'white',
-  margin: '10px',
-  paddingLeft: '15px',
-  paddingRight: '15px',
-  paddingTop: '8px',
-  paddingBottom: '8px',
-  borderRadius: '5px',
-  fontSize: '15px',
-  borderColor: 'DodgerBlue',
-  borderWidth:'1px',
-  }
+// const addCartButton = {
+//   color: 'black',
+//   backgroundColor: 'white',
+//   margin: '10px',
+//   paddingLeft: '15px',
+//   paddingRight: '15px',
+//   paddingTop: '8px',
+//   paddingBottom: '8px',
+//   borderRadius: '5px',
+//   fontSize: '15px',
+//   borderColor: 'DodgerBlue',
+//   borderWidth:'1px',
+//   }
+
 
 
 export default function Feedback({ email, model }) {
@@ -120,12 +123,11 @@ export default function Feedback({ email, model }) {
 
               placeholder='Mi producto me pareció...'
             />
-            <input
-              className='text-right btn btn-outline-info mt-2'
-              type='submit'
-              value='Enviar reseña'
-              style={addCartButton}
-            />
+            
+            <button className="button">
+              Enviar reseña
+            </button>
+              
           </form>
     </div>
   );

@@ -133,11 +133,10 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li> */}
                 <li className="nav-item">
-                  <a className="nav-link active" href="#" onClick={() => navigate("/products/Cart")}>
+                  <a type='button' className="nav-link active" href="#" style={buttonStyle}  onClick={() => navigate("/products/Cart")}>
                   <FontAwesomeIcon 
                     icon="fa-solid fa-cart-shopping" 
-                    className='h5 me-2'
-                    style={{ color: 'DodgerBlue' }}
+                    style={{ color: 'white' }}
                     />
                     </a>
                 </li>
@@ -147,10 +146,10 @@ export default function NavBar() {
                     <FontAwesomeIcon icon={['fas', 'user']} /> {user.email.split('@')[0]}
                       {/* {console.log(user)} */}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
-                      <a class="dropdown-item" href="/adminpages">Panel del admin</a>
-                      <a className="dropdown-item" href="#" onClick={handleLogout}>Cerrar sesión</a>
+                      <a class="dropdown-item text-light" href="/adminpages">Panel del admin</a>
+                      <a className="dropdown-item text-light" href="#" onClick={handleLogout}>Cerrar sesión</a>
                     </div>
                   </div>
                 </li>
