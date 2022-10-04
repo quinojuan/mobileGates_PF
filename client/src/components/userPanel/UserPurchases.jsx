@@ -21,7 +21,7 @@ export default function UserPurchases(){
     useEffect(()=>{
         dispatch(getUsers());
         dispatch(getPurchase())
-    }, [])
+    }, [dispatch])
     return (
         <div>
             {purchases.length ? purchases.map((s)=>{
