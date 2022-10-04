@@ -22,15 +22,9 @@ import AddPhone from './components/AdminPages/AddPhone';
 import ManageUser from './components/AdminPages/ManageUser';
 import ModifyPhone from './components/AdminPages/ModifyPhone';
 import PhonesTable from './components/AdminPages/PhonesTable';
-<<<<<<< HEAD
 import ModifyUser from './components/AdminPages/ModifyUser';
 import AllPurchases from "./components/AdminPages/AllPurchases"
 import UserPanel from './components/userPanel/userPanel';
-=======
-import ModifyUser from './components/AdminPages/ModifyUser'
-import AllPurchases from "./components/AdminPages/AllPurchases"
-import UserPanel from './components/userPanel/UserPanel';
->>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
 import UserPurchases from './components/userPanel/UserPurchases';
 import PurchaseDetail from "./components/userPanel/PurchaseDetail"
 library.add(fab, faCheckSquare, faCoffee, fas)
@@ -68,14 +62,9 @@ function App() {
         <Route path="/check" element= {<Checkout/>}/>
         <Route path="/allpurchases" element= {<AllPurchases/>}/>
         <Route path="/userpanel" element= {<UserPanel/>}/>
-<<<<<<< HEAD
-=======
-        <Route path= "/userpurchases" component={<UserPurchases/>}/>
-        <Route path= "/userpurchase/:id" element={<PurchaseDetail/>}/>
->>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
-        <Route exact path= "/userpurchases" component={<UserPurchases/>}/>
-        <Route path= "/userpurchase/:id" element={<PurchaseDetail/>}/>
+        <Route path= "/userpurchases" element={<UserPurchases/>}/>
+        <Route exact path= "userpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
       </Routes>
     </div>
     </BrowserRouter>

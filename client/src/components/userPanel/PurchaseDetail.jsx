@@ -9,29 +9,34 @@ import { useParams, Link } from "react-router-dom";
 
 export default function PurchaseDetail(){
     const dispatch= useDispatch();
-    const myProfiles= useSelector((state)=>state.purchases);
+    // const myProfiles= useSelector((state)=>state.purchases);
+    const details=useSelector((state)=>state.purchasesDetail)
+    const purchases=useSelector((state)=>state.purchases)
+    const {id} = useParams();
+    let myPurchase=purchases&&purchases.filter((s)=>s.id===id)
+    console.log(details)
 
-const {id} = useParams();
-useEffect(()=>{
-    dispatch(getPurchasesDetail(id))
-},[dispatch,id])
+    
+    useEffect(()=>{
+        dispatch(getPurchase())
+    },[dispatch])
     return(
     <div>
     <Link to= "/userpurchases">
         <button>Volver</button>
     </Link>
     
-    { 
-        Object(myProfiles).length!==0? <div >
-        <div>
-            <h1>{myProfiles&&myProfiles.name}</h1>
-             
-        </div>
-        <img src={myProfiles&&myProfiles.image} alt="Not found" width="200px" height="200px" />
-       <div>
-     
-     </div>
-    </div> : <div>Loading...</div>}
+    {
+                purchases.length > 0 ?
+                    <div>
+                        <h3 >Dirección: {purchases[0].adress}</h3>
+                        <h3>Productos {purchases[0].products.map(s => s.phone).join(" || ")}</h3>
+                        <h3>Amount: ${purchases[0].amount}</h3>
+                        <h5 >DNI: {purchases[0].dni}</h5>
+                        <h5>Fecha de nacimiento:{purchases[0].birthday} </h5>
+                    </div> : <div><div><h4>Loading...</h4></div></div>
+            }
+            
     </div>
  
 )}

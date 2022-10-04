@@ -10,9 +10,6 @@ import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
 import Qas from "../Qas/Qas";
-<<<<<<< HEAD
-
-=======
 import './DetailsPhone.css'
 
 
@@ -32,7 +29,6 @@ const image = {
   maxWidth: '500px',
   width: '100%',
 }
->>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
 
 export default function DetailsPhone(props) {
   const navigate = useNavigate();
@@ -40,18 +36,6 @@ export default function DetailsPhone(props) {
   const { id } = useParams();
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
-<<<<<<< HEAD
-  const [count, setCount]= useState(1)
-  const usuarioLogeado = useSelector(state=>state.loggedUser)
-  const feedbacks = useSelector((state)=>state.allFeedbacks)
-  console.log("USUARIO LOGEADO:", usuarioLogeado)
-    function decrease(){
-        setCount(count-1)
-    }
-    function increase(){
-        setCount(count+1)
-    }
-=======
   const [count, setCount] = useState(1);
   const usuarioLogeado = useSelector((state) => state.loggedUser);
   const feedbacks = useSelector((state) => state.allFeedbacks);
@@ -65,7 +49,6 @@ export default function DetailsPhone(props) {
   function increase() {
     setCount(count + 1);
   }
->>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
   useEffect(() => {
     !Object.keys(myProducts).length && dispatch(getPhonesById(id));
     Object.keys(myProducts).length && setImg(myProducts.image);
@@ -176,51 +159,6 @@ export default function DetailsPhone(props) {
           <h4>¿Qué te pareció tu producto?</h4>
           
             <Feedback
-<<<<<<< HEAD
-            model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {usuarioLogeado?usuarioLogeado.email:"email invalido"}
-            />
-          </div>
-          <hr></hr>
-          <h2>Preguntas sobre el producto:</h2>
-          <div>
-            <Qas
-            model = {myProducts?myProducts.model:"modelo inexistente"}
-            email = {usuarioLogeado?usuarioLogeado.email:"email invalido"}
-            />
-          </div>
-          <hr></hr>
-           <div>
-            {feedbacks.length>0?feedbacks.map((e)=> { 
-              return(
-                <>
-                <div>
-                  <a>{e.title}</a>
-                  <br/>
-                  <a>de: {e.email}</a>
-                  <br/>
-                  <a>{e.points}</a>
-                  <br/>
-                  <a>Reseña: </a>
-                  <br/>
-                  <a>{e.comment}</a>
-                </div>
-                <br/>
-                </>
-              )
-              })
-            : null
-          }
-          </div> 
-          <div>
-            <button class="btn btn-dark" onClick={() => handleBack()}>
-              Volver
-            </button>
-          </div>
-          <Footer />
-        </div>
-      }
-=======
               model={myProducts ? myProducts.model : "modelo inexistente"}
               email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
               />
@@ -305,7 +243,6 @@ export default function DetailsPhone(props) {
               </div>
       
       <Footer />
->>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
       {/* <div>
             <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js" ></script>
             <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet" ></link>

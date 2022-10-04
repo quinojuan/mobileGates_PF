@@ -150,14 +150,7 @@ export default function Cart() {
         Volver
         </Link>
       </div> */}
-<<<<<<< HEAD
-      <Footer />
-    </div>
-  );
-}
-=======
 			<Footer />
 		</div>
 	);
 }
->>>>>>> 6887edcf485683e9643e4282de6f5476665ae09d
