@@ -26,7 +26,7 @@ export default function UserPurchases(){
             {purchases.length ? purchases.map((s)=>{
                 return(
                     <div> 
-                        <h1>ID de compra: {s.id}</h1>
+                        <h1>Tu compra: {s.products.map(s=>s.phone).join(" || ")}</h1>
                         <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button>
                     </div>
                 )
