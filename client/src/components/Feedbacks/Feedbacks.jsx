@@ -1,59 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { postFeedback } from "../../redux/Actions";
+import './Feedbacks.css'
 
-const addCartButton = {
-  color: 'black',
-  backgroundColor: 'white',
-  margin: '10px',
-  paddingLeft: '15px',
-  paddingRight: '15px',
-  paddingTop: '8px',
-  paddingBottom: '8px',
-  borderRadius: '5px',
-  fontSize: '15px',
-  borderColor: 'DodgerBlue',
-  borderWidth:'1px',
-  }
+// const addCartButton = {
+//   color: 'black',
+//   backgroundColor: 'white',
+//   margin: '10px',
+//   paddingLeft: '15px',
+//   paddingRight: '15px',
+//   paddingTop: '8px',
+//   paddingBottom: '8px',
+//   borderRadius: '5px',
+//   fontSize: '15px',
+//   borderColor: 'DodgerBlue',
+//   borderWidth:'1px',
+//   }
 
 
-export default function Feedback({ email, model }) {
+export default function Feedbacks({ email, model }) {
   const myProducts = useSelector((state) => state.details);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [feedback, setFeedback] = useState({
     title: "",
     comment: "",
     points: 0,
   });
 
-
   const handleChange = (e) => {
-    e.preventDefault();
-    //console.log("Email ES:", email);
-    //console.log("model es:", model);
-    if (e.target.name === "points") {
-      setFeedback({
-        ...feedback,
-        [e.target.name]: Number(e.target.value),
-      });
-    } else {
-      setFeedback({
-        ...feedback,
-        [e.target.name]: e.target.value,
-      });
-    }
-    console.log("FEEDBACK ES:", feedback);
-  };
+    console.log(e.target.value, "EL VALUE")
+    e.preventDefault()
+    setFeedback({
+      ...feedback,
+      [e.target.name]: e.target.value
+    })
+  }
 
-  //useEffect(() => {}, []);
-
-  function post() {
+const post = () =>{
     console.log("feedback para post es:", feedback);
     dispatch(postFeedback({
       title: feedback.title,
       comment: feedback.comment,
-      points: feedback.points,
+      points: Number(feedback.points),
       email: email,
       model: model
     }));
@@ -62,6 +53,7 @@ export default function Feedback({ email, model }) {
       comment: "",
       points: 0,
     });
+    navigate("/userpanel")
   }
 
   return (
@@ -71,61 +63,60 @@ export default function Feedback({ email, model }) {
               <p className='clasificacion'>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='5'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='4'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='3'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='2'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='1'
                 />
                 <label className='label'>★</label>
               </p>
             
             <label>Agrega un comentario</label>
-            <textarea
+            <input type="text"
               className='form-control'
               rows='3'
-              name='comments'
-              onChange={handleChange}
+              name='comment'
+              onChange={(e)=>handleChange(e)}
 
               placeholder='Mi producto me pareció...'
             />
-            <input
-              className='text-right btn btn-outline-info mt-2'
-              type='submit'
-              value='Enviar reseña'
-              style={addCartButton}
-            />
+            
+            <button className="button" onClick={()=>post()}>
+              Enviar reseña
+            </button>
+              
           </form>
     </div>
   );

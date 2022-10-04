@@ -11,6 +11,7 @@ import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
 import Questions from "../Qas/Questions";
 import Qas from "../Qas/Qas"
+import PhoneFeedbacks from "../Feedbacks/PhoneFeedbacks"
 import './DetailsPhone.css'
 
 
@@ -111,7 +112,7 @@ export default function DetailsPhone(props) {
           
                   {img ? (
                     <img
-                    src={img}
+                    src={img.includes("http") ? img : `data:image/jpeg;base64,${img}`}
                     alt="Not found"
                     style={image}
                     // width="200px"
@@ -157,12 +158,6 @@ export default function DetailsPhone(props) {
           </div>
           
           <hr/>
-          <h4>¿Qué te pareció tu producto?</h4>
-          
-            <Feedback
-              model={myProducts ? myProducts.model : "modelo inexistente"}
-              email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
-              />
         
               <hr/>
               <h3 class="d-flex fw-normal">Especificación</h3>
@@ -251,6 +246,11 @@ export default function DetailsPhone(props) {
                     model= {myProducts.model ? myProducts.model : "modelo invalido"}
                     email= {usuarioLogeado ? usuarioLogeado.email : "email invalido"}
                    />
+                </div>
+                <div>
+                  <PhoneFeedbacks
+                  model= {myProducts.model ? myProducts.model : "modelo invalido"}
+                  />
                 </div>
                 
               </div>

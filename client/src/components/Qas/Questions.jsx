@@ -19,7 +19,7 @@ export default function Questions({email,model}) {
       });
   };
 
-  function post() {
+  const post = () => {
     dispatch(postQa({
       questions: qa.question,
       email: email,

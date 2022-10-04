@@ -16,10 +16,10 @@ import { getUserData, setUserDisplayName } from '../../redux/Actions';
 const authContext = createContext();
 
 export const useAuth = () => {
-	const userLogeado = useSelector((state) => state.loggedUser);
 	const dispatch = useDispatch();
+	const context =  useContext(authContext);
+	const userLogeado =  useSelector((state) => state.loggedUser);
 
-	const context = useContext(authContext);
 
 	const { user } = context;
 	if (user) {

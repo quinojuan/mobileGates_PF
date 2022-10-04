@@ -15,6 +15,7 @@ import {
 	getSortByPrice,
 	getClean,
 	getFeedbacks,
+	getUsers,
 	getQas
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
@@ -49,13 +50,12 @@ export default function Home() {
 		allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
 	const search = useSelector((s) => s.search);
-	const [price, setPrice]= useState("")
-	//console.log(allProducts);
+	const [price, setPrice]= useState("");
 	const paginado = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
-
 	useEffect(() => {
+		dispatch(getUsers())
 		dispatch(getCart());
 		dispatch(getCategories());
 		dispatch(getRams())

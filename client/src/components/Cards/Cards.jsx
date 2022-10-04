@@ -55,7 +55,7 @@ function acomodarPrecio(precio) {
           key={id}
           to={`/products/${id}`}
         >
-          <img src={image} style={{ height: '220px' }} class="card-img-top img-fluid bg-light"
+          <img src={image.includes("http") ? image : `data:image/jpeg;base64,${image}`} style={{ height: '220px' }} class="card-img-top img-fluid bg-light"
             alt="img not found"></img>
         </Link>
         {stock?
