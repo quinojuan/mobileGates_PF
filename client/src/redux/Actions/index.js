@@ -449,6 +449,19 @@ export const setAdmin = (id) => async (dispatch) => {
 		.get(`http://localhost:3001/users/${id}`)
 		.then((response) => response.data);
 	user.admin = !user.admin;
+	if (user.admin)
+		Swal.fire(
+			'Nuevo admin!',
+			`El usuario con el email ${user.email} es un nuevo admin!`,
+			'success'
+		);
+	else
+		Swal.fire(
+			'Quitado admin',
+			`El usuario con el email ${user.email} ya no es más un admin!`,
+			'info'
+		);
+
 	await axios.put('http://localhost:3001/users/' + id, user);
 	dispatch({
 		type: 'MODIFY_USER',
@@ -461,6 +474,18 @@ export const setActive = (id) => async (dispatch) => {
 		.get(`http://localhost:3001/users/${id}`)
 		.then((response) => response.data);
 	user.active = !user.active;
+	if (user.active)
+		Swal.fire(
+			'Desbaneado!',
+			`El usuario con el email ${user.email} ya no está más baneado!`,
+			'info'
+		);
+	else
+		Swal.fire(
+			'Baneado!',
+			`El usuario con el email ${user.email} ahora está baneado!`,
+			'warning'
+		);
 	await axios.put('http://localhost:3001/users/' + id, user);
 	dispatch({
 		type: 'MODIFY_USER',
