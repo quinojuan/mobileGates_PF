@@ -26,8 +26,10 @@ import ModifyUser from './components/AdminPages/ModifyUser';
 import AllPurchases from "./components/AdminPages/AllPurchases"
 import UserPanel from './components/userPanel/userPanel';
 import UserPurchases from './components/userPanel/UserPurchases';
-import PurchaseDetail from "./components/userPanel/PurchaseDetail"
+import ManageQuestions from "./components/AdminPages/ManageQuestions";
 import AnswerQuestion from "./components/AdminPages/AnswerQuestion"
+import PurchaseDetail from "./components/userPanel/PurchaseDetail"
+
 library.add(fab, faCheckSquare, faCoffee, fas)
 
 
@@ -61,10 +63,12 @@ function App() {
         <Route path="/manageuser" element= {<ManageUser/>}/>
         <Route path="/modifyuser/:id" element= {<ModifyUser/>}/>
         <Route path="/check" element= {<Checkout/>}/>
+        <Route path= "/managequestions" element={<ManageQuestions/>}/>
         <Route path="/allpurchases" element= {<AllPurchases/>}/>
         <Route path="/userpanel" element= {<UserPanel/>}/>
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
         <Route path= "/userpurchases" element={<UserPurchases/>}/>
+        <Route path= "/qas/:id" element={<AnswerQuestion/>}/>
         <Route exact path= "userpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
       </Routes>
     </div>
