@@ -7,10 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../../images/google.png";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { addUser } from "../../redux/Actions";
-import { useDispatch } from "react-redux";
+import { addUserToDb } from "../../redux/Actions";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
+  
+  const loggedUser = useSelector(state => state.loggedUser)
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
@@ -32,7 +34,7 @@ export default function Login() {
       e.preventDefault();
       setError("");
       await login(newUser.email, newUser.password);
-      dispatch(addUser(newUser));
+      // dispatch(addUserToDb(loggedUser));
       navigate("/home/");
       Swal.fire("Inicio exitoso");
     } catch (error) {

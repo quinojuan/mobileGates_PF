@@ -26,7 +26,7 @@ export default function AddProducts({id, quantity}){
     
     const dispatch=useDispatch()
     const cart = useSelector((state)=>state.cart)
-    const { user, logout, loading } = useAuth()
+    const { user } = useAuth()
     const products = useSelector((state)=>state.products)
     let product = products.filter((e)=>e.id === id)
     const [sinAgregar, setSinAgregar]=useState((true))

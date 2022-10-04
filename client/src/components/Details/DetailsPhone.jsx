@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPhonesById, getClean } from "../../redux/Actions";
+import { getPhonesById, getClean, getFeedbacks } from "../../redux/Actions";
 import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -9,7 +9,8 @@ import AddProducts from "../AddProducts/AddProducts";
 import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
-import { useAuth } from '../Context/authContext';
+import Questions from "../Qas/Questions";
+import Qas from "../Qas/Qas"
 import './DetailsPhone.css'
 
 
@@ -36,8 +37,9 @@ export default function DetailsPhone(props) {
   const { id } = useParams();
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
-  const [count, setCount] = useState(1)
-  const { user } = useAuth()
+  const [count, setCount] = useState(1);
+  const usuarioLogeado = useSelector((state) => state.loggedUser);
+  const feedbacks = useSelector((state) => state.allFeedbacks);
 
   const allProducts = useSelector(state => state.products)
   const myProductWithBrand = allProducts.filter((e)=> e.id == id)
@@ -58,6 +60,9 @@ export default function DetailsPhone(props) {
     navigate("/home");
   }
 
+  useEffect(() => {
+    dispatch(getFeedbacks());
+  }, [dispatch]);
 
   function handleSelectImage(e) {
     e.preventDefault();
@@ -156,14 +161,9 @@ export default function DetailsPhone(props) {
           
             <Feedback
               model={myProducts ? myProducts.model : "modelo inexistente"}
-              email={user ? user.email : "email invalido"}
+              email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
               />
-          {/* </div> */}
-          {/* <div>
-            <button class="btn btn-dark" onClick={() => handleBack()}>
-              Volver
-            </button>
-          </div> */}
+        
               <hr/>
               <h3 class="d-flex fw-normal">Especificación</h3>
               <br/>
@@ -239,6 +239,19 @@ export default function DetailsPhone(props) {
                      : {myProducts.weight} g
                    </p>
                 </span>
+                <hr/>
+                
+                  <Questions
+                  email= {usuarioLogeado.email}
+                  model= {myProducts.model}
+                  />
+                <hr/>
+                <div>
+                   <Qas
+                    model= {myProducts.model ? myProducts.model : "modelo invalido"}
+                    email= {usuarioLogeado ? usuarioLogeado.email : "email invalido"}
+                   />
+                </div>
                 
               </div>
               </div>
@@ -254,17 +267,14 @@ export default function DetailsPhone(props) {
                 <li><img src="https://source.unsplash.com/nKAglN6HBH8/1600x900" style={{maxWidth: '100%', height: 'auto'}}></img></li>
                 <li><img src="https://source.unsplash.com/E9ZwWcMGzj8/1600x900" style={{maxWidth: '100%', height: 'auto'}}></img></li>
             </ul>
-
             <button type="button" className="slider-nav"></button>
             <button type="button" className="slider-nav slider-nav-next"></button>
-
             <div className="slider-indicators">
                 <button className="active"></button>
                 <button></button>
                 <button></button>
             </div>
 </div>
-
     </div> */}
     </div>
   );
