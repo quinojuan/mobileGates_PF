@@ -4,21 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getUsers, deleteUser, setAdmin, setActive } from '../../redux/Actions';
+import Spinner from '../Spinner/Spinner';
 
 export default function ManageUser() {
 	const allUsers = useSelector((state) => state.users);
+	const loading = useSelector((state) => state.loading);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	console.log(allUsers);
 	useEffect(() => {
 		dispatch(getUsers());
 	}, [dispatch]);
-
-	const handleDelete = (e) => {
-		console.log(e, 'acaso es el id?');
-		dispatch(deleteUser(e));
-		document.location.reload();
-	};
 
 	const goBack = () => {
 		navigate('/adminpages');
@@ -28,10 +24,14 @@ export default function ManageUser() {
 		console.log(e);
 		if (e.target.name === 'admin') {
 			console.log('admin');
+
 			dispatch(setAdmin(e.target.id));
+			dispatch(getUsers());
 		} else if (e.target.name === 'active') {
 			console.log('active');
 			dispatch(setActive(e.target.id));
+			dispatch(getUsers());
+			document.location.reload();
 		}
 	};
 
@@ -54,48 +54,54 @@ export default function ManageUser() {
 						</tr>
 					</thead>
 					<tbody>
-						{allUsers.length ? (
-							allUsers.map((user) => (
-								<tr>
-									<td>{user.name}</td>
-									<td>{user.email}</td>
-									<td>
-										{user.admin ? (
+						{!loading ? (
+							allUsers.length ? (
+								allUsers.map((user) => (
+									<tr>
+										<td>{user.name}</td>
+										<td>{user.email}</td>
+										<td>
+											{user.admin ? (
+												<input
+													id={user.id}
+													onChange={handleCheckbox}
+													name="admin"
+													class="form-check-input"
+													type="checkbox"
+													disabled={!user.emailVerified}
+													checked
+												/>
+											) : (
+												<input
+													id={user.id}
+													onChange={handleCheckbox}
+													name="admin"
+													class="form-check-input"
+													type="checkbox"
+													disabled={!user.emailVerified}
+												/>
+											)}
+										</td>
+										<td>
 											<input
 												id={user.id}
 												onChange={handleCheckbox}
-												name="admin"
+												name="active"
 												class="form-check-input"
 												type="checkbox"
-												checked
+												checked={user.active}
 											/>
-										) : (
-											<input
-												id={user.id}
-												onChange={handleCheckbox}
-												name="admin"
-												class="form-check-input"
-												type="checkbox"
-											/>
-										)}
-									</td>
-									{/*CHECKBOX ADMIN*/}
-									<td>
-										<input
-											id={user.id}
-											onChange={handleCheckbox}
-											name="active"
-											class="form-check-input"
-											type="checkbox"
-											checked={user.active}
-										/>
-									</td>
-									{/* CHECKBOX ACTIVO */}
-									<td>SI</td> {/* Verificado (USAR FIREBASE)*/}
-								</tr>
-							))
+										</td>
+										<td>{user.emailVerified ? '✅' : '❌'}</td>
+									</tr>
+								))
+							) : (
+								<td colSpan="5">No se encontró ningun usuario...</td>
+							)
 						) : (
-							<td colSpan="4">No se encontró ningun usuario..</td>
+							<td colspan="5">
+								<Spinner />
+							</td>
 						)}
 					</tbody>
 				</table>
