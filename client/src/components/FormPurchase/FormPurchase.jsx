@@ -96,15 +96,21 @@ export default function FormPurchase() {
         } else  */
     // dispatch(postPurchase(input))
     // Swal.fire("Compra realizada")
-    setInput({
-      dni: "",
-      adress: "",
-      birthday: "",
-      email: logged.email,
-      products: carts,
-    });
-    dispatch(addInputPurchase(input));
-    navigate("/check");
+    if(!Number(input.dni)){
+      Swal.fire("El DNI solo debe estar compuesto de puntos")
+    }else if(input.dni.length<7 || input.dni.length>8){
+      Swal.fire("INGRESE UN DNI VALIDO")
+    } else{
+      dispatch(addInputPurchase(input));
+      setInput({
+        dni: "",
+        adress: "",
+        birthday: "",
+        email: logged.email,
+        products: carts,
+      });
+      navigate("/check");
+    }
   };
   console.log("ESTAMOS ENTRANDO AL PURCHASE")
   useEffect(() => {
