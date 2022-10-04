@@ -13,7 +13,8 @@ import {
 	getRams,
 	getCapacity,
 	getSortByPrice,
-	getClean
+	getClean,
+	getFeedbacks
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -58,6 +59,7 @@ export default function Home() {
 		dispatch(getCategories());
 		dispatch(getRams())
 		dispatch(getCapacity())
+		dispatch(getFeedbacks())
 		!currentProducts.length && dispatch(getAllProducts());
 	}, [dispatch]);
 
@@ -213,6 +215,7 @@ export default function Home() {
           setProductsPerPage={setProductsPerPage}
         /> */}
 			</div>
+			<div class='mt-3'>
 			<Paginado
 				productsPerPage={productsPerPage}
 				allProducts={allProducts?.length}
@@ -220,6 +223,7 @@ export default function Home() {
 				changePage={changePage}
 				currentPage={currentPage}
 			/>
+			</div>
 			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 justify-content-center'>
 			{buscando?handleBuscando(search):null}
 				{!loading ? (
@@ -232,7 +236,7 @@ export default function Home() {
 										key={s.id}
 										to={`/products/${s.id}`}
 									> */}
-									{console.log("este es mi current card", currentProducts)}
+									{/* {console.log("este es mi current card", currentProducts)} */}
 										<Cards
 											model={s.model}
 											image={s.image}
