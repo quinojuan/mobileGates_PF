@@ -23,16 +23,16 @@ export default function AdminPages() {
   return (
     <div>
       <NavBar />
-      <div className='row p-5 w-100 mt-5' style={{ minHeight: '350px' }}>
+      <div className='row p-5 w-100 mt-5' style={{ minHeight: '800px' }}>
       <div className='col-md-3 text-center'>
-        <h5>Telefono</h5>
+        <h5>Productos</h5>
         <hr />
         <div className='h1 mb-4'>
         <FontAwesomeIcon icon="fa-solid fa-mobile-retro" />
         </div>
         <Link to='/addphone'>
-          <button type='button' className='btn btn-outline-info '>
-            Agregar Telefono
+          <button type='button' className='Sbutton '>
+            Agregar Producto
           </button>
         </Link>
       </div>
@@ -43,7 +43,7 @@ export default function AdminPages() {
         <FontAwesomeIcon icon="fa-solid fa-square-pen" />
         </div>
         <Link to='/phonestable'>
-          <button type='button' className='btn btn-outline-info '>
+          <button type='button' className='Sbutton '>
             Editar Telefono
           </button>
         </Link>
@@ -54,9 +54,33 @@ export default function AdminPages() {
         <div className='h1 mb-4'>
         <FontAwesomeIcon icon="fa-solid fa-user-pen" />
         </div>
-        <Link to='/phonestable'>
-          <button type='button' className='btn btn-outline-info '>
+        <Link to='/manageuser'>
+          <button type='button' className='Sbutton '>
             Ver Usuarios
+          </button>
+        </Link>
+      </div>
+      <div className='col-md-3 text-center'>
+        <h5>Ordenes</h5>
+        <hr />
+        <div className='h1 mb-4'>
+        <FontAwesomeIcon icon="fa-solid fa-box-open" />
+        </div>
+        <Link to='/allpurchases'>
+          <button type='button' className='Sbutton '>
+            Ver Ordenes
+          </button>
+        </Link>
+      </div>
+      <div className='col-md-4 text-center'>
+        <h5>Preguntas</h5>
+        <hr />
+        <div className='h1 mb-4'>
+        <FontAwesomeIcon icon="fa-solid fa-file-circle-question" />
+        </div>
+        <Link to='/managequestions'>
+          <button type='button' className='Sbutton'>
+            Ver Preguntas
           </button>
         </Link>
       </div>
@@ -65,8 +89,8 @@ export default function AdminPages() {
           <a href="/phonestable" class="btn btn-danger">Modificar un producto</a>
           <a href="/manageuser" class="btn btn-dark">Administrar usuarios</a>
         </div> */}
-          <a href="/allpurchases" class="btn btn-dark">Todas las compras</a>
-          <a href="/managequestions" class="btn btn-dark">Preguntas de usuarios</a>
+          {/* <a href="/allpurchases" class="btn btn-dark">Todas las compras</a>
+          <a href="/managequestions" class="btn btn-dark">Preguntas de usuarios</a> */}
         </div>
       
       <Footer/>

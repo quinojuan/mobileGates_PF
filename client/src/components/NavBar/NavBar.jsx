@@ -116,22 +116,19 @@ export default function NavBar() {
                 <li class="nav-item dropdown">
                   <div class="dropdown show">
                     <a
-                      class="nav-link dropdown-toggle text-white"
+                      class="nav-link dropdown-toggle"
+                      style={buttonStyle}
                       role="button"
                       data-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                       <FontAwesomeIcon icon={['fas', 'user']} /> 
-                      Hola, {loggedUser.displayName}
-                      
-                      {/* antes la linea 137 era: */}
-                      {/* user.email.split('@')[0] */}
+                       <FontAwesomeIcon icon={['fas', 'user']}/>  {loggedUser.displayName}
                     </a>
                     <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
                       <a class="dropdown-item text-light" href="/adminpages">Panel del admin</a>
-                      <a class="dropdown-item" href="/userpanel">
+                      <a class="dropdown-item text-light" href="/userpanel">
                         Panel del Usuario
                       </a>
                       <a

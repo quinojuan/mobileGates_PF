@@ -25,15 +25,21 @@ export default function UserPurchases(){
         <div>
             {purchases.length ? purchases.map((s)=>{
                 return(
-                    <div> 
-                        <h1>{s.id}</h1>
-                        <button class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button>
-                    </div>
+                    
+                    <table class="table table-striped w-75 ms-5 mt-5">
+                        <tbody>
+                            <tr>
+                        <td>{s.id}</td>
+                        <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   
                 )
             }):<h1>No realizó compras</h1>}
         
         <button class='btn btn-dark mt-4'>
-            <a href="/userpanel">Volver</a>
+            <a className="nav-link active text-white" href="/userpanel">Volver</a>
         </button>
         
                
