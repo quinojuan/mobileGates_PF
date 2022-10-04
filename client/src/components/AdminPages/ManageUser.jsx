@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getUsers, deleteUser, setAdmin, setActive } from '../../redux/Actions';
 import Spinner from '../Spinner/Spinner';
+import Swal from 'sweetalert2';
 
 export default function ManageUser() {
 	const allUsers = useSelector((state) => state.users);
@@ -21,17 +22,15 @@ export default function ManageUser() {
 	};
 
 	const handleCheckbox = (e) => {
-		console.log(e);
 		if (e.target.name === 'admin') {
-			console.log('admin');
-
 			dispatch(setAdmin(e.target.id));
-			dispatch(getUsers());
 		} else if (e.target.name === 'active') {
-			console.log('active');
 			dispatch(setActive(e.target.id));
-			dispatch(getUsers());
-			document.location.reload();
+			Swal.fire(
+				'Baneado',
+				`Usuario con el ID ${e.target.id} baneado con éxito`,
+				'warning'
+			);
 		}
 	};
 
@@ -68,6 +67,7 @@ export default function ManageUser() {
 													name="admin"
 													class="form-check-input"
 													type="checkbox"
+													email={user.email}
 													disabled={!user.emailVerified}
 													checked
 												/>
@@ -78,6 +78,7 @@ export default function ManageUser() {
 													name="admin"
 													class="form-check-input"
 													type="checkbox"
+													email={user.email}
 													disabled={!user.emailVerified}
 												/>
 											)}
@@ -89,6 +90,7 @@ export default function ManageUser() {
 												name="active"
 												class="form-check-input"
 												type="checkbox"
+												email={user.email}
 												checked={user.active}
 											/>
 										</td>

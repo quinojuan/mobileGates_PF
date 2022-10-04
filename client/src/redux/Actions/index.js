@@ -450,10 +450,11 @@ export const setAdmin = (id) => async (dispatch) => {
 		.then((response) => response.data);
 	user.admin = !user.admin;
 	await axios.put('http://localhost:3001/users/' + id, user);
-	return dispatch({
+	dispatch({
 		type: 'MODIFY_USER',
 		payload: user,
 	});
+	dispatch(getUsers());
 };
 export const setActive = (id) => async (dispatch) => {
 	let user = await axios
@@ -461,8 +462,9 @@ export const setActive = (id) => async (dispatch) => {
 		.then((response) => response.data);
 	user.active = !user.active;
 	await axios.put('http://localhost:3001/users/' + id, user);
-	return dispatch({
+	dispatch({
 		type: 'MODIFY_USER',
 		payload: user,
 	});
+	dispatch(getUsers());
 };
