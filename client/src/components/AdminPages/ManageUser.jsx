@@ -26,11 +26,6 @@ export default function ManageUser() {
 			dispatch(setAdmin(e.target.id));
 		} else if (e.target.name === 'active') {
 			dispatch(setActive(e.target.id));
-			Swal.fire(
-				'Baneado',
-				`Usuario con el ID ${e.target.id} baneado con éxito`,
-				'warning'
-			);
 		}
 	};
 
