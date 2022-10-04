@@ -13,12 +13,12 @@ export default function UserPurchases(){
     const purchases=useSelector((state)=>state.purchases)
     const logged=useSelector((state)=>state.loggedUser)
     const navigate=useNavigate()
-    console.log(purchases, "COMPRITAS BIEN PERRAZAS")
-    console.log(logged, "USUARIOS BIEN PERRAZOS")
+   // console.log(purchases, "COMPRITAS BIEN PERRAZAS")
+    //console.log(logged, "USUARIOS BIEN PERRAZOS")
     // console.log(purchases[0])
-    const userLogin = purchases.filter((s)=>s.email.toLowerCase() == logged.email.toLowerCase())
+    const userLogin = purchases.filter((s)=>s.email == logged.email)
     
-    console.log(userLogin, "ysfysfudisdsfd")
+   // console.log(userLogin, "ysfysfudisdsfd")
     useEffect(()=>{
         dispatch(getUsers());
         dispatch(getPurchase())

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { postFeedback } from "../../redux/Actions";
 import './Feedbacks.css'
 
@@ -20,42 +20,31 @@ import './Feedbacks.css'
 //   }
 
 
-
 export default function Feedbacks({ email, model }) {
   const myProducts = useSelector((state) => state.details);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [feedback, setFeedback] = useState({
     title: "",
     comment: "",
     points: 0,
   });
 
-
   const handleChange = (e) => {
-    //console.log("Email ES:", email);
-    //console.log("model es:", model);
-    if (e.target.name === "points") {
-      setFeedback({
-        ...feedback,
-        [e.target.name]: Number(e.target.value),
-      });
-    } else {
-      setFeedback({
-        ...feedback,
-        [e.target.name]: e.target.value,
-      });
-    }
-    console.log("FEEDBACK ES:", feedback);
-  };
+    console.log(e.target.value, "EL VALUE")
+    e.preventDefault()
+    setFeedback({
+      ...feedback,
+      [e.target.name]: e.target.value
+    })
+  }
 
-  //useEffect(() => {}, []);
-
-  function post() {
+const post = () =>{
     console.log("feedback para post es:", feedback);
     dispatch(postFeedback({
       title: feedback.title,
       comment: feedback.comment,
-      points: feedback.points,
+      points: Number(feedback.points),
       email: email,
       model: model
     }));
@@ -64,6 +53,7 @@ export default function Feedbacks({ email, model }) {
       comment: "",
       points: 0,
     });
+    navigate("/userpanel")
   }
 
   return (
@@ -118,7 +108,7 @@ export default function Feedbacks({ email, model }) {
               className='form-control'
               rows='3'
               name='comment'
-              onChange={()=>handleChange()}
+              onChange={(e)=>handleChange(e)}
 
               placeholder='Mi producto me pareció...'
             />
