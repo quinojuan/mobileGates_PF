@@ -22,7 +22,7 @@ import AddPhone from './components/AdminPages/AddPhone';
 import ManageUser from './components/AdminPages/ManageUser';
 import ModifyPhone from './components/AdminPages/ModifyPhone';
 import PhonesTable from './components/AdminPages/PhonesTable';
-import ModifyUser from './components/AdminPages/ModifyUser'
+import ModifyUser from './components/AdminPages/ModifyUser';
 import AllPurchases from "./components/AdminPages/AllPurchases"
 import ManageQuestions from "./components/AdminPages/ManageQuestions"
 import UserPanel from './components/userPanel/userPanel';
@@ -60,12 +60,9 @@ function App() {
         <Route path="/check" element= {<Checkout/>}/>
         <Route path="/allpurchases" element= {<AllPurchases/>}/>
         <Route path="/userpanel" element= {<UserPanel/>}/>
-        <Route path= "/userpurchases" component={<UserPurchases/>}/>
-        <Route path= "/userpurchase/:id" element={<PurchaseDetail/>}/>
-        <Route path= "/managequestions" element={<ManageQuestions/>}/>
-        <Route path= "/qas/:id" element={<AnswerQuestion/>}/>
-     
         {/* <Route path="/products/Cart" element= {<Cart/>}/> */}
+        <Route path= "/userpurchases" element={<UserPurchases/>}/>
+        <Route exact path= "userpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
       </Routes>
     </div>
     </BrowserRouter>

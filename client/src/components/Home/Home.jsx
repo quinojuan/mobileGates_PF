@@ -15,11 +15,8 @@ import {
 	getSortByPrice,
 	getClean,
 	getFeedbacks,
-<<<<<<< HEAD
 	getUsers,
-=======
 	getQas
->>>>>>> 2a71b553406a14f00b2d272c8ae41d7abd939e96
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
