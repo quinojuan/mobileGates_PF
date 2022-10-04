@@ -15,7 +15,11 @@ import {
 	getSortByPrice,
 	getClean,
 	getFeedbacks,
+<<<<<<< HEAD
 	getUsers,
+=======
+	getQas
+>>>>>>> 5f38bb86ba3f97dd88c784839a9f479ac5f72661
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -62,6 +66,7 @@ export default function Home() {
 		dispatch(getRams())
 		dispatch(getCapacity())
 		dispatch(getFeedbacks())
+		dispatch(getQas())
 		!currentProducts.length && dispatch(getAllProducts());
 	}, [dispatch]);
 

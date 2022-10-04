@@ -62,6 +62,7 @@ export default function NavBar() {
     }
     setCurrentPage(1);
   }
+<<<<<<< HEAD
   const mail = logedUser?logedUser.email:"esto no es un email"
   let funcionAuxiliar = (email)=>{
     if (usersAdmin.filter(e => e.email === email).length > 0) {
@@ -74,6 +75,9 @@ export default function NavBar() {
   
   if (funcionAuxiliar(mail)) {
     console.log("ENTRANDO AL PRIMER IF")
+=======
+  if (user) {
+>>>>>>> 5f38bb86ba3f97dd88c784839a9f479ac5f72661
     return (
       <nav className="container">
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -155,7 +159,7 @@ export default function NavBar() {
                       <a
                         className="dropdown-item"
                         href="#"
-                        onClick={handleLogout}
+                        onClick={()=>handleLogout()}
                       >
                       Cerrar sesión
                       </a>

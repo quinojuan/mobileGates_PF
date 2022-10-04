@@ -1,44 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { postQa } from "../../redux/Actions";
 
-
-export default function Qas({email,model}) {
-  //const myProduct = useSelector((state) => state.details);
-  const dispatch = useDispatch();
-  const [qa, setQa] = useState({
-    question: ""
-  });
-
-  const handleChange = (e) => {
-    e.preventDefault();
-      setQa({
-        ...qa,
-        [e.target.name]: e.target.value,
-      });
-  };
-
-  function post() {
-    dispatch(postQa({
-      questions: qa.question,
-      email: email,
-      model: model
-    }));
-    setQa({
-      question: ""
-    });
-  }
-
+export default function Qas({model}) {
+  const qas = useSelector((state) => state.qas);
+  let productQas = qas.filter((e)=> e.product === model)
+  console.log(productQas, "aver")
+  console.log(qas, "global")
   return (
     <div>
-      <input
-        type="text"
-        name="question"
-        onChange={(e) => handleChange(e)}
-        placeholder="hace tu pregunta al admin"
-      />
-      <button onClick={() => post()}>?</button>
+        
+      {productQas.length?productQas.map((q)=>{
+        if(q.answers){
+            return(
+                <div>
+                    <p>{q.email}</p>
+                    <p>{q.questions}</p>
+                    <p>{q.answers}</p>
+                </div>
+            )
+        }
+      }):null}
     </div>
   );
 }
