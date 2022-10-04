@@ -107,6 +107,7 @@ export function addUser(payload) {
 export function getUsers() {
 	return async function(dispatch) {
 		let users = await axios.get('http://localhost:3001/users');
+		//ACÁ VOY A MERGEAR USERS DE FIREBASE PARA OBTENER SI EL EMAIL ESTÁ VERIFICADO
 		dispatch({
 			type: 'GET_USERS',
 			payload: users,
@@ -393,5 +394,27 @@ export const setUserDisplayName = (email) => async (dispatch) => {
 	return dispatch({
 		type: 'ADD_DISPLAY_NAME',
 		payload: user.data,
+	});
+};
+export const setAdmin = (id) => async (dispatch) => {
+	let user = await axios
+		.get(`http://localhost:3001/users/${id}`)
+		.then((response) => response.data);
+	user.admin = !user.admin;
+	await axios.put('http://localhost:3001/users/' + id, user);
+	return dispatch({
+		type: 'MODIFY_USER',
+		payload: user,
+	});
+};
+export const setActive = (id) => async (dispatch) => {
+	let user = await axios
+		.get(`http://localhost:3001/users/${id}`)
+		.then((response) => response.data);
+	user.active = !user.active;
+	await axios.put('http://localhost:3001/users/' + id, user);
+	return dispatch({
+		type: 'MODIFY_USER',
+		payload: user,
 	});
 };

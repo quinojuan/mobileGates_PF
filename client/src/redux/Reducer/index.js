@@ -292,7 +292,14 @@ function rootReducer(state = initialState, action) {
 				...state,
 				loggedUser: { ...state.loggedUser, displayName: action.payload.name }, // password: action.payload.password (ver si la necesito)
 			};
-
+		case 'MODIFY_USER':
+			let newUsers = state.users.filter(
+				(user) => user.id !== action.payload.id
+			);
+			return {
+				...state,
+				users: [...newUsers, action.payload],
+			};
 		default:
 			return state;
 	}
