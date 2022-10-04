@@ -9,7 +9,8 @@ import AddProducts from "../AddProducts/AddProducts";
 import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
-import Qas from "../Qas/Qas";
+import Questions from "../Qas/Questions";
+import Qas from "../Qas/Qas"
 import './DetailsPhone.css'
 
 
@@ -238,6 +239,19 @@ export default function DetailsPhone(props) {
                      : {myProducts.weight} g
                    </p>
                 </span>
+                <hr/>
+                
+                  <Questions
+                  email= {usuarioLogeado.email}
+                  model= {myProducts.model}
+                  />
+                <hr/>
+                <div>
+                   <Qas
+                    model= {myProducts.model ? myProducts.model : "modelo invalido"}
+                    email= {usuarioLogeado ? usuarioLogeado.email : "email invalido"}
+                   />
+                </div>
                 
               </div>
               </div>

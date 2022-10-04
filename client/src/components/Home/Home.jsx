@@ -14,7 +14,8 @@ import {
 	getCapacity,
 	getSortByPrice,
 	getClean,
-	getFeedbacks
+	getFeedbacks,
+	getQas
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -60,6 +61,7 @@ export default function Home() {
 		dispatch(getRams())
 		dispatch(getCapacity())
 		dispatch(getFeedbacks())
+		dispatch(getQas())
 		!currentProducts.length && dispatch(getAllProducts());
 	}, [dispatch]);
 
