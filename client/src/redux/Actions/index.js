@@ -106,11 +106,29 @@ export function addUser(payload) {
 
 export function getUsers() {
 	return async function(dispatch) {
-		let users = await axios.get('http://localhost:3001/users');
+		dispatch(setLoading(true));
+		let users = await axios
+			.get('http://localhost:3001/users')
+			.then((res) => res.data);
+		console.log(users);
+		let firebaseUsers = await axios
+			.get('http://localhost:3001/firebase/allusers')
+			.then((res) => res.data.users);
+		console.log(firebaseUsers, 'ACÁ ESTAN LOS UUSARIOS DE FIREBASE');
+		users.forEach((user) => {
+			let finded = firebaseUsers.find((u) => u.email === user.email);
+			if (finded) user.emailVerified = finded.emailVerified;
+		});
+		users.sort((a, b) => {
+			if (a.email > b.email) return 1;
+			if (a.email < b.email) return -1;
+			return 0;
+		});
 		dispatch({
 			type: 'GET_USERS',
 			payload: users,
 		});
+		dispatch(setLoading(false));
 	};
 }
 
@@ -259,19 +277,19 @@ export function postPurchase(payload) {
 	};
 }
 
-export function getPurchasesDetail(id){
-	return async function(dispatch){
-		try{
-			var json= await axios.get(`http://localhost:3001/purchases/${id}`);
+export function getPurchasesDetail(id) {
+	return async function(dispatch) {
+		try {
+			var json = await axios.get(`http://localhost:3001/purchases/${id}`);
 			return dispatch({
-				type:"GET_PURCHASES_ID",
-				payload:json.data
-			})
-		} catch(error){
-			console.log(error)
+				type: 'GET_PURCHASES_ID',
+				payload: json.data,
+			});
+		} catch (error) {
+			console.log(error);
 		}
-	}
-  }
+	};
+}
 
 export function getPurchaseRepeat(payload) {
 	return {
@@ -323,7 +341,7 @@ export function getFeedbacks(payload) {
 }
 
 export function postPhone(payload) {
-	console.log(payload)
+	console.log(payload);
 	return async function(dispatch) {
 		const newPhone = await axios.post(
 			'http://localhost:3001/products',
@@ -379,7 +397,7 @@ export function postQa(payload) {
 export function getQas() {
 	return async function(dispatch) {
 		let qas = await axios.get('http://localhost:3001/qas');
-       //console.log(qas, "QAS AXION")
+		//console.log(qas, "QAS AXION")
 		return dispatch({
 			type: 'GET_QAS',
 			payload: qas.data,
@@ -387,16 +405,16 @@ export function getQas() {
 	};
 }
 
-export function updateQa(id, payload){
-	console.log(id, payload, "AXION PUT")
-	return async function(dispatch){
-		let updateQa = await axios.put(`http://localhost:3001/qas/${id}`, payload)
-		console.log(updateQa, "updated qa wtf?")
+export function updateQa(id, payload) {
+	console.log(id, payload, 'AXION PUT');
+	return async function(dispatch) {
+		let updateQa = await axios.put(`http://localhost:3001/qas/${id}`, payload);
+		console.log(updateQa, 'updated qa wtf?');
 		return dispatch({
 			type: 'UPDATE_QA',
-			payload: updateQa.data
-		})
-	}
+			payload: updateQa.data,
+		});
+	};
 }
 
 export function getUserData(payload) {
@@ -425,4 +443,28 @@ export const setUserDisplayName = (email) => async (dispatch) => {
 		type: 'ADD_DISPLAY_NAME',
 		payload: user.data,
 	});
+};
+export const setAdmin = (id) => async (dispatch) => {
+	let user = await axios
+		.get(`http://localhost:3001/users/${id}`)
+		.then((response) => response.data);
+	user.admin = !user.admin;
+	await axios.put('http://localhost:3001/users/' + id, user);
+	dispatch({
+		type: 'MODIFY_USER',
+		payload: user,
+	});
+	dispatch(getUsers());
+};
+export const setActive = (id) => async (dispatch) => {
+	let user = await axios
+		.get(`http://localhost:3001/users/${id}`)
+		.then((response) => response.data);
+	user.active = !user.active;
+	await axios.put('http://localhost:3001/users/' + id, user);
+	dispatch({
+		type: 'MODIFY_USER',
+		payload: user,
+	});
+	dispatch(getUsers());
 };
