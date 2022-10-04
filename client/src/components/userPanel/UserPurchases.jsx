@@ -5,7 +5,7 @@ import { useNavigate, Link, Navigate } from "react-router-dom";
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import { getPurchase } from "../../redux/Actions";
-import { useAuth } from '../Context/authContext';
+
 
 export default function UserPurchases(){
     const dispatch=useDispatch()
