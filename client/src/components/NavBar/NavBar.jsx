@@ -62,7 +62,7 @@ export default function NavBar() {
     }
     setCurrentPage(1);
   }
-  if (loggedUser) {
+  if (user) {
     return (
       <nav className="container">
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -147,7 +147,7 @@ export default function NavBar() {
                       <a
                         className="dropdown-item"
                         href="#"
-                        onClick={handleLogout}
+                        onClick={()=>handleLogout()}
                       >
                         Cerrar sesión
                       </a>

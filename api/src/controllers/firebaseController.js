@@ -4,9 +4,9 @@ const auth = admin.initializeApp().auth();
 
 const getAllUsersFromFirebase = async (req, res) => {
   try {
-    let users = await auth.listUsers();
+    let users = await auth.listUsers(200);
     res.json(users);
-    console.log(users);
+   // console.log(users);
   } catch (error) {
     return res.json({ message: error });
   }
