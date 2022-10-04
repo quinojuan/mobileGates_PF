@@ -75,7 +75,7 @@ export default function Cart() {
 	return (
 		<div>
 			<NavBar />
-			<h1 class="mt-3">
+			<h1 class="mt-5">
 				<FontAwesomeIcon
 					icon={['fas', 'shopping-cart']}
 					style={{ marginRight: '20px' }}

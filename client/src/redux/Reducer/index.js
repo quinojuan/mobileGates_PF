@@ -28,7 +28,8 @@ const initialState = {
 	allFeedbacks: [],
 	qas: [],
 	loggedUser: {},
-	purchasesDetail: [],
+    purchasesDetail: [],
+	usersAdmins: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -212,9 +213,13 @@ function rootReducer(state = initialState, action) {
 				...state,
 			};
 		case 'GET_USERS':
+			let arreglo = action.payload
+			console.log("ASI VIENE ARREGLO:",arreglo)
+			let filtrado = arreglo.filter(e=>e.admin===true) || "UN MENSAJE LA CONCHA DE TU MADRE"
 			return {
 				...state,
 				users: action.payload,
+				usersAdmins: filtrado
 			};
 		case 'CLEAR_CART':
 			return {
