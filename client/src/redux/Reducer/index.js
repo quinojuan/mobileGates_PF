@@ -28,8 +28,12 @@ const initialState = {
 	allFeedbacks: [],
 	qas: [],
 	loggedUser: {},
+<<<<<<< HEAD
     purchasesDetail: [],
 	usersAdmins: [],
+=======
+	purchasesDetail: [],
+>>>>>>> d8b63e4dc15415ba4363604bca13f18d1c52dcd4
 };
 
 function rootReducer(state = initialState, action) {
@@ -250,12 +254,11 @@ function rootReducer(state = initialState, action) {
 					...state,
 					repetido: false,
 				};
-				case "GET_PURCHASES_ID":
-					return{
-					  ...state,
-					  purchasesDetail:action.payload
-			
-					}	
+		case 'GET_PURCHASES_ID':
+			return {
+				...state,
+				purchasesDetail: action.payload,
+			};
 		case 'ADD_INPUT_PURCHASE':
 			return {
 				...state,
@@ -290,7 +293,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				qas: action.payload,
 			};
-	   
 
 		case 'GET_USER_DATA':
 			return {
@@ -303,8 +305,19 @@ function rootReducer(state = initialState, action) {
 				...state,
 				loggedUser: { ...state.loggedUser, displayName: action.payload.name }, // password: action.payload.password (ver si la necesito)
 			};
+<<<<<<< HEAD
 			
 
+=======
+		case 'MODIFY_USER':
+			let newUsers = state.users.filter(
+				(user) => user.id !== action.payload.id
+			);
+			return {
+				...state,
+				users: [...newUsers, action.payload],
+			};
+>>>>>>> d8b63e4dc15415ba4363604bca13f18d1c52dcd4
 		default:
 			return state;
 	}
