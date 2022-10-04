@@ -30,7 +30,7 @@ export default function UserPurchases(){
                         <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button>
                     </div>
                 )
-            }):<h1>Loading...</h1>}
+            }):<h1>No realizó compras</h1>}
         
         <button>
             <Link to= "/userpanel">Volver</Link>
