@@ -28,6 +28,7 @@ const initialState = {
 	allFeedbacks: [],
 	qas: [],
 	loggedUser: {},
+    purchasesDetail: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -221,7 +222,7 @@ function rootReducer(state = initialState, action) {
 				...state,
 				cart: [],
 			};
-		case 'POST_PURCHASES':
+		case 'POST_PURCHASE':
 			return {
 				...state,
 			};
@@ -229,10 +230,10 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 			};
-		case 'GET_PURCHASE':
+		case 'GET_PURCHASES':
 			return {
 				...state,
-				purchases: action.payload,
+				purchases: [...action.payload],
 			};
 		case 'GET_PURCHASE_REPEAT':
 			let repeat = state.cart.map((s) => s.id.includes(action.payload.id));
@@ -246,6 +247,12 @@ function rootReducer(state = initialState, action) {
 					...state,
 					repetido: false,
 				};
+				case "GET_PURCHASES_ID":
+					return{
+					  ...state,
+					  purchasesDetail:action.payload
+			
+					}	
 		case 'ADD_INPUT_PURCHASE':
 			return {
 				...state,
@@ -280,6 +287,7 @@ function rootReducer(state = initialState, action) {
 				...state,
 				qas: action.payload,
 			};
+	   
 
 		case 'GET_USER_DATA':
 			return {

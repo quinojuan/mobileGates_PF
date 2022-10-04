@@ -49,7 +49,8 @@ const getUserByEmail = async (req, res) => {
 
 const createUser = async (req, res) => {
 	try {
-		const { name, password, email } = req.body; // desestructuro un obj con propiedades anidadas
+		let { name, password, email } = req.body; // desestructuro un obj con propiedades anidadas
+		if(!name) name = ""
 		let passwordHash = bCrypt.hashSync(password, 10);
 		if (!email) return res.status(404).json({ message: 'id is not provided' });
 
@@ -105,5 +106,5 @@ module.exports = {
 	createUser,
 	updateUser,
 	deleteUser,
-	getUserByEmail,
+	getUserByEmail
 };
