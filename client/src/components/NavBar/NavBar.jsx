@@ -116,22 +116,18 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li> */}
                 <li className="nav-item">
-                  <a
-                    className="nav-link active"
-                    href="#"
-                    onClick={() => navigate("/products/Cart")}
-                  >
-                    <FontAwesomeIcon
-                      icon="fa-solid fa-cart-shopping"
-                      className="h5 me-2"
-                      style={{ color: "DodgerBlue" }}
+                  <a type='button' className="nav-link active" href="#" style={buttonStyle}  onClick={() => navigate("/products/Cart")}>
+                  <FontAwesomeIcon 
+                    icon="fa-solid fa-cart-shopping" 
+                    style={{ color: 'white' }}
                     />
                   </a>
                 </li>
                 <li class="nav-item dropdown">
                   <div class="dropdown show">
                     <a
-                      class="nav-link dropdown-toggle text-white"
+                      class="nav-link dropdown-toggle"
+                      style={buttonStyle}
                       role="button"
                       data-toggle="dropdown"
                       aria-haspopup="true"
@@ -140,24 +136,18 @@ export default function NavBar() {
                       <FontAwesomeIcon icon={["fas", "user"]} />
                       Hola, {logedUser.displayName}
                     </a>
-                    <div
-                      class="dropdown-menu"
-                      aria-labelledby="dropdownMenuLink"
-                    >
+                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
-                      <a class="dropdown-item" href="/adminpages">
-                        Panel del admin
-                      </a>
-                      <a class="dropdown-item" href="/userpanel">
+                      <a class="dropdown-item text-light" href="/adminpages">Panel del admin</a>
+                      <a class="dropdown-item text-light" href="/userpanel">
                         Panel del Usuario
                       </a>
                       <a
                         className="dropdown-item"
                         href="/home"
                         onClick={()=>handleLogout()}
-                      >
-                        Cerrar sesión
-                      </a>
+                      ></a>
+                      <a className="dropdown-item text-light" href="#" onClick={handleLogout}>Cerrar sesión</a>
                     </div>
                   </div>
                 </li>

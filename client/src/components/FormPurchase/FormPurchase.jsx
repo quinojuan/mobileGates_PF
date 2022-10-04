@@ -6,6 +6,19 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 
+
+const addCartButton = {
+    color: 'white',
+    backgroundColor: 'DodgerBlue',
+    margin: '10px',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    borderRadius: '5px',
+    fontSize: '15px',
+  }
+
 export default function FormPurchase() {
   const logged = useSelector((state) => state.loggedUser);
   // Validates
@@ -103,70 +116,100 @@ export default function FormPurchase() {
       <div>
         <NavBar />
         <div>
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <div className="list-group-item-secondary">
-              <div className="jumbotron jumbotron-fluid text-center py-2">
-                <h4 className="display-4 mt-3"> Confirmación de Compra </h4>
-                <hr />
-                <p className="lead">
-                  {" "}
-                  Estos datos son necesarios para finalizar tu compra. Asegura
-                  que sean correctos antes de confirmar{" "}
-                </p>
-              </div>
-            </div>
-            <div className="col-md-12 mb-2">
-              <label>DNI</label>
-              <div>
-                <input
-                  type="text"
-                  className="form-control w-50 mx-auto"
-                  value={input.dni}
-                  name="dni"
-                  onChange={(e) => handleChange(e)}
+        <form onSubmit={(e) => handleSubmit(e)} >
+
+        {/* <label>Email</label>
+        <div>
+            <input
+                type="email"
+                value={input.email}
+                name="email"
+                onChange={(e)=>handleChange(e)}/>
+        </div> */}
+        <div className='list-group-item-secondary'>
+        <div className='jumbotron jumbotron-fluid text-center py-2'>
+    <h4 className='display-4 mt-5'> Confirmación de Compra </h4>
+    <hr />
+    <p className='lead'>
+      {' '}
+      Estos datos son necesarios para finalizar tu compra. Asegura que
+      sean correctos antes de confirmar{' '}
+    </p>
+    </div>
+    </div>
+   {/*  <div className='col-md-12 mb-2 mt-5'>
+        <label>Tarjeta de credito</label>
+        <div>
+            <input
+                type="text"
+                className='form-control w-50 mx-auto'
+                value={input.creditCard}
+                name="creditCard"
+                onChange={(e)=>handleChange(e)}
+            />
+            {
+                errors.creditCard && (
+                    <p>{errors.creditCard}</p>
+                )
+            }
+        </div>
+            </div> */}
+            <div className='col-md-12 mb-2 mt-3'>
+        <label >DNI</label>
+        <div>
+            <input
+                type="text"
+                className='form-control w-50 mx-auto'
+                value={input.dni}
+                name="dni"
+                onChange={(e)=>handleChange(e)}
                 />
-                {errors.dni && <p>{errors.dni}</p>}
-              </div>
-            </div>
-            <div className="col-md-12 mb-2">
-              <label>Dirección</label>
-              <div>
-                <input
-                  type="text"
-                  className="form-control w-50 mx-auto"
-                  value={input.adress}
-                  name="adress"
-                  onChange={(e) => handleChange(e)}
-                />
-                {errors.adress && <p>{errors.adress}</p>}
-              </div>
-            </div>
-            <div className="col-md-12 mb-2">
-              <label>Fecha de nacimiento</label>
-              <div>
-                <input
-                  type="date"
-                  className="form-control w-50 mx-auto"
-                  value={input.birthday}
-                  name="birthday"
-                  onChange={(e) => handleChange(e)}
-                />
-                {errors.adress && <p>{errors.birthday}</p>}
-              </div>
-            </div>
-            {/* <div className='row container w-25'>
-                        {carts?.map((s)=>(<img src={s.image}/>))}
-                </div> */}
-            <div className="sendEmail">
-              <button
-                className="btn btn-primary"
-                type="submit"
-                onSubmit={(e) => handleSubmit(e)}
-              >
-                Ir al metodo de pago
-              </button>
-            </div>
-          </form>
+            {
+                errors.dni && (
+                    <p >{errors.dni}</p>
+                    )
+                }
+        </div></div>
+                <div className='col-md-12 mb-2'>
+        <label>Dirección</label>
+        <div>
+
+            <input
+                type="text"
+                className='form-control w-50 mx-auto'
+                value={input.adress}
+                name="adress"
+                onChange={(e)=>handleChange(e)}
+            />
+            {
+                errors.adress && (
+                    <p>{errors.adress}</p>
+                )
+            }
+        </div></div>
+            <div className='col-md-12 mb-2'>
+        <label>Fecha de nacimiento</label>
+        <div>
+            <input
+                type="date"
+                className='form-control w-50 mx-auto'
+                value={input.birthday}
+                name="birthday"
+                onChange={(e)=>handleChange(e)}
+            />
+            {
+                errors.adress && (
+                    <p>{errors.birthday}</p>
+                )
+            }
+        </div></div>
+        {/* <div className='row container w-25'>
+                {carts?.map((s)=>(<img src={s.image}/>))}
+        </div> */}
+        <div className='sendEmail'>
+        <button class='btn btn-primary text-decoration-none text-light' style={addCartButton} type="submit" onSubmit={(e)=>handleSubmit(e)}>Ir al metodo de pago</button>
+        </div>
+    </form>
         </div>
       </div>
     );

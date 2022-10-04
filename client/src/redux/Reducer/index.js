@@ -218,7 +218,7 @@ function rootReducer(state = initialState, action) {
 			let filtrado = arreglo.filter(e=>e.admin===true) || "UN MENSAJE LA CONCHA DE TU MADRE"
 			return {
 				...state,
-				users: action.payload.data,
+				users: action.payload,
 				usersAdmins: filtrado
 			};
 		case 'CLEAR_CART':

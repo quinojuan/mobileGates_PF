@@ -22,11 +22,10 @@ export default function UserPanel(){
       return (
         <div>
           <NavBar />
-          <div class="mt-3">
-            <button type="button" class="btn btn-danger" onClick={()=>navigate("/home")}>Volver al inicio</button>
+          <div class="mt-5" style={{ minHeight: '350px' }}>
+            <button type="button" class="btn btn-secondary mt-5" onClick={()=>navigate("/home")}>Volver al inicio</button>
             <br/>
-            <button type="button" class="btn btn-danger" onClick={()=>navigate("/userpurchases")}>Mis compras</button>
-    
+            <button type="button" class="btn btn-primary mt-4" onClick={()=>navigate("/userpurchases")}>Mis compras</button>
           </div>
           <Footer />
         </div>

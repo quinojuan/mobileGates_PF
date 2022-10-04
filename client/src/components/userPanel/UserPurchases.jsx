@@ -16,7 +16,7 @@ export default function UserPurchases(){
     console.log(purchases, "COMPRITAS BIEN PERRAZAS")
     console.log(logged, "USUARIOS BIEN PERRAZOS")
     // console.log(purchases[0])
-    const userLogin = purchases.filter((s)=>s.email == logged.email)
+    const userLogin = purchases.filter((s)=>s.email.toLowerCase() == logged.email.toLowerCase())
     
     console.log(userLogin, "ysfysfudisdsfd")
     useEffect(()=>{
@@ -41,21 +41,24 @@ export default function UserPurchases(){
                             />
                             </div>
             )})}</h1>
-                        <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button>
+            <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button>
+            <hr />
+            <table class="table table-striped w-75 ms-5 mt-5">
+                        <tbody>
+                            <tr>
+                        <td>{s.id}</td>
+                        <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     </div>
+
                 )
-            }):<h1>No realizó compras</h1>}
-        
-        <button>
-            <Link to= "/userpanel">Volver</Link>
+            }):<h1>No realizó compras</h1>}  
+        <button class='btn btn-dark mt-4'>
+            <a className="nav-link active text-white" href="/userpanel">Volver</a>
         </button>
-        
-               
-                    
-                
-            
-            <Footer/>
-         
+            <Footer/>   
         </div>
     )
 
