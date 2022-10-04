@@ -213,8 +213,8 @@ function rootReducer(state = initialState, action) {
 				...state,
 			};
 		case 'GET_USERS':
-			let arreglo = action.payload.data;
-			let filtrado = arreglo.filter(e=>e.admin===true)
+			let arreglo = action.payload.data?action.payload.data:[];
+			let filtrado = arreglo.length?arreglo.filter(e=>e.admin===true):[]
 			return {
 				...state,
 				users: action.payload.data,
