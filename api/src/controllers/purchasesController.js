@@ -37,14 +37,15 @@ const getAllPurchases = async (req, res) => {
           } 
         }
       }
-    
+     //este es el momento que me multiplica los productos por cada relacion en la pegada.
+     //entonces lo que sigue es basicamente una limpieza de los elementos repetidos
       let productsMap = productPresent.map(item=>{
           return [item.phone,item]
       });
       var productsMapArr = new Map(productsMap); // Pares de clave y valor
       
       let productsClean = [...productsMapArr.values()]; // Conversión a un array
-      
+      //hasta aca xd
       console.log(productsClean);
 
         return {

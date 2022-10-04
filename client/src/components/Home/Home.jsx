@@ -14,7 +14,8 @@ import {
 	getCapacity,
 	getSortByPrice,
 	getClean,
-	getFeedbacks
+	getFeedbacks,
+	getQas
 } from '../../redux/Actions/index';
 import Cards from '../Cards/Cards';
 import NavBar from '../NavBar/NavBar';
@@ -60,6 +61,7 @@ export default function Home() {
 		dispatch(getRams())
 		dispatch(getCapacity())
 		dispatch(getFeedbacks())
+		dispatch(getQas())
 		!currentProducts.length && dispatch(getAllProducts());
 	}, [dispatch]);
 
@@ -215,6 +217,7 @@ export default function Home() {
           setProductsPerPage={setProductsPerPage}
         /> */}
 			</div>
+			<div class='mt-3'>
 			<Paginado
 				productsPerPage={productsPerPage}
 				allProducts={allProducts?.length}
@@ -222,6 +225,7 @@ export default function Home() {
 				changePage={changePage}
 				currentPage={currentPage}
 			/>
+			</div>
 			<div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 justify-content-center'>
 			{buscando?handleBuscando(search):null}
 				{!loading ? (

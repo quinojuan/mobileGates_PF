@@ -1,12 +1,20 @@
 import { Navigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch} from 'react-redux'
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import administrar from '../../images/administrar.png'
+import { useEffect } from 'react'
+import { getPurchase, getQas } from "../../redux/Actions"
+
 
 export default function AdminPages() {
-
-
+  const dispatch = useDispatch()
+  const questions = useSelector((state) => state.qas)
+  useEffect(()=>{
+    dispatch(getPurchase())
+    dispatch(getQas())
+  },[dispatch])
+  console.log(questions, "questionssss")
   return (
     <div>
       <NavBar />
@@ -15,6 +23,8 @@ export default function AdminPages() {
           <a href="/addphone" class="btn btn-success">Agregar un producto</a>
           <a href="/phonestable" class="btn btn-danger">Modificar un producto</a>
           <a href="/manageuser" class="btn btn-dark">Administrar usuarios</a>
+          <a href="/allpurchases" class="btn btn-dark">Todas las compras</a>
+          <a href="/managequestions" class="btn btn-dark">Preguntas de usuarios</a>
         </div>
       </div>
       <Footer />
