@@ -426,9 +426,3 @@ export const setUserDisplayName = (email) => async (dispatch) => {
 		payload: user.data,
 	});
 };
-export function getCleanPurchases(payload) {
-	return {
-		type: 'GET_CLEAN_PURCHASES',
-		payload,
-	};
-}

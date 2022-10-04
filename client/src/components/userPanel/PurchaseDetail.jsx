@@ -15,7 +15,21 @@ export default function PurchaseDetail(){
     const {id} = useParams();
     let myPurchase=purchases&&purchases.filter((s)=>s.id===id)
     console.log(details)
+    console.log(myPurchase)
 
+    function handleSuma(){
+        // let total=0;
+        // total+=myPurchase[0].products&&products.map((s)=>s.quantity)
+        // return total
+        let suma=0;
+        for(let i=0; i<myPurchase[0].products.length;i++){
+            suma+=myPurchase[0].products[i].quantity
+            
+        }
+        return suma;
+        
+    }
+   console.log(handleSuma, "uadnisdsfs")
     
     useEffect(()=>{
         dispatch(getPurchase())
@@ -32,7 +46,8 @@ export default function PurchaseDetail(){
                     <div>
                         <h1>Detalles del pedido</h1>
                         <h5>Total: ${myPurchase[0].amount} </h5>
-                        <h5>Productos: {myPurchase[0].products.map(s => s.phone).join(" , ")}</h5>
+                        <h5>Productos: {myPurchase[0].products.map(s => s.quantity + " X " + s.phone+". " )}</h5> 
+                        <h5>Cantidad de productos: {handleSuma()} productos</h5>
                         <h3>Dirección de facturación</h3>
                         <h5 >Dirección: {myPurchase[0].adress}</h5>
                         <h5 >DNI: {myPurchase[0].dni}</h5>

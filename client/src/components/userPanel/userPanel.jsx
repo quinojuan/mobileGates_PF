@@ -26,6 +26,7 @@ export default function UserPanel(){
             <button type="button" class="btn btn-danger" onClick={()=>navigate("/home")}>Volver al inicio</button>
             <br/>
             <button type="button" class="btn btn-danger" onClick={()=>navigate("/userpurchases")}>Mis compras</button>
+    
           </div>
           <Footer />
         </div>
