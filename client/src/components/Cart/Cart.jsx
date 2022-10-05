@@ -57,8 +57,8 @@ export default function Cart() {
 		return acomodarPrecio(suma);
 	};
 
-	const handleDelete = (id) => {
-		dispatch(deleteProductInCart(id));
+	const handleDelete = (prod) => {
+		dispatch(deleteProductInCart(prod));
 	};
 
 	function preventNullCart() {
@@ -112,7 +112,7 @@ export default function Cart() {
 										</h5>
 										<button
 											class="btn btn-danger btn-sm w-50 mx-auto"
-											onClick={() => handleDelete(p.phone.id)}
+											onClick={() => handleDelete(p)}
 										>
 											Quitar del carrito
 										</button>

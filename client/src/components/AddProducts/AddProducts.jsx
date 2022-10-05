@@ -26,6 +26,7 @@ export default function AddProducts({id, quantity}){
     
     const dispatch=useDispatch()
     const cart = useSelector((state)=>state.cart)
+    console.log(cart, 'cart papa');
     const { user } = useAuth()
     const products = useSelector((state)=>state.products)
     let product = products.filter((e)=>e.id === id)
