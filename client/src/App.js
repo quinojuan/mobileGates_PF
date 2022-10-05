@@ -71,6 +71,7 @@ function App() {
         <Route path= "/userpurchases" element={<UserPurchases/>}/>
         <Route path= "/qas/:id" element={<AnswerQuestion/>}/>
         <Route exact path= "userpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
+        <Route exact path= "allpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
       </Routes>
     </div>
     </BrowserRouter>

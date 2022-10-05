@@ -7,6 +7,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from "react-router-dom";
 import { getQas, updateQa } from "../../redux/Actions"
 
+const btn = {
+  color: "white",
+  backgroundColor: "DodgerBlue",
+  margin: "10px",
+  paddingLeft: "15px",
+  paddingRight: "15px",
+  paddingTop: "8px",
+  paddingBottom: "8px",
+  borderRadius: "5px",
+  fontSize: "15px",
+};
 
 export default function AnswerQuestion() {
   const dispatch = useDispatch();
@@ -42,11 +53,17 @@ export default function AnswerQuestion() {
            {qa.length?qa.map((q)=>{
               return(
                 <div>
-                   <p>{q.email}</p>
-                   <p>{q.model}</p>
-                   <p>{q.questions}</p>  
+                 <input
+                      class="form-control"
+                      type="text"
+                      onChange={(e) => handleChange(e)}
+                      placeholder="hace tu pregunta al admin"
+                         />
+                   <h3>{q.email}</h3>
+                   <h3>{q.product}</h3>
+                   <h5>{q.questions}</h5>  
                    <input type="text" onChange={(e)=> handleChange(e)}/> 
-                   <button onClick={()=> handleSubmit()}>commit</button>                                        
+                   <button style={btn} class="mt-2" onClick={()=> handleSubmit()}>Ok</button>                                        
                 </div>
               )
            }):<h2>No hay preguntas pendientes</h2>}
