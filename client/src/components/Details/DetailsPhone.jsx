@@ -265,14 +265,10 @@ Stock:
                    />
                 </div>
                 <div>
-                  <h3>Puntaje: {()=>handlePromedio()}</h3>
-                  {myFeed.length?myFeed.map((f)=>{
-                    return(
-                      <PhoneFeedbacks
-                       model= {f.product ? f.product : "modelo invalido"}
+                  <h3>Puntaje: {handlePromedio()}</h3>
+                  <PhoneFeedbacks
+                       model= {myProducts.model ? myProducts.model : "modelo invalido"}
                       />
-                    )
-                  }):null}
                 </div>
                 
               </div>
