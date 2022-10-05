@@ -69,7 +69,8 @@ export default function DetailsPhone(props) {
     setImg(e.target.src);
   }
   function acomodarPrecio(precio) {
-    //console.log("precio:", precio);
+    console.log("precio:", precio);
+    precio = precio?precio:"0000";
     let precioString = precio.toString();
     let contador = 0;
     let acumulador = [];
@@ -99,7 +100,7 @@ export default function DetailsPhone(props) {
   }
 
   function renderBrand (){
-    return myProductWithBrand[0].brand? myProductWithBrand[0].brand : 'loading'
+    return myProductWithBrand[0]? myProductWithBrand[0].brand : 'loading'
   }
   return (
     <div>
@@ -111,7 +112,7 @@ export default function DetailsPhone(props) {
           
                   {img ? (
                     <img
-                    src={img}
+                    src={img.includes("http") ? img : `data:image/jpeg;base64,${img}`}
                     alt="Not found"
                     style={image}
                     // width="200px"
@@ -127,7 +128,7 @@ export default function DetailsPhone(props) {
                       )}
                 {/* </div> */}
                 <div className='p-3'>
-                <h3 className='display-3'>${myProducts.price}</h3>
+                <h3 className='display-3'>${acomodarPrecio(myProducts.price?myProducts.price:"0000")}</h3>
                 <div>
 
             Stock:
@@ -137,7 +138,7 @@ export default function DetailsPhone(props) {
               </div>
             ) : (
               <div className='in-stock'>
-                <h4>Quedan {myProductWithBrand[0].stock} en stock</h4>
+                <h4>Quedan {myProductWithBrand[0]?.stock} en stock</h4>
               </div>
             )}
           </div>
@@ -171,61 +172,61 @@ export default function DetailsPhone(props) {
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Marca </b>
-                     : {myProductWithBrand[0].brand}
+                     : {myProductWithBrand[0]?.brand}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Molelo </b>
-                     : {myProducts.model}
+                     : {myProducts && myProducts?.model}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Sistema Operativo </b>
-                     : {myProducts.operative_system}
+                     : {myProducts && myProducts?.operative_system}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Procesador </b>
-                     : {myProducts.cpu}
+                     : {myProducts && myProducts?.cpu}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Memoria </b>
-                     : {myProducts.ram} GB
+                     : {myProducts && myProducts?.ram} GB
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Almacenamiento </b>
-                     : {myProducts.capacity} GB
+                     : {myProducts && myProducts?.capacity} GB
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Pantalla </b>
-                     : {myProducts.inches}''
+                     : {myProducts && myProducts?.inches}''
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Camara Principal </b>
-                     : {myProducts.main_camera}px
+                     : {myProducts && myProducts?.main_camera}px
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Camara Frontal </b>
-                     : {myProducts.frontal_camera}px
+                     : {myProducts && myProducts?.frontal_camera}px
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Bateria </b>
-                     : {myProducts.battery} mAH Li-ion
+                     : {acomodarPrecio(myProducts && myProducts?.battery)} mAH Li-ion
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >

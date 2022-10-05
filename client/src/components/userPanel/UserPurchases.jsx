@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link, Navigate } from "react-router-dom";
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
-import { getPurchase } from "../../redux/Actions";
+import { getPurchase, getUsers } from "../../redux/Actions";
+import Feedback from "../Feedbacks/Feedbacks"
 
 
 export default function UserPurchases(){
@@ -15,18 +16,34 @@ export default function UserPurchases(){
     console.log(purchases, "COMPRITAS BIEN PERRAZAS")
     console.log(logged, "USUARIOS BIEN PERRAZOS")
     // console.log(purchases[0])
-    const userLogin = purchases.filter((s)=>s.email == logged.email)
+    const userLogin = purchases.filter((s)=>s.email.toLowerCase() == logged.email.toLowerCase())
     
     console.log(userLogin, "ysfysfudisdsfd")
     useEffect(()=>{
+        dispatch(getUsers());
         dispatch(getPurchase())
-    }, [])
+    }, [dispatch])
     return (
+        
         <div>
+            <NavBar/>
             {purchases.length ? purchases.map((s)=>{
                 return(
-                    
-                    <table class="table table-striped w-75 ms-5 mt-5">
+                    <div> 
+                        <h1>Tu compra: {s.products.map((s)=>{
+                            return(
+                            <div>
+                            <p>{s.phone}</p>
+                            <p>{s.quantity}</p>
+                            <Feedback
+                                model={s.phone}
+                                email={logged.email}
+                            />
+                            </div>
+            )})}</h1>
+            <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button>
+            <hr />
+            <table class="table table-striped w-75 ms-5 mt-5">
                         <tbody>
                             <tr>
                         <td>{s.id}</td>
@@ -34,20 +51,14 @@ export default function UserPurchases(){
                             </tr>
                         </tbody>
                     </table>
-                   
+                    </div>
+
                 )
-            }):<h1>No realizó compras</h1>}
-        
+            }):<h1>No realizó compras</h1>}  
         <button class='btn btn-dark mt-4'>
             <a className="nav-link active text-white" href="/userpanel">Volver</a>
         </button>
-        
-               
-                    
-                
-            
-            
-         
+            <Footer/>   
         </div>
     )
 

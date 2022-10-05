@@ -29,6 +29,7 @@ const initialState = {
 	qas: [],
 	loggedUser: {},
     purchasesDetail: [],
+	usersAdmins: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -212,10 +213,13 @@ function rootReducer(state = initialState, action) {
 				...state,
 			};
 		case 'GET_USERS':
-			console.log('Users en redux', action.payload);
+			let arreglo = action.payload
+			console.log("ASI VIENE ARREGLO:",arreglo)
+			let filtrado = arreglo.filter(e=>e.admin===true) || "UN MENSAJE LA CONCHA DE TU MADRE"
 			return {
 				...state,
-				users: action.payload.data,
+				users: action.payload,
+				usersAdmins: filtrado
 			};
 		case 'CLEAR_CART':
 			return {
@@ -247,12 +251,11 @@ function rootReducer(state = initialState, action) {
 					...state,
 					repetido: false,
 				};
-				case "GET_PURCHASES_ID":
-					return{
-					  ...state,
-					  purchasesDetail:action.payload
-			
-					}	
+		case 'GET_PURCHASES_ID':
+			return {
+				...state,
+				purchasesDetail: action.payload,
+			};
 		case 'ADD_INPUT_PURCHASE':
 			return {
 				...state,
@@ -287,7 +290,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				qas: action.payload,
 			};
-	   
 
 		case 'GET_USER_DATA':
 			return {
@@ -300,8 +302,19 @@ function rootReducer(state = initialState, action) {
 				...state,
 				loggedUser: { ...state.loggedUser, displayName: action.payload.name }, // password: action.payload.password (ver si la necesito)
 			};
-			
-
+		case 'MODIFY_USER':
+			let newUsers = state.users.filter(
+				(user) => user.id !== action.payload.id
+			);
+			return {
+				...state,
+				users: [...newUsers, action.payload],
+			};
+			case "cleanSearch":
+				return{
+					...state,
+					search: []
+				}
 		default:
 			return state;
 	}

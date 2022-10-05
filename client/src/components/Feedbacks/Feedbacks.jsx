@@ -21,7 +21,7 @@ import './Feedbacks.css'
 
 
 
-export default function Feedback({ email, model }) {
+export default function Feedbacks({ email, model }) {
   const myProducts = useSelector((state) => state.details);
   const dispatch = useDispatch();
   const [feedback, setFeedback] = useState({
@@ -32,7 +32,6 @@ export default function Feedback({ email, model }) {
 
 
   const handleChange = (e) => {
-    e.preventDefault();
     //console.log("Email ES:", email);
     //console.log("model es:", model);
     if (e.target.name === "points") {
@@ -74,57 +73,57 @@ export default function Feedback({ email, model }) {
               <p className='clasificacion'>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='5'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='4'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='3'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='2'
                 />
                 <label className='label'>★</label>
                 <input
                   className='input'
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e)}
                   type='radio'
-                  name='score'
+                  name='points'
                   value='1'
                 />
                 <label className='label'>★</label>
               </p>
             
             <label>Agrega un comentario</label>
-            <textarea
+            <input type="text"
               className='form-control'
               rows='3'
-              name='comments'
-              onChange={handleChange}
+              name='comment'
+              onChange={()=>handleChange()}
 
               placeholder='Mi producto me pareció...'
             />
             
-            <button className="button">
+            <button className="button" onClick={()=>post()}>
               Enviar reseña
             </button>
               
