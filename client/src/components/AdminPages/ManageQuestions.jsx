@@ -7,6 +7,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from "react-router-dom";
 import { getQas, updateQa } from "../../redux/Actions"
 
+const btn = {
+  color: "white",
+  backgroundColor: "DodgerBlue",
+  margin: "10px",
+  paddingLeft: "15px",
+  paddingRight: "15px",
+  paddingTop: "8px",
+  paddingBottom: "8px",
+  borderRadius: "5px",
+  fontSize: "15px",
+};
 
 export default function ManageQuestions() {
   const dispatch = useDispatch();
@@ -25,15 +36,21 @@ export default function ManageQuestions() {
     <div>
       <NavBar />
         <div>
+          <br/>
             <br/>
            {userQuestions.length?userQuestions.map((q)=>{
             if(!q.answers){
               return(
                 <div>
-                   <p>{q.email}</p>
-                   <p>{q.product}</p>
+                  <div margin= "5px">
+                  <form class="form-control">
+                   <h5>{q.email}</h5>
+                   <h5>{q.product}</h5>
                    <p>{q.questions}</p>
-                   <button onClick={()=> navigate(`/qas/${q.id}`)}>responder</button>                                              
+                     <button style={btn} class="mt-2"
+                      onClick={()=> navigate(`/qas/${q.id}`)}>responder</button>
+                     </form>  
+                     </div>                                  
                 </div>
               )
             }
