@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
 import Questions from "../Qas/Questions";
+import { Link } from "react-router-dom";
 import Qas from "../Qas/Qas"
 import PhoneFeedbacks from "../Feedbacks/PhoneFeedbacks"
 import './DetailsPhone.css'
@@ -129,22 +130,22 @@ export default function DetailsPhone(props) {
                 {/* </div> */}
                 <div className='p-3'>
                 <h3 className='display-3'>${myProducts.price}</h3>
-                <div>
-
-            Stock:
-            {isOutOfStock ? (
-              <div className='out-stock-style'>
-                <h4>{myProductWithBrand[0].stock}Sin Stock</h4>
-              </div>
-            ) : (
-              <div className='in-stock'>
-                <h4>Quedan {myProductWithBrand[0].stock} en stock</h4>
-              </div>
-            )}
-          </div>
+                
           <hr />
             <p className='lead'>{myProducts.description}</p>
-                 
+            <div>
+
+Stock:
+{isOutOfStock ? (
+  <div className='out-stock-style'>
+    <h4>{myProductWithBrand[0].stock}Sin Stock</h4>
+  </div>
+) : (
+  <div className='in-stock'>
+    <h4>Quedan {myProductWithBrand[0].stock} en stock</h4>
+  </div>
+)}
+</div>   
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-outline-dark" disabled={count <= 1} onClick={() => decrease()}>-</button>
             <span class="fs-3 px-3">{count}</span>
@@ -153,6 +154,9 @@ export default function DetailsPhone(props) {
           <hr />
           <div class='flex-wrap'>
             <AddProducts id={myProducts.id} quantity={count} />
+            <button>
+              <Link to="/home">Volver</Link>
+            </button>
             </div>
           </div>
           </div>
@@ -171,7 +175,7 @@ export default function DetailsPhone(props) {
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
-                    <b>Molelo </b>
+                    <b>Modelo </b>
                      : {myProducts.model}
                    </p>
                 </span>
