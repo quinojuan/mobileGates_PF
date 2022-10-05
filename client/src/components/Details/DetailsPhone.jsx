@@ -10,7 +10,9 @@ import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Feedback from "../Feedbacks/Feedbacks";
 import Questions from "../Qas/Questions";
+import { Link } from "react-router-dom";
 import Qas from "../Qas/Qas"
+import PhoneFeedbacks from "../Feedbacks/PhoneFeedbacks"
 import './DetailsPhone.css'
 
 
@@ -43,7 +45,9 @@ export default function DetailsPhone(props) {
 
   const allProducts = useSelector(state => state.products)
   const myProductWithBrand = allProducts.filter((e)=> e.id == id)
- 
+  let myFeed = feedbacks.filter((e)=> e.product === myProducts.model)
+    console.log(myFeed, "el feed del detail")
+    console.log(myProducts, "DETAIL PROD")
   function decrease() {
     setCount(count - 1);
   }
@@ -69,7 +73,8 @@ export default function DetailsPhone(props) {
     setImg(e.target.src);
   }
   function acomodarPrecio(precio) {
-    //console.log("precio:", precio);
+    console.log("precio:", precio);
+    precio = precio?precio:"0000";
     let precioString = precio.toString();
     let contador = 0;
     let acumulador = [];
@@ -94,24 +99,34 @@ export default function DetailsPhone(props) {
 
   var isOutOfStock = false
 
+  const handlePromedio = () => {
+    let suma = 0
+    for(let i = 0; i<myFeed.length; i++){
+      suma += myFeed[i].points
+    }
+    let total = suma/myFeed.length
+    console.log(total, "PROMEDIO?")
+    return total
+  }
+
   if (stock_quantity === 0) {
     isOutOfStock = true
   }
 
   function renderBrand (){
-    return myProductWithBrand[0].brand? myProductWithBrand[0].brand : 'loading'
+    return myProductWithBrand[0]? myProductWithBrand[0].brand : 'loading'
   }
   return (
     <div>
     <NavBar />
-        <div style={wrapper}>
+        <div style={wrapper} class="mt-5" >
           <h3 className='d-flex text-black-50'>{renderBrand()}: {myProducts.model}</h3>
           <hr />
           <div style={wrapperContent}>
           
                   {img ? (
                     <img
-                    src={img}
+                    src={img.includes("http") ? img : `data:image/jpeg;base64,${img}`}
                     alt="Not found"
                     style={image}
                     // width="200px"
@@ -128,22 +143,22 @@ export default function DetailsPhone(props) {
                 {/* </div> */}
                 <div className='p-3'>
                 <h3 className='display-3'>${myProducts.price}</h3>
-                <div>
-
-            Stock:
-            {isOutOfStock ? (
-              <div className='out-stock-style'>
-                <h4>{myProductWithBrand[0].stock}Sin Stock</h4>
-              </div>
-            ) : (
-              <div className='in-stock'>
-                <h4>Quedan {myProductWithBrand[0].stock} en stock</h4>
-              </div>
-            )}
-          </div>
+                
           <hr />
             <p className='lead'>{myProducts.description}</p>
-                 
+            <div>
+
+Stock:
+{isOutOfStock ? (
+  <div className='out-stock-style'>
+    <h4>Sin Stock</h4>
+  </div>
+) : (
+  <div className='in-stock'>
+    <h4>Quedan {myProductWithBrand[0].stock} en stock</h4>
+  </div>
+)}
+</div>   
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-outline-dark" disabled={count <= 1} onClick={() => decrease()}>-</button>
             <span class="fs-3 px-3">{count}</span>
@@ -152,17 +167,14 @@ export default function DetailsPhone(props) {
           <hr />
           <div class='flex-wrap'>
             <AddProducts id={myProducts.id} quantity={count} />
+            
+              <Link to="/home"><button class="btn btn-secondary mt-3 mb-5">Volver</button></Link>
+            
             </div>
           </div>
           </div>
           
           <hr/>
-          <h4>¿Qué te pareció tu producto?</h4>
-          
-            <Feedback
-              model={myProducts ? myProducts.model : "modelo inexistente"}
-              email={usuarioLogeado ? usuarioLogeado.email : "email invalido"}
-              />
         
               <hr/>
               <h3 class="d-flex fw-normal">Especificación</h3>
@@ -171,61 +183,61 @@ export default function DetailsPhone(props) {
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Marca </b>
-                     : {myProductWithBrand[0].brand}
+                     : {myProductWithBrand[0]?.brand}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
-                    <b>Molelo </b>
+                    <b>Modelo </b>
                      : {myProducts.model}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Sistema Operativo </b>
-                     : {myProducts.operative_system}
+                     : {myProducts && myProducts?.operative_system}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Procesador </b>
-                     : {myProducts.cpu}
+                     : {myProducts && myProducts?.cpu}
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Memoria </b>
-                     : {myProducts.ram} GB
+                     : {myProducts && myProducts?.ram} GB
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Almacenamiento </b>
-                     : {myProducts.capacity} GB
+                     : {myProducts && myProducts?.capacity} GB
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Pantalla </b>
-                     : {myProducts.inches}''
+                     : {myProducts && myProducts?.inches}''
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Camara Principal </b>
-                     : {myProducts.main_camera}px
+                     : {myProducts && myProducts?.main_camera}px
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Camara Frontal </b>
-                     : {myProducts.frontal_camera}px
+                     : {myProducts && myProducts?.frontal_camera}px
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
                   <p class='d-flex mb-0'>
                     <b>Bateria </b>
-                     : {myProducts.battery} mAH Li-ion
+                     : {acomodarPrecio(myProducts && myProducts?.battery)} mAH Li-ion
                    </p>
                 </span>
                 <span class='col-lg-12 pl-0 pr-0' >
@@ -240,17 +252,27 @@ export default function DetailsPhone(props) {
                    </p>
                 </span>
                 <hr/>
-                
+                <h3>Queres preguntar algo sobre el producto?</h3>
                   <Questions
                   email= {usuarioLogeado.email}
                   model= {myProducts.model}
                   />
                 <hr/>
                 <div>
+                  <h3>Preguntas y Respuestas:</h3>
                    <Qas
                     model= {myProducts.model ? myProducts.model : "modelo invalido"}
                     email= {usuarioLogeado ? usuarioLogeado.email : "email invalido"}
                    />
+                </div>
+                <div>
+                  {myFeed.length ? 
+                  <h3>Puntaje: {handlePromedio()}</h3>
+                  : <h3>No hay feedbacks</h3>}
+                  <PhoneFeedbacks
+                       model= {myProducts.model ? myProducts.model : "modelo invalido"}
+                      />
+                    
                 </div>
                 
               </div>

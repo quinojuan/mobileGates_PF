@@ -37,6 +37,7 @@ export default function Login() {
       // dispatch(addUserToDb(loggedUser));
       navigate("/home/");
       Swal.fire("Inicio exitoso");
+      window.location.reload()
     } catch (error) {
       // setError(error.message)
       console.log(error.code);
@@ -89,7 +90,7 @@ export default function Login() {
     <div>
       {error && <p>{error}</p>}
       <NavBar />
-      <div class="container">
+      <div class="container mt-5">
         <div className="row">
           <div className="col"></div>
 
