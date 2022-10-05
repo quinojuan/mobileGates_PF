@@ -4,6 +4,18 @@ import { useDispatch } from "react-redux";
 import { postQa } from "../../redux/Actions";
 
 
+const btn = {
+  color: "white",
+  backgroundColor: "DodgerBlue",
+  margin: "10px",
+  paddingLeft: "15px",
+  paddingRight: "15px",
+  paddingTop: "8px",
+  paddingBottom: "8px",
+  borderRadius: "5px",
+  fontSize: "15px",
+};
+
 export default function Questions({email,model}) {
   //const myProduct = useSelector((state) => state.details);
   const dispatch = useDispatch();
@@ -31,14 +43,16 @@ export default function Questions({email,model}) {
   }
 
   return (
-    <div>
+    <div >
       <input
+        class="form-control"
         type="text"
         name="question"
         onChange={(e) => handleChange(e)}
         placeholder="hace tu pregunta al admin"
       />
-      <button onClick={() => post()}>Enviar</button>
+      <button style={btn} class="mt-2"
+       onClick={() => post()}>Enviar</button>
     </div>
   );
 }

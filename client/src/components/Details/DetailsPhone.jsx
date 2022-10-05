@@ -97,6 +97,16 @@ export default function DetailsPhone(props) {
 
   var isOutOfStock = false
 
+  const handlePromedio = () => {
+    let suma = 0
+    for(let i = 0; i<myFeed.length; i++){
+      suma += myFeed[i].points
+    }
+    let total = suma/myFeed.length
+    console.log(total, "PROMEDIO?")
+    return total
+  }
+
   if (stock_quantity === 0) {
     isOutOfStock = true
   }
@@ -237,25 +247,26 @@ export default function DetailsPhone(props) {
                    </p>
                 </span>
                 <hr/>
-                
+                <h3>Queres preguntar algo sobre el producto?</h3>
                   <Questions
                   email= {usuarioLogeado.email}
                   model= {myProducts.model}
                   />
                 <hr/>
                 <div>
+                  <h3>Preguntas y Respuestas:</h3>
                    <Qas
                     model= {myProducts.model ? myProducts.model : "modelo invalido"}
                     email= {usuarioLogeado ? usuarioLogeado.email : "email invalido"}
                    />
                 </div>
                 <div>
+                  <h3>Puntaje: {()=>handlePromedio()}</h3>
                   {myFeed.length?myFeed.map((f)=>{
                     return(
                       <PhoneFeedbacks
                        model= {f.product ? f.product : "modelo invalido"}
                       />
-
                     )
                   }):null}
                 </div>
