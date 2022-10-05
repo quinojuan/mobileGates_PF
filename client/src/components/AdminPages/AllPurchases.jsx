@@ -18,7 +18,7 @@ export default function AllPurchases(){
       return (
         <div>
           <NavBar />
-          <div class="mt-3">
+          <div class="mt-5">
             {purchases.length?purchases.map((u)=>{
               return(
               <div>
@@ -36,7 +36,7 @@ export default function AllPurchases(){
               )
             }):<h1>Aun no hay compras</h1>}
             <hr/>
-            <button type="button" class="btn btn-danger" onClick={()=>navigate("/adminpages")}>Volver al Panel</button>
+            <button type="button" class="btn btn-secondary" onClick={()=>navigate("/adminpages")}>Volver al Panel</button>
           </div>
     
           <Footer />

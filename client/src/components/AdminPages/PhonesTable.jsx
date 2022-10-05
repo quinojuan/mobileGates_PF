@@ -46,9 +46,9 @@ export default function PhonesTable() {
                                 <td>{el.model}</td>
                                 <td>{el.id}</td>
                                 <td>
-                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <div class="btn-group " role="group" aria-label="Basic mixed styles example">
                                         <Link to={`/modifyphone/${el.id}`}>
-                                        <a href="#"  class="btn btn-warning">Modificar</a>
+                                        <a href="#"  class="btn btn-warning me-2">Modificar</a>
                                         </Link>
                                         <button 
                                          onClick={() => handleDelete(el.id)

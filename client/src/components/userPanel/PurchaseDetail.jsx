@@ -4,7 +4,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getUsers, getPurchase, getPurchasesDetail, getCleanPurchases } from "../../redux/Actions";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 
 
 export default function PurchaseDetail(){
@@ -13,6 +13,7 @@ export default function PurchaseDetail(){
     const details=useSelector((state)=>state.purchasesDetail)
     const purchases=useSelector((state)=>state.purchases)
     const {id} = useParams();
+    const navigate=useNavigate()
     let myPurchase=purchases&&purchases.filter((s)=>s.id===id)
     console.log(details)
 
@@ -22,10 +23,7 @@ export default function PurchaseDetail(){
         
     },[dispatch])
     return(
-    <div>
-    <Link to= "/userpurchases">
-        <button class='btn btn-secondary mt-3 mb-5'>Volver</button>
-    </Link>
+    <div class='mt-5'>
     
     {
                 purchases.length > 0 ?
@@ -44,11 +42,12 @@ export default function PurchaseDetail(){
                         <tbody>
                         <tr>
                         <th scope="row">1</th>
-                        <td></td>
+                        <td>{id}</td>
                         <td>${myPurchase[0].amount} </td>
                         <td>{myPurchase[0].adress}</td>
                         <td>{myPurchase[0].dni}</td>
                         <td>{myPurchase[0].birthday}</td>
+                        <td class='btn btn-secondary'onClick={()=>navigate(`userpurchase/${id}`)}>Ver detalle de compra</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
@@ -63,6 +62,9 @@ export default function PurchaseDetail(){
                      : <div><div><h4>Loading...</h4></div></div>
             }
             
+    <Link to= "/userpurchases">
+        <button class='btn btn-secondary mt-3 mb-5'>Volver</button>
+    </Link>
     </div>
  
 )}
