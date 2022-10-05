@@ -44,7 +44,9 @@ export default function DetailsPhone(props) {
 
   const allProducts = useSelector(state => state.products)
   const myProductWithBrand = allProducts.filter((e)=> e.id == id)
- 
+  let myFeed = feedbacks.filter((e)=> e.product === myProducts.model)
+    console.log(myFeed, "el feed del detail")
+    console.log(myProducts, "DETAIL PROD")
   function decrease() {
     setCount(count - 1);
   }
@@ -248,9 +250,14 @@ export default function DetailsPhone(props) {
                    />
                 </div>
                 <div>
-                  <PhoneFeedbacks
-                  model= {myProducts.model ? myProducts.model : "modelo invalido"}
-                  />
+                  {myFeed.length?myFeed.map((f)=>{
+                    return(
+                      <PhoneFeedbacks
+                       model= {f.product ? f.product : "modelo invalido"}
+                      />
+
+                    )
+                  }):null}
                 </div>
                 
               </div>
