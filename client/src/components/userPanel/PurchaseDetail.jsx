@@ -2,12 +2,9 @@
 //detalles de orden que hice en el pasado
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
-  getUsers,
   getPurchase,
-  getPurchasesDetail,
-  getCleanPurchases,
 } from "../../redux/Actions";
 import { useParams, Link } from "react-router-dom";
 import Feedbacks from "../Feedbacks/Feedbacks";

@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import axios from "axios";
 import Swal from "sweetalert2";
 export function getAllProducts() {

@@ -2,18 +2,19 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  searchName,
   getProductsByNameAndFilters,
   setSearch,
-  searching
+  searching,
 } from "../../redux/Actions/index";
 import Swal from "sweetalert2";
 import "./SearchBar.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-
-export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreInHome }) {
+export default function SearchBar({
+  setCurrentPage,
+  weAreInHome,
+}) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const filters = useSelector((state) => state.filters);
@@ -22,15 +23,15 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreIn
     e.preventDefault();
     setName(e.target.value);
   }
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
-  },[dispatch])
+  }, [dispatch]);
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(searching(true))
-    if(!weAreInHome){
+    dispatch(searching(true));
+    if (!weAreInHome) {
       dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
-      navigate("/home")
+      navigate("/home");
     }
     if (name.length !== 0) {
       dispatch(getProductsByNameAndFilters(name.toLowerCase(), filters));
@@ -53,13 +54,21 @@ export default function SearchBar({ setCurrentPage, setProductsPerPages, weAreIn
     //   </button>
     // </div>
 
-<nav class="navbar bg-dark">
-<div class="container-fluid">
-  <form class="d-flex" role="search">
-    <input class="form-control me-2 h-50 mt-3" type="search" placeholder="Buscar" onChange={(e) => handleInputChange(e)} aria-label="Search"/>
-    <button className="Sbutton mt-3" onClick={(e) => handleSubmit(e)}>Buscar</button>
-  </form>
-</div>
-</nav>
+    <nav class="navbar bg-dark">
+      <div class="container-fluid">
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2 h-50 mt-3"
+            type="search"
+            placeholder="Buscar"
+            onChange={(e) => handleInputChange(e)}
+            aria-label="Search"
+          />
+          <button className="Sbutton mt-3" onClick={(e) => handleSubmit(e)}>
+            Buscar
+          </button>
+        </form>
+      </div>
+    </nav>
   );
 }

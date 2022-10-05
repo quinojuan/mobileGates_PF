@@ -1,14 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPhonesById, getClean, getFeedbacks } from "../../redux/Actions";
+import { getPhonesById, getFeedbacks } from "../../redux/Actions";
 import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
 import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
-import Feedback from "../Feedbacks/Feedbacks";
 import Questions from "../Qas/Questions";
 import Qas from "../Qas/Qas"
 import PhoneFeedbacks from "../Feedbacks/PhoneFeedbacks"
@@ -33,14 +32,12 @@ const image = {
 }
 
 export default function DetailsPhone(props) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const myProducts = useSelector((state) => state.details);
   const [img, setImg] = useState("");
   const [count, setCount] = useState(1);
   const usuarioLogeado = useSelector((state) => state.loggedUser);
-  const feedbacks = useSelector((state) => state.allFeedbacks);
 
   const allProducts = useSelector(state => state.products)
   const myProductWithBrand = allProducts.filter((e)=> e.id == id)
@@ -56,19 +53,10 @@ export default function DetailsPhone(props) {
     Object.keys(myProducts).length && setImg(myProducts.image);
   }, [dispatch, myProducts, id]);
 
-  function handleBack() {
-    dispatch(getClean());
-    navigate("/home");
-  }
-
   useEffect(() => {
     dispatch(getFeedbacks());
   }, [dispatch]);
 
-  function handleSelectImage(e) {
-    e.preventDefault();
-    setImg(e.target.src);
-  }
   function acomodarPrecio(precio) {
     console.log("precio:", precio);
     precio = precio?precio:"0000";

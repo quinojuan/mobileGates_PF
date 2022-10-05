@@ -12,12 +12,9 @@ import NavBar from "../../components/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import {
   postPurchase,
-  getCheck,
   cleanCart,
   purchaseMail,
 } from "../../redux/Actions/index";
-import { useEffect } from "react";
-import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 const stripePromise = loadStripe(

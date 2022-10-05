@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuth } from "../Context/authContext";
 // import './Login.css'
 import { useNavigate } from "react-router-dom";
@@ -7,12 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import google from "../../images/google.png";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { addUserToDb } from "../../redux/Actions";
-import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
   
-  const loggedUser = useSelector(state => state.loggedUser)
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
@@ -21,7 +18,6 @@ export default function Login() {
   const { login, loginWithGoogle, resetPassword } = useAuth();
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const [error, setError] = useState();
 

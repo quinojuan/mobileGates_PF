@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../Context/authContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { addDisplayName, addUserToDb } from '../../redux/Actions/index';
-import { useDispatch, useSelector } from 'react-redux';
+import { addUserToDb } from '../../redux/Actions/index';
+import { useDispatch } from 'react-redux';
 import { auth } from '../../firebase';
 import { sendEmailVerification, updateProfile } from 'firebase/auth';
 
 export default function CreateUser() {
-	const loggedUser = useSelector((state) => state.loggedUser);
 	const [error, setError] = useState();
 	const [user, setUser] = useState({
 		email: '',

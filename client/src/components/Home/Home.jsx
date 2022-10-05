@@ -22,10 +22,7 @@ import {
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import SearchBar from "../SearchBar/SearchBar";
-import { Link } from "react-router-dom";
 import Paginado from "../Paginated/Paginated";
-import AddProducts from "../AddProducts/AddProducts";
 import Loading from "../Loading/Loading";
 import "./Home.css";
 import Swat from "sweetalert2";
@@ -50,7 +47,6 @@ export default function Home() {
     allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
   const search = useSelector((s) => s.search);
-  const [price, setPrice] = useState("");
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -75,10 +71,6 @@ export default function Home() {
     currentProducts.length && setFirstTime(false);
   }, [currentProducts]);
 
-  function handleReload(e) {
-    e.preventDefault();
-    window.location.reload();
-  }
   function changePage(pageNumber) {
     setCurrentPage(pageNumber);
   }
