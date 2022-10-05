@@ -90,7 +90,7 @@ export default function FormPurchase() {
     let actYear = date.getFullYear();
     let todoOk = true;
     function checkDate() {
-      if (actYear - year > 0) {
+      if (actYear - year > 16 && actYear - year < 122) {
         return true;
       } else if (actYear - year === 0) {
         if (actMonth - month > 0) {
