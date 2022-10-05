@@ -125,7 +125,7 @@ export default function FormPurchase() {
     // dispatch(postPurchase(input))
     // Swal.fire("Compra realizada")
     if (!Number(input.dni)) {
-      Swal.fire("El DNI solo debe estar compuesto de puntos");
+      Swal.fire("El DNI solo debe estar compuesto de numeros");
     } else if (input.dni.length < 7 || input.dni.length > 8) {
       Swal.fire("INGRESE UN DNI VALIDO");
     } else if (!todoOk) {
