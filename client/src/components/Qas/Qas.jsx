@@ -13,6 +13,7 @@ export default function Qas({model}) {
         if(q.answers){
             return(
                 <div>
+                  
                     <p>{q.email}</p>
                     <p>{q.questions}</p>
                     <p>{q.answers}</p>

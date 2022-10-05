@@ -17,29 +17,63 @@ export default function AllPurchases(){
 
       return (
         <div>
-          <NavBar />
-          <div class="mt-3">
-            {purchases.length?purchases.map((u)=>{
-              return(
-              <div>
-                <br/>
-                {u.email}
-                <br/>
-                {u.amount}
-                {u.products.map((p)=> (
-                    <div>
-                        <p>{p.phone}</p>
-                        <p>{p.quantity}</p>
-                    </div>
-                ))}
-              </div>
-              )
-            }):<h1>Aun no hay compras</h1>}
-            <hr/>
-            <button type="button" class="btn btn-danger" onClick={()=>navigate("/adminpages")}>Volver al Panel</button>
-          </div>
-    
-          <Footer />
-        </div>
+        <NavBar/>
+        {purchases.length ? purchases.map((s)=>{
+            return(
+                <div> 
+                    <br/>
+                    <br/>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Detalles del pedido</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">DNI</th>
+                                    <th scope="col">Fecha de nacimiento</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                     {/* <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button> */}
+                                    <td>{s.id}</td>
+                                    <td>${s.amount} </td>
+                                    <td>{s.adress}</td>
+                                    <td>{s.dni}</td>
+                                    <td>{s.birthday}</td>
+                                  </tr>
+                                  </tbody>
+                                </table>
+                       <h1>
+
+                        <div>
+                      {/*   <p>{s.phone}</p>
+                        <p>{s.quantity}</p>
+                        <Feedback
+                            model={s.phone}
+                            email={logged.email}
+                        /> */}
+                        </div>
+                    </h1>
+        <hr />
+        <table class="table table-striped w-75 ms-5 mt-5">
+                    <tbody>
+                        <tr>
+                    <td>{s.id}</td>
+                    <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+            )
+        }):<h1>No realizó compras</h1>}  
+    <button class='btn btn-dark mt-4'>
+        <a className="nav-link active text-white" href="/userpanel">Volver</a>
+    </button>
+        <Footer/>   
+    </div>
       )
     }
