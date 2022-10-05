@@ -15,6 +15,8 @@ export default function AllPurchases(){
         dispatch(getPurchase())
       },[dispatch])
 
+  
+
       return (
         <div>
           <NavBar />
@@ -32,13 +34,17 @@ export default function AllPurchases(){
                         <p>{p.quantity}</p>
                     </div>
                 ))}
+               
               </div>
+              
               )
+              
             }):<h1>Aun no hay compras</h1>}
             <hr/>
             <button type="button" class="btn btn-danger" onClick={()=>navigate("/adminpages")}>Volver al Panel</button>
           </div>
     
+          
           <Footer />
         </div>
       )
