@@ -90,14 +90,22 @@ export default function FormPurchase() {
     let actYear = date.getFullYear();
     let todoOk = true;
     function checkDate() {
-      if (actYear - year >= 0) {
-        if (actMonth - month >= 0) {
+      if (actYear - year > 0) {
+        return true;
+      } else if (actYear - year === 0) {
+        if (actMonth - month > 0) {
+          return true;
+        } else if (actMonth - month === 0) {
           if (actDay - day > 0) {
             return true;
+          } else {
+            return false;
           }
         } else {
           return false;
         }
+      } else {
+        return false;
       }
     }
     todoOk = checkDate();
