@@ -35,13 +35,6 @@ export default function UserPurchases(){
         <button>
             <Link to= "/userpanel">Volver</Link>
         </button>
-        
-               
-                    
-                
-            
-            
-         
         </div>
     )
 
