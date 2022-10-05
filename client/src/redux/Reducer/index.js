@@ -310,6 +310,11 @@ function rootReducer(state = initialState, action) {
 				...state,
 				users: [...newUsers, action.payload],
 			};
+			case "cleanSearch":
+				return{
+					...state,
+					search: []
+				}
 		default:
 			return state;
 	}
