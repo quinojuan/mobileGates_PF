@@ -72,7 +72,7 @@ export default function NavBar() {
   };
 
   if (funcionAuxiliar(mail)) {
-    console.log("ENTRANDO AL PRIMER IF");
+   // console.log("ENTRANDO AL PRIMER IF");
     return (
       <nav className="container">
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -134,7 +134,7 @@ export default function NavBar() {
                       aria-expanded="false"
                     >
                       <FontAwesomeIcon icon={["fas", "user"]} />
-                      Hola, {logedUser.displayName}
+                      {logedUser.displayName}
                     </a>
                     <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
@@ -158,7 +158,7 @@ export default function NavBar() {
       </nav>
     );
   } else if (Object.keys(logedUser).length) {
-    console.log("entrando al 2do if");  
+    //console.log("entrando al 2do if");  
     return (
       <nav className="container">
       <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -247,7 +247,7 @@ export default function NavBar() {
     </nav>
       );
   } else {
-    console.log("ENTRANDO AL 3er IF");
+    //console.log("ENTRANDO AL 3er IF");
     return (
       <nav>
         <div className="navbar navbar-expand-lg bg-dark">
