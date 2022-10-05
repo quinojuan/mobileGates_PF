@@ -5,7 +5,11 @@ import { useAuth } from "../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
-import { getProductsByNameAndFilters, getUsers, setSearch } from "../../redux/Actions";
+import {
+  getProductsByNameAndFilters,
+  getUsers,
+  setSearch,
+} from "../../redux/Actions";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loading from "../Loading/Loading";
@@ -36,11 +40,11 @@ export default function NavBar() {
   const usersAdmin = useSelector((state) => state.usersAdmins);
   const handleLogout = async () => {
     await logout();
-    navigate("/home/");
+    document.location.reload()
   };
-  useEffect(()=>{
-    dispatch(getUsers())
-  },[dispatch])
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
   function handleReload(e) {
     e.preventDefault();
     window.location.reload();
@@ -59,7 +63,7 @@ export default function NavBar() {
     }
     setCurrentPage(1);
   }
-  const mail = logedUser?.email
+  const mail = logedUser?.email;
   let funcionAuxiliar = (email) => {
     if (
       usersAdmin.filter((e) => e.email?.toLowerCase() === email?.toLowerCase())
@@ -116,10 +120,16 @@ export default function NavBar() {
                   <a className="nav-link active text-white" href="#">Quienes somos?</a>
                 </li> */}
                 <li className="nav-item">
-                  <a type='button' className="nav-link active" href="#" style={buttonStyle}  onClick={() => navigate("/products/Cart")}>
-                  <FontAwesomeIcon 
-                    icon="fa-solid fa-cart-shopping" 
-                    style={{ color: 'white' }}
+                  <a
+                    type="button"
+                    className="nav-link active"
+                    href="#"
+                    style={buttonStyle}
+                    onClick={() => navigate("/products/Cart")}
+                  >
+                    <FontAwesomeIcon
+                      icon="fa-solid fa-cart-shopping"
+                      style={{ color: "white" }}
                     />
                   </a>
                 </li>
@@ -136,18 +146,29 @@ export default function NavBar() {
                       <FontAwesomeIcon icon={["fas", "user"]} />
                       {logedUser.displayName}
                     </a>
-                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                    <div
+                      class="dropdown-menu bg-dark"
+                      aria-labelledby="dropdownMenuLink"
+                    >
                       {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
-                      <a class="dropdown-item text-light" href="/adminpages">Panel del admin</a>
+                      <a class="dropdown-item text-light" href="/adminpages">
+                        Panel del admin
+                      </a>
                       <a class="dropdown-item text-light" href="/userpanel">
                         Panel del Usuario
                       </a>
                       <a
                         className="dropdown-item"
                         href="/home"
-                        onClick={()=>handleLogout()}
+                        onClick={() => handleLogout()}
                       ></a>
-                      <a className="dropdown-item text-light" href="#" onClick={handleLogout}>Cerrar sesión</a>
+                      <a
+                        className="dropdown-item text-light"
+                        href="#"
+                        onClick={()=>handleLogout()}
+                      >
+                        Cerrar sesión
+                      </a>
                     </div>
                   </div>
                 </li>
@@ -158,94 +179,103 @@ export default function NavBar() {
       </nav>
     );
   } else if (Object.keys(logedUser).length) {
-    //console.log("entrando al 2do if");  
+    console.log("entrando al 2do if");
     return (
       <nav className="container">
-      <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
-        <div className="container-fluid">
-          <Link
-            to="/home"
-            class="navbar-brand text-white"
-            className="nav-link active text-white"
-            aria-current="page"
-          >
-            Móvil Gates
-          </Link>
-          {/* <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
+          <div className="container-fluid">
+            <Link
+              to="/home"
+              class="navbar-brand text-white"
+              className="nav-link active text-white"
+              aria-current="page"
+            >
+              Móvil Gates
+            </Link>
+            {/* <h1 className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </h1> */}
-          <SearchBar
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            weAreInHome={false}
-          />
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                {/*  <a className="nav-link active text-white" aria-current="page" href="/home">Home</a> */}
-              </li>
-              {/* <li className="nav-item">
+            <SearchBar
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              weAreInHome={false}
+            />
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ms-auto">
+                <li className="nav-item">
+                  {/*  <a className="nav-link active text-white" aria-current="page" href="/home">Home</a> */}
+                </li>
+                {/* <li className="nav-item">
                 <a className="nav-link active text-white" href="#">Productos</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link active text-white" href="#">Quienes somos?</a>
               </li> */}
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  href="#"
-                  onClick={() => navigate("/products/Cart")}
-                >
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-cart-shopping"
-                    className="h5 me-2"
-                    style={{ color: "DodgerBlue" }}
-                  />
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <div class="dropdown show">
+                <li className="nav-item">
                   <a
-                    class="nav-link dropdown-toggle text-white"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
+                    className="nav-link active"
+                    href="#"
+                    onClick={() => navigate("/products/Cart")}
                   >
-                    <FontAwesomeIcon icon={["fas", "user"]} />
-                    Hola, {logedUser.displayName}
+                    <FontAwesomeIcon
+                      icon="fa-solid fa-cart-shopping"
+                      className="h5 me-2"
+                      style={{ color: "DodgerBlue" }}
+                    />
                   </a>
-                  <div
-                    class="dropdown-menu"
-                    aria-labelledby="dropdownMenuLink"
-                  >
+                </li>
+                <li class="nav-item dropdown">
+                  <div class="dropdown show">
                     <a
-                      className="dropdown-item"
-                      href="/home"
-                      onClick={()=>handleLogout()}
+                      class="nav-link dropdown-toggle text-white"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
                     >
-                      Cerrar sesión
+                      <FontAwesomeIcon icon={["fas", "user"]} />
+                      Hola, {logedUser.displayName}
                     </a>
+                    <div
+                      class="dropdown-menu bg-dark"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      {/* <a class="dropdown-item" href="#">Mi perfil</a> */}
+                      <a class="dropdown-item text-light" href="/userpanel">
+                        Panel del Usuario
+                      </a>
+                      {/*<a
+                        className="dropdown-item"
+                        href="/home"
+                        onClick={()=>handleLogout()}
+                      ></a>*/}
+                      <a
+                        className="dropdown-item text-light"
+                        href="#"
+                        onClick={() => handleLogout()}
+                      >
+                        Cerrar sesión
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-      );
+      </nav>
+    );
   } else {
     //console.log("ENTRANDO AL 3er IF");
     return (
