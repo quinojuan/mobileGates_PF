@@ -64,7 +64,7 @@ export default function PurchaseDetail() {
                   <h5>{p.phone}</h5>
                   <a>{p.quantity}</a>
                    <Feedbacks
-                   model={p.model}
+                   model={p.phone}
                    email={myPurchase[0].email}
                    />
                 </div>
