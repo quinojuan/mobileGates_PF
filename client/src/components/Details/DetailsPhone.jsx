@@ -138,7 +138,7 @@ export default function DetailsPhone(props) {
 Stock:
 {isOutOfStock ? (
   <div className='out-stock-style'>
-    <h4>{myProductWithBrand[0].stock}Sin Stock</h4>
+    <h4>Sin Stock</h4>
   </div>
 ) : (
   <div className='in-stock'>
