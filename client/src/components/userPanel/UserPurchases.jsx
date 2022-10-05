@@ -27,7 +27,30 @@ export default function UserPurchases(){
         
         <div>
             <NavBar/>
-            {purchases.length ? purchases.map((s)=>{
+            <table class="table table-striped table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Detalles del pedido</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Dirección</th>
+                                        <th scope="col">DNI</th>
+                                        <th scope="col">Fecha de nacimiento</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row"></th>
+                                         {/* <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button> */}
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                      </tr>
+                                      </tbody>
+                                    </table>
+            {purchases.length ? purchases.map((s, index)=>{
                 return(
                     <div> 
                         <br/>
@@ -45,13 +68,14 @@ export default function UserPurchases(){
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <th scope="row">1</th>
+                                        <th scope="row">{index + 1}</th>
                                          {/* <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button> */}
                                         <td>{s.id}</td>
                                         <td>${s.amount} </td>
                                         <td>{s.adress}</td>
                                         <td>{s.dni}</td>
                                         <td>{s.birthday}</td>
+                                        <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
                                       </tr>
                                       </tbody>
                                     </table>
@@ -70,8 +94,7 @@ export default function UserPurchases(){
             <table class="table table-striped w-75 ms-5 mt-5">
                         <tbody>
                             <tr>
-                        <td>{s.id}</td>
-                        <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
+                                          
                             </tr>
                         </tbody>
                     </table>
