@@ -3,9 +3,8 @@ import Footer from '../Footer/Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getUsers, deleteUser, setAdmin, setActive } from '../../redux/Actions';
+import { getUsers, setAdmin, setActive } from '../../redux/Actions';
 import Spinner from '../Spinner/Spinner';
-import Swal from 'sweetalert2';
 
 export default function ManageUser() {
 	const allUsers = useSelector((state) => state.users);

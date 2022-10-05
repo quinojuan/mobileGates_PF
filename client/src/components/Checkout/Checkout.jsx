@@ -56,10 +56,10 @@ const CheckOutForm = () => {
         amount: price,
       });
       let dataCheck = await axios.get("http://localhost:3001/checkout");
-      console.log(dataCheck.data, " DATA CHECK");
+      // console.log(dataCheck.data, " DATA CHECK");
 
       let estadoGlobal2 = { ...estadoGlobal, ...dataCheck.data };
-      console.log(estadoGlobal2, "ahora si el objeto a presentar en back");
+      // console.log(estadoGlobal2, "ahora si el objeto a presentar en back");
       dispatch(postPurchase(estadoGlobal2));
       dispatch(purchaseMail(estadoGlobal2)); // envia el mail al finalizar la compra
       dispatch(cleanCart());

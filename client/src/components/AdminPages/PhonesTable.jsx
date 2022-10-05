@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import React, { useEffect } from "react";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { getAllProducts , deletePhone, getUsers} from "../../redux/Actions/index"
 import { useDispatch, useSelector} from 'react-redux';
-import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 export default function PhonesTable() {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const products = useSelector((state) => state.products)
     
     useEffect(() => {

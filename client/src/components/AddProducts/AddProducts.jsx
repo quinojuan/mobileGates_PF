@@ -22,7 +22,6 @@ const addCartButton = {
 export default function AddProducts({id, quantity}){
     
     const dispatch=useDispatch()
-    const cart = useSelector((state)=>state.cart)
     const { user } = useAuth()
     const products = useSelector((state)=>state.products)
     let product = products.filter((e)=>e.id === id)

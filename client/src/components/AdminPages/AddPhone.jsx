@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
-import Footer from "../Footer/Footer";
 import {
   postPhone,
   getCapacity,
@@ -10,7 +9,6 @@ import {
   getCategories,
 } from "../../redux/Actions/index";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 
 export default function AddProducts() {
   const dispatch = useDispatch();
@@ -19,7 +17,6 @@ export default function AddProducts() {
   const capacity = useSelector((state) => state.capacities);
   const ram = useSelector((state) => state.rams);
   const brand = useSelector((state) => state.categories);
-  const price = [];
 
   const [selectedFile, setSelectedFile] = useState(); // IMAGEN
   const [preview, setPreview] = useState(); // IMAGEN
@@ -126,13 +123,6 @@ export default function AddProducts() {
     }
   }
 
-  function handleDeleteCapacity(e) {
-    setInput({
-      ...input,
-      capacity: input.capacity.filter((el) => el !== e),
-    });
-  }
-
   function handleSelectRAM(e) {
     if (!input.ram.includes(e.target.value)) {
       // setInput({
@@ -144,23 +134,6 @@ export default function AddProducts() {
         ram: [Number(e.target.value)],
       });
     }
-  }
-
-  function handlePrice(e) {
-    console.log(input.price);
-    if (!input.price.includes(e.target.value)) {
-      setInput({
-        ...input,
-        price: [console.log("estoy en el array")],
-      });
-    }
-    console.log(input.price);
-  }
-  function handleDeleteRAM(e) {
-    setInput({
-      ...input,
-      ram: input.ram.filter((el) => el !== e),
-    });
   }
 
   function handleSelectBrands(e) {
@@ -181,13 +154,6 @@ export default function AddProducts() {
   //     // }
   //     console.log(input.price)
   // }
-
-  function handleDeletePrice(e) {
-    setInput({
-      ...input,
-      price: input.price.filter((el) => el !== e),
-    });
-  }
 
   function handlePanel() {
     navigate("/adminpages");

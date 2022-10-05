@@ -5,8 +5,6 @@ import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { getUsers, updateUser} from "../../redux/Actions/index"
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from "react-router-dom";
-
 
 export default function ModifyUser() {
 

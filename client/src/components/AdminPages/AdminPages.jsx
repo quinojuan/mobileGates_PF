@@ -1,20 +1,15 @@
-import { Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import administrar from "../../images/administrar.png";
 import { useEffect } from "react";
-import { getPurchase, getUsers, getQas } from "../../redux/Actions";
+import { getPurchase, getUsers } from "../../redux/Actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { useAuth } from "../Context/authContext";
 
 export default function AdminPages() {
   const dispatch = useDispatch();
-  const { user, logout, loading } = useAuth();
   const logedUser = useSelector((state) => state.loggedUser);
   const usersAdmin = useSelector((state) => state.usersAdmins);
-  const questions = useSelector((state) => state.qas);
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getPurchase());
@@ -110,17 +105,16 @@ export default function AdminPages() {
         <Footer />
       </div>
     );
-  } else if(logedUser && !funcionAuxiliar(mail)) {
-    return(<h1>CARGANDO</h1>)
-  }
-  else{
+  } else if (logedUser && !funcionAuxiliar(mail)) {
+    return <h1>CARGANDO</h1>;
+  } else {
     return (
       <div>
-      <h1>NECESITAS ESTAR LOGEADO Y SER ADMIN PARA ESTAR AQUI</h1>
-      <Link to="/home">
-      <button>IR AL INICIO</button>
-      </Link>
+        <h1>NECESITAS ESTAR LOGEADO Y SER ADMIN PARA ESTAR AQUI</h1>
+        <Link to="/home">
+          <button>IR AL INICIO</button>
+        </Link>
       </div>
-      )
+    );
   }
 }

@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import AddProducts from "../AddProducts/AddProducts";
-import { useNavigate } from "react-router-dom";
 import loadingPng from "../../images/Loading.png";
 import Questions from "../Qas/Questions";
 import Qas from "../Qas/Qas"

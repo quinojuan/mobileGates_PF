@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from "react-router-dom";
-import { getQas, updateQa } from "../../redux/Actions"
+import { getQas } from "../../redux/Actions"
 
 
 export default function ManageQuestions() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userQuestions = useSelector((state) => state.qas)
-  const [input, setInput] = useState({
-     
-  })
  
   useEffect(() => {
     dispatch(getQas())
