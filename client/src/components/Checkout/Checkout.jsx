@@ -19,6 +19,7 @@ import {
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2"
 
 const stripePromise = loadStripe(
   "pk_test_51Lm1TVK1EwVhNCq68YLlfHrPYO6g5jOMh5oTgzSercKkEo1RAgFdwEZ89w2dFni5DwDTm0Fx1mlSvGk3AaXwOxbQ00h8CiddUO"
@@ -65,6 +66,7 @@ const CheckOutForm = () => {
       console.log(estadoGlobal2, "ahora si el objeto a presentar en back");
       dispatch(postPurchase(estadoGlobal2));
       dispatch(purchaseMail(estadoGlobal2)); // envia el mail al finalizar la compra
+      Swal.fire("Compra realizada")
       dispatch(cleanCart());
       navigate("/home");
     } else {
