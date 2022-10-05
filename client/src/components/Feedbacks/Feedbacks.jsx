@@ -55,11 +55,10 @@ const post = () =>{
     });
     navigate("/userpanel")
   }
-
+  
   return (
     <div >
       <form >
-            
               <p className='clasificacion'>
                 <input
                   className='input'
