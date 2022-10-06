@@ -28,7 +28,8 @@ import UserPanel from './components/userPanel/userPanel';
 import UserPurchases from './components/userPanel/UserPurchases';
 import ManageQuestions from "./components/AdminPages/ManageQuestions";
 import AnswerQuestion from "./components/AdminPages/AnswerQuestion"
-import PurchaseDetail from "./components/userPanel/PurchaseDetail"
+
+
 
 library.add(fab, faCheckSquare, faCoffee, fas)
 
@@ -72,6 +73,7 @@ function App() {
         <Route path= "/qas/:id" element={<AnswerQuestion/>}/>
         <Route exact path= "userpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
         <Route exact path= "allpurchases/userpurchase/:id" element={<PurchaseDetail/>}/>
+        
       </Routes>
     </div>
     </BrowserRouter>
