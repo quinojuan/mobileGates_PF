@@ -91,7 +91,6 @@ export const setFilter = (filter, filterName) => (dispatch) => {
 };
 
 export function addUser(payload) {
-  //console.log("Payload en addUser-actions", payload);
   return async function() {
     try {
       /*   const newUser = {
@@ -110,11 +109,9 @@ export function getUsers() {
     let users = await axios
       .get("http://localhost:3001/users")
       .then((res) => res.data);
-    console.log(users);
     let firebaseUsers = await axios
       .get("http://localhost:3001/firebase/allusers")
       .then((res) => res.data.users);
-    console.log(firebaseUsers, "ACÁ ESTAN LOS UUSARIOS DE FIREBASE");
     users.forEach((user) => {
       let finded = firebaseUsers.find((u) => u.email === user.email);
       if (finded) user.emailVerified = finded.emailVerified;
@@ -133,7 +130,6 @@ export function getUsers() {
 }
 
 export function deleteUser(id) {
-  console.log(id, "id EN AXXXXXXXXXCTION");
   return async function(dispatch) {
     let json = await axios.delete("http://localhost:3001/users/" + id);
     return dispatch({
@@ -258,7 +254,6 @@ export const handleClearCart = () => {
 export function getPurchase() {
   return async function(dispatch) {
     let json = await axios.get("http://localhost:3001/purchases");
-    //console.log(json, "la aXXXXXION")
     return dispatch({
       type: "GET_PURCHASES",
       payload: json.data,
@@ -268,7 +263,6 @@ export function getPurchase() {
 
 export function postPurchase(payload) {
   return async function(dispatch) {
-    console.log(payload, "ACTION DE POSTPURCHASE");
     const purchase = await axios.post(
       "http://localhost:3001/purchases",
       payload
@@ -317,7 +311,6 @@ export function setFinalPrice(payload) {
 }
 export function postFeedback(payload) {
   return async function(dispatch) {
-    console.log(payload, "ACTION DE FEEDBACKS");
     const feedback = await axios.post(
       "http://localhost:3001/feedbacks",
       payload
@@ -330,7 +323,6 @@ export function postFeedback(payload) {
 }
 
 export function getFeedbacks(payload) {
-  // console.log("FEEDBACK A ENVIAR:", payload);
   return async function(dispatch) {
     let feedBacks = await axios.get("http://localhost:3001/feedbacks");
     return dispatch({
@@ -341,7 +333,6 @@ export function getFeedbacks(payload) {
 }
 
 export function postPhone(payload) {
-  console.log(payload);
   return async function(dispatch) {
     const newPhone = await axios.post(
       "http://localhost:3001/products",
@@ -388,7 +379,6 @@ export function shippingMail(payload) {
 }
 
 export function postQa(payload) {
-  console.log(payload, "LA CTION POST QAS");
   return async function() {
     await axios.post("http://localhost:3001/qas", payload);
   };
@@ -397,7 +387,6 @@ export function postQa(payload) {
 export function getQas() {
   return async function(dispatch) {
     let qas = await axios.get("http://localhost:3001/qas");
-    //console.log(qas, "QAS AXION")
     return dispatch({
       type: "GET_QAS",
       payload: qas.data,
@@ -406,10 +395,8 @@ export function getQas() {
 }
 
 export function updateQa(id, payload) {
-  console.log(id, payload, "AXION PUT");
   return async function(dispatch) {
     let updateQa = await axios.put(`http://localhost:3001/qas/${id}`, payload);
-    console.log(updateQa, "updated qa wtf?");
     return dispatch({
       type: "UPDATE_QA",
       payload: updateQa.data,
@@ -438,7 +425,6 @@ export function addUserToDb(payload) {
 }
 export const setUserDisplayName = (email) => async (dispatch) => {
   const user = await axios.get(`http://localhost:3001/users/email/${email}`);
-  console.log(user.data);
   return dispatch({
     type: "ADD_DISPLAY_NAME",
     payload: user.data,
@@ -498,4 +484,10 @@ export function cleanSearch() {
   return {
     type: "clean_state_search",
   };
+}
+export function setCantidad(payload) {
+  return{
+    type: "setCantidad",
+    payload
+  }
 }

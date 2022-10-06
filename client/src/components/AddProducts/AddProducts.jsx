@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getCart, addToCart, getPurchaseRepeat } from "../../redux/Actions";
+import { getCart, addToCart, getPurchaseRepeat, setCantidad } from "../../redux/Actions";
 import style from "./AddProduct.module.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Context/authContext";
@@ -35,9 +35,13 @@ export default function AddProducts({ id, quantity }) {
     quantity: quantity,
   };
   var isOutOfStock = false;
-
+  const existente = cart.length?cart.filter((e) => e.phone.id === details.id):[]
   function handleCart() {
-    if (details.stock !== 0) {
+    if(existente.length){
+        Swap.fire("Este producto ya esta en el carrito")
+    }
+    else if (details.stock !== 0 ) {
+        dispatch(setCantidad(productPresentation.quantity))
       if (sinAgregar) {
         dispatch(addToCart(productPresentation));
         Swap.fire("Éxito", "Producto agregado con exito.", "success");
@@ -46,7 +50,7 @@ export default function AddProducts({ id, quantity }) {
         Swap.fire("El producto ya ha sido añadido anteriormente.");
       }
     } else {
-        Swap.fire("Lo sentimos, no hay stock de este producto")
+      Swap.fire("Lo sentimos, no hay stock de este producto");
     }
   }
   if (user) {

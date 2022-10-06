@@ -76,7 +76,6 @@ export default function NavBar() {
   };
 
   if (funcionAuxiliar(mail)) {
-   // console.log("ENTRANDO AL PRIMER IF");
     return (
       <nav className="container">
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -277,7 +276,7 @@ export default function NavBar() {
       </nav>
     );
   } else {
-    //console.log("ENTRANDO AL 3er IF");
+    console.log("ENTRANDO AL 3er IF");
     return (
       <nav>
         <div className="navbar navbar-expand-lg bg-dark">
