@@ -24,6 +24,10 @@ export default function PhonesTable() {
         dispatch(deletePhone(e))
         document.location.reload()
     }
+    
+    function handlePanel() {
+        navigate("/adminpages");
+      }
 
     return (
         <div>
@@ -67,6 +71,13 @@ export default function PhonesTable() {
                         ))}
                     </tbody>
                 </table>
+                <button
+              type="button"
+              class="btn btn-secondary"
+              onClick={(e) => handlePanel(e)}
+            >
+              Volver al Panel
+            </button>
             </div>
             <Footer />
         </div>

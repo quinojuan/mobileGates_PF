@@ -35,9 +35,7 @@ export default function ManageUser() {
 		<div>
 			<NavBar />
 			<div class="container w-50 mt-5">
-				<button class="btn btn-dark" onClick={goBack}>
-					Volver atras
-				</button>
+				
 				<h1>Administrar usuarios</h1>
 				<table class="table table-hover mt-5">
 					<thead>
@@ -104,6 +102,9 @@ export default function ManageUser() {
 						)}
 					</tbody>
 				</table>
+				<button class="btn btn-secondary" onClick={goBack}>
+					Volver al Panel
+				</button>
 			</div>
 			{/* <button type="button" class="btn btn-success" onClick={()=>navigate(`/modifyuser/${u.id}`)}>Modificar Rol</button>
             <button type="button" class="btn btn-danger" onClick={()=>handleDelete(u.id)}>Eliminar Usuario</button> */}

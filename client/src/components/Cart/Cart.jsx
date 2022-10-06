@@ -131,7 +131,7 @@ export default function Cart() {
 			</div>
 			<div className="col-md-5 p-5 position-absolute top-50 start-50">
 				<div className="sticky-top">
-					<h3 class="">Resumen</h3>
+					{/* <h3 class="">Resumen</h3> */}
 					<hr />
 					<h4 class="mt-3">Costo total: ${handleSuma()}</h4>
 					{myCart.length > 0 ? (
