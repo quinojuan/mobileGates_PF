@@ -5,7 +5,7 @@ const getAllUsers = async (req, res) => {
 	try {
 		let allUsers = await Users.findAll();
 		// if(allUsers.length === 0) return res.status(404).json({message: "cannot find info in database"});
-		allUsers = allUsers.filter((users) => users.active === true);
+		// allUsers = allUsers.filter((users) => users.active === true); // esta validación entra en conflicto con el bannear usuarios. Dejarla comentada
 		res.status(200).json(allUsers);
 	} catch (e) {
 		console.log(e);
@@ -21,8 +21,8 @@ const getUserById = async (req, res) => {
 		if (!validation) {
 			res.status(404).json({ message: 'id not exists' });
 		}
-		if (validation.active === false)
-			return res.status(400).json({ message: 'user not active' });
+		// if (validation.active === false) esta validación entra en conflicto con el bannear usuarios. Dejarla comentada
+		// 	return res.status(400).json({ message: 'user not active' });
 		res.status(201).json(validation);
 	} catch (e) {
 		console.log(e);
