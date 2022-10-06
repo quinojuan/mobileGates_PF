@@ -18,7 +18,8 @@ export default function AllPurchases() {
       return (
         <div>
         <NavBar/>
-        {purchases.length ? purchases.map((s)=>{
+        <div>
+        {purchases.length ? purchases.map((s, index)=>{
             return(
               <div class='container mt-5'> 
               
@@ -39,13 +40,14 @@ export default function AllPurchases() {
                                 </thead>
                                 <tbody>
                                   <tr>
-                                    <th scope="row">1</th>
+                                  <th scope="row">{index + 1}</th>
                                      {/* <button onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</button> */}
                                     <td>{s.id}</td>
                                     <td>${s.amount} </td>
                                     <td>{s.adress}</td>
                                     <td>{s.dni}</td>
                                     <td>{s.birthday}</td>
+                                    <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
                                   </tr>
                                   </tbody>
                                 </table>
@@ -61,14 +63,7 @@ export default function AllPurchases() {
                         </div>
                     </h1>
                    <hr />
-                    <table class="table table-striped w-75 ms-5 mt-5">
-                     <tbody>
-                        <tr>
-                      <td>{s.id}</td>
-                      <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
-                        </tr>
-                     </tbody>
-                </table>
+                    
                 </div>
 
             )
@@ -76,10 +71,12 @@ export default function AllPurchases() {
         <div class='container' style={{ minHeight: "400px" }}>
           <h1>Aún realizó compras</h1>
         </div>
-        }  
+        } 
+        </div> 
     <button class='btn btn-dark mt-4'>
-        <a className="nav-link active text-white" href="/adminpages">Volver</a>
-    </button>
+            <a className="nav-link active text-white" href="/adminpages">Volver</a>
+        </button>
+        
         <Footer/>   
     </div>
       )
