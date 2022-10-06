@@ -30,6 +30,9 @@ import ManageQuestions from "./components/AdminPages/ManageQuestions";
 import AnswerQuestion from "./components/AdminPages/AnswerQuestion"
 import PurchaseDetail from "./components/userPanel/PurchaseDetail"
 import AdminPurchaseDetail from "./components/AdminPages/AdminPurchaseDetail"
+import NavBar from './components/NavBar/NavBar';
+import Feedbacks from './components/Feedbacks/Feedbacks';
+import Footer from './components/Footer/Footer';
 
 
 library.add(fab, faCheckSquare, faCoffee, fas)

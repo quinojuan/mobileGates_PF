@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getUsers, getPurchase, getPurchasesDetail, getCleanPurchases } from "../../redux/Actions";
 import { useParams, Link } from "react-router-dom";
+import NavBar from '../NavBar/NavBar'
+import Feedbacks from '../NavBar/NavBar';
+import Footer from '../Footer/Footer';
 
 
 export default function PurchaseDetail() {
