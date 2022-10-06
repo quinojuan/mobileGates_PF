@@ -278,7 +278,7 @@ export default function NavBar() {
       </nav>
     );
   } else {
-    //console.log("ENTRANDO AL 3er IF");
+    console.log("ENTRANDO AL 3er IF");
     return (
       <nav>
         <div className="navbar navbar-expand-lg bg-dark">
