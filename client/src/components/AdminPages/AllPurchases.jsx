@@ -18,6 +18,9 @@ export default function AllPurchases() {
       return (
         <div>
         <NavBar/>
+        <br />
+        <br />
+        <br />
         <div>
         {purchases.length ? purchases.map((s, index)=>{
             return(
