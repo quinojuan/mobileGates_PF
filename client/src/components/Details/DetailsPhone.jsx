@@ -73,7 +73,6 @@ export default function DetailsPhone(props) {
     setImg(e.target.src);
   }
   function acomodarPrecio(precio) {
-    console.log("precio:", precio);
     precio = precio?precio:"0000";
     let precioString = precio.toString();
     let contador = 0;
@@ -142,7 +141,7 @@ export default function DetailsPhone(props) {
                       )}
                 {/* </div> */}
                 <div className='p-3'>
-                <h3 className='display-3'>${myProducts.price}</h3>
+                <h3 className='display-3'>${acomodarPrecio(myProducts.price)}</h3>
                 
           <hr />
             <p className='lead'>{myProducts.description}</p>
@@ -161,7 +160,7 @@ Stock:
 </div>   
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-outline-dark" disabled={count <= 1} onClick={() => decrease()}>-</button>
-            <span class="fs-3 px-3">{count}</span>
+            <span class="fs-3 px-3">{myProducts.stock?count:"0"}</span>
             <button type="button" class="btn btn-outline-dark" disabled={count >= myProducts.stock} onClick={() => increase()}>+</button>
           </div>
           <hr />

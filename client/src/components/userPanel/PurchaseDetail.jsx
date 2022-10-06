@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getUsers, getPurchase, getPurchasesDetail, getCleanPurchases } from "../../redux/Actions";
 import { useParams, Link } from "react-router-dom";
 
+
 export default function PurchaseDetail() {
   const dispatch = useDispatch();
   const details = useSelector((state) => state.purchasesDetail);

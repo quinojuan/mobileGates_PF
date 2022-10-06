@@ -143,7 +143,7 @@ function rootReducer(state = initialState, action) {
 		case 'GET_SORT_BY_PRICE':
 			let sortedArr2 =
 				action.payload === 'High to low'
-					? state.allProducts.sort(function(a, b) {
+					? state.products.sort(function(a, b) {
 							if (a.price[0] > b.price[0]) {
 								return 1;
 							}
@@ -152,7 +152,7 @@ function rootReducer(state = initialState, action) {
 							}
 							return 0;
 					  }) // sino.....
-					: state.allProducts.sort(function(a, b) {
+					: state.products.sort(function(a, b) {
 							if (a.price[0] > b.price[0]) {
 								return -1;
 							}
