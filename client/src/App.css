@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 376px){
+  body{
+    margin-top: 4rem;
+  }
+  .App-header{
+    height: initial;
+  }
+}
