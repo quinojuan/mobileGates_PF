@@ -109,9 +109,11 @@ export function getUsers() {
     let users = await axios
       .get("http://localhost:3001/users")
       .then((res) => res.data);
+    //console.log(users);
     let firebaseUsers = await axios
       .get("http://localhost:3001/firebase/allusers")
       .then((res) => res.data.users);
+   // console.log(firebaseUsers, "ACÁ ESTAN LOS UUSARIOS DE FIREBASE");
     users.forEach((user) => {
       let finded = firebaseUsers.find((u) => u.email === user.email);
       if (finded) user.emailVerified = finded.emailVerified;
