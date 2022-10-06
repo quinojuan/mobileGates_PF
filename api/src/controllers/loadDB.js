@@ -1,6 +1,8 @@
-const { Phones, Brand } = require('../db'); // requiero el modelo
+const { Phones, Brand, Quantities, Users } = require('../db'); // requiero el modelo
 const data = require('../JSONFINALFINAL.json'); // me traigo el Json
 const { relacionarPreciosCapacidad } = require('../helpers');
+const { createUser } = require('./usersController')
+const axios = require('axios')
 
 const loadDb = async () => {
 	try {
@@ -37,9 +39,12 @@ const loadDb = async () => {
 		uniqueBrand = uniqueBrand.map((c) => ({
 			name: c,
 		}));
+
+		for(let i = 1; i<31; i++){
+           await Quantities.create({quantity: i})
+		}
 		//	SEPARAR LOS PRODUCTOS POR PRECIO EN RELACION A LA CAPACIDAD
 		allPhones = relacionarPreciosCapacidad(allPhones);
-
 
 		await Brand.bulkCreate(uniqueBrand); // a partir del arreglo filtrado cargo todos las categorias
 	    //await let allPhones2 = allPhones.map(())
@@ -52,7 +57,22 @@ const loadDb = async () => {
 		//console.log(phoneBrand, "EL BRANDDDDDDDDDDDD")
         let brandId = await Brand.findOne({ where: { name: brand } });
         await phone.addBrand(brandId.dataValues.id);
+
 		}
+
+		let usersAxios = await axios.get("http://localhost:3001/firebase/allusers")
+        let users = usersAxios.data.users
+		for(let i = 0;i<users.length; i++){
+			//console.log(users[i].email, "EMAILS???")
+			await Users.create({
+				email: users[i].email,
+				admin: false,
+				superadmin: false,
+				active: true,
+			})
+		 }
+		
+
 		
 		//await Phones.bulkCreate(allPhones); // a partir del arreglo filtrado cargo todos los objetos en la tabla PHONES
 	} catch (error) {

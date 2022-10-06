@@ -1,0 +1,19 @@
+.button{
+  color:  DodgerBlue;
+  background-color: white;
+  margin: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+  border-color: DodgerBlue;
+  border-width:1px;
+}
+
+
+.button:hover{
+    color: white;
+    background-color: DodgerBlue;
+}

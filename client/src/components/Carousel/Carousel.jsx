@@ -1,3 +1,85 @@
+import React from 'react'
+
+export default function Carousel (){
+  return (
+    <div>
+    <div
+      style={{ maxHeight: '400px' }}
+      id='carouselExampleIndicators'
+      className='carousel slide overflow-hidden'
+      data-ride='carousel'
+    >
+      <ol className='carousel-indicators'>
+        <li
+          data-target='#carouselExampleIndicators'
+          data-slide-to='0'
+          className='active'
+        ></li>
+        <li data-target='#carouselExampleIndicators' data-slide-to='1'></li>
+        <li data-target='#carouselExampleIndicators' data-slide-to='2'></li>
+        <li data-target='#carouselExampleIndicators' data-slide-to='3'></li>
+      </ol>
+      <div className='carousel-inner'>
+        <div className='carousel-item active'>
+          <img
+            src='https://motorolaph.vtexassets.com/assets/vtex.file-manager-graphql/images/b225419d-51cc-461e-bb0a-007e7fd87c51___ea751eca19b67e0df02b8b4c2cb6de5d.jpg'
+            className='d-block w-100'
+            style={{ maxHeight: '400px' }}
+            alt='...'
+          />
+        </div>
+        <div className='carousel-item'>
+          <img
+            src='https://about.att.com/ecms/dam/snr/2022/september2022/storylevelbanner/iconic_STORY_LEVEL_BANNER_1600x483.jpg'
+            className='d-block w-100'
+            style={{ maxHeight: '400px' }}
+            alt='...'
+          />
+        </div>
+        <div className='carousel-item'>
+          <img
+            src='https://enclavegeek.com/wp-content/uploads/2017/04/S8_banner_2100x750.jpg'
+            className='d-block w-100'
+            style={{ maxHeight: '400px' }}
+            alt='...'
+          />
+        </div>
+      </div>
+      <a
+        className='carousel-control-prev'
+        href='#carouselExampleIndicators'
+        role='button'
+        data-slide='prev'
+      >
+        <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+        <span className='sr-only'></span>
+      </a>
+      <a
+        className='carousel-control-next'
+        href='#carouselExampleIndicators'
+        role='button'
+        data-slide='next'
+      >
+        <span className='carousel-control-next-icon' aria-hidden='true'></span>
+        <span className='sr-only'></span>
+      </a>
+
+    </div>
+    <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#carouselExampleIndicators").carousel();
+    </script>
+      {/* <script src = "js/jquery-2.2.3.min.js"></script>
+      <script src="js/bootstrap.js"></script> */}
+    </div>
+  )
+}
+
+
+
+
+
 // import React from "react";
 // import { Link } from "react-router-dom";
 

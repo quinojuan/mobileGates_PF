@@ -4,26 +4,28 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "UsersRol",
+    "Checkout",
     {
       id:{
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
+        type: DataTypes.UUID,
+        allowNull: false,
         primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
       },
-      RolId:{
+      transaction :{
         type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey: false
+        allowNull: false
       },
-      UserId:{
+      amount:{
         type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey: false
+        allowNull: false
+      },
+      status:{
+        type: DataTypes.STRING,
+        allowNull: false
       }
       },
     {
-      timestamps: false,
       freezeTableName: true, 
     }
   );
