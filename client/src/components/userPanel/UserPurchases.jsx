@@ -103,10 +103,12 @@ export default function UserPurchases(){
                     </div>
 
                 )
-            }):<h1>No realizó compras</h1>}  
+            }):<h1>No realizó compras</h1>}
+        <div class="text-center"> 
         <button class='btn btn-dark mt-4'>
             <a className="nav-link active text-white" href="/userpanel">Volver</a>
         </button>
+        </div> 
             <Footer/>   
         </div>
     )
