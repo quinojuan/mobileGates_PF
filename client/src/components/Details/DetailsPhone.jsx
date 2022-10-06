@@ -118,7 +118,7 @@ export default function DetailsPhone(props) {
   return (
     <div>
     <NavBar />
-        <div style={wrapper}>
+        <div style={wrapper} class="mt-5" >
           <h3 className='d-flex text-black-50'>{renderBrand()}: {myProducts.model}</h3>
           <hr />
           <div style={wrapperContent}>
@@ -166,9 +166,9 @@ Stock:
           <hr />
           <div class='flex-wrap'>
             <AddProducts id={myProducts.id} quantity={count} />
-            <button>
-              <Link to="/home">Volver</Link>
-            </button>
+            
+              <Link to="/home"><button class="btn btn-secondary mt-3 mb-5">Volver</button></Link>
+            
             </div>
           </div>
           </div>
@@ -258,7 +258,7 @@ Stock:
                   />
                 <hr/>
                 <div>
-                  <h3>Preguntas y Respuestas:</h3>
+                  {/* <h3>Preguntas y Respuestas:</h3> */}
                    <Qas
                     model= {myProducts.model ? myProducts.model : "modelo invalido"}
                     email= {usuarioLogeado ? usuarioLogeado.email : "email invalido"}
@@ -267,7 +267,7 @@ Stock:
                 <div>
                   {myFeed.length ? 
                   <h3>Puntaje: {handlePromedio()}</h3>
-                  : <h3>No hay feedbacks</h3>}
+                  : null}
                   <PhoneFeedbacks
                        model= {myProducts.model ? myProducts.model : "modelo invalido"}
                       />

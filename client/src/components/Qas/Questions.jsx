@@ -51,7 +51,7 @@ export default function Questions({email,model}) {
         type="text"
         name="question"
         onChange={(e) => handleChange(e)}
-        placeholder="hace tu pregunta al admin"
+        placeholder="Hacé tu pregunta al admin"
       />
       <button style={btn} class="mt-2"
        onClick={() => post()}>Enviar</button>

@@ -277,7 +277,7 @@ export default function AddProducts() {
   return (
     <div>
       <NavBar />
-      <div class="container w-50 mt-3">
+      <div class="container w-50 mt-5">
         <h1>Agregar un dispositivo</h1>
         <form id="miForm" onSubmit={(e) => handleSubmit(e)}>
           <fieldset disabled>
@@ -629,14 +629,14 @@ export default function AddProducts() {
           <div class="mt-3">
             <button
               type="button"
-              class="btn btn-success"
+              class="btn btn-primary me-3"
               onClick={(e) => handleSubmit(e)}
             >
               Añadir
             </button>
             <button
               type="button"
-              class="btn btn-danger"
+              class="btn btn-secondary"
               onClick={(e) => handlePanel(e)}
             >
               Volver al Panel
@@ -644,7 +644,7 @@ export default function AddProducts() {
           </div>
         </form>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

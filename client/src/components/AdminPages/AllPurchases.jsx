@@ -6,21 +6,24 @@ import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import { useNavigate } from "react-router-dom";
 
-export default function AllPurchases(){
-    const purchases = useSelector((state)=>state.purchases)
-    const dispatch=useDispatch()
-    const navigate=useNavigate()
-    console.log(purchases, "AbER LAS COMPRINIAS")
-    useEffect(()=>{
-        dispatch(getPurchase())
-      },[dispatch])
+export default function AllPurchases() {
+  const purchases = useSelector((state) => state.purchases)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  console.log(purchases, "AbER LAS COMPRINIAS")
+  useEffect(() => {
+    dispatch(getPurchase())
+  }, [dispatch])
 
       return (
         <div>
         <NavBar/>
         {purchases.length ? purchases.map((s)=>{
             return(
-                <div> 
+              <div class='container mt-5'> 
+              
+              
+            
                     <br/>
                     <br/>
                             <table class="table table-striped table-hover">
@@ -69,7 +72,11 @@ export default function AllPurchases(){
                 </div>
 
             )
-        }):<h1>No realizó compras</h1>}  
+        }):
+        <div class='container' style={{ minHeight: "400px" }}>
+          <h1>Aún realizó compras</h1>
+        </div>
+        }  
     <button class='btn btn-dark mt-4'>
         <a className="nav-link active text-white" href="/userpanel">Volver</a>
     </button>
