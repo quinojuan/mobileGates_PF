@@ -214,7 +214,7 @@ function rootReducer(state = initialState, action) {
 			};
 		case 'GET_USERS':
 			let arreglo = action.payload
-			console.log("ASI VIENE ARREGLO:",arreglo)
+			//console.log("ASI VIENE ARREGLO:",arreglo)
 			let filtrado = arreglo.filter(e=>e.admin===true) || "UN MENSAJE LA CONCHA DE TU MADRE"
 			return {
 				...state,
