@@ -40,6 +40,10 @@ export default function ModifyPhone() {
     price: myPhone[0].price
   })
 
+  const [selectedFile, setSelectedFile] = useState(); // IMAGEN
+  const [preview, setPreview] = useState(); // IMAGEN
+  const [base64, setBase64] = useState(); // en el proyecto es "image"
+
   console.log('ESTE ES EL PRODUCTO QUE LLEGA',input)
 
   useEffect(() => {
@@ -111,6 +115,46 @@ export default function ModifyPhone() {
     navigate("/phonestable");
     document.location.reload();
 }
+
+///////////////// CORRESPONDE AL PREVIEW DE LA IMAGEN /////////////////
+  // create a preview as a side effect, whenever selected file is changed
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+    setBase64(convertToBase64(selectedFile));
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
+
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+
+    // I've kept this example simple by using the first image instead of multiple
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const convertToBase64 = (file) => {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function() {
+      return setBase64(reader.result.split(",")[1]);
+    };
+  };
+
+  //   const handleDispatch = () => {
+  //     dispatch(saveImage(base64)); esta action no la estoy usando me parece... revisar bien
+  //   };
+  ///////////////// CORRESPONDE AL PREVIEW DE LA IMAGEN /////////////////
+
 
 
   return (
@@ -217,8 +261,11 @@ export default function ModifyPhone() {
           <div class="row mt-3">
             <div class="col">
               <label for="formFile" class="form-label">Imagen principal</label>
-              <img src={myPhone[0].image} alt="" class="w-50"/>
+              <img src={myPhone[0].image.includes("http") ? myPhone[0].image : `data:image/jpeg;base64,${myPhone[0].image}`} alt="" class="w-50"/>
+              
               <input type="text" name="image" onChange={handleChange} class="form-control is-valid" placeholder={myPhone[0].image} id="basic-url" aria-describedby="basic-addon3"></input>
+              {/* <input type="file" onChange={onSelectFile} /> */}
+
             </div>
           </div>
           <div class="row mt-3">
