@@ -11,8 +11,7 @@ import { addUserToDb } from "../../redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
-  
-  const loggedUser = useSelector(state => state.loggedUser)
+  const allUsers = useSelector((state) => state.users);
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
@@ -29,18 +28,30 @@ export default function Login() {
     setNewUser({ ...newUser, [name]: value });
   };
 
+  const validateUser = () => {
+    let user = allUsers.find((u) => u.email === newUser.email);
+    console.log(user);
+    if (!user.active) return false;
+    return true;
+  };
+  // console.log(userPorLoguearse, "usuario a punto de loguearse");
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       setError("");
+      if (!validateUser()) {
+        Swal.fire("Usuario baneado o inexistente", "", "warning");
+        return;
+      }
       await login(newUser.email, newUser.password);
       // dispatch(addUserToDb(loggedUser));
       navigate("/home/");
       Swal.fire("Inicio exitoso");
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       // setError(error.message)
-      console.log(error.code);
+      console.log(error);
       if (error.code === "auth/invalid-email") {
         //setError('Correo inválido')
         Swal.fire("Correo inválido");

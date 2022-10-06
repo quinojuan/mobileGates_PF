@@ -23,19 +23,22 @@ import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import SearchBar from "../SearchBar/SearchBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Paginado from "../Paginated/Paginated";
 import AddProducts from "../AddProducts/AddProducts";
 import Loading from "../Loading/Loading";
 import "./Home.css";
 import Swat from "sweetalert2";
 import Carousel from "../Carousel/Carousel";
+import { useAuth } from "../Context/authContext";
+import { async } from "@firebase/util";
 
 export default function Home() {
   const dispatch = useDispatch();
   const buscando = useSelector((state) => state.searching);
   const allProducts = useSelector((state) => state.products);
-  //console.log(allProducts)
+  const loggedUser = useSelector((state) => state.loggedUser);
+  const allUsers = useSelector((state) => state.users);
   const filters = useSelector((state) => state.filters);
   const loading = useSelector((state) => state.loading);
   const brands = useSelector((state) => state.categories);
@@ -49,11 +52,29 @@ export default function Home() {
   const currentProducts =
     allProducts && allProducts.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
+  const navigate = useNavigate();
+  const { logout } = useAuth();
   const search = useSelector((s) => s.search);
   const [price, setPrice] = useState("");
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const validate = async () => {
+    let user = allUsers?.find((u) => u.email === loggedUser.email);
+    if (!user) return true;
+    if (!user.active) {
+      Swat.fire("Usuario baneado o inexistente", "", "warning").then(
+        async () => {
+          await logout();
+          navigate("/home/login");
+          document.location.reload();
+        }
+      );
+    }
+    return true;
+  };
+
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getCart());
@@ -62,6 +83,7 @@ export default function Home() {
     dispatch(getCapacity());
     dispatch(getFeedbacks());
     dispatch(getQas());
+    validate();
     !currentProducts.length && dispatch(getAllProducts());
   }, [dispatch]);
 
@@ -114,15 +136,14 @@ export default function Home() {
     } else {
       if (!firstTime) {
         Swat.fire({
-			title: 'No se encontraron productos con su criterio de busqueda',
-			confirmButtonText: 'Entendido',
-		  }).then((result) => {
-			if (result.isConfirmed) {
-				dispatch(cleanSearch());
-				return window.location.reload();
-			}
-		  })
-        
+          title: "No se encontraron productos con su criterio de busqueda",
+          confirmButtonText: "Entendido",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            dispatch(cleanSearch());
+            return window.location.reload();
+          }
+        });
       }
     }
   }

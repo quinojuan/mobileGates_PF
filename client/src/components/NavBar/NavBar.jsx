@@ -40,7 +40,8 @@ export default function NavBar() {
   const usersAdmin = useSelector((state) => state.usersAdmins);
   const handleLogout = async () => {
     await logout();
-    document.location.reload()
+    navigate("/home/login");
+    document.location.reload();
   };
   useEffect(() => {
     dispatch(getUsers());
@@ -76,6 +77,7 @@ export default function NavBar() {
   };
 
   if (funcionAuxiliar(mail)) {
+    // console.log("ENTRANDO AL PRIMER IF");
     return (
       <nav className="container">
         <div className="navbar fixed-top navbar navbar-expand-md bg-dark">
@@ -164,7 +166,7 @@ export default function NavBar() {
                       <a
                         className="dropdown-item text-light"
                         href="#"
-                        onClick={()=>handleLogout()}
+                        onClick={() => handleLogout()}
                       >
                         Cerrar sesión
                       </a>
