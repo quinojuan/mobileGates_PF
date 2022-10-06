@@ -83,7 +83,10 @@ export default function ModifyUser() {
           <div class="row mt-3">
            
           </div>
+          
           <div class="row mt-3">
+
+            
 
             <div class="col">
               <label for="formFile" class="form-label">Admin</label>
@@ -96,6 +99,7 @@ export default function ModifyUser() {
             </div>
            
           </div>
+          
          
 
         </form>

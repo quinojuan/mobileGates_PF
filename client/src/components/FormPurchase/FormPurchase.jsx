@@ -125,7 +125,7 @@ export default function FormPurchase() {
     // dispatch(postPurchase(input))
     // Swal.fire("Compra realizada")
     if (!Number(input.dni)) {
-      Swal.fire("El DNI solo debe estar compuesto de puntos");
+      Swal.fire("El DNI solo debe estar compuesto de numeros");
     } else if (input.dni.length < 7 || input.dni.length > 8) {
       Swal.fire("INGRESE UN DNI VALIDO");
     } else if (!todoOk) {
@@ -194,7 +194,7 @@ export default function FormPurchase() {
               <div>
                 <input
                   type="text"
-                  className="form-control w-50 mx-auto"
+                  className="form-control w-25 mx-auto"
                   value={input.dni}
                   name="dni"
                   onChange={(e) => handleChange(e)}
@@ -207,7 +207,7 @@ export default function FormPurchase() {
               <div>
                 <input
                   type="text"
-                  className="form-control w-50 mx-auto"
+                  className="form-control w-25 mx-auto"
                   value={input.adress}
                   name="adress"
                   onChange={(e) => handleChange(e)}
@@ -220,7 +220,7 @@ export default function FormPurchase() {
               <div>
                 <input
                   type="date"
-                  className="form-control w-50 mx-auto"
+                  className="form-control w-25 mx-auto"
                   value={input.birthday}
                   name="birthday"
                   onChange={(e) => handleChange(e)}

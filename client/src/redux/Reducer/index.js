@@ -143,7 +143,7 @@ function rootReducer(state = initialState, action) {
 		case 'GET_SORT_BY_PRICE':
 			let sortedArr2 =
 				action.payload === 'High to low'
-					? state.allProducts.sort(function(a, b) {
+					? state.products.sort(function(a, b) {
 							if (a.price[0] > b.price[0]) {
 								return 1;
 							}
@@ -152,7 +152,7 @@ function rootReducer(state = initialState, action) {
 							}
 							return 0;
 					  }) // sino.....
-					: state.allProducts.sort(function(a, b) {
+					: state.products.sort(function(a, b) {
 							if (a.price[0] > b.price[0]) {
 								return -1;
 							}
@@ -192,7 +192,8 @@ function rootReducer(state = initialState, action) {
 		case 'DELETE_PRODUCT_IN_CART':
 			console.log(action.payload, 'reducer');
 			let productsInLs = JSON.parse(localStorage.getItem('cart'));
-			let myCarty = productsInLs.filter((el) => el.phone.id !== action.payload);
+			console.log(productsInLs, 'giuliii');
+			let myCarty = productsInLs.filter((el) => (el.phone.id !== action.payload.phone.id ));
 			//pensar la logica de ir sacando de a 1 quantity
 			localStorage.setItem('cart', JSON.stringify(myCarty));
 

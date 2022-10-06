@@ -31,6 +31,7 @@ import AnswerQuestion from "./components/AdminPages/AnswerQuestion"
 import PurchaseDetail from "./components/userPanel/PurchaseDetail"
 import AdminPurchaseDetail from "./components/AdminPages/AdminPurchaseDetail"
 
+
 library.add(fab, faCheckSquare, faCoffee, fas)
 
 

@@ -58,7 +58,7 @@ export default function AdminPages() {
             </div>
             <Link to="/phonestable">
               <button type="button" className="Sbutton ">
-                Editar Telefono
+                Editar Producto
               </button>
             </Link>
           </div>
@@ -110,17 +110,21 @@ export default function AdminPages() {
         <Footer />
       </div>
     );
-  } else if(logedUser && !funcionAuxiliar(mail)) {
-    return(<h1>CARGANDO</h1>)
+  } else if (logedUser && !funcionAuxiliar(mail)) {
+    return (
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    )
   }
-  else{
+  else {
     return (
       <div>
-      <h1>NECESITAS ESTAR LOGEADO Y SER ADMIN PARA ESTAR AQUI</h1>
-      <Link to="/home">
-      <button>IR AL INICIO</button>
-      </Link>
+        <h1>NECESITAS ESTAR LOGEADO Y SER ADMIN PARA ESTAR AQUI</h1>
+        <Link to="/home">
+          <button>IR AL INICIO</button>
+        </Link>
       </div>
-      )
+    )
   }
 }
