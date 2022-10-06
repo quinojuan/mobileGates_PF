@@ -40,27 +40,33 @@ export default function Feedbacks({ email, model }) {
     })
   }
 
-const post = () =>{
+const post = (e) =>{
+  e.preventDefault()
     console.log("feedback para post es:", feedback);
-    dispatch(postFeedback({
-      title: feedback.title,
-      comment: feedback.comment,
-      points: Number(feedback.points),
-      email: email,
-      model: model
-    }));
-    Swal.fire("Reseña enviada")
-    setFeedback({
-      title: "",
-      comment: "",
-      points: 0,
-    });
-    navigate("/userpurchases")
+    if(feedback.comment.length<1 || Number(feedback.points)<1 || Number(feedback.points)>5){
+      Swal.fire("Faltan completar datos en el feedback")
+    } else{
+      dispatch(postFeedback({
+        title: feedback.title,
+        comment: feedback.comment,
+        points: Number(feedback.points),
+        email: email,
+        model: model
+      }));
+      Swal.fire("Reseña enviada")
+      setFeedback({
+        title: "",
+        comment: "",
+        points: 0,
+      });
+      navigate("/userpurchases")
+    }
+    
   }
   
   return (
     <div >
-      <form >
+      <form onSubmit={(e)=>post(e)}>
               <p className='clasificacion'>
                 <input
                   className='input'
@@ -114,7 +120,7 @@ const post = () =>{
               placeholder='Mi producto me pareció...'
             />
             
-            <button className="button" onClick={()=>post()}>
+            <button className="button" onSubmit={(e)=>post(e)}>
               Enviar reseña
             </button>
               
