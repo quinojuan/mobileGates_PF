@@ -10,13 +10,14 @@ import Swal from 'sweetalert2';
 export default function ManageUser() {
 	const allUsers = useSelector((state) => state.users);
 	const loading = useSelector((state) => state.loading);
+	const loggedUser = useSelector((state)=>state.loggedUser)
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	console.log(allUsers);
 	useEffect(() => {
 		dispatch(getUsers());
 	}, [dispatch]);
-
+	const validateAdminUser = allUsers.filter((el) => el.email === loggedUser.email);
 	const goBack = () => {
 		navigate('/adminpages');
 	};
@@ -30,6 +31,7 @@ export default function ManageUser() {
 	};
 
 	return (
+		validateAdminUser[0].superadmin ?
 		<div>
 			<NavBar />
 			<div class="container w-50 mt-5">
@@ -42,7 +44,7 @@ export default function ManageUser() {
 						<tr>
 							<th scope="col">Nombre</th>
 							<th scope="col">Email</th>
-							<th scope="col">Admin</th> {/* IS LOGGED USER SUPERADMIN? */}
+							 <th scope="col">Admin</th>  {/* IS LOGGED USER SUPERADMIN? */}
 							<th scope="col">Activo</th>
 							<th scope="col">Verificado</th>
 						</tr>
@@ -78,6 +80,60 @@ export default function ManageUser() {
 												/>
 											)}
 										</td>
+										<td>
+											<input
+												id={user.id}
+												onChange={handleCheckbox}
+												name="active"
+												class="form-check-input"
+												type="checkbox"
+												email={user.email}
+												checked={user.active}
+											/>
+										</td>
+										<td>{user.emailVerified ? '✅' : '❌'}</td>
+									</tr>
+								))
+							) : (
+								<td colSpan="5">No se encontró ningun usuario...</td>
+							)
+						) : (
+							<td colspan="5">
+								<Spinner />
+							</td>
+						)}
+					</tbody>
+				</table>
+			</div>
+			{/* <button type="button" class="btn btn-success" onClick={()=>navigate(`/modifyuser/${u.id}`)}>Modificar Rol</button>
+            <button type="button" class="btn btn-danger" onClick={()=>handleDelete(u.id)}>Eliminar Usuario</button> */}
+			<Footer />
+		</div>
+		:
+		<div>
+			<NavBar />
+			<div class="container w-50 mt-5">
+				<button class="btn btn-dark" onClick={goBack}>
+					Volver atras
+				</button>
+				<h1>Administrar usuarios</h1>
+				<table class="table table-hover mt-5">
+					<thead>
+						<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Email</th>
+							<th scope="col">Activo</th>
+							<th scope="col">Verificado</th>
+						</tr>
+					</thead>
+					<tbody>
+						{!loading ? (
+							allUsers.length ? (
+								allUsers.map((user) => (
+									<tr>
+										<td>{user.name}</td>
+										<td>{user.email}</td>
+										
 										<td>
 											<input
 												id={user.id}
