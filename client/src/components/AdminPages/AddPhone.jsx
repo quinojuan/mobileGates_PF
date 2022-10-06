@@ -535,6 +535,7 @@ export default function AddProducts() {
           <div class="row mt-3">
             <div class="col">
               <label for="formFile" class="form-label">
+                {/* ***************************************************************************** */}
                 Imagen principal
               </label>
 

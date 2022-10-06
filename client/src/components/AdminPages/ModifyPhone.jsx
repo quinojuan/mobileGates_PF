@@ -92,6 +92,7 @@ export default function ModifyPhone() {
 
   function handleSubmit(e) {
     input.price = [parseInt(input.price)]
+    input.image = base64
     dispatch(putPhone(id, input))
     Swal.fire("El dispositivo ha sido modificado con éxito!")
     console.log('ESTE ES EL PROD MODIFICADO',input)
@@ -261,10 +262,19 @@ export default function ModifyPhone() {
           <div class="row mt-3">
             <div class="col">
               <label for="formFile" class="form-label">Imagen principal</label>
-              <img src={myPhone[0].image.includes("http") ? myPhone[0].image : `data:image/jpeg;base64,${myPhone[0].image}`} alt="" class="w-50"/>
               
-              <input type="text" name="image" onChange={handleChange} class="form-control is-valid" placeholder={myPhone[0].image} id="basic-url" aria-describedby="basic-addon3"></input>
+              
+              {/* <input type="text" name="image" onChange={handleChange} class="form-control is-valid" placeholder={myPhone[0].image} id="basic-url" aria-describedby="basic-addon3"></input> */}
               {/* <input type="file" onChange={onSelectFile} /> */}
+              <input type="file" onChange={onSelectFile} />
+
+{selectedFile ? (
+  <img
+    style={{ width: 120, height: 120 }}
+    src={preview}
+    alt="img"
+  />
+) : (<img src={myPhone[0].image} alt="" class="w-50"/>)}
 
             </div>
           </div>
