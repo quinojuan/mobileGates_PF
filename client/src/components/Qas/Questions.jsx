@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { postQa } from "../../redux/Actions";
 import Swal from "sweetalert2"
+import { useAuth } from "../Context/authContext";
 
 
 const btn = {
@@ -20,6 +21,7 @@ const btn = {
 export default function Questions({email,model}) {
   //const myProduct = useSelector((state) => state.details);
   const dispatch = useDispatch();
+  const { user } = useAuth();
   const [qa, setQa] = useState({
     question: ""
   });
@@ -33,15 +35,20 @@ export default function Questions({email,model}) {
   };
 
   const post = () => {
-    dispatch(postQa({
-      questions: qa.question,
-      email: email,
-      model: model
-    }));
-    Swal.fire("Pregunta enviada")
-    setQa({
-      question: ""
-    });
+    if(user){
+      dispatch(postQa({
+        questions: qa.question,
+        email: email,
+        model: model
+      }));
+      Swal.fire("Pregunta enviada")
+      setQa({
+        question: ""
+      });
+    } else{
+      Swal.fire("Debes iniciarte sesión para poder realizar una pregunta")
+    }
+    
   }
 
   return (
