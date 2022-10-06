@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { postFeedback } from "../../redux/Actions";
+import Swal from "sweetalert2"
 import './Feedbacks.css'
 
 // const addCartButton = {
@@ -48,12 +49,13 @@ const post = () =>{
       email: email,
       model: model
     }));
+    Swal.fire("Reseña enviada")
     setFeedback({
       title: "",
       comment: "",
       points: 0,
     });
-    navigate("/userpanel")
+    navigate("/userpurchases")
   }
   
   return (

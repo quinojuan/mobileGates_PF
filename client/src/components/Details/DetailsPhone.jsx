@@ -73,7 +73,6 @@ export default function DetailsPhone(props) {
     setImg(e.target.src);
   }
   function acomodarPrecio(precio) {
-    console.log("precio:", precio);
     precio = precio?precio:"0000";
     let precioString = precio.toString();
     let contador = 0;
@@ -119,7 +118,7 @@ export default function DetailsPhone(props) {
   return (
     <div>
     <NavBar />
-        <div style={wrapper}>
+        <div style={wrapper} class="mt-5" >
           <h3 className='d-flex text-black-50'>{renderBrand()}: {myProducts.model}</h3>
           <hr />
           <div style={wrapperContent}>
@@ -142,7 +141,7 @@ export default function DetailsPhone(props) {
                       )}
                 {/* </div> */}
                 <div className='p-3'>
-                <h3 className='display-3'>${myProducts.price}</h3>
+                <h3 className='display-3'>${acomodarPrecio(myProducts.price)}</h3>
                 
           <hr />
             <p className='lead'>{myProducts.description}</p>
@@ -161,15 +160,15 @@ Stock:
 </div>   
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-outline-dark" disabled={count <= 1} onClick={() => decrease()}>-</button>
-            <span class="fs-3 px-3">{count}</span>
+            <span class="fs-3 px-3">{myProducts.stock?count:"0"}</span>
             <button type="button" class="btn btn-outline-dark" disabled={count >= myProducts.stock} onClick={() => increase()}>+</button>
           </div>
           <hr />
           <div class='flex-wrap'>
             <AddProducts id={myProducts.id} quantity={count} />
-            <button>
-              <Link to="/home">Volver</Link>
-            </button>
+            
+              <Link to="/home"><button class="btn btn-secondary mt-3 mb-5">Volver</button></Link>
+            
             </div>
           </div>
           </div>
@@ -259,7 +258,7 @@ Stock:
                   />
                 <hr/>
                 <div>
-                  <h3>Preguntas y Respuestas:</h3>
+                  {/* <h3>Preguntas y Respuestas:</h3> */}
                    <Qas
                     model= {myProducts.model ? myProducts.model : "modelo invalido"}
                     email= {usuarioLogeado ? usuarioLogeado.email : "email invalido"}
@@ -268,7 +267,7 @@ Stock:
                 <div>
                   {myFeed.length ? 
                   <h3>Puntaje: {handlePromedio()}</h3>
-                  : <h3>No hay feedbacks</h3>}
+                  : null}
                   <PhoneFeedbacks
                        model= {myProducts.model ? myProducts.model : "modelo invalido"}
                       />
