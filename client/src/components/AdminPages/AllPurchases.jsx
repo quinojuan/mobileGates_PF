@@ -78,7 +78,7 @@ export default function AllPurchases() {
         </div>
         }  
     <button class='btn btn-dark mt-4'>
-        <a className="nav-link active text-white" href="/userpanel">Volver</a>
+        <a className="nav-link active text-white" href="/adminpages">Volver</a>
     </button>
         <Footer/>   
     </div>

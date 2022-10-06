@@ -121,7 +121,7 @@ export default function DetailsPhone(props) {
         <div style={wrapper} class="mt-5" >
           <h3 className='d-flex text-black-50'>{renderBrand()}: {myProducts.model}</h3>
           <hr />
-          <div style={wrapperContent}>
+          <div>
           
                   {img ? (
                     <img
