@@ -193,7 +193,7 @@ function rootReducer(state = initialState, action) {
 			console.log(action.payload, 'reducer');
 			let productsInLs = JSON.parse(localStorage.getItem('cart'));
 			console.log(productsInLs, 'giuliii');
-			let myCarty = productsInLs.filter((el) => (el.phone.id !== action.payload.phone.id && el.quantity !== action.payload.quantity));
+			let myCarty = productsInLs.filter((el) => (el.phone.id !== action.payload.phone.id ));
 			//pensar la logica de ir sacando de a 1 quantity
 			localStorage.setItem('cart', JSON.stringify(myCarty));
 
@@ -215,7 +215,7 @@ function rootReducer(state = initialState, action) {
 			};
 		case 'GET_USERS':
 			let arreglo = action.payload
-			console.log("ASI VIENE ARREGLO:",arreglo)
+			//console.log("ASI VIENE ARREGLO:",arreglo)
 			let filtrado = arreglo.filter(e=>e.admin===true) || "UN MENSAJE LA CONCHA DE TU MADRE"
 			return {
 				...state,

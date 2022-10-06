@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link, Navigate } from "react-router-dom";
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
-import { getPurchase, getUsers } from "../../redux/Actions";
+import { getPurchase, getUsers, getFeedbacks } from "../../redux/Actions";
 import Feedback from "../Feedbacks/Feedbacks"
 
 
@@ -16,12 +16,14 @@ export default function UserPurchases(){
    // console.log(purchases, "COMPRITAS BIEN PERRAZAS")
     //console.log(logged, "USUARIOS BIEN PERRAZOS")
     // console.log(purchases[0])
+    const userPurchases = purchases.filter((e)=>e.email === logged.email)
     const userLogin = purchases.filter((s)=>s.email == logged.email)
     
    // console.log(userLogin, "ysfysfudisdsfd")
     useEffect(()=>{
         dispatch(getUsers());
         dispatch(getPurchase())
+        dispatch(getFeedbacks())
     }, [dispatch])
     return (
         
@@ -50,7 +52,7 @@ export default function UserPurchases(){
                                       </tr>
                                       </tbody>
                                     </table>
-            {purchases.length ? purchases.map((s, index)=>{
+            {userPurchases.length ? userPurchases.map((s, index)=>{
                 return(
                     <div> 
                         <br/>
