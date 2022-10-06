@@ -198,7 +198,8 @@ function rootReducer(state = initialState, action) {
 
 		case 'DELETE_PRODUCT_IN_CART':
 			let productsInLs = JSON.parse(localStorage.getItem('cart'));
-			let myCarty = productsInLs.filter((el) => el.phone.id !== action.payload);
+			console.log(productsInLs, 'giuliii');
+			let myCarty = productsInLs.filter((el) => (el.phone.id !== action.payload.phone.id ));
 			//pensar la logica de ir sacando de a 1 quantity
 			localStorage.setItem('cart', JSON.stringify(myCarty));
 
