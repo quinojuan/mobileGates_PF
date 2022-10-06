@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { postFeedback } from "../../redux/Actions";
-import Swal from "sweetalert2"
-import './Feedbacks.css'
+import Swal from "sweetalert2";
+import "./Feedbacks.css";
 
 // const addCartButton = {
 //   color: 'black',
@@ -20,11 +20,10 @@ import './Feedbacks.css'
 //   borderWidth:'1px',
 //   }
 
-
 export default function Feedbacks({ email, model }) {
   const myProducts = useSelector((state) => state.details);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [feedback, setFeedback] = useState({
     title: "",
     comment: "",
@@ -32,8 +31,8 @@ export default function Feedbacks({ email, model }) {
   });
 
   const handleChange = (e) => {
-    console.log(e.target.value, "EL VALUE")
-    e.preventDefault()
+    console.log(e.target.value, "EL VALUE");
+    e.preventDefault();
     setFeedback({
       ...feedback,
       [e.target.name]: e.target.value

@@ -42,12 +42,10 @@ export default function DetailsPhone(props) {
   const [count, setCount] = useState(1);
   const usuarioLogeado = useSelector((state) => state.loggedUser);
   const feedbacks = useSelector((state) => state.allFeedbacks);
-
+  const cantidad = useSelector(state=>state.cantidad)
   const allProducts = useSelector(state => state.products)
   const myProductWithBrand = allProducts.filter((e)=> e.id == id)
   let myFeed = feedbacks.filter((e)=> e.product === myProducts.model)
-    console.log(myFeed, "el feed del detail")
-    console.log(myProducts, "DETAIL PROD")
   function decrease() {
     setCount(count - 1);
   }
@@ -104,7 +102,6 @@ export default function DetailsPhone(props) {
       suma += myFeed[i].points
     }
     let total = suma/myFeed.length
-    console.log(total, "PROMEDIO?")
     return total
   }
 
@@ -154,7 +151,7 @@ Stock:
   </div>
 ) : (
   <div className='in-stock'>
-    <h4>Quedan {myProductWithBrand[0].stock} en stock</h4>
+    <h4>Quedan {myProducts.stock} en stock</h4>
   </div>
 )}
 </div>   
