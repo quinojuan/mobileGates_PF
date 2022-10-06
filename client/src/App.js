@@ -28,7 +28,7 @@ import UserPanel from './components/userPanel/userPanel';
 import UserPurchases from './components/userPanel/UserPurchases';
 import ManageQuestions from "./components/AdminPages/ManageQuestions";
 import AnswerQuestion from "./components/AdminPages/AnswerQuestion"
-
+import PurchaseDetail from "./components/userPanel/PurchaseDetail"
 
 
 library.add(fab, faCheckSquare, faCoffee, fas)
