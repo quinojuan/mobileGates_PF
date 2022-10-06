@@ -6,58 +6,90 @@ import { useEffect, useState } from "react";
 import { getUsers, getPurchase, getPurchasesDetail, getCleanPurchases } from "../../redux/Actions";
 import { useParams, Link } from "react-router-dom";
 
+export default function PurchaseDetail() {
+  const dispatch = useDispatch();
+  const details = useSelector((state) => state.purchasesDetail);
+  const purchases = useSelector((state) => state.purchases);
+  const feeds = useSelector((state)=> state.allFeedbacks)
+  const { id } = useParams();
 
-export default function PurchaseDetail(){
-    const dispatch= useDispatch();
-    // const myProfiles= useSelector((state)=>state.purchases);
-    const details=useSelector((state)=>state.purchasesDetail)
-    const purchases=useSelector((state)=>state.purchases)
-    const {id} = useParams();
-    let myPurchase=purchases&&purchases.filter((s)=>s.id===id)
-    console.log(details)
-    console.log(myPurchase)
+  let myPurchase = purchases && purchases.find((s) => s.id === id);
 
-    const loggedUser = useSelector((state)=>state.loggedUser);
-    console.log(loggedUser);
+  let myFeed = feeds.filter((el)=> el.email === myPurchase.email)
 
-    function handleSuma(){
-        // let total=0;
-        // total+=myPurchase[0].products&&products.map((s)=>s.quantity)
-        // return total
-        let suma=0;
-        for(let i=0; i<myPurchase[0].products.length;i++){
-            suma+=myPurchase[0].products[i].quantity
-            
-        }
-        return suma;
-        
+  let myFeedModels = myFeed.map((e)=> e.product)
+  
+  let productNotCommented =  myPurchase.products.filter((e)=> !myFeedModels.includes(e.phone))
+
+  //console.log(myFeed, "FEEEEED");
+  //console.log(myPurchase, "PURCHASE");
+  //console.log(productNotCommented, "PRODUCT NOT COMMENTED");
+
+  function handleSuma() {
+    // let total=0;
+    // total+=myPurchase[0].products&&products.map((s)=>s.quantity)
+    // return total
+    let suma = 0;
+    for (let i = 0; i < myPurchase.products.length; i++) {
+      suma += myPurchase.products[i].quantity;
     }
-   console.log(handleSuma, "uadnisdsfs")
-    
-    useEffect(()=>{
-        dispatch(getPurchase())
-        
-    },[dispatch])
-    return(
+    return suma;
+  }
+  //console.log(handleSuma, "uadnisdsfs");
+
+  useEffect(() => {
+    dispatch(getPurchase());
+  }, [dispatch]);
+  return (
     <div>
-    <Link to= "/userpurchases">
-        <button>Volver</button>
-    </Link>
-    
-    {
-                purchases.length > 0 ?
-                    <div>
-                        <h1>Detalles del pedido</h1>
-                        <h5>Total: ${myPurchase[0].amount} </h5>
-                        <h5>Productos: {myPurchase[0].products.map(s => s.quantity + " X " + s.phone+". " )}</h5> 
-                        <h5>Cantidad de productos: {handleSuma()} productos</h5>
-                        <h3>Dirección de facturación</h3>
-                        <h5 >Dirección: {myPurchase[0].adress}</h5>
-                        <h5 >DNI: {myPurchase[0].dni}</h5>
-                        <h5>Fecha de nacimiento:{myPurchase[0].birthday} </h5>
-                    </div> : <div><div><h4>Loading...</h4></div></div>
-            }
-            
+      <NavBar/>
+      <br/>
+      <br/>
+      <Link to="/userpurchases">
+        <button class="btn btn-secondary mt-3 mb-5">Volver</button>
+      </Link>
+      {purchases.length > 0 ? (
+        <div>
+          <h1>Detalles del pedido</h1>
+          <h5>Total: ${myPurchase.amount} </h5>
+          {myPurchase.products.map((p)=>{
+            return(
+                <div>
+                    <h5>{p.phone}</h5>
+                    <p>({p.quantity})</p>
+                </div>
+            )
+          })}
+          <h5>Cantidad de productos: {handleSuma()} productos</h5>
+          <h3>Dirección de facturación</h3>
+          <h5>Dirección: {myPurchase.adress}</h5>
+          <h5>DNI: {myPurchase.dni}</h5>
+          <h5>Fecha de nacimiento:{myPurchase.birthday} </h5>
+          <>
+          <br/>
+           {productNotCommented.length?productNotCommented.map((e)=>{
+             return(
+               <div>
+                <h5>Podes comentar el producto:{" "}</h5>
+                <h3>{e.phone}</h3>
+                <Feedbacks
+                   model={e.phone}
+                   email={myPurchase.email}
+                   />
+              </div>
+             )
+           }):null}
+          
+          </>
+        </div>
+      ) : (
+        <div>
+          <div>
+            <h4>Loading...</h4>
+          </div>
+        </div>
+      )}
+     <Footer/>
     </div>
  
 )}

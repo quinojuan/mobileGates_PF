@@ -66,7 +66,7 @@ export default function ManageUser() {
 													type="checkbox"
 													email={user.email}
 													disabled={!user.emailVerified}
-													checked
+													checked={user.active}
 												/>
 											) : (
 												<input

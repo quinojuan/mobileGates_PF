@@ -57,14 +57,14 @@ export default function AllPurchases(){
                         /> */}
                         </div>
                     </h1>
-        <hr />
-        <table class="table table-striped w-75 ms-5 mt-5">
-                    <tbody>
+                   <hr />
+                    <table class="table table-striped w-75 ms-5 mt-5">
+                     <tbody>
                         <tr>
-                    <td>{s.id}</td>
-                    <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
+                      <td>{s.id}</td>
+                      <td class='btn btn-primary'onClick={()=>navigate(`userpurchase/${s.id}`)}>Ver detalle de compra</td>
                         </tr>
-                    </tbody>
+                     </tbody>
                 </table>
                 </div>
 
