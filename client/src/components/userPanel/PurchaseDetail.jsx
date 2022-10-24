@@ -69,8 +69,8 @@ export default function PurchaseDetail() {
               <h5 class="card-title">Productos:{" "}</h5>
       <b class="card-subtitle mb-2 text-muted">{p.phone}</b> */}
       {purchases.length > 0 ? (
-        <div class="card-body">
-          <h5 class="card-title">Detalles del pedido</h5>
+        <div class="card-body ms-5">
+          <h1 class="card-title">Detalles del pedido</h1>
           <h5 class="card-title">Total:<b class="card-subtitle mb-2 text-muted"> ${myPurchase.amount}</b> </h5>
           {myPurchase.products.map((p)=>{
             return(
@@ -113,7 +113,7 @@ export default function PurchaseDetail() {
       <div>
 
         <Link to="/userpurchases">
-          <button class="btn btn-secondary mt-3 mb-5">Volver</button>
+          <button class="btn btn-secondary mt-3 mb-5 text-center">Volver</button>
         </Link>
       </div>
       <Footer />
